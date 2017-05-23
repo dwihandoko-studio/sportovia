@@ -14,3 +14,22 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+Route::get('admin/dashboard', function(){
+  return view('backend.dashboard.index');
+});
+
+//----------------------- BACKEND -----------------------//
+Route::group(['middleware' => ['isAdministrator']], function () {
+  Route::get('admin/login');
+});
+//----------------------- BACKEND -----------------------//
+
+
+
+//-------------------- FRONT END MEMBER ----------------//
+Route::group(['middleware' => ['isMember']], function(){
+  
+});
