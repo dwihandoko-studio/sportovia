@@ -11,11 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
 
 Route::get('admin/dashboard', function(){
   return view('backend.dashboard.index');
@@ -45,3 +40,8 @@ Route::group(['middleware' => ['isAdministrator']], function () {
 Route::group(['middleware' => ['isMember']], function(){
 
 });
+
+//-------------------- FRONT END ----------------//
+Route::get('/', 'Frontend\HomeController@index')->name('frontend.home');
+
+//-------------------- FRONT END MEMBER ----------------//

@@ -1,0 +1,112 @@
+#cards .card{	
+	height: 65vh;
+}
+#cards .card .card-wrapper{
+	position: relative;
+	height: 65vh;
+}
+#cards .card .card-wrapper .card-img{
+	height: 65vh;
+	width: 100%;
+}
+#cards .card .card-wrapper .screen{
+	position: absolute;
+	top: 0;
+	background-color: rgba(0,0,0,.5);
+	height: 65vh;
+	width: 100%;
+	transition: all 1s;
+}
+#cards .card:hover .card-wrapper .screen{
+	background-color: rgba(0,0,0,.1);
+}
+#cards .card .card-wrapper .card-wrapper-icon{
+	position: absolute;
+	bottom: 5vh;
+	background-color: rgb(69,186,1);
+	border: 2px solid rgb(69,186,1);
+	height: 15vh;
+	width: 100%;
+	text-align: center;
+	transition: all .51s;
+}
+#cards .card:hover .card-wrapper .card-wrapper-icon{
+	background-color: rgb(255,255,255);
+}
+#cards .card .card-wrapper .card-wrapper-icon .icon-content{
+	height: 15vh;
+	width: auto;
+	text-align: center;
+	margin: 0 auto;
+	display: table;
+}
+#cards .card .card-wrapper .card-wrapper-icon .icon-content .icon{
+	height: 15vh;
+	display: table-cell;
+	vertical-align: middle;
+	position: relative;
+	text-align: center;
+}
+#cards .card .card-wrapper .card-wrapper-icon .icon-content .icon img{
+	height: 5vh;
+	width: auto;
+}
+#cards .card .card-wrapper .card-wrapper-icon .icon-content .icon a{
+	font-family: 'open sans semibold';
+	font-size: 20px;
+	color: rgb(255,255,255);
+	transition: all .51s;
+}
+#cards .card:hover .card-wrapper .card-wrapper-icon .icon-content .icon a{
+	color: rgb(69,186,1);
+}
+
+#description{
+	padding: 5px 0px 90px;
+}
+#description h2{
+	margin: 20px auto;
+}
+#description h2 label{
+	font-family: 'open sans';
+    font-weight: lighter;
+    font-size: 54px;
+}
+#description h2 label:nth-child(odd){
+	color: rgb(165,165,165);
+}
+#description h2 label:nth-child(even){
+	color: rgb(70,185,0);
+}
+#description p{
+	color: rgb(165,165,165);
+	margin-bottom: 40px;
+}
+
+#class{
+	padding: 0px 0px 40px;
+}
+#class .class{
+	width: 100%;
+	text-align: center;
+	position: relative;
+}
+#class .class .class-wrapper{
+	width: 100%;
+	text-align: center;
+	position: relative;
+}
+#class .class .class-wrapper .img{
+	width: 200px;
+	height: 200px;
+	margin: 0px auto;
+	border-radius: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+#class .class .class-wrapper h2{
+	font-family: 'open sans';
+    font-weight: bolder;
+	color: rgb(165,165,165);
+}
