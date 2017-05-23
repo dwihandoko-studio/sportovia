@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'enriqueta';
+    src: url('../font/enriqueta/Enriqueta-Regular.otf');
+}
+@font-face {
+    font-family: 'enriqueta';
+    font-weight: bold;
+    src: url('../font/enriqueta/Enriqueta-Bold.otf');
+}
+
+@font-face {
+    font-family: 'open sans';
+    src: url('../font/open-sans/OpenSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'open sans';
+    font-weight: bold;
+    src: url('../font/open-sans/OpenSans-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'open sans';
+    font-weight: bolder;
+    src: url('../font/open-sans/OpenSans-ExtraBold.ttf');
+}
+@font-face {
+    font-family: 'open sans';
+    font-weight: lighter;
+    src: url('../font/open-sans/OpenSans-Light.ttf');
+}
+
+@font-face {
+    font-family: 'open sans semibold';
+    src: url('../font/open-sans/OpenSans-Semibold.ttf');
+}
