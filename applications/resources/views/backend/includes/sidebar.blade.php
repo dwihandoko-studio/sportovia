@@ -5,6 +5,9 @@
       <a href="{{ route('dashboard') }}"><i class="icon icon-home"></i> <span>Dashboard</span></a>
     </li>
     <li class="{{ Route::is('kontak*') ? 'active' : '' }}">
+      <a href="{{ route('kontak.index') }}"><i class="icon icon-asterisk"></i> <span>About</span></a>
+    </li>
+    <li class="{{ Route::is('kontak*') ? 'active' : '' }}">
       <a href="{{ route('kontak.index') }}"><i class="icon icon-credit-card"></i> <span>Contact</span></a>
     </li>
     <li class="submenu">

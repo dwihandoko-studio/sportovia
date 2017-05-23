@@ -26,7 +26,30 @@
     @endif
   </div>
   <div class="widget-content">
-
+    <table class="table">
+      <tbody>
+        <tr>
+          <td><b>Marketing</b></td>
+          <td>&nbsp;</td>
+          <td>{!! $getKontak[0]->marketing !!}</td>
+        </tr>
+        <tr>
+          <td><b>Office</b></td>
+          <td>&nbsp;</td>
+          <td>{!! $getKontak[0]->office !!}</td>
+        </tr>
+        <tr>
+          <td><b>Email</b></td>
+          <td>&nbsp;</td>
+          <td>{{ $getKontak[0]->email }}</td>
+        </tr>
+        <tr>
+          <td><b>Address</b></td>
+          <td>&nbsp;</td>
+          <td>{!! $getKontak[0]->alamat !!}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 
