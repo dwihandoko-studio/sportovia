@@ -19,8 +19,13 @@
   @yield('breadcrumb')
 
   <div class="container-fluid">
-    @yield('content')
+    <hr>
+    <div class="row-fluid">
+      <div class="span12">
 
+        @yield('content')
+      </div>
+    </div>
   </div>
 </div>
 
@@ -32,23 +37,20 @@
 <script src="{{ asset('backend/js/jquery.min.js') }}"></script>
 <script src="{{ asset('backend/js/jquery.ui.custom.js') }}"></script>
 <script src="{{ asset('backend/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('backend/js/jquery.flot.min.js') }}"></script>
-<script src="{{ asset('backend/js/jquery.flot.resize.min.js') }}"></script>
 <script src="{{ asset('backend/js/jquery.peity.min.js') }}"></script>
 <script src="{{ asset('backend/js/fullcalendar.min.js') }}"></script>
 <script src="{{ asset('backend/js/matrix.js') }}"></script>
 <script src="{{ asset('backend/js/matrix.dashboard.js') }}"></script>
 <script src="{{ asset('backend/js/jquery.gritter.min.js') }}"></script>
-<script src="{{ asset('backend/js/matrix.interface.js') }}"></script>
-<script src="{{ asset('backend/js/matrix.chat.js') }}"></script>
 <script src="{{ asset('backend/js/jquery.validate.js') }}"></script>
 <script src="{{ asset('backend/js/matrix.form_validation.js') }}"></script>
-<script src="{{ asset('backend/js/jquery.wizard.js') }}"></script>
 <script src="{{ asset('backend/js/jquery.uniform.js') }}"></script>
 <script src="{{ asset('backend/js/select2.min.js') }}"></script>
 <script src="{{ asset('backend/js/matrix.popover.js') }}"></script>
 <script src="{{ asset('backend/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('backend/js/matrix.tables.js') }}"></script>
+
+@yield('script')
 
 <script type="text/javascript">
   // This function is called from the pop-up menus to transfer to
