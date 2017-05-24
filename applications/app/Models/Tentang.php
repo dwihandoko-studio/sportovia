@@ -8,7 +8,7 @@ class Tentang extends Model
 {
     protected $table = 'amd_tentang';
 
-    protected $fillable = ['deskripsi_tentang','visi','misi'];
+    protected $fillable = ['deskripsi_tentang','img_visi','visi','img_misi','misi'];
 
-    
+
 }
