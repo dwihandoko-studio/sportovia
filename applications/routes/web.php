@@ -36,7 +36,6 @@ Route::post('admin/about/edit', 'Backend\TentangController@edit')->name('tentang
 
 // Facility
 Route::get('admin/facility', 'Backend\FasilitasController@index')->name('fasilitas.index');
-Route::get('admin/facility/add', 'Backend\FasilitasController@tambah')->name('fasilitas.tambah');
 Route::post('admin/facility', 'Backend\FasilitasController@store')->name('fasilitas.store');
 Route::get('admin/facility/edit/{id}', 'Backend\FasilitasController@ubah')->name('fasilitas.ubah');
 Route::post('admin/facility/edit', 'Backend\FasilitasController@edit')->name('fasilitas.edit');
