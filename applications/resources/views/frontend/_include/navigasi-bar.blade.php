@@ -3,7 +3,9 @@
 		<div id="nav-content">
 			<div id="left">
 				<div class="nav-content-wrapper">
-					<img src="{{ asset('amadeo/main-image/sportopia-logo-color.png') }}">
+					<a href="{{ Route('frontend.home') }}">
+						<img id="nav-logo" src="{{ asset('amadeo/main-image/sportopia-logo-color.png') }}">
+					</a>
 				</div>
 			</div>
 			<div id="right">
@@ -18,19 +20,19 @@
 					</div>
 					<ul id="list">
 						<li class="dropdown">
-							<a href="">
+							<a class="{{ Route::is('frontend.about*') ? 'active' : '' }}">
 								About
 							</a>
 							<div class="dropdown-wrapper">
 								<div class="dropdown-content">
 									<div class="link-wrapper">
 										<div class="link">
-											<a href="">
+											<a href="{{ Route('frontend.about.us') }}">
 												About Us
 											</a>
 										</div>
 										<div class="link">
-											<a href="">
+											<a href="{{ Route('frontend.about.staff') }}">
 												Our Staff
 											</a>
 										</div>
@@ -143,6 +145,7 @@
 					</ul>
 				</div>
 			</div>
+			<div class="clearfix"></div>
 		</div>
 	</div>
 </div>

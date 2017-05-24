@@ -40,4 +40,7 @@ Route::group(['middleware' => ['isMember']], function(){
 //-------------------- FRONT END ----------------//
 Route::get('/', 'Frontend\HomeController@index')->name('frontend.home');
 
+Route::get('/about/us', 'Frontend\AboutController@us')->name('frontend.about.us');
+Route::get('/about/staff', 'Frontend\AboutController@staff')->name('frontend.about.staff');
+
 //-------------------- FRONT END MEMBER ----------------//
