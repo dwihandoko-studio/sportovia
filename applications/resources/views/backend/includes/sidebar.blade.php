@@ -4,11 +4,14 @@
     <li class="{{ Route::is('dashboard') ? 'active' : '' }}">
       <a href="{{ route('dashboard') }}"><i class="icon icon-home"></i> <span>Dashboard</span></a>
     </li>
-    <li class="{{ Route::is('kontak*') ? 'active' : '' }}">
-      <a href="{{ route('kontak.index') }}"><i class="icon icon-asterisk"></i> <span>About</span></a>
+    <li class="{{ Route::is('tentang*') ? 'active' : '' }}">
+      <a href="{{ route('tentang.index') }}"><i class="icon icon-asterisk"></i> <span>About</span></a>
     </li>
     <li class="{{ Route::is('kontak*') ? 'active' : '' }}">
       <a href="{{ route('kontak.index') }}"><i class="icon icon-credit-card"></i> <span>Contact</span></a>
+    </li>
+    <li class="{{ Route::is('fasilitas*') ? 'active' : '' }}">
+      <a href="{{ route('fasilitas.index') }}"><i class="icon icon-star"></i> <span>Facility</span></a>
     </li>
     <li class="submenu">
       <a href="#"><i class="icon icon-th-list"></i> <span>Forms</span></a>

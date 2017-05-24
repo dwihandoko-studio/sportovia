@@ -26,6 +26,8 @@
     @endif
   </div>
   <div class="widget-content">
+    @if($getKontak->isEmpty())
+    @else
     <table class="table">
       <tbody>
         <tr>
@@ -41,7 +43,7 @@
         <tr>
           <td><b>Email</b></td>
           <td>&nbsp;</td>
-          <td>{{ $getKontak[0]->email }}</td>
+          <td>{!! $getKontak[0]->email !!}</td>
         </tr>
         <tr>
           <td><b>Address</b></td>
@@ -50,6 +52,7 @@
         </tr>
       </tbody>
     </table>
+    @endif
   </div>
 </div>
 
