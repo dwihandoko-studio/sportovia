@@ -16,6 +16,10 @@ Route::get('admin/dashboard', function(){
   return view('backend.dashboard.index');
 })->name('dashboard');
 
+Route::get('admin/login', function(){
+  return view('backend.auth.login');
+});
+
 // Kontak
 Route::get('admin/kontak', 'Backend\KontakController@index')->name('kontak.index');
 Route::get('admin/kontak/tambah', 'Backend\KontakController@tambah')->name('kontak.tambah');
@@ -26,7 +30,7 @@ Route::post('admin/kontak/ubah', 'Backend\KontakController@edit')->name('kontak.
 
 //----------------------- BACKEND -----------------------//
 Route::group(['middleware' => ['isAdministrator']], function () {
-  Route::get('admin/login');
+  // Route::get('admin/login');
 });
 //----------------------- BACKEND -----------------------//
 

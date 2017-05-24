@@ -76,7 +76,7 @@ class KontakController extends Controller
         $getKontak = Kontak::find($id);
 
         if(!$getKontak){
-          abort('errors.404');
+          return view('backend.errors.404');
         }
 
         return view('backend.kontak.ubah', compact('getKontak'));
@@ -106,6 +106,23 @@ class KontakController extends Controller
           return redirect()->route('kontak.ubah', array('id' => $request->id))->withErrors($validator)->withInput();
         }
 
-dd($request);
+        DB::transaction(function() use($request){
+
+          $update = Kontak::find($request->id);
+          $update->marketing = nl2br($request->marketing);
+          $update->office = nl2br($request->office);
+          $update->email = $request->email;
+          $update->alamat = nl2br($request->alamat);
+          $update->actor  = 1;
+          $update->update();
+
+          $log = LogAkses::create([
+            'actor' => 1,
+            'aksi'  => 'Edit Contact Data'
+          ]);
+
+        });
+
+        return redirect()->route('kontak.index')->with('berhasil', 'Your data has been successfully updated.');
     }
 }
