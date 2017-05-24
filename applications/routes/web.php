@@ -47,4 +47,10 @@ Route::get('/', 'Frontend\HomeController@index')->name('frontend.home');
 Route::get('/about/us', 'Frontend\AboutController@us')->name('frontend.about.us');
 Route::get('/about/staff', 'Frontend\AboutController@staff')->name('frontend.about.staff');
 
+Route::get('/contact', 'Frontend\ContactController@index')->name('frontend.contact');
+
+Route::get('/art', 'Frontend\ArtController@index')->name('frontend.art.index');
+Route::get('/education', 'Frontend\EducationController@index')->name('frontend.education.index');
+Route::get('/sport', 'Frontend\SportController@index')->name('frontend.sport.index');
+
 //-------------------- FRONT END MEMBER ----------------//

@@ -8,6 +8,9 @@
 #cards .card .card-wrapper .card-img{
 	height: 65vh;
 	width: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 #cards .card .card-wrapper .screen{
 	position: absolute;
@@ -25,7 +28,7 @@
 	bottom: 5vh;
 	background-color: rgb(69,186,1);
 	border: 2px solid rgb(69,186,1);
-	height: 15vh;
+	height: 60px;
 	width: 100%;
 	text-align: center;
 	transition: all .51s;
@@ -34,21 +37,21 @@
 	background-color: rgb(255,255,255);
 }
 #cards .card .card-wrapper .card-wrapper-icon .icon-content{
-	height: 15vh;
+	height: 60px;
 	width: auto;
 	text-align: center;
 	margin: 0 auto;
 	display: table;
 }
 #cards .card .card-wrapper .card-wrapper-icon .icon-content .icon{
-	height: 15vh;
+	height: 60px;
 	display: table-cell;
 	vertical-align: middle;
 	position: relative;
 	text-align: center;
 }
 #cards .card .card-wrapper .card-wrapper-icon .icon-content .icon img{
-	height: 5vh;
+	height: 40px;
 	width: auto;
 }
 #cards .card .card-wrapper .card-wrapper-icon .icon-content .icon a{

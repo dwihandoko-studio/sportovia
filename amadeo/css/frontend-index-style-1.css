@@ -1,0 +1,98 @@
+#iad h1{
+    font-size: 42px;
+}
+#iad h1:nth-child(even){
+	font-family: 'open sans';
+    font-weight: bold;
+    color: rgb(122,122,122);
+	margin: 20px 0px 0px;
+}
+#iad h1:nth-child(odd){
+	font-family: 'open sans';
+    font-weight: lighter;
+    color: rgb(69,186,1);
+	margin: 0px 0px 20px;
+}
+#iad h3{
+	font-family: 'open sans';
+    font-weight: lighter;
+    font-size: 18px;
+    color: rgb(122,122,122);
+}
+
+#index{
+    padding: 40px 0px 0px;
+}
+#index .index-wrapper{
+    position: relative;
+    width: 25%;
+    height: 73vh;
+    padding: 0px .5%;
+    margin-bottom: 40px;
+    float: left;
+}
+#index .index-wrapper .img-back{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#index .index-wrapper .img-back .img-description-wrapper{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(187,187,187,.9);
+    text-align:center;
+    padding: 0px 20px;
+    opacity: 0;
+    transition: all .51s;
+}
+#index .index-wrapper:hover .img-back .img-description-wrapper{
+    opacity: 1;
+}
+#index .index-wrapper .img-back .img-description-wrapper img{
+    width: 40px;
+    height: auto;
+    padding-top: 10vh;
+}
+#index .index-wrapper .img-back .img-description-wrapper p{
+    padding-top: 12vh;
+    font-family: 'open sans';
+    font-weight: lighter;
+    color: rgb(255,255,255);
+}
+#index .index-wrapper .index-title-wrapper{
+    border-bottom: 100px solid rgba(238,255,233,.8);
+    border-left: 100px solid transparent;
+    position: absolute;
+    left: 6px;
+    bottom: 0;
+    height: 120px;
+    width: 96%;
+    background-color: rgba(238,255,233,0);
+    z-index: 0;
+    transition: .6s;
+}
+#index .index-wrapper:hover .index-title-wrapper{
+    transition: .6s;
+    z-index: 1;
+    left: 16px;
+    bottom: -10px;
+}
+#index .index-wrapper .index-title-wrapper .title-content{
+    position: relative;
+    float: right;
+    width: 90%;
+    padding-top: 20px;
+    padding-right: 10px;
+}
+#index .index-wrapper .index-title-wrapper .title-content h3{
+    margin: 0px;
+    height: 100px;
+    color: rgb(69,189,1);
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    font-family: 'open sans';
+    font-weight: bold;
+}

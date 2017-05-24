@@ -41,7 +41,7 @@
 							</div>
 						</li>
 						<li class="dropdown">
-							<a href="">
+							<a class="{{ Route::is('frontend.sport*') ? 'active' : '' }}" href="{{ Route('frontend.sport.index') }}">
 								Sport
 							</a>
 							<div class="dropdown-wrapper">
@@ -64,7 +64,7 @@
 							</div>
 						</li>
 						<li class="dropdown">
-							<a href="">
+							<a class="{{ Route::is('frontend.art*') ? 'active' : '' }}" href="{{ Route('frontend.art.index') }}">
 								Art
 							</a>
 							<div class="dropdown-wrapper">
@@ -87,7 +87,7 @@
 							</div>
 						</li>
 						<li class="dropdown">
-							<a href="">
+							<a class="{{ Route::is('frontend.education*') ? 'active' : '' }}" href="{{ Route('frontend.education.index') }}">
 								Education
 							</a>
 							<div class="dropdown-wrapper">
@@ -138,7 +138,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="">
+							<a class="{{ Route::is('frontend.contact*') ? 'active' : '' }}" href="{{ Route('frontend.contact') }}">
 								Contact
 							</a>
 						</li>

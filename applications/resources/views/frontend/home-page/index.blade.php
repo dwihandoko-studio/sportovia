@@ -21,7 +21,7 @@
 		@for($a=0; $a<=3; $a++)
 		<div class="bar bar-size-4 card">
 			<div class="card-wrapper">
-				<img class="card-img" src="{{ asset('amadeo/main-image/card.jpg') }}">
+				<div class="card-img" style="background-image: url('{{ asset('amadeo/main-image/card.jpg') }}')"></div>
 				<div class="screen"></div>
 				<div class="card-wrapper-icon">
 					<div class="icon-content">
