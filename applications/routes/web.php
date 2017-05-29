@@ -39,6 +39,22 @@ Route::get('admin/facility', 'Backend\FasilitasController@index')->name('fasilit
 Route::post('admin/facility', 'Backend\FasilitasController@store')->name('fasilitas.store');
 Route::get('admin/facility/edit/{id}', 'Backend\FasilitasController@ubah')->name('fasilitas.ubah');
 Route::post('admin/facility/edit', 'Backend\FasilitasController@edit')->name('fasilitas.edit');
+Route::get('admin/facility/publish/{id}', 'Backend\FasilitasController@publish')->name('fasilitas.publish');
+
+// Staff Position
+Route::get('admin/staff-position', 'Backend\StaffController@index')->name('staff-jabatan.index');
+Route::post('admin/staff-position', 'Backend\StaffController@store')->name('staff-jabatan.store');
+Route::get('admin/staff-position/edit/{id}', 'Backend\StaffController@ubah')->name('staff-jabatan.ubah');
+Route::post('admin/staff-position/edit', 'Backend\StaffController@edit')->name('staff-jabatan.edit');
+Route::get('admin/staff-position/publish/{id}', 'Backend\StaffController@publish')->name('staff-jabatan.publish');
+
+// Staff Position
+Route::get('admin/staff', 'Backend\StaffController@staffIndex')->name('pegawai.index');
+Route::get('admin/staff/add', 'Backend\StaffController@staffTambah')->name('pegawai.tambah');
+Route::post('admin/staff', 'Backend\StaffController@staffStore')->name('pegawai.store');
+Route::get('admin/staff/edit/{id}', 'Backend\StaffController@staffUbah')->name('pegawai.ubah');
+Route::post('admin/staff/edit', 'Backend\StaffController@staffEdit')->name('pegawai.edit');
+Route::get('admin/staff/publish/{id}', 'Backend\StaffController@staffPublish')->name('pegawai.publish');
 
 
 //----------------------- BACKEND -----------------------//
