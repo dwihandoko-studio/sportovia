@@ -18,7 +18,6 @@
 <?php // category card layout wrapper ?>
 <div id="cards" class="setup-wrapper">
 	<div class="setup-content nor-wd">
-		@for($a=0; $a<=3; $a++)
 		<div class="bar bar-size-4 card">
 			<div class="card-wrapper">
 				<div class="card-img" style="background-image: url('{{ asset('amadeo/main-image/card.jpg') }}')"></div>
@@ -29,13 +28,69 @@
 							<img src="{{ asset('amadeo/main-image/icon.png') }}">
 						</div>
 						<div class="icon">
-							<a href="">Art Example Test</a>
+							<a href="{{ Route('frontend.art.index') }}">
+								Art
+							</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		@endfor
+		<div class="bar bar-size-4 card">
+			<div class="card-wrapper">
+				<div class="card-img" style="background-image: url('{{ asset('amadeo/main-image/card.jpg') }}')"></div>
+				<div class="screen"></div>
+				<div class="card-wrapper-icon">
+					<div class="icon-content">
+						<div class="icon">
+							<img src="{{ asset('amadeo/main-image/icon.png') }}">
+						</div>
+						<div class="icon">
+							<a href="{{ Route('frontend.sport.index') }}">
+								Sport
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bar bar-size-4 card">
+			<div class="card-wrapper">
+				<div class="card-img" style="background-image: url('{{ asset('amadeo/main-image/card.jpg') }}')"></div>
+				<div class="screen"></div>
+				<div class="card-wrapper-icon">
+					<div class="icon-content">
+						<div class="icon">
+							<img src="{{ asset('amadeo/main-image/icon.png') }}">
+						</div>
+						<div class="icon">
+							<a href="{{ Route('frontend.education.index') }}">
+								Education
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bar bar-size-4 card">
+			<div class="card-wrapper">
+				<div class="card-img" style="background-image: url('{{ asset('amadeo/main-image/card.jpg') }}')"></div>
+				<div class="screen"></div>
+				<div class="card-wrapper-icon">
+					<div class="icon-content">
+						<div class="icon">
+							<img src="{{ asset('amadeo/main-image/icon.png') }}">
+						</div>
+						<div class="icon">
+							<a href="{{ Route('frontend.games.index') }}">
+								Games
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<div class="clearfix"></div>
 	</div>
 </div>

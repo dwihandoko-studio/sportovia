@@ -133,7 +133,7 @@
 							</div>
 						</li>
 						<li>
-							<a href="">
+							<a class="{{ Route::is('frontend.news-event*') ? 'active' : '' }}" href="{{ Route('frontend.news-event.index') }}">
 								News & Event
 							</a>
 						</li>

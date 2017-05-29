@@ -87,13 +87,16 @@
 <div id="iad" class="setup-wrapper">
 	<div class="setup-content lar-wd">
 		<div id="index-wrapper">
-			@for($a=0; $a<=2; $a++)
 			<label>
-				<a href="">
-					index
+				<a href="{{ Route('frontend.home') }}">
+					Home
 				</a>
 			</label>
-			@endfor
+			<label>
+				<a href="">
+					About Us
+				</a>
+			</label>
 		</div>
 		<h2>About Us</h2>
 		<div id="description-wrapper">
@@ -139,7 +142,6 @@
 				</div>
 			</div>
 		</div>
-		
 		<div class="clearfix"></div>
 	</div>
 </div>

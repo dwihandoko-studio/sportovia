@@ -91,6 +91,11 @@ Route::get('/games', 'Frontend\GamesController@index')
 Route::get('/games/{slug}', 'Frontend\GamesController@view')
 	->name('frontend.games.view');
 
+Route::get('/news-event', 'Frontend\NewsEventController@index')
+	->name('frontend.news-event.index');
+Route::get('/news-event/{slug}', 'Frontend\NewsEventController@view')
+	->name('frontend.news-event.view');
+
 Route::get('/sport', 'Frontend\SportController@index')
 	->name('frontend.sport.index');
 Route::get('/sport/{slug}', 'Frontend\SportController@view')

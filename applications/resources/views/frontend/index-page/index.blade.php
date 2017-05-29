@@ -37,7 +37,6 @@
 					{{ $titlePage }}
 				</a>
 			</label>
-
 		</div>
 		<h1>
 			{{ $titlePage }}
@@ -50,7 +49,7 @@
 		</h3>
 	</div>
 </div>
-<?php // sport wrapper ?>
+<?php // index wrapper ?>
 <div id="index" class="setup-wrapper">
 	<div class="setup-content lar-wd">
 	@for($a=0; $a<=5; $a++)
