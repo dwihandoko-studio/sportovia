@@ -17,7 +17,7 @@ class CreateStaffTable extends Migration
           $table->increments('id');
           $table->string('nama_staff', 50);
           $table->integer('id_jabatan')->unsigned();
-          $table->string('quotes_staff');
+          $table->string('quotes_staff')->nullable();
           $table->integer('flag_publish')->unsigned()->default(1);
           $table->integer('actor')->unsigned();
           $table->timestamps();

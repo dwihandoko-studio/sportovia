@@ -33,14 +33,12 @@
 
 @include('backend.includes.footer')
 
-<script src="{{ asset('backend/js/excanvas.min.js') }}"></script>
+{{-- <script src="{{ asset('backend/js/jQuery-2.1.4.min.js') }}"></script> --}}
 <script src="{{ asset('backend/js/jquery.min.js') }}"></script>
 <script src="{{ asset('backend/js/jquery.ui.custom.js') }}"></script>
 <script src="{{ asset('backend/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('backend/js/jquery.peity.min.js') }}"></script>
-<script src="{{ asset('backend/js/fullcalendar.min.js') }}"></script>
 <script src="{{ asset('backend/js/matrix.js') }}"></script>
-<script src="{{ asset('backend/js/matrix.dashboard.js') }}"></script>
 <script src="{{ asset('backend/js/jquery.gritter.min.js') }}"></script>
 <script src="{{ asset('backend/js/jquery.validate.js') }}"></script>
 <script src="{{ asset('backend/js/matrix.form_validation.js') }}"></script>

@@ -46,9 +46,66 @@ class FasilitasController extends Controller
 
         $log = new LogAkses;
         $log->actor = 1;
-        $log->aksi = 'Adding New Facility';
+        $log->aksi = 'Adding New Facility '.$request->nama_fasilitas;
         $log->save();
 
         return redirect()->route('fasilitas.index')->with('berhasil', 'Your data has been successfully saved.');
+    }
+
+    public function ubah($id)
+    {
+        $getFasilitas = Fasilitas::find($id);
+
+        return $getFasilitas;
+    }
+
+    public function edit(Request $request)
+    {
+      $message = [
+        'edit_nama_fasilitas.required' => 'This field is required.',
+        'edit_nama_fasilitas.unique' => 'This facility already taken.',
+      ];
+
+      $validator = Validator::make($request->all(), [
+        'edit_nama_fasilitas' => 'required|max:25|unique:amd_fasilitas,nama_fasilitas,'.$request->id_edit,
+      ], $message);
+
+      if($validator->fails()){
+        return redirect()->route('fasilitas.index')->withErrors($validator)->withInput();
+      }
+
+      $update = Fasilitas::find($request->id_edit);
+      $update->nama_fasilitas = $request->edit_nama_fasilitas;
+      $update->actor = 1;
+      $update->update();
+
+      $log = new LogAkses;
+      $log->actor = 1;
+      $log->aksi = 'Edit Facility '.$request->edit_nama_fasilitas;
+      $log->save();
+
+      return redirect()->route('fasilitas.index')->with('berhasil', 'Your data has been successfully updated.');
+
+    }
+
+    public function publish($id)
+    {
+        $set = Fasilitas::find($id);
+
+        if(!$set){
+          return view('backend.errors.404');
+        }
+
+        if ($set->flag_publish == 1) {
+          $set->flag_publish = 0;
+          $set->update();
+
+          return redirect()->route('fasilitas.index')->with('berhasil', 'Successfully unpublished '.$set->nama_fasilitas);
+        }else{
+          $set->flag_publish = 1;
+          $set->update();
+
+          return redirect()->route('fasilitas.index')->with('berhasil', 'Successfully published '.$set->nama_fasilitas);
+        }
     }
 }
