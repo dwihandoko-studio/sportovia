@@ -49,12 +49,12 @@
 									@for($a=0; $a<=2; $a++)
 									<div class="link-wrapper">
 										<div class="link">
-											<a href="">
+											<a href="{{ Route('frontend.sport.view', ['slug'=>$a]) }}">
 												Aikido
 											</a>
 										</div>
 										<div class="link">
-											<a href="">
+											<a href="{{ Route('frontend.sport.view', ['slug'=>$a]) }}">
 												Taekwondo
 											</a>
 										</div>
@@ -72,12 +72,12 @@
 									@for($a=0; $a<=3; $a++)
 									<div class="link-wrapper">
 										<div class="link">
-											<a href="">
+											<a href="{{ Route('frontend.art.view', ['slug'=>$a]) }}">
 												Aikido
 											</a>
 										</div>
 										<div class="link">
-											<a href="">
+											<a href="{{ Route('frontend.art.view', ['slug'=>$a]) }}">
 												Taekwondo
 											</a>
 										</div>
@@ -95,12 +95,12 @@
 									@for($a=0; $a<=3; $a++)
 									<div class="link-wrapper">
 										<div class="link">
-											<a href="">
+											<a href="{{ Route('frontend.education.view', ['slug'=>$a]) }}">
 												Aikido
 											</a>
 										</div>
 										<div class="link">
-											<a href="">
+											<a href="{{ Route('frontend.education.view', ['slug'=>$a]) }}">
 												Taekwondo
 											</a>
 										</div>
@@ -110,7 +110,7 @@
 							</div>
 						</li>
 						<li class="dropdown">
-							<a href="">
+							<a class="{{ Route::is('frontend.games*') ? 'active' : '' }}" href="{{ Route('frontend.games.index') }}">
 								Games
 							</a>
 							<div class="dropdown-wrapper">
@@ -118,12 +118,12 @@
 									@for($a=0; $a<=5; $a++)
 									<div class="link-wrapper">
 										<div class="link">
-											<a href="">
+											<a href="{{ Route('frontend.games.view', ['slug'=>$a]) }}">
 												Aikido
 											</a>
 										</div>
 										<div class="link">
-											<a href="">
+											<a href="{{ Route('frontend.games.view', ['slug'=>$a]) }}">
 												Taekwondo
 											</a>
 										</div>

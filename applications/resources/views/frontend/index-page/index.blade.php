@@ -1,7 +1,7 @@
 @extends('frontend._layouts.basic')
 
 @section('head-title')
-<title>Sportopia - </title>
+<title>Sportopia - {{ $titlePage }}</title>
 @endsection
 
 @section('meta')
@@ -27,22 +27,26 @@
 <div id="iad" class="setup-wrapper">
 	<div class="setup-content lar-wd">
 		<div id="index-wrapper">
-			@for($a=0; $a<=2; $a++)
 			<label>
-				<a href="">
-					index
+				<a href="{{ Route('frontend.home') }}">
+					Home
 				</a>
 			</label>
-			@endfor
+			<label>
+				<a href="{{ Route($routePage.'index') }}">
+					{{ $titlePage }}
+				</a>
+			</label>
+
 		</div>
 		<h1>
-			Sport Class
+			{{ $titlePage }}
 		</h1>
 		<h1>
-			Lorem Ipsum Doler Sit Amer
+			{{ $titleSubPage }}
 		</h1>
 		<h3>
-			Lorem Ipsum Doler Sit Amer, Lorem Ipsum Doler Sit Amer, Lorem Ipsum Doler Sit Amer
+			{{ $descriptionPage }}
 		</h3>
 	</div>
 </div>
@@ -50,19 +54,21 @@
 <div id="index" class="setup-wrapper">
 	<div class="setup-content lar-wd">
 	@for($a=0; $a<=5; $a++)
-		<div class="index-wrapper">
-			<div class="img-back" style="background-image: url('{{ asset('amadeo/main-image/card.jpg') }}');">
-				<div class="img-description-wrapper">
-					<img src="{{ asset('amadeo/main-image/icon.png') }}">
-					<p>Lorem Ipsum Doler Sit Amer, Lorem Ipsum Doler Sit Amer, Lorem Ipsum Doler Sit Amer,Lorem Ipsum Doler Sit Amer, Lorem Ipsum Doler Sit Amer, Lorem Ipsum Doler Sit Amer,Lorem Ipsum Doler Sit Amer, Lorem Ipsum Doler Sit Amer, Lorem Ipsum Doler Sit Amer</p>
+		<a href="{{ Route($routePage.'view', ['slug'=>$a ]) }}">
+			<div class="index-wrapper">
+				<div class="img-back" style="background-image: url('{{ asset('amadeo/main-image/card.jpg') }}');">
+					<div class="img-description-wrapper">
+						<img src="{{ asset('amadeo/main-image/icon-circle.png') }}">
+						<p>Lorem Ipsum Doler Sit Amer, Lorem Ipsum Doler Sit Amer, Lorem Ipsum Doler Sit Amer,Lorem Ipsum Doler Sit Amer, Lorem Ipsum Doler Sit Amer, Lorem Ipsum Doler Sit Amer,Lorem Ipsum Doler Sit Amer, Lorem Ipsum Doler Sit Amer, Lorem Ipsum Doler Sit Amer</p>
+					</div>
+				</div>
+				<div class="index-title-wrapper">
+					<div class="title-content">
+						<h3>title in here title in here</h3>
+					</div>
 				</div>
 			</div>
-			<div class="index-title-wrapper">
-				<div class="title-content">
-					<h3>title in here asdasd asdas adas</h3>
-				</div>
-			</div>
-		</div>
+		</a>
 	@endfor
 		<div class="clearfix"></div>
 	</div>

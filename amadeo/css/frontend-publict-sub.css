@@ -33,6 +33,21 @@
 	font-family: 'enriqueta';
 	color: rgb(165,165,165);
 }
+#iad h1{
+    font-size: 42px;
+}
+#iad h1:nth-child(even){
+	font-family: 'open sans';
+    font-weight: bold;
+    color: rgb(122,122,122);
+	margin: 20px 0px 0px;
+}
+#iad h1:nth-child(odd){
+	font-family: 'open sans';
+    font-weight: lighter;
+    color: rgb(69,186,1);
+	margin: 0px 0px 20px;
+}
 #iad h2{
 	color: rgb(69,186,1);
 	text-align:center;
@@ -41,6 +56,12 @@
     font-style: italic;
     font-size: 48px;
     margin: 20px 0px 35px;
+}
+#iad h3{
+	font-family: 'open sans';
+    font-weight: lighter;
+    font-size: 18px;
+    color: rgb(122,122,122);
 }
 #iad #description-wrapper{
 	width: 75%;

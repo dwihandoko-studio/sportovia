@@ -54,16 +54,37 @@
 <?php // class wrapper ?>
 <div id="class" class="setup-wrapper">
 	<div class="setup-content nor-wd">
-		@for($a=0; $a<=2; $a++)
 		<div class="bar bar-size-3">
 			<div class="class">
 				<div class="class-wrapper">
-					<div class="img" style="background-image: url('{{ asset('amadeo/main-image/card.jpg')}}')"></div>
+					<a href="{{ Route('frontend.reguler.index') }}">
+						<div class="img" style="background-image: url('{{ asset('amadeo/main-image/card.jpg')}}')"></div>
+					</a>
+					<h2>Reguler Class</h2>
+				</div>
+			</div>
+		</div>
+		<div class="bar bar-size-3">
+			<div class="class">
+				<div class="class-wrapper">
+					<a href="{{ Route('frontend.children.index') }}">
+						<div class="img" style="background-image: url('{{ asset('amadeo/main-image/card.jpg')}}')"></div>
+					</a>
 					<h2>Children Class</h2>
 				</div>
 			</div>
 		</div>
-		@endfor
+		<div class="bar bar-size-3">
+			<div class="class">
+				<div class="class-wrapper">
+					<a href="">
+						<div class="img" style="background-image: url('{{ asset('amadeo/main-image/card.jpg')}}')"></div>
+					</a>
+					<h2>Member Area</h2>
+				</div>
+			</div>
+		</div>
+
 		<div class="clearfix"></div>
 	</div>
 </div>
