@@ -113,3 +113,53 @@
     font-weight: bolder;
 	color: rgb(165,165,165);
 }
+
+@media (max-width: 480px) {
+	.btn.btn-green.larg-1{
+		transform: scale(1.2);
+	}
+	#description h2 label{
+		font-size: 42px;
+	}
+
+	#cards .card,
+	#cards .card .card-wrapper,
+	#cards .card .card-wrapper .card-img,
+	#cards .card .card-wrapper .screen{
+		height: 20vh;
+	}
+	#cards .card .card-wrapper .card-wrapper-icon,
+	#cards .card .card-wrapper .card-wrapper-icon .icon-content,
+	#cards .card .card-wrapper .card-wrapper-icon .icon-content .icon{
+		height: 20px;
+	}
+	#cards .card .card-wrapper .card-wrapper-icon{
+		bottom:0px;
+	}
+	#cards .card .card-wrapper .card-wrapper-icon .icon-content .icon{
+		display: block;
+	}
+	#cards .card .card-wrapper .card-wrapper-icon .icon-content .icon img{
+		position: relative;
+		width: 0px;
+		height: 0px;
+		top: -15px;
+		transition: all 1.51s;
+	}
+	#cards .card:hover .card-wrapper .card-wrapper-icon .icon-content .icon img{
+		width: auto;
+		height: 30px;
+		top: -15vh;
+	}
+	#cards .card .card-wrapper .card-wrapper-icon .icon-content .icon a{
+		font-size: 10px;
+		position: relative;
+		top: -25px;
+	}
+
+	#class .bar.bar-size-3{
+		width: 100%;
+		float: none;
+		display: inline-block;	
+	}
+}

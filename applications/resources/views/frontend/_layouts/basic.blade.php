@@ -33,6 +33,7 @@
 	@yield('body-content')
 	@include('frontend._include.footer')	
 	<script type="text/javascript" src="{{ asset('plugin/jquery/jquery-3.2.0.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('amadeo/js/publict.js') }}"></script>
 	@yield('footer-script')
 
 </body>
