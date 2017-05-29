@@ -5,15 +5,15 @@ namespace App\Http\Controllers\Frontend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class SportController extends Controller
+class GamesController extends Controller
 {
     function index(){
-    	
-    	$titlePage = "Sport Class";
+
+    	$titlePage = "Games Class";
     	$titleSubPage = "Lorem Ipsum Doler Sit Amer";
     	$descriptionPage = "Lorem Ipsum Doler Sit Amer, Lorem Ipsum Doler Sit Amer, Lorem Ipsum Doler Sit Amer";
-
-    	$routePage = "frontend.sport.";
+    	
+	    $routePage = "frontend.games.";
 
 	    return view('frontend.index-page.index', compact(
 	    	'titlePage',
@@ -24,8 +24,8 @@ class SportController extends Controller
 	}
 
 	function view($slug){
-	    $indexPage = "Games Class";
-	    $routePage = "frontend.sport.index";
+    	$indexPage = "Games Class";
+	    $routePage = "frontend.games.index";
 
 	    return view('frontend.view-page.view-style-1', compact(
 	    	'indexPage',
