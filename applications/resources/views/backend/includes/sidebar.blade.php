@@ -12,14 +12,14 @@
         <li class="{{ Route::is('staff-jabatan*') ? 'active' : ''}}"><a href="{{ route('staff-jabatan.index') }}">Staff Position</a></li>
       </ul>
     </li>
-    {{-- <li class="{{ Route::is('tentang*') ? 'active' : '' }}">
-      <a href="{{ route('tentang.index') }}"><i class="icon icon-asterisk"></i> <span>About</span></a>
-    </li> --}}
     <li class="{{ Route::is('kontak*') ? 'active' : '' }}">
       <a href="{{ route('kontak.index') }}"><i class="icon icon-credit-card"></i> <span>Contact</span></a>
     </li>
     <li class="{{ Route::is('fasilitas*') ? 'active' : '' }}">
       <a href="{{ route('fasilitas.index') }}"><i class="icon icon-star"></i> <span>Facility</span></a>
+    </li>
+    <li class="{{ Route::is('socmed*') ? 'active' : '' }}">
+      <a href="{{ route('socmed.index') }}"><i class="icon-facebook-sign"></i> <span>Social Media</span></a>
     </li>
     <li class="submenu">
       <a href="#"><i class="icon icon-th-list"></i> <span>Forms</span></a>

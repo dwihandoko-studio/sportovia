@@ -56,6 +56,13 @@ Route::get('admin/staff/edit/{id}', 'Backend\StaffController@staffUbah')->name('
 Route::post('admin/staff/edit', 'Backend\StaffController@staffEdit')->name('pegawai.edit');
 Route::get('admin/staff/publish/{id}', 'Backend\StaffController@staffPublish')->name('pegawai.publish');
 
+Route::get('admin/social-media', 'Backend\SocialMediaController@index')->name('socmed.index');
+Route::get('admin/social-media/add', 'Backend\SocialMediaController@tambah')->name('socmed.tambah');
+Route::post('admin/social-media', 'Backend\SocialMediaController@store')->name('socmed.store');
+Route::get('admin/social-media/edit/{id}', 'Backend\SocialMediaController@ubah')->name('socmed.ubah');
+Route::post('admin/social-media/edit', 'Backend\SocialMediaController@edit')->name('socmed.edit');
+Route::get('admin/social-media/publish/{id}', 'Backend\SocialMediaController@publish')->name('socmed.publish');
+
 
 //----------------------- BACKEND -----------------------//
 Route::group(['middleware' => ['isAdministrator']], function () {
