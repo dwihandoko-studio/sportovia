@@ -12,95 +12,8 @@
 
 @section('head-style')
 <link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-publict-sub.css') }}">
-<style type="text/css">
-	#contact{
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: center;
-	}
-	#contact #transparant-wrapper{
-		background-color: rgba(0,0,0,.4);
-		width: 100%;
-		height: 100%;
-		position: relative;
-	}
-	#contact .setup-content{
-		padding-top: 30px;
-		padding-bottom: 30px;
-	}
-	#contact .bar.bar-size-left{
-		width: 35%;
-		padding-right: 2.5%;  
-	}
-	#contact .bar.bar-size-right{
-		width: 65%;
-		padding-left: 2.5%;  
-	}
-	#contact .bar .contact-info-wrapper{
-		position: relative;
-		padding-bottom: 10px;
-		margin-bottom: 10px;
-		border-bottom: 2px solid rgb(255,255,255);
-	}
-	#contact .bar .contact-info-wrapper:last-child{
-		border-bottom: 2px solid rgba(255,255,255,0);	
-	}
-	#contact .bar .contact-info-wrapper p{
-	    font-family: 'open sans';
-		color: rgb(255,255,255);
-		margin-bottom: 5px;
-	}
-	#contact #form-wrapper{
-		position: relative;
-		text-align: center;
-	}
-	#contact #form-wrapper .input-group{
-		margin-bottom: 10px;
-	}
-	#contact #form-wrapper .input-group input{
-		color: rgb(255,255,255);
-		border: .5px solid rgba(255,255,255,.5);
-		border-right: .5px solid rgba(255,255,255,0);
-		border-radius: 0px;
-		background-color: rgba(255,255,255,.45);
+<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-contact.css') }}">
 
-	}
-	#contact #form-wrapper .input-group span{
-		color: rgb(255,255,255);
-		border-radius: 0px;
-		background-color: rgba(255,255,255,.45);
-		border: .5px solid rgba(255,255,255,.5);
-		border-left: .5px solid rgba(255,255,255,0);
-	}
-	#contact #form-wrapper .input-group.error input,
-	#contact #form-wrapper .input-group.error span{
-		background-color: rgba(255,0,0,.45);
-	}
-	#contact #form-wrapper textarea{
-		margin-bottom: 10px;
-		color: rgb(255,255,255);
-		border-radius: 0px;
-		background-color: rgba(255,255,255,.45);
-	}
-	#contact #form-wrapper input::-webkit-input-placeholder,
-	#contact #form-wrapper textarea::-webkit-input-placeholder{
-		color: rgb(255,255,255);
-	}
-	#contact #form-wrapper button{
-		font-family: 'open sans';
-	    font-weight: bolder;
-		color: rgb(255,255,255);
-		background-color: rgb(69,186,1);
-		border: 2px solid rgb(69,186,1);
-		margin: 0 auto;
-		padding: 5px 10px;
-		transition: all .51s;
-	}
-	#contact #form-wrapper button:hover{
-		color: rgb(69,186,1);
-		background-color: rgb(255,255,255);
-	}
-</style>
 @endsection
 
 @section('body-content')
@@ -108,13 +21,16 @@
 <div id="iad" class="setup-wrapper">
 	<div class="setup-content lar-wd">
 		<div id="index-wrapper">
-			@for($a=0; $a<=2; $a++)
 			<label>
-				<a href="">
-					index
+				<a href="{{ Route('frontend.home') }}">
+					Home
 				</a>
 			</label>
-			@endfor
+			<label>
+				<a href="">
+					Contact
+				</a>
+			</label>
 		</div>
 		<h2>Contact</h2>
 		<div id="description-wrapper">

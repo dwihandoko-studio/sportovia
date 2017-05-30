@@ -12,47 +12,7 @@
 
 @section('head-style')
 <link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-publict-sub.css') }}">
-<style type="text/css">
-#iad{
-	height: 25vh;
-}
-
-#view{
-	margin-top: -15vh;
-}
-#view #img-view{
-	width: 100%;
-	height: 75vh;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center top;
-}
-#view .view-content{
-	position: relative;
-	padding: 20px;
-}
-#view .view-content h2{
-	font-family: 'open sans';
-    font-weight: bold;
-    color: rgb(165,165,165);
-}
-#view .view-content h1{
-	font-family: 'open sans';
-    font-weight: lighter;
-    color: rgb(69,186,1);
-}
-#view .view-content p{
-	font-family: 'open sans';
-    font-weight: lighter;
-    color: rgb(165,165,165);
-    text-indent: 30px;
-}
-#view .view-content .for-btn{
-	width: 80%;
-	margin: 20px auto;
-	text-align: center;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-news-event-view.css') }}">
 @endsection
 
 @section('body-content')

@@ -12,70 +12,7 @@
 
 @section('head-style')
 <link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-publict-sub.css') }}">
-<style type="text/css">
-	#vam-wrapper{
-		padding-top: 20px;
-		padding-bottom: 60px;
-	}
-	#vam-wrapper .vam-content{
-		position: relative;
-		width: 100%;
-	}
-	#vam-wrapper .bar:nth-child(odd) .vam-content{
-		text-align: left;
-	}
-	#vam-wrapper .bar:nth-child(even) .vam-content{
-		margin-top: 20vh;
-		text-align: right;
-	}
-	#vam-wrapper .vam-content img{
-		width: auto; 
-		height: 90vh;
-	}
-	#vam-wrapper .vam-content .vam-descript-wrapper{
-		position: absolute;
-		z-index: 2;
-		padding: 0px 10px;
-		width: 40vw;
-		height: 25vh;
-		background-color: rgba(233,255,226,.8);
-	}
-	#vam-wrapper .bar:nth-child(odd) .vam-content .vam-descript-wrapper{
-		left: 10vw;
-		top: 30vh;
-	}
-	#vam-wrapper .bar:nth-child(even) .vam-content .vam-descript-wrapper{
-		left: -15vw;
-		top: 55vh;
-	}
-	#vam-wrapper .vam-content .vam-descript-wrapper .bar{
-		display: table;
-		height: 25vh;
-	}
-	#vam-wrapper .vam-content .vam-descript-wrapper .bar .midle{
-		display: table-cell;
-		height: 25vh;
-		vertical-align: middle;
-	}
-	#vam-wrapper .vam-content .vam-descript-wrapper .bar .midle h2{
-		text-align: center;
-		font-family: 'open sans';
-	    font-weight: bold;
-	    font-style: italic;
-	    color: rgb(69,186,1);
-	}
-	#vam-wrapper .vam-content .vam-descript-wrapper .bar .midle p{
-		text-align: left;
-		text-indent: 30px;
-		font-family: 'open sans';
-	    font-weight: lighter;
-	    color: rgb(136,137,133);
-	}
-	#vam-wrapper .vam-content .vam-descript-wrapper .bar .midle h2,
-	#vam-wrapper .vam-content .vam-descript-wrapper .bar .midle p{
-		margin: 0px;
-	}
-</style>
+<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-about-us.css') }}">
 @endsection
 
 @section('body-content')
