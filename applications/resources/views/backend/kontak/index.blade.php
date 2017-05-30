@@ -60,14 +60,6 @@
 @endsection
 
 @section('script')
-{{-- <script type="text/javascript">
-  $('.contact-table').dataTable({
-    "bJQueryUI": true,
-    "sPaginationType": "full_numbers",
-    "sDom": '<""l>t<"F"fp>'
-  });
-</script> --}}
-
 @if(Session::has('berhasil'))
 <script type="text/javascript">
   $.gritter.add({

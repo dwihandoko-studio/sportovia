@@ -56,12 +56,30 @@ Route::get('admin/staff/edit/{id}', 'Backend\StaffController@staffUbah')->name('
 Route::post('admin/staff/edit', 'Backend\StaffController@staffEdit')->name('pegawai.edit');
 Route::get('admin/staff/publish/{id}', 'Backend\StaffController@staffPublish')->name('pegawai.publish');
 
+// Social Media
 Route::get('admin/social-media', 'Backend\SocialMediaController@index')->name('socmed.index');
 Route::get('admin/social-media/add', 'Backend\SocialMediaController@tambah')->name('socmed.tambah');
 Route::post('admin/social-media', 'Backend\SocialMediaController@store')->name('socmed.store');
 Route::get('admin/social-media/edit/{id}', 'Backend\SocialMediaController@ubah')->name('socmed.ubah');
 Route::post('admin/social-media/edit', 'Backend\SocialMediaController@edit')->name('socmed.edit');
 Route::get('admin/social-media/publish/{id}', 'Backend\SocialMediaController@publish')->name('socmed.publish');
+
+// Class Category
+Route::get('admin/class-category', 'Backend\KelasKategoriController@index')->name('kelasKategori.index');
+Route::get('admin/class-category/add', 'Backend\KelasKategoriController@tambah')->name('kelasKategori.tambah');
+Route::post('admin/class-category', 'Backend\KelasKategoriController@store')->name('kelasKategori.store');
+Route::get('admin/class-category/edit/{id}', 'Backend\KelasKategoriController@ubah')->name('kelasKategori.ubah');
+Route::post('admin/class-category/edit', 'Backend\KelasKategoriController@edit')->name('kelasKategori.edit');
+Route::get('admin/class-category/publish/{id}', 'Backend\KelasKategoriController@publish')->name('kelasKategori.publish');
+
+// Class Course
+Route::get('admin/class-course', 'Backend\KelasController@index')->name('kelasKursus.index');
+Route::get('admin/class-course/add', 'Backend\KelasController@tambah')->name('kelasKursus.tambah');
+Route::post('admin/class-course', 'Backend\KelasController@store')->name('kelasKursus.store');
+Route::get('admin/class-course/edit/{id}', 'Backend\KelasController@ubah')->name('kelasKursus.ubah');
+Route::post('admin/class-course/edit', 'Backend\KelasController@edit')->name('kelasKursus.edit');
+Route::get('admin/class-course/{id}', 'Backend\KelasController@lihat')->name('kelasKursus.lihat');
+Route::get('admin/class-course/publish/{id}', 'Backend\KelasController@publish')->name('kelasKursus.publish');
 
 
 //----------------------- BACKEND -----------------------//

@@ -11,5 +11,11 @@ class Kelas extends Model
 
     protected $fillable = ['id_kelas_kategori','id_program','nama_kelas','deskripsi_kelas','img_url',
                             'img_alt','fasilitas','video_url','slug','flag_publish','actor'];
-                            
+
+
+    public function kelasKategori()
+    {
+      return $this->belongsTo('App\Models\KelasKategori', 'id_kelas_kategori');
+    }
+
 }

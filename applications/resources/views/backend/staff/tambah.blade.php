@@ -84,6 +84,9 @@
       id_jabatan:{
         required:true,
       },
+      avatar:{
+        accept:"png|jpe?g"
+      },
     },
     errorClass: "help-inline",
     errorElement: "span",
