@@ -53,10 +53,10 @@ hr{ border-top-color:#dadada;}
 	z-index: -9;
 }
 #header h1 {
-	/*background: url("../img/logo.png") no-repeat scroll 0 0 transparent;
+	background: url("../../amadeo/images/logo-cms.png") no-repeat scroll 0 0 transparent;
 	line-height: 600px;
 	overflow: hidden;
-	top: 10px;*/
+	top: 26px;
 	height: 31px;
 	left: 15px;
 	position: relative;
@@ -1274,7 +1274,7 @@ form {
 /* Responsive design */
 @media (max-width: 480px) {
 #header h1 {
-	/*top: 10px; */
+	top: 10px;
 	left:5px;
 	margin: 3px auto;
 }
@@ -1466,7 +1466,7 @@ body {
 	background:#49CCED
 }
 #header h1 {
-	/*top:10px; */
+	top:10px;
 	left:35px;
 }
 #search {

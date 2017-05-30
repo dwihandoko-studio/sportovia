@@ -81,6 +81,21 @@ Route::post('admin/class-course/edit', 'Backend\KelasController@edit')->name('ke
 Route::get('admin/class-course/{id}', 'Backend\KelasController@lihat')->name('kelasKursus.lihat');
 Route::get('admin/class-course/publish/{id}', 'Backend\KelasController@publish')->name('kelasKursus.publish');
 
+// News
+Route::get('admin/news', 'Backend\NewsController@index')->name('news.index');
+Route::get('admin/news/add', 'Backend\NewsController@tambah')->name('news.tambah');
+Route::post('admin/news', 'Backend\NewsController@store')->name('news.store');
+Route::get('admin/news/edit/{id}', 'Backend\NewsController@ubah')->name('news.ubah');
+Route::post('admin/news/edit', 'Backend\NewsController@edit')->name('news.edit');
+Route::get('admin/news/publish/{id}', 'Backend\NewsController@publish')->name('news.publish');
+
+// Event
+Route::get('admin/events', 'Backend\NewsController@index')->name('events.index');
+Route::get('admin/events/add', 'Backend\NewsController@tambah')->name('events.tambah');
+Route::post('admin/events', 'Backend\NewsController@store')->name('events.store');
+Route::get('admin/events/edit/{id}', 'Backend\NewsController@ubah')->name('events.ubah');
+Route::post('admin/events/edit', 'Backend\NewsController@edit')->name('events.edit');
+Route::get('admin/events/publish/{id}', 'Backend\NewsController@publish')->name('events.publish');
 
 //----------------------- BACKEND -----------------------//
 Route::group(['middleware' => ['isAdministrator']], function () {

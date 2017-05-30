@@ -51,7 +51,7 @@
     <h5>Staff List</h5>
     <a href="{{ route('pegawai.tambah') }}" class="btn btn-primary pull-right"><i class="icon-plus"></i> Add</a>
   </div>
-  <div class="widget-content nopadding">
+  <div class="widget-content nopadding" style="overflow-x:auto;">
     <table class="table table-bordered jabatan-table">
       <thead>
         <tr>

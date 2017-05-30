@@ -12,13 +12,11 @@
         <li class="{{ Route::is('staff-jabatan*') ? 'active' : ''}}"><a href="{{ route('staff-jabatan.index') }}">Staff Position</a></li>
       </ul>
     </li>
-    <li class="{{ Route::is('fasilitas*') ? 'active' : '' }}">
-      <a href="{{ route('fasilitas.index') }}"><i class="icon icon-star"></i> <span>Facility</span></a>
-    </li>
-    <li class="submenu {{ Route::is('kelasKategori*') ? 'active' : '' }}{{ Route::is('kelasKursus*') ? 'active' : '' }}">
+    <li class="submenu {{ Route::is('kelasKategori*') ? 'active' : '' }}{{ Route::is('kelasKursus*') ? 'active' : '' }}{{ Route::is('fasilitas*') ? 'active' : '' }}">
       <a href="#"><i class="icon icon-th-list"></i> <span>Class</span></a>
       <ul>
         <li class="{{ Route::is('kelasKursus*') ? 'active' : '' }}"><a href="{{ route('kelasKursus.index')}}">Class Course</a></li>
+        <li class="{{ Route::is('fasilitas*') ? 'active' : '' }}"><a href="{{ route('fasilitas.index') }}">Facility</a></li>
         <li class="{{ Route::is('kelasKategori*') ? 'active' : '' }}"><a href="{{ route('kelasKategori.index') }}">Class Category</a></li>
       </ul>
     </li>
@@ -28,8 +26,13 @@
     <li class="{{ Route::is('socmed*') ? 'active' : '' }}">
       <a href="{{ route('socmed.index') }}"><i class="icon-facebook-sign"></i> <span>Social Media</span></a>
     </li>
-    <li><a href="buttons.html"><i class="icon icon-tint"></i> <span>Buttons &amp; icons</span></a></li>
-    <li><a href="interface.html"><i class="icon icon-pencil"></i> <span>Eelements</span></a></li>
+    <li class="submenu {{ Route::is('news*') ? 'active' : '' }}{{ Route::is('events*') ? 'active' : '' }}">
+      <a href="#"><i class="icon icon-th-list"></i> <span>News & Events</span></a>
+      <ul>
+        <li class="{{ Route::is('news*') ? 'active' : '' }}"><a href="{{ route('news.index')}}">News</a></li>
+        <li class="{{ Route::is('events*') ? 'active' : '' }}"><a href="{{ route('events.index') }}">Event</a></li>
+      </ul>
+    </li>
   </ul>
 </div>
 <!--sidebar-menu-->
