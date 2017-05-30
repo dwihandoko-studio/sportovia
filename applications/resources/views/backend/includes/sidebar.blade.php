@@ -30,7 +30,7 @@
       <a href="#"><i class="icon icon-th-list"></i> <span>News & Events</span></a>
       <ul>
         <li class="{{ Route::is('news*') ? 'active' : '' }}"><a href="{{ route('news.index')}}">News</a></li>
-        <li class="{{ Route::is('events*') ? 'active' : '' }}"><a href="{{ route('events.index') }}">Event</a></li>
+        <li class="{{ Route::is('event*') ? 'active' : '' }}"><a href="{{ route('event.index') }}">Event</a></li>
       </ul>
     </li>
   </ul>

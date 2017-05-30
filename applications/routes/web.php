@@ -90,12 +90,12 @@ Route::post('admin/news/edit', 'Backend\NewsController@edit')->name('news.edit')
 Route::get('admin/news/publish/{id}', 'Backend\NewsController@publish')->name('news.publish');
 
 // Event
-Route::get('admin/events', 'Backend\NewsController@index')->name('events.index');
-Route::get('admin/events/add', 'Backend\NewsController@tambah')->name('events.tambah');
-Route::post('admin/events', 'Backend\NewsController@store')->name('events.store');
-Route::get('admin/events/edit/{id}', 'Backend\NewsController@ubah')->name('events.ubah');
-Route::post('admin/events/edit', 'Backend\NewsController@edit')->name('events.edit');
-Route::get('admin/events/publish/{id}', 'Backend\NewsController@publish')->name('events.publish');
+Route::get('admin/event', 'Backend\EventsController@index')->name('event.index');
+Route::get('admin/event/add', 'Backend\EventsController@tambah')->name('event.tambah');
+Route::post('admin/event', 'Backend\EventsController@store')->name('event.store');
+Route::get('admin/event/edit/{id}', 'Backend\EventsController@ubah')->name('event.ubah');
+Route::post('admin/event/edit', 'Backend\EventsController@edit')->name('event.edit');
+Route::get('admin/event/publish/{id}', 'Backend\EventsController@publish')->name('event.publish');
 
 //----------------------- BACKEND -----------------------//
 Route::group(['middleware' => ['isAdministrator']], function () {
