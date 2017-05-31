@@ -18,4 +18,9 @@ class Kelas extends Model
       return $this->belongsTo('App\Models\KelasKategori', 'id_kelas_kategori');
     }
 
+    public function kelasProgram()
+    {
+        return $this->belongsTo('App\Models\KelasProgram', 'id_program');
+    }
+
 }

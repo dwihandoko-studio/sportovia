@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Models\KelasProgram;
 use App\Models\KelasKategori;
 use App\Models\Kelas;
 use App\Models\Fasilitas;
@@ -22,7 +23,8 @@ class KelasController extends Controller
     public function index()
     {
         $getKelas = Kelas::join('amd_kelas_kategori', 'amd_kelas_kategori.id', '=', 'amd_kelas.id_kelas_kategori')
-                          ->select('amd_kelas.*', 'amd_kelas_kategori.kategori_kelas')
+                          ->join('amd_kelas_program', 'amd_kelas_program.id', '=', 'amd_kelas.id_program')
+                          ->select('amd_kelas.*', 'amd_kelas_kategori.kategori_kelas', 'amd_kelas_program.program_kelas')
                           ->get();
 
         return view('backend.kelas.index', compact('getKelas'));
@@ -30,11 +32,12 @@ class KelasController extends Controller
 
     public function tambah()
     {
+        $getKelasProgram = KelasProgram::where('flag_publish', 1)->get();
         $getKelasKategori = KelasKategori::where('flag_publish', 1)->get();
         $getFasilitas = Fasilitas::where('flag_publish', 1)->get();
 
 
-        return view('backend.kelas.tambah', compact('getKelasKategori', 'getFasilitas'));
+        return view('backend.kelas.tambah', compact('getKelasProgram','getKelasKategori', 'getFasilitas'));
     }
 
     public function store(Request $request)
@@ -134,10 +137,11 @@ class KelasController extends Controller
           return view('backend.errors.404');
         }
 
+        $getKelasProgram = KelasProgram::where('flag_publish', 1)->get();
         $getKelasKategori = KelasKategori::where('flag_publish', 1)->get();
         $getFasilitas = Fasilitas::where('flag_publish', 1)->get();
 
-        return view('backend.kelas.ubah', compact('get', 'getKelasKategori', 'getFasilitas'));
+        return view('backend.kelas.ubah', compact('get', 'getKelasProgram', 'getKelasKategori', 'getFasilitas'));
     }
 
     public function edit(Request $request)

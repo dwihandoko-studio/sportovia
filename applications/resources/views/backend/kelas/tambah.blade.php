@@ -41,8 +41,9 @@
         <div class="controls">
           <select class="span6" name="id_program" id="id_program" title="Please select.">
             <option value="" selected="">--Choose--</option>
-            <option value="0" {{ old('id_program') == 0 ? 'selected' : '' }}>Regular</option>
-            <option value="1" {{ old('id_program') == 1 ? 'selected' : '' }}>Children</option>
+            @foreach ($getKelasProgram as $key)
+            <option value="{{ $key->id }}" {{ old('id_program') == $key->id ? 'selected="selected"' : '' }}>{{ $key->program_kelas }}</option>
+            @endforeach
           </select>
         </div>
       </div>

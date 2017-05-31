@@ -81,6 +81,14 @@ Route::group(['middleware' => ['admin']], function () {
   Route::post('admin/class-category/edit', 'Backend\KelasKategoriController@edit')->name('kelasKategori.edit');
   Route::get('admin/class-category/publish/{id}', 'Backend\KelasKategoriController@publish')->name('kelasKategori.publish');
 
+  // Class Program
+  Route::get('admin/class-program', 'Backend\KelasProgramController@index')->name('kelasProgram.index');
+  Route::get('admin/class-program/add', 'Backend\KelasProgramController@tambah')->name('kelasProgram.tambah');
+  Route::post('admin/class-program', 'Backend\KelasProgramController@store')->name('kelasProgram.store');
+  Route::get('admin/class-program/edit/{id}', 'Backend\KelasProgramController@ubah')->name('kelasProgram.ubah');
+  Route::post('admin/class-program/edit', 'Backend\KelasProgramController@edit')->name('kelasProgram.edit');
+  Route::get('admin/class-program/publish/{id}', 'Backend\KelasProgramController@publish')->name('kelasProgram.publish');
+
   // Class Course
   Route::get('admin/class-course', 'Backend\KelasController@index')->name('kelasKursus.index');
   Route::get('admin/class-course/add', 'Backend\KelasController@tambah')->name('kelasKursus.tambah');

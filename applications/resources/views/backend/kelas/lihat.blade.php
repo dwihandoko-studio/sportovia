@@ -32,7 +32,7 @@
         </tr>
         <tr>
           <td><b>Program</b></td>
-          <td>{{ ($get->id_program == 1) ? 'Children' : 'Regular' }}</td>
+          <td>{{ $get->kelasProgram->program_kelas }}</td>
         </tr>
         <tr>
           <td><b>Name</b></td>
