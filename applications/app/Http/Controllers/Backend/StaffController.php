@@ -42,11 +42,11 @@ class StaffController extends Controller
 
         $save = New StaffJabatan;
         $save->nama_jabatan = $request->nama_jabatan;
-        $save->actor = 1;
+        $save->actor = auth()->guard('admin')->id();
         $save->save();
 
         $log = new LogAkses;
-        $log->actor = 1;
+        $log->actor = auth()->guard('admin')->id();
         $log->aksi = 'Adding New Staff Position '.$request->nama_jabatan;
         $log->save();
 
@@ -77,11 +77,11 @@ class StaffController extends Controller
 
       $update = StaffJabatan::find($request->id_edit);
       $update->nama_jabatan = $request->edit_nama_jabatan;
-      $update->actor = 1;
+      $update->actor = auth()->guard('admin')->id();
       $update->update();
 
       $log = new LogAkses;
-      $log->actor = 1;
+      $log->actor = auth()->guard('admin')->id();
       $log->aksi = 'Edit Staff Position '.$request->edit_nama_jabatan;
       $log->save();
 
@@ -101,10 +101,20 @@ class StaffController extends Controller
           $set->flag_publish = 0;
           $set->update();
 
+          $log = new LogAkses;
+          $log->actor = auth()->guard('admin')->id();
+          $log->aksi = 'Unpublish Data Staff Position '.$set->nama_jabatan;
+          $log->save();
+
           return redirect()->route('staff-jabatan.index')->with('berhasil', 'Successfully unpublished '.$set->nama_jabatan);
         }else{
           $set->flag_publish = 1;
           $set->update();
+
+          $log = new LogAkses;
+          $log->actor = auth()->guard('admin')->id();
+          $log->aksi = 'Publish Data Staff Position '.$set->nama_jabatan;
+          $log->save();
 
           return redirect()->route('staff-jabatan.index')->with('berhasil', 'Successfully published '.$set->nama_jabatan);
         }
@@ -164,7 +174,7 @@ class StaffController extends Controller
         $save->quotes_staff = $request->quotes_staff;
         $save->avatar_alt = $request->nama_staff;
         $save->flag_publish = $flag_publish;
-        $save->actor = 1;
+        $save->actor = auth()->guard('admin')->id();
         if($image){
           $img_url = 'sportopia-'.str_slug($request->nama_staff,'-'). '.' . $image->getClientOriginalExtension();
           Image::make($image)->save('amadeo/images/users/'. $img_url);
@@ -173,7 +183,7 @@ class StaffController extends Controller
         $save->save();
 
         $log = new LogAkses;
-        $log->actor = 1;
+        $log->actor = auth()->guard('admin')->id();
         $log->aksi = 'Create New Staff '.$request->nama_staff;
         $log->save();
 
@@ -231,7 +241,7 @@ class StaffController extends Controller
         $update->quotes_staff = $request->quotes_staff;
         $update->avatar_alt = $request->nama_staff;
         $update->flag_publish = $flag_publish;
-        $update->actor = 1;
+        $update->actor = auth()->guard('admin')->id();
         if($image){
           $img_url = 'sportopia-'.str_slug($request->nama_staff,'-'). '.' . $image->getClientOriginalExtension();
           Image::make($image)->save('amadeo/images/users/'. $img_url);
@@ -240,7 +250,7 @@ class StaffController extends Controller
         $update->save();
 
         $log = new LogAkses;
-        $log->actor = 1;
+        $log->actor = auth()->guard('admin')->id();
         $log->aksi = 'Edit Data Staff '.$request->nama_staff;
         $log->save();
 
@@ -262,10 +272,20 @@ class StaffController extends Controller
           $set->flag_publish = 0;
           $set->update();
 
+          $log = new LogAkses;
+          $log->actor = auth()->guard('admin')->id();
+          $log->aksi = 'Unpublish Data Staff '.$set->nama_staff;
+          $log->save();
+
           return redirect()->route('pegawai.index')->with('berhasil', 'Successfully unpublished '.$set->nama_staff);
         }else{
           $set->flag_publish = 1;
           $set->update();
+
+          $log = new LogAkses;
+          $log->actor = auth()->guard('admin')->id();
+          $log->aksi = 'Publish Data Staff '.$set->nama_staff;
+          $log->save();
 
           return redirect()->route('pegawai.index')->with('berhasil', 'Successfully published '.$set->nama_staff);
         }

@@ -83,11 +83,11 @@ class NewsController extends Controller
         $save->flag_publish = $flag_publish;
         $save->tanggal_publish = $request->tanggal_publish_;
         $save->slug = str_slug($request->judul,'-');
-        $save->actor = 1;
+        $save->actor = auth()->guard('admin')->id();
         $save->save();
 
         $log = new LogAkses;
-        $log->actor = 1;
+        $log->actor = auth()->guard('admin')->id();
         $log->aksi = 'Create New News '.$request->judul;
         $log->save();
 
@@ -161,11 +161,11 @@ class NewsController extends Controller
         $save->flag_publish = $flag_publish;
         $save->tanggal_publish = $request->tanggal_publish_;
         $save->slug = str_slug($request->judul,'-');
-        $save->actor = 1;
+        $save->actor = auth()->guard('admin')->id();
         $save->save();
 
         $log = new LogAkses;
-        $log->actor = 1;
+        $log->actor = auth()->guard('admin')->id();
         $log->aksi = 'Edit Data News '.$request->judul;
         $log->save();
 
@@ -196,10 +196,20 @@ class NewsController extends Controller
           $set->flag_publish = 0;
           $set->update();
 
+          $log = new LogAkses;
+          $log->actor = auth()->guard('admin')->id();
+          $log->aksi = 'Unpublish Data News '.$set->judul;
+          $log->save();
+
           return redirect()->route('news.index')->with('berhasil', 'Successfully unpublished '.$set->judul);
         }else{
           $set->flag_publish = 1;
           $set->update();
+
+          $log = new LogAkses;
+          $log->actor = auth()->guard('admin')->id();
+          $log->aksi = 'Publish Data News '.$set->judul;
+          $log->save();
 
           return redirect()->route('news.index')->with('berhasil', 'Successfully published '.$set->judul);
         }

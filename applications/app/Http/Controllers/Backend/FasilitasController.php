@@ -41,11 +41,11 @@ class FasilitasController extends Controller
 
         $save = New Fasilitas;
         $save->nama_fasilitas = $request->nama_fasilitas;
-        $save->actor = 1;
+        $save->actor = auth()->guard('admin')->id();
         $save->save();
 
         $log = new LogAkses;
-        $log->actor = 1;
+        $log->actor = auth()->guard('admin')->id();
         $log->aksi = 'Adding New Facility '.$request->nama_fasilitas;
         $log->save();
 
@@ -76,11 +76,11 @@ class FasilitasController extends Controller
 
       $update = Fasilitas::find($request->id_edit);
       $update->nama_fasilitas = $request->edit_nama_fasilitas;
-      $update->actor = 1;
+      $update->actor = auth()->guard('admin')->id();
       $update->update();
 
       $log = new LogAkses;
-      $log->actor = 1;
+      $log->actor = auth()->guard('admin')->id();
       $log->aksi = 'Edit Facility '.$request->edit_nama_fasilitas;
       $log->save();
 
@@ -100,10 +100,20 @@ class FasilitasController extends Controller
           $set->flag_publish = 0;
           $set->update();
 
+          $log = new LogAkses;
+          $log->actor = auth()->guard('admin')->id();
+          $log->aksi = 'Unpublish Data Facility '.$set->nama_fasilitas;
+          $log->save();
+
           return redirect()->route('fasilitas.index')->with('berhasil', 'Successfully unpublished '.$set->nama_fasilitas);
         }else{
           $set->flag_publish = 1;
           $set->update();
+
+          $log = new LogAkses;
+          $log->actor = auth()->guard('admin')->id();
+          $log->aksi = 'Publish Data Facility '.$set->nama_fasilitas;
+          $log->save();
 
           return redirect()->route('fasilitas.index')->with('berhasil', 'Successfully published '.$set->nama_fasilitas);
         }

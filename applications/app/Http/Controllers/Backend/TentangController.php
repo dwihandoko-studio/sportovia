@@ -79,11 +79,11 @@ class TentangController extends Controller
         $save->visi = nl2br($request->visi);
         $save->img_misi = $img_url_misi;
         $save->misi = nl2br($request->misi);
-        $save->actor = 1;
+        $save->actor = auth()->guard('admin')->id();
         $save->save();
 
         $log = New LogAkses;
-        $log->actor = 1;
+        $log->actor = auth()->guard('admin')->id();
         $log->aksi  = 'Adding About Data';
         $log->save();
 
@@ -144,7 +144,7 @@ class TentangController extends Controller
         $update->deskripsi_tentang = nl2br($request->deskripsi_tentang);
         $update->visi = nl2br($request->visi);
         $update->misi = nl2br($request->misi);
-        $update->actor = 1;
+        $update->actor = auth()->guard('admin')->id();
         if(!$image_visi && !$image_misi){
           $update->update();
         }elseif($image_misi && $image_visi){
@@ -172,7 +172,7 @@ class TentangController extends Controller
         }
 
         $log = New LogAkses;
-        $log->actor = 1;
+        $log->actor = auth()->guard('admin')->id();
         $log->aksi  = 'Edit About Data';
         $log->save();
 

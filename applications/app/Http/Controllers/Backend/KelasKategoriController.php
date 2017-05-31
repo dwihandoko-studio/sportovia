@@ -92,11 +92,11 @@ class KelasKategoriController extends Controller
         $save->img_thumb_alt = 'sportopia-'.str_slug($request->kategori_kelas,'-').'-thumb';
         $save->flag_publish = $flag_publish;
         $save->slug = str_slug($request->kategori_kelas,'-');
-        $save->actor = 1;
+        $save->actor = auth()->guard('admin')->id();
         $save->save();
 
         $log = new LogAkses;
-        $log->actor = 1;
+        $log->actor = auth()->guard('admin')->id();
         $log->aksi = 'Create New Class Category '.$request->kategori_kelas;
         $log->save();
 
@@ -162,7 +162,7 @@ class KelasKategoriController extends Controller
         $update->quotes_kategori = nl2br($request->quotes_kategori);
         $update->deskripsi_kategori = nl2br($request->deskripsi_kategori);
         $update->flag_publish = $flag_publish;
-        $update->actor = 1;
+        $update->actor = auth()->guard('admin')->id();
         $update->img_banner_alt = 'sportopia-'.str_slug($request->kategori_kelas,'-').'-banner';
         $update->img_thumb_alt = 'sportopia-'.str_slug($request->kategori_kelas,'-').'-thumb';
         if($image_banner){
@@ -178,7 +178,7 @@ class KelasKategoriController extends Controller
         $update->update();
 
         $log = new LogAkses;
-        $log->actor = 1;
+        $log->actor = auth()->guard('admin')->id();
         $log->aksi = 'Edit Data Class Category '.$request->kategori_kelas;
         $log->save();
 
@@ -197,10 +197,20 @@ class KelasKategoriController extends Controller
           $set->flag_publish = 0;
           $set->update();
 
+          $log = new LogAkses;
+          $log->actor = auth()->guard('admin')->id();
+          $log->aksi = 'Unpublish Data Class Category '.$set->kategori_kelas;
+          $log->save();
+
           return redirect()->route('kelasKategori.index')->with('berhasil', 'Successfully unpublished '.$set->kategori_kelas);
         }else{
           $set->flag_publish = 1;
           $set->update();
+
+          $log = new LogAkses;
+          $log->actor = auth()->guard('admin')->id();
+          $log->aksi = 'Publish Data Class Category '.$set->kategori_kelas;
+          $log->save();
 
           return redirect()->route('kelasKategori.index')->with('berhasil', 'Successfully published '.$set->kategori_kelas);
         }

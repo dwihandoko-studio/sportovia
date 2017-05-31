@@ -57,11 +57,11 @@ class KontakController extends Controller
             'office'  => nl2br($request->office),
             'email' => $request->email,
             'alamat'  => nl2br($request->alamat),
-            'actor' => 1
+            'actor' => auth()->guard('admin')->id()
           ]);
 
           $log = LogAkses::create([
-            'actor' => 1,
+            'actor' => auth()->guard('admin')->id(),
             'aksi'  => 'Adding Contact Data'
           ]);
 
@@ -113,11 +113,11 @@ class KontakController extends Controller
           $update->office = nl2br($request->office);
           $update->email = $request->email;
           $update->alamat = nl2br($request->alamat);
-          $update->actor  = 1;
+          $update->actor  = auth()->guard('admin')->id();
           $update->update();
 
           $log = LogAkses::create([
-            'actor' => 1,
+            'actor' => auth()->guard('admin')->id(),
             'aksi'  => 'Edit Contact Data'
           ]);
 

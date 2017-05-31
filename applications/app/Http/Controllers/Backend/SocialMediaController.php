@@ -69,11 +69,11 @@ class SocialMediaController extends Controller
         $save->link_url = $request->link_url;
         $save->img_url = $img_url;
         $save->flag_publish = $flag_publish;
-        $save->actor = 1;
+        $save->actor = auth()->guard('admin')->id();;
         $save->save();
 
         $log = new LogAkses;
-        $log->actor = 1;
+        $log->actor = auth()->guard('admin')->id();;
         $log->aksi = 'Adding New Social Media '.$request->nama_sosmed;
         $log->save();
 
@@ -133,11 +133,11 @@ class SocialMediaController extends Controller
           $save->img_url = $img_url;
         }
         $save->flag_publish = $flag_publish;
-        $save->actor = 1;
+        $save->actor = auth()->guard('admin')->id();;
         $save->update();
 
         $log = new LogAkses;
-        $log->actor = 1;
+        $log->actor = auth()->guard('admin')->id();;
         $log->aksi = 'Edit Data Social Media '.$request->nama_sosmed;
         $log->save();
 
@@ -158,10 +158,20 @@ class SocialMediaController extends Controller
           $set->flag_publish = 0;
           $set->update();
 
+          $log = new LogAkses;
+          $log->actor = auth()->guard('admin')->id();
+          $log->aksi = 'Unpublish Data Social Media '.$set->nama_sosmed;
+          $log->save();
+
           return redirect()->route('socmed.index')->with('berhasil', 'Successfully unpublished '.$set->nama_sosmed);
         }else{
           $set->flag_publish = 1;
           $set->update();
+
+          $log = new LogAkses;
+          $log->actor = auth()->guard('admin')->id();
+          $log->aksi = 'Publish Data Social Media '.$set->nama_sosmed;
+          $log->save();
 
           return redirect()->route('socmed.index')->with('berhasil', 'Successfully published '.$set->nama_sosmed);
         }

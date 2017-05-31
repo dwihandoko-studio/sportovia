@@ -104,11 +104,11 @@ class KelasController extends Controller
         $save->video_url  = $request->video_url;
         $save->flag_publish = $flag_publish;
         $save->slug = str_slug($request->nama_kelas,'-');
-        $save->actor = 1;
+        $save->actor = auth()->guard('admin')->id();
         $save->save();
 
         $log = new LogAkses;
-        $log->actor = 1;
+        $log->actor = auth()->guard('admin')->id();
         $log->aksi = 'Create New Class Course '.$request->nama_kelas;
         $log->save();
 
@@ -202,7 +202,7 @@ class KelasController extends Controller
         $update->fasilitas = $fasilitas;
         $update->video_url = $request->video_url;
         $update->flag_publish = $flag_publish;
-        $update->actor = 1;
+        $update->actor = auth()->guard('admin')->id();
         $update->slug = str_slug($request->nama_kelas,'-');
         $update->img_alt = 'sportopia-'.$program.'-'.str_slug($request->nama_kelas,'-');
         if($image){
@@ -213,7 +213,7 @@ class KelasController extends Controller
         $update->update();
 
         $log = new LogAkses;
-        $log->actor = 1;
+        $log->actor = auth()->guard('admin')->id();
         $log->aksi = 'Edit Data Class Course '.$request->nama_kelas;
         $log->save();
 
@@ -232,10 +232,20 @@ class KelasController extends Controller
           $set->flag_publish = 0;
           $set->update();
 
+          $log = new LogAkses;
+          $log->actor = auth()->guard('admin')->id();
+          $log->aksi = 'Unpublish Data Class Course '.$set->nama_kelas;
+          $log->save();
+
           return redirect()->route('kelasKursus.index')->with('berhasil', 'Successfully unpublished '.$set->nama_kelas);
         }else{
           $set->flag_publish = 1;
           $set->update();
+
+          $log = new LogAkses;
+          $log->actor = auth()->guard('admin')->id();
+          $log->aksi = 'Publish Data Class Course '.$set->nama_kelas;
+          $log->save();
 
           return redirect()->route('kelasKursus.index')->with('berhasil', 'Successfully published '.$set->nama_kelas);
         }

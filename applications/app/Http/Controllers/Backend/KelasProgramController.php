@@ -92,11 +92,11 @@ class KelasProgramController extends Controller
         $save->img_thumb_alt = 'sportopia-'.str_slug($request->program_kelas,'-').'-thumb';
         $save->flag_publish = $flag_publish;
         $save->slug = str_slug($request->program_kelas,'-');
-        $save->actor = 1;
+        $save->actor = auth()->guard('admin')->id();
         $save->save();
 
         $log = new LogAkses;
-        $log->actor = 1;
+        $log->actor = auth()->guard('admin')->id();
         $log->aksi = 'Create New Class Program '.$request->program_kelas;
         $log->save();
 
@@ -163,7 +163,7 @@ class KelasProgramController extends Controller
         $update->quotes_program = nl2br($request->quotes_program);
         $update->deskripsi_program = nl2br($request->deskripsi_program);
         $update->flag_publish = $flag_publish;
-        $update->actor = 1;
+        $update->actor = auth()->guard('admin')->id();
         $update->img_banner_alt = 'sportopia-'.str_slug($request->program_kelas,'-').'-banner';
         $update->img_thumb_alt = 'sportopia-'.str_slug($request->program_kelas,'-').'-thumb';
         if($image_banner){
@@ -179,7 +179,7 @@ class KelasProgramController extends Controller
         $update->update();
 
         $log = new LogAkses;
-        $log->actor = 1;
+        $log->actor = auth()->guard('admin')->id();
         $log->aksi = 'Edit Data Class Program '.$request->program_kelas;
         $log->save();
 
@@ -198,10 +198,20 @@ class KelasProgramController extends Controller
           $set->flag_publish = 0;
           $set->update();
 
+          $log = new LogAkses;
+          $log->actor = auth()->guard('admin')->id();
+          $log->aksi = 'Unpublish Data Class Program '.$set->program_kelas;
+          $log->save();
+
           return redirect()->route('kelasProgram.index')->with('berhasil', 'Successfully unpublished '.$set->program_kelas);
         }else{
           $set->flag_publish = 1;
           $set->update();
+
+          $log = new LogAkses;
+          $log->actor = auth()->guard('admin')->id();
+          $log->aksi = 'Publish Data Class Program '.$set->program_kelas;
+          $log->save();
 
           return redirect()->route('kelasProgram.index')->with('berhasil', 'Successfully published '.$set->program_kelas);
         }

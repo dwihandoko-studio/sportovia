@@ -86,11 +86,11 @@ class EventsController extends Controller
         $save->tanggal_event = $request->tanggal_event;
         $save->tanggal_publish = $request->tanggal_publish_;
         $save->slug = str_slug($request->judul,'-');
-        $save->actor = 1;
+        $save->actor = auth()->guard('admin')->id();
         $save->save();
 
         $log = new LogAkses;
-        $log->actor = 1;
+        $log->actor = auth()->guard('admin')->id();
         $log->aksi = 'Create New Events '.$request->judul;
         $log->save();
 
@@ -167,7 +167,7 @@ class EventsController extends Controller
         $save->tanggal_event = $request->tanggal_event;
         $save->tanggal_publish = $request->tanggal_publish_;
         $save->slug = str_slug($request->judul,'-');
-        $save->actor = 1;
+        $save->actor = auth()->guard('admin')->id();
         $save->save();
 
         $log = new LogAkses;
@@ -202,10 +202,20 @@ class EventsController extends Controller
           $set->flag_publish = 0;
           $set->update();
 
+          $log = new LogAkses;
+          $log->actor = auth()->guard('admin')->id();
+          $log->aksi = 'Unpublish Data Event '.$set->judul;
+          $log->save();
+
           return redirect()->route('event.index')->with('berhasil', 'Successfully unpublished '.$set->judul);
         }else{
           $set->flag_publish = 1;
           $set->update();
+
+          $log = new LogAkses;
+          $log->actor = auth()->guard('admin')->id();
+          $log->aksi = 'Publish Data Event '.$set->judul;
+          $log->save();
 
           return redirect()->route('event.index')->with('berhasil', 'Successfully published '.$set->judul);
         }
