@@ -132,32 +132,17 @@ Route::get('/about/us', 'Frontend\AboutController@us')
 Route::get('/about/staff', 'Frontend\AboutController@staff')
 	->name('frontend.about.staff');
 
-Route::get('/contact', 'Frontend\ContactController@index')
-	->name('frontend.contact');
-
-Route::get('/art', 'Frontend\ArtController@index')
-	->name('frontend.art.index');
-Route::get('/art/{slug}', 'Frontend\ArtController@view')
-	->name('frontend.art.view');
-
-Route::get('/education', 'Frontend\EducationController@index')
-	->name('frontend.education.index');
-Route::get('/education/{slug}', 'Frontend\EducationController@view')
-	->name('frontend.education.view');
-
-Route::get('/games', 'Frontend\GamesController@index')
-	->name('frontend.games.index');
-Route::get('/games/{slug}', 'Frontend\GamesController@view')
-	->name('frontend.games.view');
-
 Route::get('/news-event', 'Frontend\NewsEventController@index')
 	->name('frontend.news-event.index');
 Route::get('/news-event/{slug}', 'Frontend\NewsEventController@view')
 	->name('frontend.news-event.view');
 
-Route::get('/sport', 'Frontend\SportController@index')
-	->name('frontend.sport.index');
-Route::get('/sport/{slug}', 'Frontend\SportController@view')
-	->name('frontend.sport.view');
+Route::get('/contact', 'Frontend\ContactController@index')
+	->name('frontend.contact');
+
+Route::get('/{slug}', 'Frontend\ClassController@index')
+	->name('frontend.class.index');
+Route::get('/{slug}/{subslug}', 'Frontend\ClassController@view')
+	->name('frontend.class.view');
 
 //-------------------- FRONT END MEMBER ----------------//

@@ -40,98 +40,34 @@
 								</div>
 							</div>
 						</li>
+						@foreach($callNavKategori as $list)
 						<li class="dropdown">
-							<a class="{{ Route::is('frontend.sport*') ? 'active' : '' }}" href="{{ Route('frontend.sport.index') }}">
-								Sport
+							<a class="" href="{{ Route('frontend.class.index', ['slug' => $list->slug]) }}">
+								{{ $list->kategori_kelas }}
 							</a>
-							<div class="dropdown-wrapper">
+							<div class="dropdown-wrapper class">
 								<div class="dropdown-content">
-									@for($a=0; $a<=2; $a++)
+									@php ($looping=1)
+									@foreach($callNavClass as $sublist)
+									@if($sublist->id_kelas_kategori == $list->id)
+									@if($looping%2 != 0)
 									<div class="link-wrapper">
+									@endif
 										<div class="link">
-											<a href="{{ Route('frontend.sport.view', ['slug'=>$a]) }}">
-												Aikido
+											<a href="{{ Route('frontend.class.view', ['slug' => $list->slug, 'subslug' => $sublist->slug]) }}">
+												{{ str::words($sublist->nama_kelas, 2, '') }}
 											</a>
 										</div>
-										<div class="link">
-											<a href="{{ Route('frontend.sport.view', ['slug'=>$a]) }}">
-												Taekwondo
-											</a>
-										</div>
+									@if($looping%2 == 0)
 									</div>
-									@endfor
+									@endif
+									@php ($looping++)
+									@endif
+									@endforeach
 								</div>
 							</div>
 						</li>
-						<li class="dropdown">
-							<a class="{{ Route::is('frontend.art*') ? 'active' : '' }}" href="{{ Route('frontend.art.index') }}">
-								Art
-							</a>
-							<div class="dropdown-wrapper">
-								<div class="dropdown-content">
-									@for($a=0; $a<=3; $a++)
-									<div class="link-wrapper">
-										<div class="link">
-											<a href="{{ Route('frontend.art.view', ['slug'=>$a]) }}">
-												Aikido
-											</a>
-										</div>
-										<div class="link">
-											<a href="{{ Route('frontend.art.view', ['slug'=>$a]) }}">
-												Taekwondo
-											</a>
-										</div>
-									</div>
-									@endfor
-								</div>
-							</div>
-						</li>
-						<li class="dropdown">
-							<a class="{{ Route::is('frontend.education*') ? 'active' : '' }}" href="{{ Route('frontend.education.index') }}">
-								Education
-							</a>
-							<div class="dropdown-wrapper">
-								<div class="dropdown-content">
-									@for($a=0; $a<=3; $a++)
-									<div class="link-wrapper">
-										<div class="link">
-											<a href="{{ Route('frontend.education.view', ['slug'=>$a]) }}">
-												Aikido
-											</a>
-										</div>
-										<div class="link">
-											<a href="{{ Route('frontend.education.view', ['slug'=>$a]) }}">
-												Taekwondo
-											</a>
-										</div>
-									</div>
-									@endfor
-								</div>
-							</div>
-						</li>
-						<li class="dropdown">
-							<a class="{{ Route::is('frontend.games*') ? 'active' : '' }}" href="{{ Route('frontend.games.index') }}">
-								Games
-							</a>
-							<div class="dropdown-wrapper">
-								<div class="dropdown-content">
-									@for($a=0; $a<=5; $a++)
-									<div class="link-wrapper">
-										<div class="link">
-											<a href="{{ Route('frontend.games.view', ['slug'=>$a]) }}">
-												Aikido
-											</a>
-										</div>
-										<div class="link">
-											<a href="{{ Route('frontend.games.view', ['slug'=>$a]) }}">
-												Taekwondo
-											</a>
-										</div>
-									</div>
-									@endfor
-								</div>
-							</div>
-						</li>
+						@endforeach
 						<li>
 							<a class="{{ Route::is('frontend.news-event*') ? 'active' : '' }}" href="{{ Route('frontend.news-event.index') }}">
 								News & Event

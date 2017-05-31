@@ -121,6 +121,9 @@ a:hover{
 	visibility: hidden;
 	opacity: 0;
 }
+#nav #list li.dropdown .dropdown-wrapper.class{
+	left: -90px;
+}
 #nav #list li.dropdown:hover .dropdown-wrapper{
 	visibility: visible;
 	opacity: 1;
@@ -128,11 +131,12 @@ a:hover{
 }
 #nav #list li.dropdown .dropdown-wrapper .dropdown-content{
 	position: relative;
-	width: 30vw;
+	width: 480px;
+	background-color: white;
 }
 #nav #list li.dropdown .dropdown-wrapper .dropdown-content .link-wrapper{
 	float: left;
-	width: 10vw;
+	width: 160px;
 	padding: 3px 0px 0px;
 	background-color: white;
 }

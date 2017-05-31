@@ -28,10 +28,15 @@
 #staff .staff-wrapper .staff-content .name-wrapper{
 	position: relative;
 	padding-bottom: 5px;
+    width: 100%;
+    display: table;
 }
 #staff .staff-wrapper .staff-content .name-wrapper h2{
     font-family: 'open sans';
     margin: 10px 0px;
+    vertical-align: middle;
+    display: table-cell;
+    width: 100%;
 }
 #staff .staff-wrapper .staff-content .name-wrapper h2.name{
     color: rgb(69,186,1);

@@ -1,7 +1,7 @@
 @extends('frontend._layouts.basic')
 
 @section('head-title')
-<title>Sportopia - {{ $titlePage }}</title>
+<title>Sportopia - {{ $callKategori->kategori_kelas }} Class</title>
 @endsection
 
 @section('meta')
@@ -21,7 +21,7 @@
 @section('body-content')
 <?php // banner wrapper ?>
 <div id="banner">
-	<div class="banner-content" style="background-image: url('{{ asset('amadeo/main-image/banner.png') }}');"></div>
+	<div class="banner-content" style="background-image: url('{{ asset('amadeo/images/class/'.$callKategori->img_banner) }}');"></div>
 </div>
 <?php // index and description wrapper ?>
 <div id="iad" class="setup-wrapper">
@@ -33,42 +33,42 @@
 				</a>
 			</label>
 			<label>
-				<a href="{{ Route($routePage.'index') }}">
-					{{ $titlePage }}
+				<a href="{{ Route('frontend.class.index', ['slug' => $callKategori->slug]) }}">
+					{{ $callKategori->kategori_kelas }} Class
 				</a>
 			</label>
 		</div>
 		<h1>
-			{{ $titlePage }}
+			{{ $callKategori->kategori_kelas }} Class
 		</h1>
 		<h1>
-			{{ $titleSubPage }}
+			{{ $callKategori->quotes_kategori }}
 		</h1>
 		<h3>
-			{{ $descriptionPage }}
+			{{ $callKategori->deskripsi_kategori }}
 		</h3>
 	</div>
 </div>
 <?php // index wrapper ?>
 <div id="index" class="setup-wrapper">
 	<div class="setup-content lar-wd">
-	@for($a=0; $a<=5; $a++)
-		<a href="{{ Route($routePage.'view', ['slug'=>$a ]) }}">
+	@foreach($callClass as $list)
+		<a href="{{ Route('frontend.class.view', ['slug' => $callKategori->slug, 'subslug' => $list->slug]) }}">
 			<div class="index-wrapper">
-				<div class="img-back" style="background-image: url('{{ asset('amadeo/main-image/card.jpg') }}');">
+				<div class="img-back" style="background-image: url('{{ asset('amadeo/images/class/'.$list->img_url) }}');">
 					<div class="img-description-wrapper">
 						<img src="{{ asset('amadeo/main-image/icon-circle.png') }}">
-						<p>Lorem Ipsum Doler Sit Amer, Lorem Ipsum Doler Sit Amer, Lorem Ipsum Doler Sit Amer,Lorem Ipsum Doler Sit Amer, Lorem Ipsum Doler Sit Amer, Lorem Ipsum Doler Sit Amer,Lorem Ipsum Doler Sit Amer, Lorem Ipsum Doler Sit Amer, Lorem Ipsum Doler Sit Amer</p>
+						<p>{{ Str::words($list->deskripsi_kelas, 40) }}</p>
 					</div>
 				</div>
 				<div class="index-title-wrapper">
 					<div class="title-content">
-						<h3>title in here title in here</h3>
+						<h3>{{ $list->nama_kelas }}</h3>
 					</div>
 				</div>
 			</div>
 		</a>
-	@endfor
+	@endforeach
 		<div class="clearfix"></div>
 	</div>
 </div>

@@ -99,10 +99,7 @@
 }
 #view .content-other .body-CO .item .img{
 	width: 100%;
-	height: 70vh;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
+	height: 70px;
 	position: relative;
 }
 #view .content-other .body-CO .item .img .description{
@@ -124,8 +121,8 @@
 	position: relative;
 }
 #view .content-other .body-CO .item .img .description .wrapper:nth-child(odd) .content{
-	background-image: radial-gradient(circle 50px at 50% 0, transparent 25px, rgba(238,255,233,.8) 25px);
-    background-image: -webkit-radial-gradient(50% 0, circle, transparent 25px, rgba(238,255,233,.8) 25px);
+	background-image: radial-gradient(circle 50px at 50% 0, transparent 25px, rgb(238,255,233) 25px);
+    background-image: -webkit-radial-gradient(50% 0, circle, transparent 25px, rgb(238,255,233) 25px);
 }
 #view .content-other .body-CO .item .img .description .wrapper:nth-child(odd) .content img{
 	width: 35px;
@@ -182,15 +179,21 @@
 	#view .content-other{
 		padding: 0;
 	}
+	#view .content-other .body-CO{
+		padding: 0;
+	}
 	#view .content-other .body-CO .item{
 		width: 49%;
 		padding: 0;
 	}
 	#view .content-other .body-CO .item .img{
-		height: 30vh;
+		height: 80px;
 	}
 	#view .content-other .body-CO .item .img .description .wrapper:nth-child(odd) .content img{
-		left: 12.8vw;
+		left: 40%;
+	}
+	#view .content-other .body-CO .item .img .description .wrapper .content label{
+		font-size: 9px;
 	}
 	#view .content-other .body-CO iframe{
 		height: 30vh;
