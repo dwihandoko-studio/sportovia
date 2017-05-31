@@ -55,7 +55,7 @@
 									@endif
 										<div class="link">
 											<a href="{{ Route('frontend.class.view', ['slug' => $list->slug, 'subslug' => $sublist->slug]) }}">
-												{{ str::words($sublist->nama_kelas, 2, '') }}
+												{{ Str::words($sublist->nama_kelas, 2, '') }}
 											</a>
 										</div>
 									@if($looping%2 == 0)
