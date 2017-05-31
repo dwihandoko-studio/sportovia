@@ -50,7 +50,7 @@
 		<div class="bar right">
 			<div class="title">
 				<h1>{{ $callClass->nama_kelas }} Class</h1>
-				<h1>asdasdasdasdas</h1>
+				<h1>{{ $callClass->quotes }}</h1>
 			</div>
 			<div class="content">
 				<p>{{ $callClass->deskripsi_kelas }}</p>

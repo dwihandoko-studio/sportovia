@@ -1,7 +1,7 @@
 @extends('frontend._layouts.basic')
 
 @section('head-title')
-<title>Sportopia - Children Class</title>
+<title>Sportopia - {{ $callProgram->program_kelas }} Class</title>
 @endsection
 
 @section('meta')
@@ -18,7 +18,7 @@
 @section('body-content')
 <?php // banner wrapper ?>
 <div id="banner">
-	<div class="banner-content" style="background-image: url('{{ asset('amadeo/main-image/banner.png') }}');"></div>
+	<div class="banner-content" style="background-image: url('{{ asset('amadeo/images/class/'.$callProgram->img_banner) }}');"></div>
 </div>
 <?php // index and description wrapper ?>
 <div id="iad" class="setup-wrapper">
@@ -30,38 +30,40 @@
 				</a>
 			</label>
 			<label>
-				<a href="{{ Route($routePage.'index') }}">
-					{{ $titlePage }}
+				<a href="{{ Route('frontend.program.index', ['slug' => $callProgram->slug]) }}">
+					{{ $callProgram->program_kelas }} Class
 				</a>
 			</label>
 		</div>
 		<h1>
-			{{ $titlePage }}
+			{{ $callProgram->program_kelas }} Class
 		</h1>
 		<h1>
-			Lorem ipsum dolor sit amet
+			{{ $callProgram->quotes_program }}
 		</h1>
 		<h3>
-			Lorem ipsum dolor sit amet, quas assum volutpat ei vix, usu
+			{{ $callProgram->deskripsi_program }}
 		</h3>
 	</div>
 </div>
 <?php // index wrapper ?>
 <div id="index" class="setup-wrapper">
 	<div class="setup-content lar-wd">
-	@for($a=0; $a<=5; $a++)
+	@foreach($callClass as $list)
 		<div class="index-wrapper">
 			<div class="img-back" style="background-image: url('{{ asset('amadeo/main-image/kids-index.png') }}');">
-				<h2>Title In Here</h2>
+				<h2>{{ $list->nama_kelas }}</h2>
 				<div class="content">
-					<div class="pict" style="background-image: url('{{ asset('amadeo/main-image/kids-index-pict.png') }}');">
+					<div class="pict" style="background-image: url('{{ asset('amadeo/images/class/'.$list->img_url) }}');">
 					</div>
-					<p>	Lorem ipsum dolor sit amet, quas assum volutpat ei vix, usu semper laoreet placerat an. Assum recteque te has, ad quidam euripidis eloquentiam sed, equidem fierent phaedrum et sea. An legendos praesent quo. Sea cu dicta partem signiferumque.</p>
-					<a href="{{ route($routePage.'view', ['slug'=>$a]) }}" class="btn btn-green">Detail</a>
+					<p>{{ Str::words($list->deskripsi_kelas, 45, ' ...') }}</p>
+					<a href="{{ route('frontend.class.view', ['slug'=> $list->kategori_slug, 'subslug' => $list->kelas_slug]) }}" class="btn btn-green">
+						Detail
+					</a>
 				</div>
 			</div>
 		</div>
-	@endfor
+	@endforeach
 		<div class="clearfix"></div>
 	</div>
 </div>

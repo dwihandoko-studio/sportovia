@@ -130,16 +130,6 @@ Route::group(['middleware' => ['isMember']], function(){
 Route::get('/', 'Frontend\HomeController@index')
 	->name('frontend.home');
 
-Route::get('/reguler-class', 'Frontend\RegulerClassController@index')
-	->name('frontend.reguler.index');
-Route::get('/reguler-class/{slug}', 'Frontend\RegulerClassController@view')
-	->name('frontend.reguler.view');
-
-Route::get('/children-class', 'Frontend\ChildrenClassController@index')
-	->name('frontend.children.index');
-Route::get('/children-class/{slug}', 'Frontend\ChildrenClassController@view')
-	->name('frontend.children.view');
-
 Route::get('/member-area', 'Frontend\MemberController@index')
 	->name('frontend.member.index');
 
@@ -155,6 +145,9 @@ Route::get('/news-event/{slug}', 'Frontend\NewsEventController@view')
 
 Route::get('/contact', 'Frontend\ContactController@index')
 	->name('frontend.contact');
+
+Route::get('/program-class/{slug}', 'Frontend\ProgramClassController@index')
+	->name('frontend.program.index');
 
 Route::get('/{slug}', 'Frontend\ClassController@index')
 	->name('frontend.class.index');
