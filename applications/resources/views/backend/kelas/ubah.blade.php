@@ -56,7 +56,7 @@
       <div class="control-group {{ $errors->has('deskripsi_kelas') ? 'error' : '' }}">
         <label class="control-label">Description Class *</label>
         <div class="controls">
-          <textarea name="deskripsi_kelas" class="span6" id="deskripsi_kelas">{{ old('deskripsi_kelas', $get->deskripsi_kelas) }}</textarea>
+          <textarea name="deskripsi_kelas" class="span6" id="deskripsi_kelas">{{ old('deskripsi_kelas', preg_replace('#<br\s*/?>#i', "\n", $get->deskripsi_kelas)) }}</textarea>
         </div>
       </div>
       <div class="control-group {{ $errors->has('img_url') ? 'error' : '' }}">

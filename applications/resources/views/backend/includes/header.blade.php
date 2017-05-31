@@ -1,6 +1,6 @@
 <!--Header-part-->
 <div id="header">
-  <h1><a href="">Sportopia</a></h1>
+  <h1><a href="{{ route('dashboard') }}">Sportopia</a></h1>
 </div>
 <!--close-Header-part-->
 

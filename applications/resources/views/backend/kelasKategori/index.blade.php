@@ -53,7 +53,7 @@
     <a href="{{ route('kelasKategori.tambah') }}" class="btn btn-primary pull-right"><i class="icon-plus"></i> Add</a>
     @endif
   </div>
-  <div class="widget-content nopadding">
+  <div class="widget-content nopadding" style="overflow-x:auto;">
     <table class="table table-bordered kelasKategori-table">
       <thead>
         <tr>

@@ -106,7 +106,7 @@
     <h5>Facility</h5>
     <a href="#addFasilitas" data-toggle="modal" class="btn btn-primary pull-right"><i class="icon-plus"></i> Add</a>
   </div>
-  <div class="widget-content">
+  <div class="widget-content" style="overflow-x:auto;">
     <table class="table table-bordered fasilitas-table">
       <thead>
         <tr>

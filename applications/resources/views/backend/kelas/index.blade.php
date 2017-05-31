@@ -51,7 +51,7 @@
     <h5>Class Course</h5>
     <a href="{{ route('kelasKursus.tambah') }}" class="btn btn-primary pull-right"><i class="icon-plus"></i> Add</a>
   </div>
-  <div class="widget-content nopadding">
+  <div class="widget-content nopadding" style="overflow-x:auto;">
     <table class="table table-bordered kelasKursus-table">
       <thead>
         <tr>
