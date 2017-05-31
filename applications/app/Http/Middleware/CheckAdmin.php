@@ -20,10 +20,11 @@ class CheckAdmin
                     ->where('amd_admin.id',auth()->guard('admin')->id())
                     ->get();
 
-            if (!$data[0]->id  && $data[0]->usertype != 'W')
+            if (!$data[0]->id  && $data[0]->role_id != '1')
             {
                 return redirect()->intended('admin/login/')->with('status', 'You do not have access to admin side');
             }
+            
             return $next($request);
         }
         else

@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
-use App\Model\Admin;
-
+use App\Models\Admin;
 use Validator;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -30,7 +30,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/dasboard';
+    protected $redirectTo = '/admin/dasboard';
 
     /**
      * Create a new controller instance.
@@ -39,7 +39,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'logout']);
+        $this->middleware('guest', ['except' => 'getLogout']);
     }
 
     public function getLoginForm()
@@ -70,15 +70,18 @@ class LoginController extends Controller
           return redirect()->route('login.admin.form')->withErrors($validator)->withInput();
         }
 
-        if (auth()->guard('admin')->attempt(['email' => $email, 'password' => $password ]))
+        if (auth()->guard('admin')->attempt(['email' => $email, 'password' => $password, 'confirmed'=>1 ]))
         {
-
+            $set = Admin::find(Auth::guard('admin')->user()->id);
+            $getCounter = $set->login_count;
+            $set->login_count = $getCounter+1;
+            $set->update();
 
             return redirect()->intended('admin/dashboard');
         }
         else
         {
-            return redirect()->intended('admin/login')->with('status', 'Invalid Login Credentials !');
+            return redirect()->intended('admin/login')->with('status', 'Invalid Login Credentials !')->withInput();
         }
     }
 

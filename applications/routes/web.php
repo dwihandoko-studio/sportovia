@@ -27,9 +27,7 @@ Route::group(['middleware' => ['admin']], function () {
   Route::post('admin/logout', 'Backend\Auth\LoginController@getLogout');
 
   // Dashboard
-  Route::get('admin/dashboard', function(){
-    return view('backend.dashboard.index');
-  })->name('dashboard');
+  Route::get('admin/dashboard', 'Backend\DashboardController@index')->name('dashboard');
 
   // Contact
   Route::get('admin/contact', 'Backend\KontakController@index')->name('kontak.index');
