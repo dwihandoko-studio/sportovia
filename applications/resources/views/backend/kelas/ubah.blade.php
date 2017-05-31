@@ -53,6 +53,12 @@
           <input type="text" name="nama_kelas" class="span6" id="nama_kelas" value="{{ old('nama_kelas', $get->nama_kelas) }}" />
         </div>
       </div>
+      <div class="control-group {{ $errors->has('quotes') ? 'error' : '' }}">
+        <label class="control-label">Quotes *</label>
+        <div class="controls">
+          <input type="text" name="quotes" class="span6" id="quotes" value="{{ old('quotes', $get->quotes) }}" />
+        </div>
+      </div>
       <div class="control-group {{ $errors->has('deskripsi_kelas') ? 'error' : '' }}">
         <label class="control-label">Description Class *</label>
         <div class="controls">
@@ -65,8 +71,6 @@
           <input name="img_url" class="span6" id="img_url" type="file"  accept=".jpg, .png"/>
           <span>Width: 373px; Height: 605px</span>
         </div>
-      </div>
-      <div class="control-group">
         <div class="controls">
           <img src="{{ asset('amadeo/images/class/').'/'.$get->img_url }}" alt="{{ $get->img_alt }}">
         </div>
@@ -89,6 +93,17 @@
         <div class="controls">
           <input type="text" name="video_url" class="span6" id="video_url" value="{{ old('video_url', $get->video_url) }}" placeholder="Eg: https://www.youtube.com/watch?v=aPdNFMN1unU" />
         </div>
+        @if ($get->video_url != null)
+          @php
+          $url = $get->video_url;
+          $step1=explode('v=', $url);
+          $step2 =explode('&',$step1[1]);
+          $vedio_id = $step2[0];
+          @endphp
+        <div class="controls">
+          <iframe class="youtube-embed" src="http://www.youtube.com/embed/{{ $vedio_id }}" frameborder="0" allowfullscreen></iframe>
+        </div>
+        @endif
       </div>
       {{-- @if ($get->video_url != null)
       <div class="control-group {{ $errors->has('video_url') ? 'error' : '' }}">

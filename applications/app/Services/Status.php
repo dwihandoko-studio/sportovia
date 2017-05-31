@@ -11,6 +11,7 @@ class Status  {
 	public function setLoginStatus($login)
 	{
 		session()->put('status', $login->user->role->slug);
+		session()->put('status', $login->admin->role->slug);
 	}
 
 	/**
@@ -32,7 +33,8 @@ class Status  {
 	{
 		if(!session()->has('status'))
 		{
-			session()->put('status', auth()->check() ?  auth()->user()->role->slug : 'campaign1');
+			session()->put('status', auth()->check() ?  auth()->user()->role->slug : 'visitor');
+			session()->put('status', auth()->check() ?  auth()->admin()->role->slug : 'visitor');
 		}
 	}
 

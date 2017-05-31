@@ -12,93 +12,100 @@
 */
 
 
-Route::get('admin/dashboard', function(){
-  return view('backend.dashboard.index');
-})->name('dashboard');
 
-Route::get('admin/login', function(){
-  return view('backend.auth.login');
-});
+// Admin Login
+Route::get('admin/login', 'Backend\Auth\LoginController@getLoginForm')->name('login.admin.form');
+Route::post('admin/login', 'Backend\Auth\LoginController@authenticate')->name('login.admin.post');
 
-// Contact
-Route::get('admin/contact', 'Backend\KontakController@index')->name('kontak.index');
-Route::get('admin/contact/add', 'Backend\KontakController@tambah')->name('kontak.tambah');
-Route::post('admin/contact', 'Backend\KontakController@store')->name('kontak.store');
-Route::get('admin/contact/edit/{id}', 'Backend\KontakController@ubah')->name('kontak.ubah');
-Route::post('admin/contact/edit', 'Backend\KontakController@edit')->name('kontak.edit');
+// Route::get('admin/register', 'backend\Auth\RegisterController@getRegisterForm');
+// Route::post('admin/saveregister', 'backend\Auth\RegisterController@saveRegisterForm');
 
-// About
-Route::get('admin/about', 'Backend\TentangController@index')->name('tentang.index');
-Route::get('admin/about/add', 'Backend\TentangController@tambah')->name('tentang.tambah');
-Route::post('admin/about', 'Backend\TentangController@store')->name('tentang.store');
-Route::get('admin/about/edit/{id}', 'Backend\TentangController@ubah')->name('tentang.ubah');
-Route::post('admin/about/edit', 'Backend\TentangController@edit')->name('tentang.edit');
-
-// Facility
-Route::get('admin/facility', 'Backend\FasilitasController@index')->name('fasilitas.index');
-Route::post('admin/facility', 'Backend\FasilitasController@store')->name('fasilitas.store');
-Route::get('admin/facility/edit/{id}', 'Backend\FasilitasController@ubah')->name('fasilitas.ubah');
-Route::post('admin/facility/edit', 'Backend\FasilitasController@edit')->name('fasilitas.edit');
-Route::get('admin/facility/publish/{id}', 'Backend\FasilitasController@publish')->name('fasilitas.publish');
-
-// Staff Position
-Route::get('admin/staff-position', 'Backend\StaffController@index')->name('staff-jabatan.index');
-Route::post('admin/staff-position', 'Backend\StaffController@store')->name('staff-jabatan.store');
-Route::get('admin/staff-position/edit/{id}', 'Backend\StaffController@ubah')->name('staff-jabatan.ubah');
-Route::post('admin/staff-position/edit', 'Backend\StaffController@edit')->name('staff-jabatan.edit');
-Route::get('admin/staff-position/publish/{id}', 'Backend\StaffController@publish')->name('staff-jabatan.publish');
-
-// Staff Position
-Route::get('admin/staff', 'Backend\StaffController@staffIndex')->name('pegawai.index');
-Route::get('admin/staff/add', 'Backend\StaffController@staffTambah')->name('pegawai.tambah');
-Route::post('admin/staff', 'Backend\StaffController@staffStore')->name('pegawai.store');
-Route::get('admin/staff/edit/{id}', 'Backend\StaffController@staffUbah')->name('pegawai.ubah');
-Route::post('admin/staff/edit', 'Backend\StaffController@staffEdit')->name('pegawai.edit');
-Route::get('admin/staff/publish/{id}', 'Backend\StaffController@staffPublish')->name('pegawai.publish');
-
-// Social Media
-Route::get('admin/social-media', 'Backend\SocialMediaController@index')->name('socmed.index');
-Route::get('admin/social-media/add', 'Backend\SocialMediaController@tambah')->name('socmed.tambah');
-Route::post('admin/social-media', 'Backend\SocialMediaController@store')->name('socmed.store');
-Route::get('admin/social-media/edit/{id}', 'Backend\SocialMediaController@ubah')->name('socmed.ubah');
-Route::post('admin/social-media/edit', 'Backend\SocialMediaController@edit')->name('socmed.edit');
-Route::get('admin/social-media/publish/{id}', 'Backend\SocialMediaController@publish')->name('socmed.publish');
-
-// Class Category
-Route::get('admin/class-category', 'Backend\KelasKategoriController@index')->name('kelasKategori.index');
-Route::get('admin/class-category/add', 'Backend\KelasKategoriController@tambah')->name('kelasKategori.tambah');
-Route::post('admin/class-category', 'Backend\KelasKategoriController@store')->name('kelasKategori.store');
-Route::get('admin/class-category/edit/{id}', 'Backend\KelasKategoriController@ubah')->name('kelasKategori.ubah');
-Route::post('admin/class-category/edit', 'Backend\KelasKategoriController@edit')->name('kelasKategori.edit');
-Route::get('admin/class-category/publish/{id}', 'Backend\KelasKategoriController@publish')->name('kelasKategori.publish');
-
-// Class Course
-Route::get('admin/class-course', 'Backend\KelasController@index')->name('kelasKursus.index');
-Route::get('admin/class-course/add', 'Backend\KelasController@tambah')->name('kelasKursus.tambah');
-Route::post('admin/class-course', 'Backend\KelasController@store')->name('kelasKursus.store');
-Route::get('admin/class-course/edit/{id}', 'Backend\KelasController@ubah')->name('kelasKursus.ubah');
-Route::post('admin/class-course/edit', 'Backend\KelasController@edit')->name('kelasKursus.edit');
-Route::get('admin/class-course/{id}', 'Backend\KelasController@lihat')->name('kelasKursus.lihat');
-Route::get('admin/class-course/publish/{id}', 'Backend\KelasController@publish')->name('kelasKursus.publish');
-
-// News
-Route::get('admin/news', 'Backend\NewsController@index')->name('news.index');
-Route::get('admin/news/add', 'Backend\NewsController@tambah')->name('news.tambah');
-Route::post('admin/news', 'Backend\NewsController@store')->name('news.store');
-Route::get('admin/news/edit/{id}', 'Backend\NewsController@ubah')->name('news.ubah');
-Route::post('admin/news/edit', 'Backend\NewsController@edit')->name('news.edit');
-Route::get('admin/news/publish/{id}', 'Backend\NewsController@publish')->name('news.publish');
-
-// Event
-Route::get('admin/event', 'Backend\EventsController@index')->name('event.index');
-Route::get('admin/event/add', 'Backend\EventsController@tambah')->name('event.tambah');
-Route::post('admin/event', 'Backend\EventsController@store')->name('event.store');
-Route::get('admin/event/edit/{id}', 'Backend\EventsController@ubah')->name('event.ubah');
-Route::post('admin/event/edit', 'Backend\EventsController@edit')->name('event.edit');
-Route::get('admin/event/publish/{id}', 'Backend\EventsController@publish')->name('event.publish');
 
 //----------------------- BACKEND -----------------------//
-Route::group(['middleware' => ['isAdministrator']], function () {
+Route::group(['middleware' => ['admin']], function () {
+
+  Route::post('admin/logout', 'Backend\Auth\LoginController@getLogout');
+
+  // Dashboard
+  Route::get('admin/dashboard', 'Backend\DashboardController@index')->name('dashboard');
+
+  // Contact
+  Route::get('admin/contact', 'Backend\KontakController@index')->name('kontak.index');
+  Route::get('admin/contact/add', 'Backend\KontakController@tambah')->name('kontak.tambah');
+  Route::post('admin/contact', 'Backend\KontakController@store')->name('kontak.store');
+  Route::get('admin/contact/edit/{id}', 'Backend\KontakController@ubah')->name('kontak.ubah');
+  Route::post('admin/contact/edit', 'Backend\KontakController@edit')->name('kontak.edit');
+
+  // About
+  Route::get('admin/about', 'Backend\TentangController@index')->name('tentang.index');
+  Route::get('admin/about/add', 'Backend\TentangController@tambah')->name('tentang.tambah');
+  Route::post('admin/about', 'Backend\TentangController@store')->name('tentang.store');
+  Route::get('admin/about/edit/{id}', 'Backend\TentangController@ubah')->name('tentang.ubah');
+  Route::post('admin/about/edit', 'Backend\TentangController@edit')->name('tentang.edit');
+
+  // Facility
+  Route::get('admin/facility', 'Backend\FasilitasController@index')->name('fasilitas.index');
+  Route::post('admin/facility', 'Backend\FasilitasController@store')->name('fasilitas.store');
+  Route::get('admin/facility/edit/{id}', 'Backend\FasilitasController@ubah')->name('fasilitas.ubah');
+  Route::post('admin/facility/edit', 'Backend\FasilitasController@edit')->name('fasilitas.edit');
+  Route::get('admin/facility/publish/{id}', 'Backend\FasilitasController@publish')->name('fasilitas.publish');
+
+  // Staff Position
+  Route::get('admin/staff-position', 'Backend\StaffController@index')->name('staff-jabatan.index');
+  Route::post('admin/staff-position', 'Backend\StaffController@store')->name('staff-jabatan.store');
+  Route::get('admin/staff-position/edit/{id}', 'Backend\StaffController@ubah')->name('staff-jabatan.ubah');
+  Route::post('admin/staff-position/edit', 'Backend\StaffController@edit')->name('staff-jabatan.edit');
+  Route::get('admin/staff-position/publish/{id}', 'Backend\StaffController@publish')->name('staff-jabatan.publish');
+
+  // Staff Position
+  Route::get('admin/staff', 'Backend\StaffController@staffIndex')->name('pegawai.index');
+  Route::get('admin/staff/add', 'Backend\StaffController@staffTambah')->name('pegawai.tambah');
+  Route::post('admin/staff', 'Backend\StaffController@staffStore')->name('pegawai.store');
+  Route::get('admin/staff/edit/{id}', 'Backend\StaffController@staffUbah')->name('pegawai.ubah');
+  Route::post('admin/staff/edit', 'Backend\StaffController@staffEdit')->name('pegawai.edit');
+  Route::get('admin/staff/publish/{id}', 'Backend\StaffController@staffPublish')->name('pegawai.publish');
+
+  // Social Media
+  Route::get('admin/social-media', 'Backend\SocialMediaController@index')->name('socmed.index');
+  Route::get('admin/social-media/add', 'Backend\SocialMediaController@tambah')->name('socmed.tambah');
+  Route::post('admin/social-media', 'Backend\SocialMediaController@store')->name('socmed.store');
+  Route::get('admin/social-media/edit/{id}', 'Backend\SocialMediaController@ubah')->name('socmed.ubah');
+  Route::post('admin/social-media/edit', 'Backend\SocialMediaController@edit')->name('socmed.edit');
+  Route::get('admin/social-media/publish/{id}', 'Backend\SocialMediaController@publish')->name('socmed.publish');
+
+  // Class Category
+  Route::get('admin/class-category', 'Backend\KelasKategoriController@index')->name('kelasKategori.index');
+  Route::get('admin/class-category/add', 'Backend\KelasKategoriController@tambah')->name('kelasKategori.tambah');
+  Route::post('admin/class-category', 'Backend\KelasKategoriController@store')->name('kelasKategori.store');
+  Route::get('admin/class-category/edit/{id}', 'Backend\KelasKategoriController@ubah')->name('kelasKategori.ubah');
+  Route::post('admin/class-category/edit', 'Backend\KelasKategoriController@edit')->name('kelasKategori.edit');
+  Route::get('admin/class-category/publish/{id}', 'Backend\KelasKategoriController@publish')->name('kelasKategori.publish');
+
+  // Class Course
+  Route::get('admin/class-course', 'Backend\KelasController@index')->name('kelasKursus.index');
+  Route::get('admin/class-course/add', 'Backend\KelasController@tambah')->name('kelasKursus.tambah');
+  Route::post('admin/class-course', 'Backend\KelasController@store')->name('kelasKursus.store');
+  Route::get('admin/class-course/edit/{id}', 'Backend\KelasController@ubah')->name('kelasKursus.ubah');
+  Route::post('admin/class-course/edit', 'Backend\KelasController@edit')->name('kelasKursus.edit');
+  Route::get('admin/class-course/{id}', 'Backend\KelasController@lihat')->name('kelasKursus.lihat');
+  Route::get('admin/class-course/publish/{id}', 'Backend\KelasController@publish')->name('kelasKursus.publish');
+
+  // News
+  Route::get('admin/news', 'Backend\NewsController@index')->name('news.index');
+  Route::get('admin/news/add', 'Backend\NewsController@tambah')->name('news.tambah');
+  Route::post('admin/news', 'Backend\NewsController@store')->name('news.store');
+  Route::get('admin/news/edit/{id}', 'Backend\NewsController@ubah')->name('news.ubah');
+  Route::post('admin/news/edit', 'Backend\NewsController@edit')->name('news.edit');
+  Route::get('admin/news/publish/{id}', 'Backend\NewsController@publish')->name('news.publish');
+
+  // Event
+  Route::get('admin/event', 'Backend\EventsController@index')->name('event.index');
+  Route::get('admin/event/add', 'Backend\EventsController@tambah')->name('event.tambah');
+  Route::post('admin/event', 'Backend\EventsController@store')->name('event.store');
+  Route::get('admin/event/edit/{id}', 'Backend\EventsController@ubah')->name('event.ubah');
+  Route::post('admin/event/edit', 'Backend\EventsController@edit')->name('event.edit');
+  Route::get('admin/event/publish/{id}', 'Backend\EventsController@publish')->name('event.publish');
+
   // Route::get('admin/login');
 });
 //----------------------- BACKEND -----------------------//
