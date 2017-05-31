@@ -14,6 +14,7 @@
 }
 #staff .staff-wrapper .staff-content.bar-size-4{
 	width: 24%;
+	vertical-align: top;
 }
 #staff .staff-wrapper .staff-content .img{
 	width: 230px;
@@ -24,14 +25,18 @@
 	background-repeat: no-repeat;
 	background-position: center;
 }
-#staff .staff-wrapper .staff-content h2{
+#staff .staff-wrapper .staff-content .name-wrapper{
+	position: relative;
+	padding-bottom: 5px;
+}
+#staff .staff-wrapper .staff-content .name-wrapper h2{
     font-family: 'open sans';
     margin: 10px 0px;
 }
-#staff .staff-wrapper .staff-content h2.name{
+#staff .staff-wrapper .staff-content .name-wrapper h2.name{
     color: rgb(69,186,1);
 }
-#staff .staff-wrapper .staff-content h2.jobs{
+#staff .staff-wrapper .staff-content .name-wrapper h2.jobs{
     color: rgb(165,165,165);
 }
 #staff .staff-wrapper .staff-content hr{

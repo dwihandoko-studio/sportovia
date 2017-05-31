@@ -14,7 +14,7 @@
 						<a class="btn btn-green" href="">
 							Free Trial Class
 						</a>
-						<a class="btn btn-green" href="">
+						<a class="btn btn-green" href="{{ Route('frontend.member.index') }}">
 							Login
 						</a>
 					</div>

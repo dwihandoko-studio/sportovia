@@ -109,6 +109,9 @@ Route::get('/children-class', 'Frontend\ChildrenClassController@index')
 Route::get('/children-class/{slug}', 'Frontend\ChildrenClassController@view')
 	->name('frontend.children.view');
 
+Route::get('/member-area', 'Frontend\MemberController@index')
+	->name('frontend.member.index');
+
 Route::get('/about/us', 'Frontend\AboutController@us')
 	->name('frontend.about.us');
 Route::get('/about/staff', 'Frontend\AboutController@staff')

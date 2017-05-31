@@ -37,7 +37,7 @@
 		</div>
 		<h2>About Us</h2>
 		<div id="description-wrapper">
-			<p>Lorem ipsum dolor sit amet, quas assum volutpat ei vix, usu semper laoreet placerat an. Assum recteque te has, ad quidam euripidis eloquentiam sed, equidem fierent phaedrum et sea. An legendos praesent quo. Sea cu dicta partem signiferumque.</p>
+			<p>{{ $call->deskripsi_tentang }}</p>
 		</div>
 	</div>
 </div>
@@ -46,7 +46,7 @@
 	<div class="setup-content nor-wd">
 		<div class="bar bar-size-2">
 			<div class="vam-content">
-				<img src="{{ asset('amadeo/main-image/card.jpg') }}">
+				<img src="{{ asset('amadeo/images/tentang/'.$call->img_visi) }}">
 				<div class="vam-descript-wrapper">
 					<div class="bar bar-size-4">
 						<div class="midle">
@@ -55,7 +55,7 @@
 					</div>
 					<div class="bar bar-size-1">
 						<div class="midle">
-							<p>Lorem ipsum dolor sit amet, esse possit splendide at mea, autem probatus mea eu. Erat summo sonet ius et, dicant atomorum an pro. Duo ut mazim munere aliquip. Ancillae percipitur ne ius, assum eruditi per cu. Dictas aperiri epicurei no nam, tibique intellegebat vim ne.</p>
+							<p>{{ $call->visi }}</p>
 						</div>
 					</div>
 					<div class="clearfix"></div>
@@ -64,7 +64,7 @@
 		</div>
 		<div class="bar bar-size-2">
 			<div class="vam-content">
-				<img src="{{ asset('amadeo/main-image/card.jpg') }}">
+				<img src="{{ asset('amadeo/images/tentang/'.$call->img_misi) }}">
 				<div class="vam-descript-wrapper">
 					<div class="bar bar-size-4">
 						<div class="midle">
@@ -73,7 +73,7 @@
 					</div>
 					<div class="bar bar-size-1">
 						<div class="midle">
-							<p>Lorem ipsum dolor sit amet, esse possit splendide at mea, autem probatus mea eu. Erat summo sonet ius et, dicant atomorum an pro. Duo ut mazim munere aliquip. Ancillae percipitur ne ius, assum eruditi per cu. Dictas aperiri epicurei no nam, tibique intellegebat vim ne.</p>
+							<p>{{ $call->misi }}</p>
 						</div>
 					</div>
 				</div>
