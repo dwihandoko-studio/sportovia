@@ -56,26 +56,18 @@
 <?php // class wrapper ?>
 <div id="class" class="setup-wrapper">
 	<div class="setup-content nor-wd">
+		@foreach($callKelasProgram as $list)
 		<div class="bar bar-size-3">
 			<div class="class">
 				<div class="class-wrapper">
-					<a href="{{ Route('frontend.reguler.index') }}">
-						<div class="img" style="background-image: url('{{ asset('amadeo/main-image/card.jpg')}}')"></div>
+					<a href="{{ Route('frontend.program.index', ['slug' => $list->slug]) }}">
+						<div class="img" style="background-image: url('{{ asset('amadeo/images/class/'.$list->img_thumb)}}')"></div>
 					</a>
-					<h2>Reguler Class</h2>
+					<h2>{{ $list->program_kelas }} Class</h2>
 				</div>
 			</div>
 		</div>
-		<div class="bar bar-size-3">
-			<div class="class">
-				<div class="class-wrapper">
-					<a href="{{ Route('frontend.children.index') }}">
-						<div class="img" style="background-image: url('{{ asset('amadeo/main-image/card.jpg')}}')"></div>
-					</a>
-					<h2>Children Class</h2>
-				</div>
-			</div>
-		</div>
+		@endforeach
 		<div class="bar bar-size-3">
 			<div class="class">
 				<div class="class-wrapper">

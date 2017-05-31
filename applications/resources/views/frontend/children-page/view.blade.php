@@ -1,7 +1,7 @@
 @extends('frontend._layouts.basic')
 
 @section('head-title')
-<title>Sportopia - </title>
+<title>Sportopia - {{ $callClass->nama_kelas }} Class</title>
 @endsection
 
 @section('meta')
@@ -58,13 +58,13 @@ body{
 				</a>
 			</label>
 			<label>
-				<a href="{{ Route($routePage) }}">
-					{{ $indexPage }}
+				<a href="{{ Route('frontend.class.index', ['slug' => $callKategori->slug]) }}">
+					{{ $callKategori->kategori_kelas }} Class
 				</a>
 			</label>
 			<label>
-				<a href="">
-					This Page
+				<a href="{{ Route('frontend.class.view', ['slug' => $callKategori->slug, 'subslug' => $callClass->slug]) }}">
+					{{ $callClass->nama_kelas }} Class
 				</a>
 			</label>
 		</div>
@@ -74,18 +74,15 @@ body{
 <div id="view" class="setup-wrapper">
 	<div class="setup-content lar-wd">
 		<div class="bar left">
-			<div class="img" style="background-image: url('{{ asset('amadeo/main-image/card.jpg') }}');"></div>
+			<div class="img" style="background-image: url('{{ asset('amadeo/images/class/'.$callClass->img_url) }}');"></div>
 		</div>
 		<div class="bar right">
 			<div class="title">
-				<h1>Title in here</h1>
-				<h1>Sub Title for description in here</h1>
+				<h1>{{ $callClass->nama_kelas }} Class</h1>
+				<h1>{{ $callClass->quotes }}</h1>
 			</div>
 			<div class="content">
-				<p>Lorem ipsum dolor sit amet, quas assum volutpat ei vix, usu semper laoreet placerat an. Assum recteque te has, ad quidam euripidis eloquentiam sed, equidem fierent phaedrum et sea. An legendos praesent quo. Sea cu dicta partem signiferumque. Ea quis referrentur vix, quo an tota soluta electram. Scribentur signiferumque ne sed, hinc ubique dolorem ei qui. Sit eu convenire consulatu, vis id novum expetenda persequeris.</p>
- 
- 				<p>Per stet alienum principes an. Id qui commune iudicabit, vel exerci reprehendunt necessitatibus an.Usu aperiam viderer te. Id soleat suavitate philosophia vel, semper latine blandit ius id, ius magna zril ea. Docendi volutpat definitionem cu nec.An legendos praesent quo. Sea cu dicta partem signiferumque. Ea quis referrentur vix, quo an tota soluta electram. Scribentur signiferumque ne sed, hinc ubique dolorem ei qui. Sit eu convenire consulatu, 	vis id novum expetenda persequerisAssum recteque te has, ad quidam euripidis eloquentiam sed, equidem fierent phaedrum et sea. An legendos praesent quo. Sea cu dicta partem signiferumque. Ea quis referrentur vix, quo an tota soluta electram. Scribentur signiferumque ne sed, hinc ubique dolorem ei qui. Sit</p>
- 				
+				<p>{{ $callClass->deskripsi_kelas }}</p>
  				<div class="text-center">
 	 				<a href="" class="btn btn-green">Register</a>
  				</div>
@@ -105,9 +102,12 @@ body{
 				</div>
 			</div>
 			<div  id="fasilitas-CO" class="collapse body-CO">
-				@for($a=0; $a<=3; $a++)
+				@php 
+					$fasilitasArr = explode(",", $callClass->fasilitas)
+				@endphp
+				@foreach($fasilitasArr as $list)
 				<div class="item">
-					<div class="img" style="background-image: url('{{ asset('amadeo/main-image/card.jpg') }}');">
+					<div class="img">
 						<div class="description">
 							<div class="wrapper">
 								<div class="content">
@@ -116,15 +116,16 @@ body{
 							</div>
 							<div class="wrapper">
 								<div class="content">
-									<label>title in here</label>
+									<label>{{ $list }}</label>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				@endfor
+				@endforeach
 			</div>
 		</div>
+		@if($callClass->video_url != null)
 		<div id="vidio" class="content-other">
 			<div class="heading-CO">
 				<div class="title-CO part-heading-CO">
@@ -137,10 +138,17 @@ body{
 					<i class="fa fa-chevron-down" aria-hidden="true" data-toggle="collapse" data-target="#vidio-CO"></i>
 				</div>
 			</div>
+			@php
+				$url = $callClass->video_url;
+				$step1=explode('v=', $url);
+				$step2 =explode('&',$step1[1]);
+				$vedio_id = $step2[0];
+			@endphp
 			<div id="vidio-CO" class="collapse body-CO">
-				<iframe src="https://www.youtube.com/embed/1VFIpg-xKLY?list=RDkihTFSwsdTI" frameborder="0" allowfullscreen></iframe>
+				<iframe src="https://www.youtube.com/embed/{{ $vedio_id }}" frameborder="0" allowfullscreen></iframe>
 			</div>
 		</div>
+		@endif
 	</div>
 </div>
 @endsection
