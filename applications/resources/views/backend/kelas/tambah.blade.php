@@ -52,6 +52,12 @@
           <input type="text" name="nama_kelas" class="span6" id="nama_kelas" value="{{ old('nama_kelas') }}" />
         </div>
       </div>
+      <div class="control-group {{ $errors->has('quotes') ? 'error' : '' }}">
+        <label class="control-label">Quotes *</label>
+        <div class="controls">
+          <input type="text" name="quotes" class="span6" id="quotes" value="{{ old('quotes') }}" />
+        </div>
+      </div>
       <div class="control-group {{ $errors->has('deskripsi_kelas') ? 'error' : '' }}">
         <label class="control-label">Description Class *</label>
         <div class="controls">
@@ -111,6 +117,9 @@
         required:true,
       },
       nama_kelas:{
+        required:true,
+      },
+      quotes:{
         required:true,
       },
       deskripsi_kelas:{

@@ -44,6 +44,8 @@ class KelasController extends Controller
           'id_program.required' => 'This field is required.',
           'nama_kelas.required' => 'This field is required.',
           'nama_kelas.max' => 'Too long.',
+          'quotes.required' => 'This field is required.',
+          'quotes.max' => 'Too long.',
           'deskripsi_kelas.required' => 'This field is required.',
           'deskripsi_kelas.max' => 'Too long.',
           'fasilitas.required' => 'This field is required.',
@@ -57,6 +59,7 @@ class KelasController extends Controller
           'id_kelas_kategori' => 'required',
           'id_program' => 'required',
           'nama_kelas'  => 'required|max:25',
+          'quotes'  => 'required|max:75',
           'fasilitas' =>  'required',
           'deskripsi_kelas'  => 'required|max:250',
           'img_url'  => 'required|image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=373,max_height=605',
@@ -88,6 +91,7 @@ class KelasController extends Controller
 
         $save = New Kelas;
         $save->nama_kelas = $request->nama_kelas;
+        $save->quotes = $request->quotes;
         $save->id_kelas_kategori = $request->id_kelas_kategori;
         $save->id_program = $request->id_program;
         $save->deskripsi_kelas = nl2br($request->deskripsi_kelas);
@@ -143,6 +147,8 @@ class KelasController extends Controller
           'id_program.required' => 'This field is required.',
           'nama_kelas.required' => 'This field is required.',
           'nama_kelas.max' => 'Too long.',
+          'quotes.required' => 'This field is required.',
+          'quotes.max' => 'Too long.',
           'deskripsi_kelas.required' => 'This field is required.',
           'deskripsi_kelas.max' => 'Too long.',
           'fasilitas.required' => 'This field is required.',
@@ -155,6 +161,7 @@ class KelasController extends Controller
           'id_kelas_kategori' => 'required',
           'id_program' => 'required',
           'nama_kelas'  => 'required|max:25',
+          'quotes'  => 'required|max:75',
           'fasilitas' =>  'required',
           'deskripsi_kelas'  => 'required|max:250',
           'img_url'  => 'image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=373,max_height=605',
@@ -186,6 +193,7 @@ class KelasController extends Controller
         $update->id_kelas_kategori = $request->id_kelas_kategori;
         $update->id_program = $request->id_program;
         $update->nama_kelas = $request->nama_kelas;
+        $update->quotes = $request->quotes;
         $update->deskripsi_kelas = nl2br($request->deskripsi_kelas);
         $update->fasilitas = $fasilitas;
         $update->video_url = $request->video_url;

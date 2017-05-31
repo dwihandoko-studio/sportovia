@@ -59,6 +59,7 @@
           <th>Class Name</th>
           <th>Category</th>
           <th>Program</th>
+          <th>Quotes</th>
           <th>Description</th>
           <th>Status</th>
           <th>Action</th>
@@ -74,6 +75,7 @@
           <td>{{ $key->nama_kelas }}</td>
           <td>{{ $key->kategori_kelas }}</td>
           <td>{{ ($key->id_program == 1) ? 'Children' : 'Regular' }}</td>
+          <td>{{ $key->quotes }}</td>
           <td>{!! $key->deskripsi_kelas !!}</td>
           <td>@if ($key->flag_publish == 1)
             <a href="" class="unpublish" data-value="{{ $key->id }}" data-toggle="modal" data-target="#modal-unpublish"><span class="label label-success tip-top" data-original-title="Publish"><i class="icon icon-thumbs-up"></i></span></a>

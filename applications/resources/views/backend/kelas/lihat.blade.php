@@ -23,7 +23,7 @@
     <a href="{{ route('kelasKursus.index') }}" class="btn btn-inverse pull-right"><i class="icon-plus"></i> Back</a>
     <a href="{{ route('kelasKursus.ubah', array('id' => $get->id )) }}" class="btn btn-warning pull-right"><i class="icon-plus"></i> Edit</a>
   </div>
-  <div class="widget-content">
+  <div class="widget-content"  style="overflow-x:auto;">
     <table class="table table-bordered">
       <tbody>
         <tr>
@@ -37,6 +37,10 @@
         <tr>
           <td><b>Name</b></td>
           <td>{{ $get->nama_kelas }}</td>
+        </tr>
+        <tr>
+          <td><b>Quotes</b></td>
+          <td>{{ $get->quotes }}</td>
         </tr>
         <tr>
           <td><b>Description</b></td>
