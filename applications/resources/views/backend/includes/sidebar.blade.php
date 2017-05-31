@@ -34,6 +34,9 @@
         <li class="{{ Route::is('event*') ? 'active' : '' }}"><a href="{{ route('event.index') }}">Event</a></li>
       </ul>
     </li>
+    <li class="{{ Route::is('logAkses*') ? 'active' : '' }}">
+      <a href="{{ route('logAkses.index') }}"><i class="icon icon-list-ul"></i> <span>Log Access</span></a>
+    </li>
   </ul>
 </div>
 <!--sidebar-menu-->

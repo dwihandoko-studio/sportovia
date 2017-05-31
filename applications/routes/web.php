@@ -114,7 +114,8 @@ Route::group(['middleware' => ['admin']], function () {
   Route::post('admin/event/edit', 'Backend\EventsController@edit')->name('event.edit');
   Route::get('admin/event/publish/{id}', 'Backend\EventsController@publish')->name('event.publish');
 
-  // Route::get('admin/login');
+  // Log Akses
+  Route::get('admin/log-access', 'Backend\LogAksesController@index')->name('logAkses.index');
 });
 //----------------------- BACKEND -----------------------//
 
