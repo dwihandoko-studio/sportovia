@@ -1,7 +1,7 @@
 @extends('frontend._layouts.basic')
 
 @section('head-title')
-<title>Sportopia - {{ $titlePage }}</title>
+<title>Sportopia - News & Event</title>
 @endsection
 
 @section('meta')
@@ -31,14 +31,14 @@
 				</a>
 			</label>
 			<label>
-				<a href="{{ Route($routePage.'index') }}">
-					{{ $titlePage }}
+				<a href="{{ Route('frontend.news-event.index') }}">
+					News & Event
 				</a>
 			</label>
 
 		</div>
 		<h1>
-			{{ $titlePage }}
+			News & Event
 		</h1>
 		<h3>
 			Lorem ipsum dolor sit amet, quas assum volutpat ei vix, usu semper laoreet placerat an. Assum recteque te has, ad quidam euripidis eloquentiam sed, equidem fierent phaedrum et sea. An legendos praesent quo. Sea cu dicta partem signiferumque. 
@@ -60,7 +60,7 @@
 						<a href="" class="btn btn-green">
 							Register
 						</a>
-						<a href="{{ Route($routePage.'view', ['slug'=>'$a' ]) }}" class="btn btn-green">
+						<a href="{{ Route('frontend.news-event.view', ['slug'=>'$a' ]) }}" class="btn btn-green">
 							Detail
 						</a>
 					</div>
@@ -75,7 +75,7 @@
 		<div class="owl-wrapper">
 			@for($a=0; $a<=15; $a++)
 			<div class="item">
-				<a href="{{ Route($routePage.'view', ['slug'=>$a ]) }}">
+				<a href="{{ Route('frontend.news-event.view', ['slug'=>$a ]) }}">
 					<div class="index-wrapper">
 						<div class="img-back" style="background-image: url('{{ asset('amadeo/main-image/card.jpg') }}');">
 							<div class="img-description-wrapper">
@@ -101,21 +101,21 @@
 	<div class="setup-content lar-wd">
 		<h1 class="title">News</h1>
 		<div class="owl-wrapper-nd">
-			@for($a=0; $a<=6; $a++)
+			@foreach($callNews as $list)
 			<div class="item">
-				<a href="{{ Route($routePage.'view', ['slug'=>$a ]) }}">
+				<a href="{{ Route('frontend.news-event.view', ['slug'=>$list->slug ]) }}">
 					<div class="index-nd-wrapper">
-						<div class="img" style="background-image: url('{{ asset('amadeo/main-image/card.jpg') }}');"></div>
+						<div class="img" style="background-image: url('{{ asset('amadeo/images/news-event/'.$list->img_thumb) }}');"></div>
 						<div class="content-wrapper">
-							<h3>Title in here</h3>
+							<h3>{{ $list->judul }}</h3>
 							<p>
-								Lorem ipsum dolor sit amet, quas assum volutpat ei vix, usu semper laoreet placerat an.
+								{{ Str::words($list->deskripsi, 20) }}
 							</p>
 						</div>
 					</div>
 				</a>
 			</div>
-			@endfor
+			@endforeach
 		</div>
 		<div class="clearfix"></div>
 	</div>

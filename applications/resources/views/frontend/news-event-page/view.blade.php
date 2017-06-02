@@ -1,12 +1,12 @@
 @extends('frontend._layouts.basic')
 
 @section('head-title')
-<title>Sportopia - Our Staff</title>
+<title>Sportopia - {{ $call->judul }}</title>
 @endsection
 
 @section('meta')
 <meta name="title" content="Sportopia">
-<meta name="description" content="Sportopia - ">
+<meta name="description" content="Sportopia - {{ $call->judul }} : {{ Str::words($call->deskripsi, 30) }}">
 <meta name="keywords" content="Sportopia " />
 @endsection
 
@@ -26,13 +26,13 @@
 				</a>
 			</label>
 			<label>
-				<a href="{{ Route($routePage) }}">
-					{{ $indexPage }}
+				<a href="{{ Route('frontend.news-event.index') }}">
+					News & Event
 				</a>
 			</label>
 			<label>
-				<a href="">
-					This Page
+				<a href="{{ Route('frontend.news-event.view', ['slug'=>$call->slug]) }}">
+					{{ $call->judul }}
 				</a>
 			</label>
 		</div>
@@ -41,15 +41,12 @@
 <?php // view wrapper ?>
 <div id="view" class="setup-wrapper">
 	<div class="setup-content nor-wd">
-		<div id="img-view" style="background-image: url('{{ asset('amadeo/main-image/card.jpg') }}')"></div>
+		<div id="img-view" style="background-image: url('{{ asset('amadeo/images/news-event/'.$call->img_banner) }}')"></div>
 		<div class="view-content">
-			<h2>Event</h2>
-			<h1>Title in here</h1>
+			<h2>{{ $call->news_event == 1 ? 'News' : 'Event' }}</h2>
+			<h1>{{ $call->judul }}</h1>
 			<p>
-				Lorem ipsum dolor sit amet, quas assum volutpat ei vix, usu semper laoreet placerat an. Assum recteque te has, ad quidam euripidis eloquentiam sed, equidem fierent phaedrum et sea. An legendos praesent quo. Sea cu dicta partem signiferumque. Ea quis referrentur vix, quo an tota soluta electram. Scribentur signiferumque ne sed, hinc ubique dolorem ei qui. Sit eu convenire consulatu, vis id novum expetenda persequeris.Per stet alienum principes an. Id qui commune iudicabit, vel exerci reprehendunt necessitatibus an. Usu aperiam viderer te. Id soleat suavitate philosophia vel, semper latine blandit ius id, ius magna zril ea.
-			</p>
-			<p>
-				Docendi volutpat definitionem cu nec.An legendos praesent quo. Sea cu dicta partem signiferumque. Ea quis referrentur vix, quo an tota soluta electram. Scribentur gniferumque ne sed, hinc ubique dolorem ei qui. Sit eu convenire consulatu, 	vis id novum expetenda persequerisAssum recteque te has, ad quidam euripidis eloquentiam sed, equidem fierent phaedrum et sea. An legendos praesent quo. Sea cu dicta partem signiferumque. Ea quis referrentur vix, quo an tota soluta electram. Scribentur signiferumque ne sed, hinc ubique dolorem ei qui. Sit
+				{{ $call->deskripsi }}
 			</p>
 			<div class="for-btn">
 				<a href="" class="btn btn-green">
