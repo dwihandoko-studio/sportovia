@@ -367,9 +367,19 @@ a:hover{
 	background-color: rgba(65,65,65,.45);
 	color: rgb(255,255,255);
 }
-#freeTrialClass #freeTrialClass-wrapper input::-webkit-input-placeholder,
-#freeTrialClass #freeTrialClass-wrapper textarea::-webkit-input-placeholder{
+#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group.error input,
+#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group.error select,
+#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group.error textarea{
+	background-color: rgba(255,0,0,.45);
+	color: rgb(255,0,0);
+}
+#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group input::-webkit-input-placeholder,
+#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group textarea::-webkit-input-placeholder{
 	color: rgb(255,255,255);
+}
+#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group.error input::-webkit-input-placeholder,
+#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group.error textarea::-webkit-input-placeholder{
+	color: rgb(255,0,0);
 }
 #freeTrialClass #freeTrialClass-wrapper .bar.left .input-group .input-group-addon{
 	border: .5px solid rgba(255,255,255,.5);
@@ -377,6 +387,10 @@ a:hover{
 	border-radius: 0px;
 	background-color: rgba(65,65,65,.45);
 	color: rgb(255,255,255);
+}
+#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group.error .input-group-addon{
+	background-color: rgba(255,0,0,.45);
+	color: rgb(255,0,0);
 }
 #freeTrialClass #freeTrialClass-wrapper .bar.right{
 	background-repeat: no-repeat;
@@ -404,5 +418,16 @@ a:hover{
 	height: 78vh;
 	visibility: visible;
 	opacity: 1;
+}
+
+@media (max-width: 480px) {
+	#freeTrialClass{
+		z-index: 20;
+	}
+	#freeTrialClass.active #freeTrialClass-wrapper .bar{
+		width: 100%;
+		height: 40vh;
+		overflow-y: auto;
+	}
 }
 /* end for freeTrialClass */

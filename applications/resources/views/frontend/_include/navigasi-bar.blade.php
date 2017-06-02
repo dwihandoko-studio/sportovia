@@ -86,45 +86,77 @@
 	</div>
 </div>
 <div id="space-nav">
-	<div id="freeTrialClass" class="fre-tri-clas">
+	<div 
+		id="freeTrialClass" 
+		class="fre-tri-clas @if($errors->has('name') || $errors->has('phone') || $errors->has('email') || $errors->has('class') || $errors->has('subject') || $errors->has('message')) active @endif"
+	>
 		<div id="freeTrialClass-wrapper">
 			<div class="bar bar-size-2 left" style="background-image: url('{{ asset('amadeo/main-image/bg-iad.png') }}');">
-				<form>
-					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Name">
+				<form method="post" action="{{ route('frontend.store.classFT') }}">
+					{{ csrf_field() }}
+					<div class="input-group {{ $errors->has('name') ? 'error' : '' }}">
+						<input 
+							type="text" 
+							name="name" 
+							class="form-control" 
+							placeholder="Name"
+							value="{{ old('name') }}"
+						>
 						<span class="input-group-addon">
 							<i class="fa fa-users" aria-hidden="true"></i>
 						</span>
 					</div>
-					<div class="input-group">
-						<input type="text" name="" class="form-control" placeholder="Phone">
+					<div class="input-group {{ $errors->has('phone') ? 'error' : '' }}">
+						<input 
+							type="phone" 
+							name="phone" 
+							class="form-control" 
+							placeholder="Phone"
+							value="{{ old('phone') }}"
+						>
 						<span class="input-group-addon">
 							<i class="fa fa-phone" aria-hidden="true" style="font-size: 17px;"></i>
 						</span>
 					</div>
-					<div class="input-group">
-						<input type="text" name="" class="form-control" placeholder="Email Address">
+					<div class="input-group {{ $errors->has('email') ? 'error' : '' }}">
+						<input 
+							type="email" 
+							name="email" 
+							class="form-control" 
+							placeholder="Email Address"
+							value="{{ old('email') }}"
+						>
 						<span class="input-group-addon">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
 						</span>
 					</div>
-					<div class="input-group">
-						<select class="form-control" name="" id="">
+					<div class="input-group {{ $errors->has('class') ? 'error' : '' }}">
+						<select class="form-control" name="class">
+							<option value="" selected="" disabled>Choose Class</option>
 							@foreach($callFreeTrialClass as $list)
-							<option value="{{ $list->id }}">
+							<option 
+								value="{{ $list->id }}"
+								 {{ old('class') == $list->id ? 'selected="selected"' : '' }}
+							>
 								{{ $list->nama_kelas." (".$list->program_kelas.")" }}
 							</option>
 							@endforeach
 						</select>
 					</div>
-					<div class="input-group">
-						<input type="text" name="" class="form-control" placeholder="Subject">
+					<div class="input-group {{ $errors->has('subject') ? 'error' : '' }}">
+						<input 
+							type="text" 
+							name="subject" 
+							class="form-control" 
+							placeholder="Subject"
+							value="{{ old('subject') }}"
+						>
 						<span class="input-group-addon">
 							<i class="fa fa-question" aria-hidden="true"></i>
 						</span>
 					</div>
-					<div class="input-group">
-						<textarea name="" class="form-control" placeholder="Message" rows="3"></textarea>
+					<div class="input-group {{ $errors->has('message') ? 'error' : '' }}">
+						<textarea name="message" class="form-control" placeholder="Message" rows="3">{{ old('message') }}</textarea>
 					</div>
 					<button class="btn btn-green">Submit</button>
 				</form>
