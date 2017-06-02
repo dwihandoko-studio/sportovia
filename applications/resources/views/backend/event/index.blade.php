@@ -73,7 +73,7 @@
           <td>{{ $no }}</td>
           <td>{{ $key->judul }}</td>
           <td>{!! $key->deskripsi !!}</td>
-          <td>{{ $key->tanggal_event }}</td>
+          <td>{{ $key->tanggal_event }} <br> {{ Carbon\Carbon::parse($key->tanggal_event)->diffForHumans() }}</td>
           <td>@if ($key->tanggal_publish > date('Y-m-d'))
             <span class="label label-warning">{{ $key->tanggal_publish }}</span>
           @else

@@ -44,7 +44,8 @@ class EventsController extends Controller
           'img_thumb.required' => 'This field is required.',
           'img_thumb.max' => 'File Size Too Big.',
           'img_thumb.dimensions' => 'Pixel max 200px x 200px.',
-          'tanggal_event' => 'This field is required.'
+          'tanggal_event_' => 'This field is required.',
+          'tanggal_publish_' => 'This field is required.'
         ];
 
         $validator = Validator::make($request->all(), [
@@ -52,7 +53,8 @@ class EventsController extends Controller
           'deskripsi'  => 'required|max:450',
           'img_banner'  => 'required|image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=500,max_height=500',
           'img_thumb'  => 'required|image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=300,max_height=300',
-          'tanggal_event' => 'required'
+          'tanggal_event_' => 'required',
+          'tanggal_publish_' => 'required',
         ], $message);
 
 
@@ -83,7 +85,7 @@ class EventsController extends Controller
         $save->img_thumb = $img_url_thumb;
         $save->img_thumb_alt = 'sportopia-'.str_slug($request->judul,'-').'-thumb';
         $save->flag_publish = $flag_publish;
-        $save->tanggal_event = $request->tanggal_event;
+        $save->tanggal_event = $request->tanggal_event_;
         $save->tanggal_publish = $request->tanggal_publish_;
         $save->slug = str_slug($request->judul,'-');
         $save->actor = auth()->guard('admin')->id();
@@ -122,7 +124,8 @@ class EventsController extends Controller
           'img_thumb.image' => 'Format not supported.',
           'img_thumb.max' => 'File Size Too Big.',
           'img_thumb.dimensions' => 'Pixel max 200px x 200px.',
-          'tanggal_event' => 'This field is required.'
+          'tanggal_event' => 'This field is required.',
+          'tanggal_publish_' => 'This field is required.'
         ];
 
         $validator = Validator::make($request->all(), [
@@ -130,7 +133,8 @@ class EventsController extends Controller
           'deskripsi'  => 'required|max:450',
           'img_banner'  => 'image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=500,max_height=500',
           'img_thumb'  => 'image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=500,max_height=500',
-          'tanggal_event' => 'required'
+          'tanggal_event' => 'required',
+          'tanggal_publish_' => 'required'
         ], $message);
 
 
