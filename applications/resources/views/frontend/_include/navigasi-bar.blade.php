@@ -11,7 +11,7 @@
 			<div id="right">
 				<div class="nav-content-wrapper">
 					<div>
-						<a class="btn btn-green" href="">
+						<a class="btn btn-green open-fre-tri-clas">
 							Free Trial Class
 						</a>
 						<a class="btn btn-green" href="{{ Route('frontend.member.index') }}">
@@ -86,4 +86,52 @@
 	</div>
 </div>
 <div id="space-nav">
+	<div id="freeTrialClass" class="fre-tri-clas">
+		<div id="freeTrialClass-wrapper">
+			<div class="bar bar-size-2 left" style="background-image: url('{{ asset('amadeo/main-image/bg-iad.png') }}');">
+				<form>
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="Name">
+						<span class="input-group-addon">
+							<i class="fa fa-users" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div class="input-group">
+						<input type="text" name="" class="form-control" placeholder="Phone">
+						<span class="input-group-addon">
+							<i class="fa fa-phone" aria-hidden="true" style="font-size: 17px;"></i>
+						</span>
+					</div>
+					<div class="input-group">
+						<input type="text" name="" class="form-control" placeholder="Email Address">
+						<span class="input-group-addon">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div class="input-group">
+						<select class="form-control" name="" id="">
+							@foreach($callFreeTrialClass as $list)
+							<option value="{{ $list->id }}">
+								{{ $list->nama_kelas." (".$list->program_kelas.")" }}
+							</option>
+							@endforeach
+						</select>
+					</div>
+					<div class="input-group">
+						<input type="text" name="" class="form-control" placeholder="Subject">
+						<span class="input-group-addon">
+							<i class="fa fa-question" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div class="input-group">
+						<textarea name="" class="form-control" placeholder="Message" rows="3"></textarea>
+					</div>
+					<button class="btn btn-green">Submit</button>
+				</form>
+			</div>
+			<div class="bar bar-size-2 right" style="background-image: url('{{ asset('amadeo/main-image/popup.png') }}');">
+				<i class="fa fa-times-circle-o open-fre-tri-clas"" aria-hidden="true"></i>
+			</div>
+		</div>
+	</div>
 </div>

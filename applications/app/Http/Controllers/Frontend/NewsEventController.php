@@ -15,6 +15,30 @@ class NewsEventController extends Controller
     	$date = new DateTime;
 		$format_date = $date->format('Y-m-d');
 
+		$callEventNew = NewsEvent::select(
+    		'judul',
+    		'deskripsi',
+    		'img_banner',
+    		'slug'
+    	)
+    	->where('news_event', '0')
+    	->where('flag_publish', '1')
+        ->whereDATE('tanggal_publish', '<=', $format_date)
+        ->orderBy('tanggal_publish', 'desc')
+    	->first();
+    	
+    	$callEvent = NewsEvent::select(
+    		'judul',
+    		'deskripsi',
+    		'img_thumb',
+    		'slug'
+    	)
+    	->where('news_event', '0')
+    	->where('flag_publish', '1')
+        ->whereDATE('tanggal_publish', '<=', $format_date)
+        ->orderBy('tanggal_publish', 'desc')
+    	->get();
+
     	$callNews = NewsEvent::select(
     		'judul',
     		'deskripsi',
@@ -24,9 +48,12 @@ class NewsEventController extends Controller
     	->where('news_event', '1')
     	->where('flag_publish', '1')
         ->whereDATE('tanggal_publish', '<=', $format_date)
+        ->orderBy('tanggal_publish', 'desc')
     	->get();
 
 	    return view('frontend.news-event-page.index', compact(
+	    	'callEventNew',
+	    	'callEvent',
 	    	'callNews'
 	    ));
 	}

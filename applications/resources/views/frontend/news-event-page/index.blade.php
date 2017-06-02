@@ -47,20 +47,18 @@
 </div>
 <?php // banner wrapper ?>
 <div id="banner">
-	<div class="banner-content" style="background-image: url('{{ asset('amadeo/main-image/banner.png') }}');">
+	<div class="banner-content" style="background-image: url('{{ asset('amadeo/images/news-event/'.$callEventNew->img_banner) }}');">
 		<div class="setup-wrapper">
 			<div class="setup-content lar-wd">
 				<div class="wrapper-description">
 					<h3>Event</h3>
-					<h2>Yoga Healthy Day</h2>
-					<p>
-						Lorem ipsum dolor sit amet, quas assum volutpat ei vix, usu semper laoreet placerat an. Assum recteque te has, ad quidam euripidis eloquentiam sed, equidem fierent phaedrum et sea. An legendos praesent quo. Sea cu dicta partem signiferumque. Ea quis referrentur vix, quo an tota soluta electram. Scribentur signiferumque ne sed, hinc ubique dolorem ei qui. Sit eu convenire consulatu, vis id novum expetenda persequeris.
-					</p>
+					<h2>{{ $callEventNew->judul }}</h2>
+					<p>{{ Str::words($callEventNew->deskripsi, 65) }}</p>
 					<div class="for-btn">
 						<a href="" class="btn btn-green">
 							Register
 						</a>
-						<a href="{{ Route('frontend.news-event.view', ['slug'=>'$a' ]) }}" class="btn btn-green">
+						<a href="{{ Route('frontend.news-event.view', ['slug'=>$callEventNew->slug ]) }}" class="btn btn-green">
 							Detail
 						</a>
 					</div>
@@ -73,25 +71,25 @@
 <div id="index" class="setup-wrapper">
 	<div class="setup-content lar-wd">
 		<div class="owl-wrapper">
-			@for($a=0; $a<=15; $a++)
+			@foreach($callEvent as $list)
 			<div class="item">
-				<a href="{{ Route('frontend.news-event.view', ['slug'=>$a ]) }}">
+				<a href="{{ Route('frontend.news-event.view', ['slug'=>$list->slug ]) }}">
 					<div class="index-wrapper">
-						<div class="img-back" style="background-image: url('{{ asset('amadeo/main-image/card.jpg') }}');">
+						<div class="img-back" style="background-image: url('{{ asset('amadeo/images/news-event/'.$list->img_thumb) }}');">
 							<div class="img-description-wrapper">
 								<img src="{{ asset('amadeo/main-image/icon-circle.png') }}">
-								<p>Lorem Ipsum Doler Sit Amer, Lorem Ipsum Doler Sit Amer, Lorem Ipsum Doler Sit Amer,Lorem Ipsum Doler Sit Amer, Lorem Ipsum Doler Sit Amer, Lorem Ipsum Doler Sit Amer,Lorem Ipsum Doler Sit Amer, Lorem Ipsum Doler Sit Amer, Lorem Ipsum Doler Sit Amer</p>
+								<p>{{ Str::words($list->deskripsi, 35) }}</p>
 							</div>
 						</div>
 						<div class="index-title-wrapper">
 							<div class="title-content">
-								<h3>title in here title in here</h3>
+								<h3>{{ $list->judul }}</h3>
 							</div>
 						</div>
 					</div>
 				</a>
 			</div>
-			@endfor
+			@endforeach
 		</div>
 		<div class="clearfix"></div>
 	</div>
