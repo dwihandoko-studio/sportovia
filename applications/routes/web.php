@@ -17,8 +17,8 @@
 Route::get('admin/login', 'Backend\Auth\LoginController@getLoginForm')->name('login.admin.form');
 Route::post('admin/login/proses', 'Backend\Auth\LoginController@authenticate')->name('login.admin.post');
 
-// Route::get('admin/register', 'backend\Auth\RegisterController@getRegisterForm');
-// Route::post('admin/saveregister', 'backend\Auth\RegisterController@saveRegisterForm');
+Route::get('admin/verify/{confirmation_code}', 'Backend\UserController@verify')->name('userAdmin.verify');
+Route::post('admin/verify', 'Backend\UserController@store')->name('userAdmin.store');
 
 
 //----------------------- BACKEND -----------------------//
@@ -116,6 +116,15 @@ Route::group(['middleware' => ['admin']], function () {
 
   // Log Akses
   Route::get('admin/log-access', 'Backend\LogAksesController@index')->name('logAkses.index');
+
+  //User Admin
+  Route::get('admin/user', 'Backend\UserController@index')->name('userAdmin.index');
+  Route::post('admin/user', 'Backend\UserController@newUser')->name('userAdmin.newUser');
+  Route::get('admin/user/{id}', 'Backend\UserController@reset')->name('userAdmin.reset');
+
+  // Profile User
+  Route::get('admin/profile', 'Backend\ProfileController@index')->name('profile.index');
+  Route::post('admin/profile/changePassword', 'Backend\ProfileController@changePassword')->name('profile.changePassword');
 });
 //----------------------- BACKEND -----------------------//
 

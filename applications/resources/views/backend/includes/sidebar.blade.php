@@ -37,6 +37,9 @@
     <li class="{{ Route::is('logAkses*') ? 'active' : '' }}">
       <a href="{{ route('logAkses.index') }}"><i class="icon icon-list-ul"></i> <span>Log Access</span></a>
     </li>
+    <li class="{{ Route::is('userAdmin*') ? 'active' : '' }}">
+      <a href="{{ route('userAdmin.index') }}"><i class="icon icon-user"></i> <span>Users</span></a>
+    </li>
   </ul>
 </div>
 <!--sidebar-menu-->

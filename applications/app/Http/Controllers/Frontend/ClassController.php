@@ -16,8 +16,8 @@ class ClassController extends Controller
     	$callKategori = KelasKategori::select(
             'id',
             'kategori_kelas',
-            'img_banner', 
-            'quotes_kategori', 
+            'img_banner',
+            'quotes_kategori',
             'deskripsi_kategori',
             'slug'
         )
@@ -27,7 +27,7 @@ class ClassController extends Controller
 
         $callClass = Kelas::select(
             'nama_kelas',
-            'img_url', 
+            'img_url',
             'deskripsi_kelas',
             'slug'
         )
@@ -43,7 +43,7 @@ class ClassController extends Controller
 	}
 
 	function view($slug, $subslug){
-        
+
         $arr = ['children','childrens','anak','anak-anak','kid','kids'];
 
 	    $callKategori = KelasKategori::select(
@@ -60,7 +60,7 @@ class ClassController extends Controller
             'nama_kelas',
             'quotes',
             'deskripsi_kelas',
-            'img_url', 
+            'img_url',
             'fasilitas',
             'video_url',
             'amd_kelas.slug as slug'
@@ -69,6 +69,14 @@ class ClassController extends Controller
         ->where('amd_kelas.flag_publish', '1')
         ->where('amd_kelas_program.flag_publish', '1')
         ->first();
+
+        if(!$callKategori){
+          abort('errors.404');
+        }
+
+        if(!$callClass){
+          abort('errors.404');
+        }
 
         if (in_array(strtolower($callClass->program_kelas), $arr)){
             $goView = 'frontend.children-page.view';
