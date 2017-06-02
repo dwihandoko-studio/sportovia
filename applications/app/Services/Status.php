@@ -10,8 +10,8 @@ class Status  {
 	 */
 	public function setLoginStatus($login)
 	{
-		session()->put('status', $login->user->role->slug);
-		session()->put('status', $login->admin->role->slug);
+		session()->put('status', auth()->guard('admin')->id());
+		session()->put('status', auth()->guard('user')->id());
 	}
 
 	/**

@@ -24,7 +24,7 @@ class CheckAdmin
             {
                 return redirect()->intended('admin/login/')->with('status', 'You do not have access to admin side');
             }
-            
+
             return $next($request);
         }
         else

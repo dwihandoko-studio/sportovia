@@ -15,7 +15,7 @@
 
 // Admin Login
 Route::get('admin/login', 'Backend\Auth\LoginController@getLoginForm')->name('login.admin.form');
-Route::post('admin/login', 'Backend\Auth\LoginController@authenticate')->name('login.admin.post');
+Route::post('admin/login/proses', 'Backend\Auth\LoginController@authenticate')->name('login.admin.post');
 
 // Route::get('admin/register', 'backend\Auth\RegisterController@getRegisterForm');
 // Route::post('admin/saveregister', 'backend\Auth\RegisterController@saveRegisterForm');
@@ -114,7 +114,8 @@ Route::group(['middleware' => ['admin']], function () {
   Route::post('admin/event/edit', 'Backend\EventsController@edit')->name('event.edit');
   Route::get('admin/event/publish/{id}', 'Backend\EventsController@publish')->name('event.publish');
 
-  // Route::get('admin/login');
+  // Log Akses
+  Route::get('admin/log-access', 'Backend\LogAksesController@index')->name('logAkses.index');
 });
 //----------------------- BACKEND -----------------------//
 
@@ -129,8 +130,9 @@ Route::group(['middleware' => ['isMember']], function(){
 Route::get('/', 'Frontend\HomeController@index')
 	->name('frontend.home');
 
-Route::get('/member-area', 'Frontend\MemberController@index')
-	->name('frontend.member.index');
+// Member Login
+Route::get('/member-area', 'Frontend\Auth\LoginController@getLoginForm')->name('frontend.member.index');
+Route::post('/member-area/proses', 'Frontend\Auth\LoginController@authenticate')->name('frontend.member.post');
 
 Route::get('/about/us', 'Frontend\AboutController@us')
 	->name('frontend.about.us');

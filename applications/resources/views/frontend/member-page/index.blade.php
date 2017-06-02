@@ -47,11 +47,14 @@
 				<h1>Login</h1>
 				<h1>For Access</h1>
 				<p>Lorem ipsum dolor sit amet, quas assum volutpat ei vix, usu semper laoreet placerat an. Assum recteque te has, ad quidam euripidis eloquentiam sed, equidem fierent phaedrum et sea.</p>
-				<input type="text" class="form-control error" placeholder="User Name">
-				<input type="password" name="" class="form-control" placeholder="Password">
-				<div class="text-center">
-					<button>Login</button>
-				</div>
+				<form class="" action="{{ route('frontend.member.post') }}" method="post">
+					{{ csrf_field() }}
+					<input type="text" class="form-control {{ $errors->has('email') ? 'error' : '' }}" placeholder="Email" name="email" value="{{ old('email')}}">
+					<input type="password" class="form-control {{ $errors->has('password') ? 'error' : '' }}" placeholder="Password" name="password">
+					<div class="text-center">
+						<button>Login</button>
+					</div>
+				</form>
 			</div>
 		</div>
 		<div class="clearfix"></div>
