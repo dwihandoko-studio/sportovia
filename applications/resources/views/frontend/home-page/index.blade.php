@@ -47,7 +47,7 @@
 		<div class="text-center">
 			<h2><label>Think</label> <label>Smart</label> <label>and</label> <label>Healthy</label> <label>Life</label></h2>
 			<p>Lorem ipsum dolor sit amet, sit in aliquip discere. Soluta facilis duo eu. Novum laudem accusamus nam ad, duo nihil iriure malorum an. Vim graeco consequat ex. In vim nusquam percipit antiopam, epicurei officiis mediocritatem ne duo.</p>
-			<a class="btn btn-green larg-1" href="">
+			<a class="btn btn-green larg-1 open-fre-tri-clas">
 				Free Trial Class
 			</a>
 		</div>

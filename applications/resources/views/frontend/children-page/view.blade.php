@@ -6,7 +6,7 @@
 
 @section('meta')
 <meta name="title" content="Sportopia">
-<meta name="description" content="Sportopia - ">
+<meta name="description" content="Sportopia - {{ $callClass->nama_kelas }} : {{ Str::words($callClass->deskripsi_kelas, 30) }}">
 <meta name="keywords" content="Sportopia " />
 @endsection
 

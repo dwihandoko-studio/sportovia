@@ -36,7 +36,7 @@ a:hover{
 	border: 2px solid rgb(69,186,1);
 }
 .btn.btn-green:hover{
-	background-color: rgb(255,255,255);
+	background-color: rgba(255,255,255,0);
 	color: rgb(69,186,1);
 }
 .btn.btn-green.larg-1{
@@ -312,3 +312,122 @@ a:hover{
 }
 
 /* end for footer */
+
+/* end for freeTrialClass */
+#freeTrialClass{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: auto;
+	visibility: hidden;
+	opacity: 0;
+	z-index: 3;
+	transition: all .51s;
+}
+#freeTrialClass #freeTrialClass-wrapper{
+	position: relative;
+	width: 100%;
+	height: auto;
+	background-color: rgb(255,255,255);
+	visibility: hidden;
+	opacity: 0;
+	transition: all .51s;
+}
+#freeTrialClass #freeTrialClass-wrapper .bar.bar-size-2{
+	height: 0vh;
+	visibility: hidden;
+	opacity: 0;
+	transition: all .51s;
+}
+#freeTrialClass #freeTrialClass-wrapper .bar.bar-size-2.left{
+	background-repeat: repeat-y;
+	padding: 30px;
+	text-align: center;
+}
+#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group{
+	margin-bottom: 10px; 
+    width: 100%;
+}
+#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group input{
+	border: .5px solid rgba(255,255,255,.5);
+	border-right: .5px solid rgba(255,255,255,0);
+	border-radius: 0px;
+	background-color: rgba(65,65,65,.45);
+	color: rgb(255,255,255);
+}
+#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group select{
+	border: .5px solid rgba(255,255,255,.5);
+	border-radius: 0px;
+	background-color: rgba(65,65,65,.45);
+	color: rgb(255,255,255);
+}
+#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group textarea{
+	width: 100%;
+	background-color: rgba(65,65,65,.45);
+	color: rgb(255,255,255);
+}
+#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group.error input,
+#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group.error select,
+#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group.error textarea{
+	background-color: rgba(255,0,0,.45);
+	color: rgb(255,0,0);
+}
+#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group input::-webkit-input-placeholder,
+#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group textarea::-webkit-input-placeholder{
+	color: rgb(255,255,255);
+}
+#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group.error input::-webkit-input-placeholder,
+#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group.error textarea::-webkit-input-placeholder{
+	color: rgb(255,0,0);
+}
+#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group .input-group-addon{
+	border: .5px solid rgba(255,255,255,.5);
+	border-left: .5px solid rgba(255,255,255,0);
+	border-radius: 0px;
+	background-color: rgba(65,65,65,.45);
+	color: rgb(255,255,255);
+}
+#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group.error .input-group-addon{
+	background-color: rgba(255,0,0,.45);
+	color: rgb(255,0,0);
+}
+#freeTrialClass #freeTrialClass-wrapper .bar.right{
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	padding: 20px;
+	text-align: right;
+}
+#freeTrialClass #freeTrialClass-wrapper .bar.right .fa{
+	font-size: 48px;
+	color: rgb(255,255,255);
+    text-shadow: 2px 5px 4px rgba(65,65,65,.5);
+    cursor: pointer;
+}
+
+#freeTrialClass.active{
+	visibility: visible;
+	opacity: 1;
+}
+#freeTrialClass.active #freeTrialClass-wrapper{
+	visibility: visible;
+	opacity: 1;
+}
+#freeTrialClass.active #freeTrialClass-wrapper .bar{
+	height: 78vh;
+	visibility: visible;
+	opacity: 1;
+}
+
+@media (max-width: 480px) {
+	#freeTrialClass{
+		z-index: 20;
+	}
+	#freeTrialClass.active #freeTrialClass-wrapper .bar{
+		width: 100%;
+		height: 40vh;
+		overflow-y: auto;
+	}
+}
+/* end for freeTrialClass */

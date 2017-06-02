@@ -11,7 +11,7 @@
 			<div id="right">
 				<div class="nav-content-wrapper">
 					<div>
-						<a class="btn btn-green" href="">
+						<a class="btn btn-green open-fre-tri-clas">
 							Free Trial Class
 						</a>
 						<a class="btn btn-green" href="{{ Route('frontend.member.index') }}">
@@ -86,4 +86,84 @@
 	</div>
 </div>
 <div id="space-nav">
+	<div 
+		id="freeTrialClass" 
+		class="fre-tri-clas @if($errors->has('name') || $errors->has('phone') || $errors->has('email') || $errors->has('class') || $errors->has('subject') || $errors->has('message')) active @endif"
+	>
+		<div id="freeTrialClass-wrapper">
+			<div class="bar bar-size-2 left" style="background-image: url('{{ asset('amadeo/main-image/bg-iad.png') }}');">
+				<form method="post" action="{{ route('frontend.store.classFT') }}">
+					{{ csrf_field() }}
+					<div class="input-group {{ $errors->has('name') ? 'error' : '' }}">
+						<input 
+							type="text" 
+							name="name" 
+							class="form-control" 
+							placeholder="Name"
+							value="{{ old('name') }}"
+						>
+						<span class="input-group-addon">
+							<i class="fa fa-users" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div class="input-group {{ $errors->has('phone') ? 'error' : '' }}">
+						<input 
+							type="phone" 
+							name="phone" 
+							class="form-control" 
+							placeholder="Phone"
+							value="{{ old('phone') }}"
+						>
+						<span class="input-group-addon">
+							<i class="fa fa-phone" aria-hidden="true" style="font-size: 17px;"></i>
+						</span>
+					</div>
+					<div class="input-group {{ $errors->has('email') ? 'error' : '' }}">
+						<input 
+							type="email" 
+							name="email" 
+							class="form-control" 
+							placeholder="Email Address"
+							value="{{ old('email') }}"
+						>
+						<span class="input-group-addon">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div class="input-group {{ $errors->has('class') ? 'error' : '' }}">
+						<select class="form-control" name="class">
+							<option value="" selected="" disabled>Choose Class</option>
+							@foreach($callFreeTrialClass as $list)
+							<option 
+								value="{{ $list->id }}"
+								 {{ old('class') == $list->id ? 'selected="selected"' : '' }}
+							>
+								{{ $list->nama_kelas." (".$list->program_kelas.")" }}
+							</option>
+							@endforeach
+						</select>
+					</div>
+					<div class="input-group {{ $errors->has('subject') ? 'error' : '' }}">
+						<input 
+							type="text" 
+							name="subject" 
+							class="form-control" 
+							placeholder="Subject"
+							value="{{ old('subject') }}"
+						>
+						<span class="input-group-addon">
+							<i class="fa fa-question" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div class="input-group {{ $errors->has('message') ? 'error' : '' }}">
+						<textarea name="message" class="form-control" placeholder="Message" rows="3">{{ old('message') }}</textarea>
+					</div>
+					<button class="btn btn-green">Submit</button>
+				</form>
+			</div>
+			<div class="bar bar-size-2 right" style="background-image: url('{{ asset('amadeo/main-image/popup.png') }}');">
+				<i class="fa fa-times-circle-o open-fre-tri-clas"" aria-hidden="true"></i>
+			</div>
+		</div>
+	</div>
 </div>

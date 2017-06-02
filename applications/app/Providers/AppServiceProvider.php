@@ -39,6 +39,18 @@ class AppServiceProvider extends ServiceProvider
             ->orderBy('nama_kelas', 'asc')
             ->get();
             view()->share('callNavClass', $callNavClass);
+
+            $callFreeTrialClass = Kelas::leftJoin('amd_kelas_program', 'amd_kelas_program.id', '=', 'amd_kelas.id_program')
+            ->select(
+                'amd_kelas.id',
+                'program_kelas',
+                'nama_kelas'
+            )
+            ->where('amd_kelas.flag_publish', '1')
+            ->where('amd_kelas_program.flag_publish', '1')
+            ->orderBy('amd_kelas_program.program_kelas')
+            ->get();
+            view()->share('callFreeTrialClass', $callFreeTrialClass);
         }
     }
 
