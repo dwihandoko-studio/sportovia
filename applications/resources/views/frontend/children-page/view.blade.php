@@ -37,6 +37,7 @@ body{
 	width: 100%;
 	height: 10vh;
 	top: -65px;
+	left: 0;
 	background-image: url('../amadeo/main-image/children-ft.png');
 }
 #footer .footer-wrapper .footer-content .fa-stack-1x{
