@@ -19,7 +19,7 @@ class CreateKelasRuang extends Migration
           $table->string('lantai_kelas');
           $table->string('kapasitas')->nullable();
           $table->string('link_cctv')->nullable();
-          $table->integer('flag_status')->unsigned();
+          $table->integer('flag_publish')->unsigned();
           $table->integer('actor')->unsigned();
           $table->timestamps();
         });

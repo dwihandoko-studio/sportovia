@@ -8,7 +8,7 @@ class KelasRuang extends Model
 {
     protected $table = 'amd_kelas_ruang';
 
-    protected $fillable = ['nama_kelas','lantai_kelas','kapasitas','link_cctv','flag_status','actor'];
+    protected $fillable = ['nama_kelas','lantai_kelas','kapasitas','link_cctv','flag_publish','actor'];
 
-    
+
 }

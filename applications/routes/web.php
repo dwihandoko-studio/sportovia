@@ -98,6 +98,12 @@ Route::group(['middleware' => ['admin']], function () {
   Route::get('admin/class-course/{id}', 'Backend\KelasController@lihat')->name('kelasKursus.lihat');
   Route::get('admin/class-course/publish/{id}', 'Backend\KelasController@publish')->name('kelasKursus.publish');
 
+  // Class Room
+  Route::get('admin/class-room', 'Backend\KelasRuangController@index')->name('kelasRuang.index');
+  Route::post('admin/class-room', 'Backend\KelasRuangController@store')->name('kelasRuang.store');
+  Route::get('admin/class-room/edit/{id}', 'Backend\KelasRuangController@ubah')->name('kelasRuang.ubah');
+  Route::post('admin/class-room/edit', 'Backend\KelasRuangController@edit')->name('kelasRuang.edit');
+
   // News
   Route::get('admin/news', 'Backend\NewsController@index')->name('news.index');
   Route::get('admin/news/add', 'Backend\NewsController@tambah')->name('news.tambah');
@@ -125,6 +131,10 @@ Route::group(['middleware' => ['admin']], function () {
   // Profile User
   Route::get('admin/profile', 'Backend\ProfileController@index')->name('profile.index');
   Route::post('admin/profile/changePassword', 'Backend\ProfileController@changePassword')->name('profile.changePassword');
+
+  // Member
+  Route::get('admin/member', 'Backend\MemberController@index')->name('member.index');
+  Route::get('admin/member/add', 'Backend\MemberController@tambah')->name('member.tambah');
 });
 //----------------------- BACKEND -----------------------//
 
