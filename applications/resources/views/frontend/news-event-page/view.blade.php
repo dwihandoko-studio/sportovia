@@ -48,11 +48,13 @@
 			<p>
 				{{ $call->deskripsi }}
 			</p>
+			@if($call->news_event == 0)
 			<div class="for-btn">
-				<a href="" class="btn btn-green">
+				<a class="btn btn-green open-form-class">
 					Register
 				</a>
 			</div>
+			@endif
 		</div>
 	</div>
 </div>

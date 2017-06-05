@@ -55,7 +55,7 @@
 					<h2>{{ $callEventNew->judul }}</h2>
 					<p>{{ Str::words($callEventNew->deskripsi, 65) }}</p>
 					<div class="for-btn">
-						<a href="" class="btn btn-green">
+						<a class="btn btn-green open-form-class">
 							Register
 						</a>
 						<a href="{{ Route('frontend.news-event.view', ['slug'=>$callEventNew->slug ]) }}" class="btn btn-green">

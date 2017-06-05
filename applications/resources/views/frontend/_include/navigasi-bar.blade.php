@@ -11,7 +11,7 @@
 			<div id="right">
 				<div class="nav-content-wrapper">
 					<div>
-						<a class="btn btn-green open-fre-tri-clas">
+						<a class="btn btn-green open-form-class" @if(Route::is('frontend.news-event.index') || Route::is('frontend.news-event.view')) style="display: none;" @endif>
 							Free Trial Class
 						</a>
 						<a class="btn btn-green" href="{{ Route('frontend.member.index') }}">
@@ -42,7 +42,14 @@
 						</li>
 						@foreach($callNavKategori as $list)
 						<li class="dropdown">
-							<a class="" href="{{ Route('frontend.class.index', ['slug' => $list->slug]) }}">
+							<a 
+								@if(Route::is('frontend.class*'))
+								@if($callKategori->slug == $list->slug)
+								class="active"
+								@endif
+								@endif
+								href="{{ Route('frontend.class.index', ['slug' => $list->slug]) }}"
+							>
 								{{ $list->kategori_kelas }}
 							</a>
 							<div class="dropdown-wrapper class">
@@ -88,13 +95,41 @@
 <div id="space-nav">
 	<div 
 		id="freeTrialClass" 
-		class="fre-tri-clas @if($errors->has('name') || $errors->has('phone') || $errors->has('email') || $errors->has('class') || $errors->has('subject') || $errors->has('message')) active @endif"
+		class="fre-tri-clas @if($errors->has('type') || $errors->has('name') || $errors->has('phone') || $errors->has('email') || $errors->has('class') || $errors->has('subject') || $errors->has('message') || Session::has('store_info')) active @endif"
 	>
 		<div id="freeTrialClass-wrapper">
 			<div class="bar bar-size-2 left" style="background-image: url('{{ asset('amadeo/main-image/bg-iad.png') }}');">
-				<form method="post" action="{{ route('frontend.store.classFT') }}">
+				@if(Session::has('store_info'))
+					<p class="info  @if($errors->has('type') || $errors->has('name') || $errors->has('phone') || $errors->has('email') || $errors->has('class') || $errors->has('subject') || $errors->has('message')) errors @endif">{{ Session::get('store_info') }}</p>
+				@endif
+				<form method="post" action="{{ route('frontend.store') }}">
 					{{ csrf_field() }}
+					<div class="input-group {{ $errors->has('type') ? 'error' : '' }}">
+						<label>
+							{{ $errors->has('type') ? $errors->first('type') : '' }}
+						</label>
+						<select class="form-control" name="type">
+							@if(Route::is('frontend.news-event.index') || Route::is('frontend.news-event.view'))
+							<option value="3" selected>Register Joint Event</option>
+							@else
+							<option value="" selected="" disabled>Choose Register or Free Trial</option>
+							<option value="1"
+								{{ old('type') == 1 ? 'selected="selected"' : '' }}
+							>
+								Free Trial	
+							</option>
+							<option value="2"
+								{{ old('type') == 2 ? 'selected="selected"' : '' }}
+							>
+								Register
+							</option>
+							@endif
+						</select>
+					</div>
 					<div class="input-group {{ $errors->has('name') ? 'error' : '' }}">
+						<label>
+							{{ $errors->has('name') ? $errors->first('name') : '' }}
+						</label>
 						<input 
 							type="text" 
 							name="name" 
@@ -107,6 +142,9 @@
 						</span>
 					</div>
 					<div class="input-group {{ $errors->has('phone') ? 'error' : '' }}">
+						<label>
+							{{ $errors->has('phone') ? $errors->first('phone') : '' }}
+						</label>
 						<input 
 							type="phone" 
 							name="phone" 
@@ -119,6 +157,9 @@
 						</span>
 					</div>
 					<div class="input-group {{ $errors->has('email') ? 'error' : '' }}">
+						<label>
+							{{ $errors->has('email') ? $errors->first('email') : '' }}
+						</label>
 						<input 
 							type="email" 
 							name="email" 
@@ -131,19 +172,42 @@
 						</span>
 					</div>
 					<div class="input-group {{ $errors->has('class') ? 'error' : '' }}">
+						<label>
+							{{ $errors->has('class') ? $errors->first('class') : '' }}
+						</label>
 						<select class="form-control" name="class">
+							@if(Route::is('frontend.news-event.index'))
+							<option value="{{ $callEventNew->id }}" selected>{{ $callEventNew->judul }}</option>
+							@elseif(Route::is('frontend.news-event.view'))
+							<option value="{{ $call->id }}" selected>{{ $call->judul }}</option>
+							@else
 							<option value="" selected="" disabled>Choose Class</option>
 							@foreach($callFreeTrialClass as $list)
+							@if(Route::is('frontend.class.view'))
+							@if($list->id == $callClass->id)
 							<option 
 								value="{{ $list->id }}"
 								 {{ old('class') == $list->id ? 'selected="selected"' : '' }}
 							>
 								{{ $list->nama_kelas." (".$list->program_kelas.")" }}
 							</option>
+							@endif
+							@else
+							<option 
+								value="{{ $list->id }}"
+								 {{ old('class') == $list->id ? 'selected="selected"' : '' }}
+							>
+								{{ $list->nama_kelas." (".$list->program_kelas.")" }}
+							</option>
+							@endif
 							@endforeach
+							@endif
 						</select>
 					</div>
 					<div class="input-group {{ $errors->has('subject') ? 'error' : '' }}">
+						<label>
+							{{ $errors->has('subject') ? $errors->first('subject') : '' }}
+						</label>
 						<input 
 							type="text" 
 							name="subject" 
@@ -156,13 +220,16 @@
 						</span>
 					</div>
 					<div class="input-group {{ $errors->has('message') ? 'error' : '' }}">
+						<label>
+							{{ $errors->has('message') ? $errors->first('message') : '' }}
+						</label>
 						<textarea name="message" class="form-control" placeholder="Message" rows="3">{{ old('message') }}</textarea>
 					</div>
 					<button class="btn btn-green">Submit</button>
 				</form>
 			</div>
 			<div class="bar bar-size-2 right" style="background-image: url('{{ asset('amadeo/main-image/popup.png') }}');">
-				<i class="fa fa-times-circle-o open-fre-tri-clas"" aria-hidden="true"></i>
+				<i class="fa fa-times-circle-o close-form-class" aria-hidden="true"></i>
 			</div>
 		</div>
 	</div>

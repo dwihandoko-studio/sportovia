@@ -56,6 +56,7 @@ class ClassController extends Controller
 
         $callClass = Kelas::leftJoin('amd_kelas_program', 'amd_kelas_program.id', '=', 'amd_kelas.id_program')
         ->select(
+            'amd_kelas.id as id',
             'program_kelas',
             'nama_kelas',
             'quotes',

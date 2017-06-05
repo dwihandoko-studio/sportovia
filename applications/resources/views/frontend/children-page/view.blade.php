@@ -37,6 +37,7 @@ body{
 	width: 100%;
 	height: 10vh;
 	top: -65px;
+	left: 0;
 	background-image: url('../amadeo/main-image/children-ft.png');
 }
 #footer .footer-wrapper .footer-content .fa-stack-1x{
@@ -84,7 +85,7 @@ body{
 			<div class="content">
 				<p>{{ $callClass->deskripsi_kelas }}</p>
  				<div class="text-center">
-	 				<a href="" class="btn btn-green">Register</a>
+	 				<a class="btn btn-green open-form-class">Register</a>
  				</div>
 			</div>
 		</div>
