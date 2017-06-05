@@ -42,7 +42,14 @@
 						</li>
 						@foreach($callNavKategori as $list)
 						<li class="dropdown">
-							<a class="" href="{{ Route('frontend.class.index', ['slug' => $list->slug]) }}">
+							<a 
+								@if(Route::is('frontend.class*'))
+								@if($callKategori->slug == $list->slug)
+								class="active"
+								@endif
+								@endif
+								href="{{ Route('frontend.class.index', ['slug' => $list->slug]) }}"
+							>
 								{{ $list->kategori_kelas }}
 							</a>
 							<div class="dropdown-wrapper class">
