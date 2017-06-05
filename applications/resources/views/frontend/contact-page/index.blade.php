@@ -5,9 +5,9 @@
 @endsection
 
 @section('meta')
-<meta name="title" content="Sportopia">
-<meta name="description" content="Sportopia - ">
-<meta name="keywords" content="Sportopia " />
+<meta name="contact_title" content="Sportopia">
+<meta name="contact_description" content="Sportopia - ">
+<meta name="contact_keywords" content="Sportopia " />
 @endsection
 
 @section('head-style')
@@ -48,9 +48,7 @@
 					<p>Marketing</p>
 				</div>
 				<div class="bar bar-size-1">
-					@for($a=0; $a<=3; $a++)
-					<p>name : 123456789012</p>
-					@endfor
+					<p>{!! $call->marketing !!}</p>
 				</div>
 				<div class="clearfix"></div>
 			</div>
@@ -59,7 +57,7 @@
 					<p>Office</p>
 				</div>
 				<div class="bar bar-size-1">
-					<p>123456789012</p>
+					<p>{!! $call->office !!}</p>
 				</div>
 				<div class="clearfix"></div>
 			</div>
@@ -68,7 +66,7 @@
 					<p>Email</p>
 				</div>
 				<div class="bar bar-size-1">
-					<p>Emails@email.email</p>
+					<p>{!! $call->email !!}</p>
 				</div>
 				<div class="clearfix"></div>
 			</div>
@@ -77,40 +75,91 @@
 					<p>Adress</p>
 				</div>
 				<div class="bar bar-size-1">
-					<p>Address in here</p>
+					<p>{!! $call->alamat !!}</p>
 				</div>
 				<div class="clearfix"></div>
 			</div>
 		</div>
 		<div class="bar bar-size-right">
 			<div id="form-wrapper">
-				<div class="input-group error">
-					<input type="text" class="form-control" placeholder="Name">
-					<span class="input-group-addon">
-						<i class="fa fa-users" aria-hidden="true"></i>
-					</span>
-				</div>
-				<div class="input-group">
-					<input type="text" name="" class="form-control" placeholder="Phone">
-					<span class="input-group-addon">
-						<i class="fa fa-phone" aria-hidden="true"></i>
-					</span>
-				</div>
-				<div class="input-group">
-					<input type="text" name="" class="form-control" placeholder="Email Address">
-					<span class="input-group-addon">
-						<i class="fa fa-envelope" aria-hidden="true"></i>
-					</span>
-				</div>
-				<div class="input-group">
-					<input type="text" name="" class="form-control" placeholder="Subject">
-					<span class="input-group-addon">
-						<i class="fa fa-question" aria-hidden="true"></i>
-					</span>
-				</div>
-				
-				<textarea name="" class="form-control" placeholder="Message" rows="6"></textarea>
-				<button>Submit</button>
+				@if(Session::has('contact_info'))
+					<p class="info">{{ Session::get('contact_info') }}</p>
+				@endif
+				<form method="post" action="{{ route('frontend.store.contact') }}">
+					{{ csrf_field() }}
+					<div class="input-group {{ $errors->has('contact_name') ? 'error' : '' }}">
+						<label>
+							{{ $errors->has('contact_name') ? $errors->first('contact_name') : '' }}
+						</label>
+						<input 
+							name="contact_name" 
+							type="text" 
+							class="form-control" 
+							placeholder="Name"
+							value="{{ old('contact_name') }}"
+						>
+						<span class="input-group-addon">
+							<i class="fa fa-users" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div class="input-group {{ $errors->has('contact_phone') ? 'error' : '' }}">
+						<label>
+							{{ $errors->has('contact_phone') ? $errors->first('contact_phone') : '' }}
+						</label>
+						<input 
+							name="contact_phone" 
+							type="text" 
+							class="form-control" 
+							placeholder="Phone"
+							value="{{ old('contact_phone') }}"
+						>
+						<span class="input-group-addon">
+							<i class="fa fa-phone" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div class="input-group {{ $errors->has('contact_email') ? 'error' : '' }}">
+						<label>
+							{{ $errors->has('contact_email') ? $errors->first('contact_email') : '' }}
+						</label>
+						<input 
+							name="contact_email" 
+							type="text" 
+							class="form-control" 
+							placeholder="Email Address"
+							value="{{ old('contact_email') }}"
+						>
+						<span class="input-group-addon">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div class="input-group {{ $errors->has('contact_subject') ? 'error' : '' }}">
+						<label>
+							{{ $errors->has('contact_subject') ? $errors->first('contact_subject') : '' }}
+						</label>
+						<input 
+							name="contact_subject" 
+							type="text" 
+							class="form-control" 
+							placeholder="Subject"
+							value="{{ old('contact_subject') }}"
+						>
+						<span class="input-group-addon">
+							<i class="fa fa-question" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div class="input-group {{ $errors->has('contact_message') ? 'error' : '' }}">
+						<label>
+							{{ $errors->has('contact_message') ? $errors->first('contact_message') : '' }}
+						</label>
+						<textarea 
+							name="contact_message" 
+							class="form-control" 
+							placeholder="Message" 
+							rows="6"
+						>{{ old('contact_message') }}</textarea>
+					</div>
+					<button>Submit</button>
+				</form>
 			</div>
 		</div>
 		<div class="clearfix"></div>

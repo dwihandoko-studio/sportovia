@@ -16,6 +16,7 @@ class NewsEventController extends Controller
 		$format_date = $date->format('Y-m-d');
 
 		$callEventNew = NewsEvent::select(
+            'id',
     		'judul',
     		'deskripsi',
     		'img_banner',
@@ -64,13 +65,14 @@ class NewsEventController extends Controller
 		$format_date = $date->format('Y-m-d');
 
     	$call = NewsEvent::select(
+            'id',
     		'news_event',
     		'judul',
     		'deskripsi',
     		'img_banner',
     		'slug'
     	)
-    	->where('news_event', '1')
+        ->where('slug', $slug)
     	->where('flag_publish', '1')
         ->whereDATE('tanggal_publish', '<=', $format_date)
     	->first();

@@ -11,14 +11,17 @@ $(document).ready(function() {
 	    	}
 	    });
 
-	    $('.open-fre-tri-clas').click(function() {
-	    	if($( "#freeTrialClass.fre-tri-clas" ).hasClass( "active" )){
-				$( "#freeTrialClass.fre-tri-clas" ).removeClass( "active" );
-	    	}
-	    	else{
+	    $('.open-form-class').click(function() {
+	    	if(!$( "#freeTrialClass.fre-tri-clas" ).hasClass( "active" )){
 				$( "#freeTrialClass.fre-tri-clas" ).addClass( "active" );
 	    	}
 	    });
+	    $('.close-form-class').click(function() {
+	    	if($( "#freeTrialClass.fre-tri-clas" ).hasClass( "active" )){
+				$( "#freeTrialClass.fre-tri-clas" ).removeClass( "active" );
+	    	}
+	    });
+
 	});
 	// navbar open close function runing in mobile
 

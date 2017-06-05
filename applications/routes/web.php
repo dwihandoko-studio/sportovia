@@ -130,8 +130,11 @@ Route::group(['middleware' => ['isMember']], function(){
 Route::get('/', 'Frontend\HomeController@index')
 	->name('frontend.home');
 
-Route::post('/store/free-trial-class', 'Frontend\StoreController@classFT')
-  ->name('frontend.store.classFT');
+Route::post('/store', 'Frontend\StoreController@store')
+  ->name('frontend.store');
+Route::post('/store/contact', 'Frontend\StoreController@storeContact')
+  ->name('frontend.store.contact');
+
 
 // Member Login
 Route::get('/member-area', 'Frontend\Auth\LoginController@getLoginForm')->name('frontend.member.index');

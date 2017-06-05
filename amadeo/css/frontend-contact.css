@@ -39,8 +39,25 @@
 	position: relative;
 	text-align: center;
 }
+#contact #form-wrapper p.info{
+    font-family: 'open sans';
+    font-weight: bold;
+	color: rgb(255,255,255);
+	padding: 10px;
+	border-radius: 0;
+	border: .5px solid rgba(255,255,255,.5);
+	background-color: rgba(255,255,255,.45);
+}
 #contact #form-wrapper .input-group{
 	margin-bottom: 10px;
+	width: 100%;
+}
+#contact #form-wrapper .input-group label{
+	margin: 0;
+    position: absolute;
+    top: -15px;
+    right: 0;
+    color: rgb(255,0,0);
 }
 #contact #form-wrapper .input-group input{
 	color: rgb(255,255,255);
@@ -58,6 +75,7 @@
 	border-left: .5px solid rgba(255,255,255,0);
 }
 #contact #form-wrapper .input-group.error input,
+#contact #form-wrapper .input-group.error textarea,
 #contact #form-wrapper .input-group.error span{
 	background-color: rgba(255,0,0,.45);
 }

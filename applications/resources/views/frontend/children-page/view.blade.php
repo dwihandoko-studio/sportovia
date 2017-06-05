@@ -84,7 +84,7 @@ body{
 			<div class="content">
 				<p>{{ $callClass->deskripsi_kelas }}</p>
  				<div class="text-center">
-	 				<a href="" class="btn btn-green">Register</a>
+	 				<a class="btn btn-green open-form-class">Register</a>
  				</div>
 			</div>
 		</div>
