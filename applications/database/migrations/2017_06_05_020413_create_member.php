@@ -20,10 +20,10 @@ class CreateMember extends Migration
           $table->string('email')->unique()->nullable();
           $table->string('nama_member');
           $table->string('tempat_lahir');
-          $table->date('tanggal_lahir');
+          $table->date('tanggal_lahir')->nullable();
           $table->date('tanggal_gabung');
           $table->text('alamat');
-          $table->string('dokumen_rapot');
+          $table->string('dokumen_rapot')->nullable();
           $table->integer('flag_status')->unsigned();
           $table->integer('aktor')->unsigned();
           $table->timestamps();

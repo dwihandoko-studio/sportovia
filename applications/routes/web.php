@@ -135,6 +135,8 @@ Route::group(['middleware' => ['admin']], function () {
   // Member
   Route::get('admin/member', 'Backend\MemberController@index')->name('member.index');
   Route::get('admin/member/add', 'Backend\MemberController@tambah')->name('member.tambah');
+  Route::post('admin/member/add', 'Backend\MemberController@store')->name('member.store');
+  Route::get('admin/member/{id}', 'Backend\MemberController@getKid')->name('member.getKid');
 });
 //----------------------- BACKEND -----------------------//
 
