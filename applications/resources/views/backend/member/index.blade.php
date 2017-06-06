@@ -30,7 +30,6 @@
           <th>No</th>
           <th>Member Code</th>
           <th>Member</th>
-          <th>Kid</th>
           <th>Email</th>
           <th>Join Date</th>
           <th>Action</th>
@@ -45,10 +44,9 @@
           <td>{{ $no }}</td>
           <td>{{ $key->kode_member }}</td>
           <td>{{ $key->nama_member }}</td>
-          <td></td>
-          <td>{{ $key->email }}</td>
+          <td>{{ ($key->email != null) ? $key->email : '-' }}</td>
           <td>{{ $key->tanggal_gabung }}</td>
-          <td><a href="" class="editMember" data-toggle="modal" data-target="#editFasilitas" data-value="{{$key->id}}"><span class="label label-warning tip-top" data-toggle="tooltip" data-placement="top" title="Edit"><i class="icon icon-pencil"></i> Edit</span></a></td>
+          <td><a href="{{ route('member.getMember', ['id' => $key->id])}}"><span class="label label-warning tip-top" data-toggle="tooltip" data-placement="top" title="Edit"><i class="icon icon-pencil"></i> Edit</span></a></td>
         </tr>
         @php
           $no++;
