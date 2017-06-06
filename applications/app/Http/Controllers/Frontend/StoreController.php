@@ -13,24 +13,24 @@ class StoreController extends Controller
 {
     function store(Request $request){
     	$message = [
-          'type.required' => 'Choose One',
-          'name.required' => 'Required',
-          'subject.required' => 'Required',
-          'phone.required' => 'Required',
-          'message.required' => 'Required',
-          'email.email' => 'Invalid email',
-          'email.required' => 'Required',
-          'class.required' => 'Choose One',
+          'store_type.required' => 'Choose One',
+          'store_name.required' => 'Required',
+          'store_subject.required' => 'Required',
+          'store_phone.required' => 'Required',
+          'store_message.required' => 'Required',
+          'store_email.email' => 'Invalid email',
+          'store_email.required' => 'Required',
+          'store_class.required' => 'Choose One',
         ];
 
         $validator = Validator::make($request->all(), [
-          'type' => 'required',
-          'name' => 'required',
-          'subject' => 'required',
-          'message' => 'required',
-          'email' => 'required|email',
-          'phone' => 'required',
-          'class' => 'required'
+          'store_type' => 'required',
+          'store_name' => 'required',
+          'store_subject' => 'required',
+          'store_message' => 'required',
+          'store_email' => 'required|email',
+          'store_phone' => 'required',
+          'store_class' => 'required'
         ], $message);
 
         if($validator->fails()){
@@ -38,13 +38,13 @@ class StoreController extends Controller
         }
 
         $store = New Trial;
-        $store->type        = $request->type;
-        $store->id_content  = $request->class;
-        $store->nama        = $request->name;
-        $store->telp        = $request->phone;
-        $store->email       = $request->email;
-        $store->subjek      = $request->subject;
-        $store->pesan       = $request->message;
+        $store->type        = $request->store_type;
+        $store->id_content  = $request->store_class;
+        $store->nama        = $request->store_name;
+        $store->telp        = $request->store_phone;
+        $store->email       = $request->store_store_email;
+        $store->subjek      = $request->store_subject;
+        $store->pesan       = $request->store_message;
         $store->save();
         return redirect()->back()->with('store_info', 'Your data has been successfully saved.');
     }
