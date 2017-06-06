@@ -14,7 +14,7 @@ class CheckUser
 
         if(!empty(auth()->guard('user')->id()))
         {
-            $data = DB::table('amd_user')
+            $data = DB::table('amd_users')
                     ->select('id')
                     ->where('id',auth()->guard('user')->id())
                     ->get();
