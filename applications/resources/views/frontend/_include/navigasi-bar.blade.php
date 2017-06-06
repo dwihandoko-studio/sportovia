@@ -95,59 +95,59 @@
 <div id="space-nav">
 	<div 
 		id="freeTrialClass" 
-		class="fre-tri-clas @if($errors->has('type') || $errors->has('name') || $errors->has('phone') || $errors->has('email') || $errors->has('class') || $errors->has('subject') || $errors->has('message') || Session::has('store_info')) active @endif"
+		class="fre-tri-clas @if($errors->has('store_type') || $errors->has('store_name') || $errors->has('store_phone') || $errors->has('store_email') || $errors->has('store_class') || $errors->has('store_subject') || $errors->has('store_message') || Session::has('store_info')) active @endif"
 	>
 		<div id="freeTrialClass-wrapper">
 			<div class="bar bar-size-2 left" style="background-image: url('{{ asset('amadeo/main-image/bg-iad.png') }}');">
 				@if(Session::has('store_info'))
-					<p class="info  @if($errors->has('type') || $errors->has('name') || $errors->has('phone') || $errors->has('email') || $errors->has('class') || $errors->has('subject') || $errors->has('message')) errors @endif">{{ Session::get('store_info') }}</p>
+					<p class="info  @if($errors->has('store_type') || $errors->has('store_name') || $errors->has('store_phone') || $errors->has('store_email') || $errors->has('store_class') || $errors->has('store_subject') || $errors->has('store_message')) errors @endif">{{ Session::get('store_info') }}</p>
 				@endif
 				<form method="post" action="{{ route('frontend.store') }}">
 					{{ csrf_field() }}
-					<div class="input-group {{ $errors->has('type') ? 'error' : '' }}">
+					<div class="input-group {{ $errors->has('store_type') ? 'error' : '' }}">
 						<label>
-							{{ $errors->has('type') ? $errors->first('type') : '' }}
+							{{ $errors->has('store_type') ? $errors->first('store_type') : '' }}
 						</label>
-						<select class="form-control" name="type">
+						<select class="form-control" name="store_type">
 							@if(Route::is('frontend.news-event.index') || Route::is('frontend.news-event.view'))
 							<option value="3" selected>Register Joint Event</option>
 							@else
 							<option value="" selected="" disabled>Choose Register or Free Trial</option>
 							<option value="1"
-								{{ old('type') == 1 ? 'selected="selected"' : '' }}
+								{{ old('store_type') == 1 ? 'selected="selected"' : '' }}
 							>
 								Free Trial	
 							</option>
 							<option value="2"
-								{{ old('type') == 2 ? 'selected="selected"' : '' }}
+								{{ old('store_type') == 2 ? 'selected="selected"' : '' }}
 							>
 								Register
 							</option>
 							@endif
 						</select>
 					</div>
-					<div class="input-group {{ $errors->has('name') ? 'error' : '' }}">
+					<div class="input-group {{ $errors->has('store_name') ? 'error' : '' }}">
 						<label>
-							{{ $errors->has('name') ? $errors->first('name') : '' }}
+							{{ $errors->has('store_name') ? $errors->first('store_name') : '' }}
 						</label>
 						<input 
 							type="text" 
-							name="name" 
+							name="store_name" 
 							class="form-control" 
 							placeholder="Name"
-							value="{{ old('name') }}"
+							value="{{ old('store_name') }}"
 						>
 						<span class="input-group-addon">
 							<i class="fa fa-users" aria-hidden="true"></i>
 						</span>
 					</div>
-					<div class="input-group {{ $errors->has('phone') ? 'error' : '' }}">
+					<div class="input-group {{ $errors->has('store_phone') ? 'error' : '' }}">
 						<label>
-							{{ $errors->has('phone') ? $errors->first('phone') : '' }}
+							{{ $errors->has('store_phone') ? $errors->first('store_phone') : '' }}
 						</label>
 						<input 
 							type="phone" 
-							name="phone" 
+							name="store_phone" 
 							class="form-control" 
 							placeholder="Phone"
 							value="{{ old('phone') }}"
@@ -156,26 +156,26 @@
 							<i class="fa fa-phone" aria-hidden="true" style="font-size: 17px;"></i>
 						</span>
 					</div>
-					<div class="input-group {{ $errors->has('email') ? 'error' : '' }}">
+					<div class="input-group {{ $errors->has('store_email') ? 'error' : '' }}">
 						<label>
-							{{ $errors->has('email') ? $errors->first('email') : '' }}
+							{{ $errors->has('store_email') ? $errors->first('store_email') : '' }}
 						</label>
 						<input 
 							type="email" 
-							name="email" 
+							name="store_email" 
 							class="form-control" 
 							placeholder="Email Address"
-							value="{{ old('email') }}"
+							value="{{ old('store_email') }}"
 						>
 						<span class="input-group-addon">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
 						</span>
 					</div>
-					<div class="input-group {{ $errors->has('class') ? 'error' : '' }}">
+					<div class="input-group {{ $errors->has('store_class') ? 'error' : '' }}">
 						<label>
-							{{ $errors->has('class') ? $errors->first('class') : '' }}
+							{{ $errors->has('store_class') ? $errors->first('store_class') : '' }}
 						</label>
-						<select class="form-control" name="class">
+						<select class="form-control" name="store_class">
 							@if(Route::is('frontend.news-event.index'))
 							<option value="{{ $callEventNew->id }}" selected>{{ $callEventNew->judul }}</option>
 							@elseif(Route::is('frontend.news-event.view'))
@@ -187,7 +187,7 @@
 							@if($list->id == $callClass->id)
 							<option 
 								value="{{ $list->id }}"
-								 {{ old('class') == $list->id ? 'selected="selected"' : '' }}
+								 {{ old('store_class') == $list->id ? 'selected="selected"' : '' }}
 							>
 								{{ $list->nama_kelas." (".$list->program_kelas.")" }}
 							</option>
@@ -195,7 +195,7 @@
 							@else
 							<option 
 								value="{{ $list->id }}"
-								 {{ old('class') == $list->id ? 'selected="selected"' : '' }}
+								 {{ old('store_class') == $list->id ? 'selected="selected"' : '' }}
 							>
 								{{ $list->nama_kelas." (".$list->program_kelas.")" }}
 							</option>
@@ -204,13 +204,13 @@
 							@endif
 						</select>
 					</div>
-					<div class="input-group {{ $errors->has('subject') ? 'error' : '' }}">
+					<div class="input-group {{ $errors->has('store_subject') ? 'error' : '' }}">
 						<label>
-							{{ $errors->has('subject') ? $errors->first('subject') : '' }}
+							{{ $errors->has('store_subject') ? $errors->first('store_subject') : '' }}
 						</label>
 						<input 
 							type="text" 
-							name="subject" 
+							name="store_subject" 
 							class="form-control" 
 							placeholder="Subject"
 							value="{{ old('subject') }}"
@@ -219,11 +219,11 @@
 							<i class="fa fa-question" aria-hidden="true"></i>
 						</span>
 					</div>
-					<div class="input-group {{ $errors->has('message') ? 'error' : '' }}">
+					<div class="input-group {{ $errors->has('store_message') ? 'error' : '' }}">
 						<label>
-							{{ $errors->has('message') ? $errors->first('message') : '' }}
+							{{ $errors->has('store_message') ? $errors->first('store_message') : '' }}
 						</label>
-						<textarea name="message" class="form-control" placeholder="Message" rows="3">{{ old('message') }}</textarea>
+						<textarea name="store_message" class="form-control" placeholder="Message" rows="3">{{ old('store_message') }}</textarea>
 					</div>
 					<button class="btn btn-green">Submit</button>
 				</form>
