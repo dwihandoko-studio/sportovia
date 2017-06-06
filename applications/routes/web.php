@@ -143,23 +143,27 @@ Route::group(['middleware' => ['admin']], function () {
 
 
 //-------------------- FRONT END MEMBER ----------------//
-Route::group(['middleware' => ['isMember']], function(){
+Route::get('/member-area/login', 'Frontend\Auth\LoginController@getLoginForm')
+  ->name('frontend.member.log-in');
+Route::post('/member-area/proses', 'Frontend\Auth\LoginController@authenticate')
+  ->name('frontend.member.post');
 
+Route::group(['middleware' => ['user']], function(){
+  Route::get('/member-area/log-out', 'Frontend\Auth\LoginController@getLogout')
+    ->name('frontend.member.log-out');
+
+  Route::get('/member-area/index', 'Frontend\MemberController@index')
+    ->name('frontend.member.index');
 });
 
 //-------------------- FRONT END ----------------//
 Route::get('/', 'Frontend\HomeController@index')
-	->name('frontend.home');
+  ->name('frontend.home');
 
 Route::post('/store', 'Frontend\StoreController@store')
   ->name('frontend.store');
 Route::post('/store/contact', 'Frontend\StoreController@storeContact')
   ->name('frontend.store.contact');
-
-
-// Member Login
-Route::get('/member-area', 'Frontend\Auth\LoginController@getLoginForm')->name('frontend.member.index');
-Route::post('/member-area/proses', 'Frontend\Auth\LoginController@authenticate')->name('frontend.member.post');
 
 Route::get('/about/us', 'Frontend\AboutController@us')
 	->name('frontend.about.us');

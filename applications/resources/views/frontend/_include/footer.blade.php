@@ -11,45 +11,21 @@
 			<div class="footer-wrapper">
 				<div class="footer-content">
 					<p>SPORTOPIA</p>
-					<p>JL. Pangeran Tubagus Angke</p>
-					<p>Komplek BNI 46. blok TT NO. 22-23A</p>
-					<p>Jakarta Barat, Indonesia</p>
+					<p>{{ $callKontak->alamat }}</p>
 				</div>
 			</div>
 		</div>
 		<div class="bar bar-size-4">
 			<div class="footer-wrapper">
 				<div class="footer-content">
-					<a href="">
+				@foreach($callSosMed as $list)
+					<a href="{{ $list->link_url }}" title="{{ $list->nama_sosmed }}">
 						<span class="fa-stack fa-lg">
 						  <i class="fa fa-circle fa-stack-2x"></i>
-						  <i class="fa fa-google-plus fa-stack-1x"></i>
+						  <i class="fa fa-{{ str_slug($list->nama_sosmed, '-') }} fa-stack-1x"></i>
 						</span>
 					</a>
-					<a href="">
-						<span class="fa-stack fa-lg">
-						  <i class="fa fa-circle fa-stack-2x"></i>
-						  <i class="fa fa-twitter fa-stack-1x"></i>
-						</span>
-					</a>
-					<a href="">
-						<span class="fa-stack fa-lg">
-						  <i class="fa fa-circle fa-stack-2x"></i>
-						  <i class="fa fa-youtube-play fa-stack-1x"></i>
-						</span>
-					</a>
-					<a href="">
-						<span class="fa-stack fa-lg">
-						  <i class="fa fa-circle fa-stack-2x"></i>
-						  <i class="fa fa-facebook fa-stack-1x"></i>
-						</span>
-					</a>
-					<a href="">
-						<span class="fa-stack fa-lg">
-						  <i class="fa fa-circle fa-stack-2x"></i>
-						  <i class="fa fa-instagram fa-stack-1x"></i>
-						</span>
-					</a>
+				@endforeach
 				</div>
 			</div>
 		</div>

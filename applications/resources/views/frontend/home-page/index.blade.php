@@ -71,7 +71,7 @@
 		<div class="bar bar-size-3">
 			<div class="class">
 				<div class="class-wrapper">
-					<a href="{{ Route('frontend.member.index') }}">
+					<a href="{{ Route('frontend.member.log-in') }}">
 						<div class="img" style="background-image: url('{{ asset('amadeo/main-image/card.jpg')}}')"></div>
 					</a>
 					<h2>Member Area</h2>

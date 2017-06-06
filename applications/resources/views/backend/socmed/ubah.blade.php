@@ -34,7 +34,7 @@
             <option value="facebook" {{ old('nama_sosmed', $getSocmed->nama_sosmed) == 'facebook' ? 'selected' : '' }}>Facebook</option>
             <option value="youtube" {{ old('nama_sosmed', $getSocmed->nama_sosmed) == 'youtube' ? 'selected' : '' }}>Youtube</option>
             <option value="twitter" {{ old('nama_sosmed', $getSocmed->nama_sosmed) == 'twitter' ? 'selected' : '' }}>Twitter</option>
-            <option value="g+" {{ old('nama_sosmed', $getSocmed->nama_sosmed) == 'g+' ? 'selected' : '' }}>G+</option>
+            <option value="google plus" {{ old('nama_sosmed', $getSocmed->nama_sosmed) == 'google plus' ? 'selected' : '' }}>Google Plus</option>
           </select>
         </div>
       </div>

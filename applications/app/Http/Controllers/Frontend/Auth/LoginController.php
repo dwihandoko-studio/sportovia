@@ -45,7 +45,7 @@ class LoginController extends Controller
     public function getLoginForm()
     {
 
-        return view('frontend.member-page.index');
+        return view('frontend.member-page.log-in');
     }
 
     public function authenticate(Request $request)
@@ -77,8 +77,9 @@ class LoginController extends Controller
             $set->login_count = $getCounter+1;
             $set->update();
 
-            // return redirect()->intended('member/dashboard');
-            return 'berhasil login';
+            // return redirect()->route('frontend.member.index');
+            return redirect()->intended('/member-area/index');
+            // return 'berhasil login';
         }
         else
         {
@@ -89,8 +90,8 @@ class LoginController extends Controller
 
     public function getLogout()
     {
-        auth()->guard('admin')->logout();
-        return redirect()->intended('admin/login');
+        auth()->guard('user')->logout();
+        return redirect(url()->previous() . '#logout');
     }
 
 }
