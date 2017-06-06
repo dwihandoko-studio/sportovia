@@ -49,16 +49,17 @@
 <div class="widget-box">
   <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
     <h5>Social Media</h5>
+    @if ($getSocmed->count() < 5)
     <a href="{{ route('socmed.tambah') }}" class="btn btn-primary pull-right"><i class="icon-plus"></i> Add</a>
+    @endif
   </div>
-  <div class="widget-content nopadding" style="overflow-x:auto;">
-    <table class="table table-bordered socmed-table">
+  <div class="widget-content" style="overflow-x:auto;">
+    <table class="table table-bordered">
       <thead>
         <tr>
           <th>No</th>
           <th>Social Media</th>
           <th>Link Url</th>
-          <th>Images</th>
           <th>Status</th>
           <th>Action</th>
         </tr>
@@ -72,7 +73,6 @@
           <td>{{ $no }}</td>
           <td>{{ $key->nama_sosmed }}</td>
           <td>{{ $key->link_url }}</td>
-          <td><img src="{{ asset('amadeo/images/social').'/'.$key->img_url }}" alt=""></td>
           <td>@if ($key->flag_publish == 1)
             <a href="" class="unpublish" data-value="{{ $key->id }}" data-toggle="modal" data-target="#modal-unpublish"><span class="label label-success tip-top" data-original-title="Publish"><i class="icon icon-thumbs-up"></i></span></a>
           @else
@@ -93,14 +93,6 @@
 @endsection
 
 @section('script')
-<script type="text/javascript">
-  $('.socmed-table').dataTable({
-    "bJQueryUI": true,
-    "sPaginationType": "full_numbers",
-    "sDom": '<""l>t<"F"fp>'
-  });
-</script>
-
 <script type="text/javascript">
 $(function(){
   $('a.unpublish').click(function(){

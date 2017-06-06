@@ -24,23 +24,22 @@
   <div class="widget-content nopadding">
     <form class="form-horizontal" method="post" action="{{ route('socmed.store') }}" name="basic_validate" id="basic_validate" novalidate="novalidate" enctype="multipart/form-data">
       {{ csrf_field() }}
-      <div class="control-group">
+      <div class="control-group {{ $errors->has('nama_sosmed') ? 'error' : ''}}">
         <label class="control-label">Social Media Name *</label>
         <div class="controls">
-          <input type="text" class="span6" name="nama_sosmed" value="{{ old('nama_sosmed')}}" id="nama_sosmed">
+          <select class="span6" name="nama_sosmed">
+            <option value="instagram" {{ old('nama_sosmed') == 'instagram' ? 'selected' : '' }}>Instagram</option>
+            <option value="facebook" {{ old('nama_sosmed') == 'facebook' ? 'selected' : '' }}>Facebook</option>
+            <option value="youtube" {{ old('nama_sosmed') == 'youtube' ? 'selected' : '' }}>Youtube</option>
+            <option value="twitter" {{ old('nama_sosmed') == 'twitter' ? 'selected' : '' }}>Twitter</option>
+            <option value="g+" {{ old('nama_sosmed') == 'g+' ? 'selected' : '' }}>G+</option>
+          </select>
         </div>
       </div>
       <div class="control-group">
         <label class="control-label">Url Link *</label>
         <div class="controls">
           <input type="text" name="link_url" class="span6" id="link_url" value="{{ old('link_url') }}">
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label">Social Media Image *</label>
-        <div class="controls">
-          <input name="img_url" class="span6" id="img_url" type="file"  accept=".jpg, .png"/>
-          <span>Width: 100px; Height: 100px</span>
         </div>
       </div>
       <div class="control-group">

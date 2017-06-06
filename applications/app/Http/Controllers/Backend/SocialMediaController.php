@@ -34,17 +34,12 @@ class SocialMediaController extends Controller
         $message = [
           'nama_sosmed.required' => 'This field is required.',
           'nama_sosmed.unique' => 'This social media already taken.',
-          'img_url.required' => 'This field is required.',
-          'img_url.image' => 'Format not supported.',
-          'img_url.max' => 'File Size Too Big.',
-          'img_url.dimensions' => 'Pixel max 100px x 100px.',
           'link_url.url'  => 'Url required',
           'link_url.required' => 'This field is required.'
         ];
 
         $validator = Validator::make($request->all(), [
           'nama_sosmed' => 'required|max:25|unique:amd_sosial_media',
-          'img_url'  => 'required|image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=100,max_height=100',
           'link_url'  => 'required|url',
         ], $message);
 
@@ -59,15 +54,9 @@ class SocialMediaController extends Controller
           $flag_publish = 0;
         }
 
-        $image = $request->file('img_url');
-        $img_url = 'sportopia-'.str_slug($request->nama_sosmed,'-'). '.' . $image->getClientOriginalExtension();
-        Image::make($image)->save('amadeo/images/social/'. $img_url);
-
-
         $save = New SosialMedia;
         $save->nama_sosmed = $request->nama_sosmed;
         $save->link_url = $request->link_url;
-        $save->img_url = $img_url;
         $save->flag_publish = $flag_publish;
         $save->actor = auth()->guard('admin')->id();;
         $save->save();
@@ -96,16 +85,12 @@ class SocialMediaController extends Controller
         $message = [
           'nama_sosmed.required' => 'This field is required.',
           'nama_sosmed.unique' => 'This social media already taken.',
-          'img_url.image' => 'Format not supported.',
-          'img_url.max' => 'File Size Too Big.',
-          'img_url.dimensions' => 'Pixel max 100px x 100px.',
           'link_url.url'  => 'Url required',
           'link_url.required' => 'This field is required.'
         ];
 
         $validator = Validator::make($request->all(), [
           'nama_sosmed' => 'required|max:25|unique:amd_sosial_media,nama_sosmed,'.$request->id,
-          'img_url'  => 'image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=100,max_height=100',
           'link_url'  => 'required|url',
         ], $message);
 
@@ -121,17 +106,9 @@ class SocialMediaController extends Controller
           $flag_publish = 0;
         }
 
-        $image = $request->file('img_url');
-
-
         $save = SosialMedia::find($request->id);
         $save->nama_sosmed = $request->nama_sosmed;
         $save->link_url = $request->link_url;
-        if($image){
-          $img_url = 'sportopia-'.str_slug($request->nama_sosmed,'-'). '.' . $image->getClientOriginalExtension();
-          Image::make($image)->save('amadeo/images/social/'. $img_url);
-          $save->img_url = $img_url;
-        }
         $save->flag_publish = $flag_publish;
         $save->actor = auth()->guard('admin')->id();;
         $save->update();
