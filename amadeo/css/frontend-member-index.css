@@ -1,73 +1,87 @@
-#login{
-	background-size: cover;
+#info{
+	padding: 20px 0px;
+	text-align: center;
+}
+#info .info-wrapper{
+	position: relative; 
+	width: 49%; 
+	margin: 20px auto; 
+	padding: 0px 5%; 
+	display: inline-block; 
+}
+#info .info-wrapper .img{
+	position: relative; 
+	width: 280px; 
+	height: 280px; 
+	border-radius: 100%;
+	margin: 0 auto;
 	background-repeat: no-repeat;
+	background-size: cover;
 	background-position: center;
 }
-#login #transparant-wrapper{
-	background-color: rgba(0,0,0,.4);
-	width: 100%;
-	height: 100%;
+#info .info-wrapper .img:after{
+    content: "";
+    bottom: -10px;
+    left: -15px;
+    width: 310px;
+    height: 160px;
+    position: absolute;
+    background-color: rgba(0,0,0,0);
+    border: 5px solid rgb(232,255,226);
+    border-bottom-left-radius: 150px;
+    border-bottom-right-radius: 150px;
+    border-top: 0;
+}
+#info .info-wrapper .content{
 	position: relative;
+	width: 400px;
+	padding: 160px 20px 20px;
+	margin-top: -150px;
+	margin-left: auto;
+	margin-right: auto;
+    background-image: radial-gradient(circle 50px at 50% 0, transparent 165px, rgb(232,255,226) 165px);
+    background-image: -webkit-radial-gradient(50% 0, circle, transparent 165px, rgb(232,255,226) 165px);
+	text-align: center;
 }
-#login .setup-content{
-	padding-top: 30px;
-	padding-bottom: 30px;
-}
-#login .bar.bar-size{
-	width: 45%;
-}
-#login #form-wrapper{
-	position: relative;
-	text-align: left;
-}
-#login #form-wrapper h1{
-	color: rgb(69,186,1);
-	font-family: 'open sans';
-    font-weight: bold;
-    margin: 0;
-}
-#login #form-wrapper h1:nth-child(even){
-	margin-bottom: 20px;
-}
-#login #form-wrapper p{
-	color: rgb(122,122,122);
-	font-family: 'open sans';
-    font-weight: lighter;
-    margin-bottom: 20px;
-}
-#login #form-wrapper{
-	margin-bottom: 10px;
-}
-#login #form-wrapper input{
-	color: rgb(255,255,255);
-	background-color: rgba(255,255,255,.45);
-	margin-bottom: 5px;
-	border-radius: 0;
-}
-#login #form-wrapper input.error{
-	background-color: rgba(255,0,0,.45);
-}
-#login #form-wrapper input::-webkit-input-placeholder{
-	color: rgb(255,255,255);
-}
-#login #form-wrapper button{
+#info .info-wrapper .content h2{
+	text-align: center;
 	font-family: 'open sans';
     font-weight: bolder;
-	color: rgb(255,255,255);
-	background-color: rgb(69,186,1);
-	border: 2px solid rgb(69,186,1);
-	margin: 0 auto;
-	padding: 5px 10px;
-	transition: all .51s;
-}
-#login #form-wrapper button:hover{
 	color: rgb(69,186,1);
-	background-color: rgba(255,255,255,0);
 }
-
+#info .info-wrapper .content table{
+	width: 80%;
+	margin: 0 auto 15px;
+}
+#info .info-wrapper .content table tr{
+	margin-bottom: 10px; 
+}
+#info .info-wrapper .content table tr td{
+	font-family: 'open sans';
+    font-weight: bold;
+	color: rgb(166,166,166);	
+	text-align: left;
+}
 @media (max-width: 480px) {
-	#login .bar.bar-size{
+	#info .info-wrapper{
 		width: 100%;
-		padding: 0;
+	}
+	#info .info-wrapper .img{
+		width: 180px;
+		height: 180px;
+	}
+	#info .info-wrapper .img:after{
+	    width: 210px;
+	    height: 105px;
+	}
+	#info .info-wrapper .content{
+		width: 100%;
+		padding-top: 100px;
+		margin-top: -95px;
+		background-image: radial-gradient(circle 50px at 50% 0, transparent 110px, rgb(232,255,226) 110px);
+    background-image: -webkit-radial-gradient(50% 0, circle, transparent 110px, rgb(232,255,226) 110px);
+	}
+	#info .info-wrapper .content table{
+		width: 100%;
 	}
 }

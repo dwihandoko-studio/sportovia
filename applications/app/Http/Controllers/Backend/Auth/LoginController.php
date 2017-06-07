@@ -42,14 +42,12 @@ class LoginController extends Controller
         $this->middleware('guest', ['except' => 'getLogout']);
     }
 
-    public function getLoginForm()
-    {
+    public function getLoginForm(){
 
         return view('backend/auth/login');
     }
 
-    public function authenticate(Request $request)
-    {
+    public function authenticate(Request $request){
 
         $email = $request->input('email');
         $password = $request->input('password');
@@ -86,8 +84,7 @@ class LoginController extends Controller
     }
 
 
-    public function getLogout()
-    {
+    public function getLogout(){
         auth()->guard('admin')->logout();
         return redirect()->intended('admin/login');
     }

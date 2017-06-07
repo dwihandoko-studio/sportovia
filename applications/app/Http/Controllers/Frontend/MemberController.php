@@ -10,4 +10,9 @@ class MemberController extends Controller
     function index(){
 	    return view('frontend.member-page.index');
 	}
+
+	function view($slug){
+	    return view('frontend.member-page.view');
+	}
+
 }

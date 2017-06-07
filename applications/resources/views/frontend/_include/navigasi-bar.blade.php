@@ -14,9 +14,19 @@
 						<a class="btn btn-green open-form-class" @if(Route::is('frontend.news-event.index') || Route::is('frontend.news-event.view')) style="display: none;" @endif>
 							Free Trial Class
 						</a>
-						<a class="btn btn-green" href="{{ Route('frontend.member.index') }}">
+						@if(empty(auth()->guard('user')->id()))
+						<a class="btn btn-green" href="{{ Route('frontend.member.log-in') }}">
 							Login
 						</a>
+						@else
+						<a class="btn btn-green" href="{{ Route('frontend.member.index') }}">
+							My Area
+						</a>
+				        <a class="btn btn-green" href="{{ Route('frontend.member.log-out') }}">
+							Logout
+						</a>
+						@endif
+
 					</div>
 					<ul id="list">
 						<li class="dropdown">
@@ -135,7 +145,12 @@
 							name="store_name" 
 							class="form-control" 
 							placeholder="Name"
+							@if(!empty(auth()->guard('user')->id()))
+							value="{{ auth()->guard('user')->user()->name }}"
+							readonly
+							@else
 							value="{{ old('store_name') }}"
+							@endif
 						>
 						<span class="input-group-addon">
 							<i class="fa fa-users" aria-hidden="true"></i>
@@ -150,7 +165,7 @@
 							name="store_phone" 
 							class="form-control" 
 							placeholder="Phone"
-							value="{{ old('phone') }}"
+							value="{{ old('store_phone') }}"
 						>
 						<span class="input-group-addon">
 							<i class="fa fa-phone" aria-hidden="true" style="font-size: 17px;"></i>
@@ -165,7 +180,12 @@
 							name="store_email" 
 							class="form-control" 
 							placeholder="Email Address"
+							@if(!empty(auth()->guard('user')->id()))
+							value="{{ auth()->guard('user')->user()->email }}"
+							readonly
+							@else
 							value="{{ old('store_email') }}"
+							@endif
 						>
 						<span class="input-group-addon">
 							<i class="fa fa-envelope" aria-hidden="true"></i>

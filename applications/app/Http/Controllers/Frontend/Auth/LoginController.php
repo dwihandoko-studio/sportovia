@@ -42,14 +42,16 @@ class LoginController extends Controller
         $this->middleware('guest', ['except' => 'getLogout']);
     }
 
-    public function getLoginForm()
-    {
-
-        return view('frontend.member-page.log-in');
+    public function getLoginForm(){
+        if(empty(auth()->guard('user')->id())){
+          return view('frontend.member-page.log-in');
+        }
+        else{
+          return redirect()->route('frontend.member.index');
+        }
     }
 
-    public function authenticate(Request $request)
-    {
+    public function authenticate(Request $request){
 
         $email = $request->input('email');
         $password = $request->input('password');
@@ -67,31 +69,29 @@ class LoginController extends Controller
 
         if($validator->fails())
         {
-          return redirect(url()->previous() . '#login')->withErrors($validator)->withInput();
+          return redirect(url()->previous() . '#login')->withErrors($validator)->withInput()->with('log_user_info', 'Invalid Login Credentials !');
         }
 
         if (auth()->guard('user')->attempt(['email' => $email, 'password' => $password, 'confirmed'=>1 ]))
         {
             $set = User::find(Auth::guard('user')->user()->id);
+            // dd(Auth::guard('user')->user()->name);
             $getCounter = $set->login_count;
             $set->login_count = $getCounter+1;
             $set->update();
 
-            // return redirect()->route('frontend.member.index');
-            return redirect()->intended('/member-area/index');
-            // return 'berhasil login';
+            return redirect()->route('frontend.member.index');
         }
         else
         {
-          return redirect(url()->previous() . '#login')->withErrors($validator)->with('status', 'Invalid Login Credentials !')->withInput();
+          return redirect(url()->previous() . '#login')->withErrors($validator)->with('log_user_info', 'Invalid Login Credentials !')->withInput();
         }
     }
 
 
-    public function getLogout()
-    {
+    public function getLogout(){
         auth()->guard('user')->logout();
-        return redirect(url()->previous() . '#logout');
+        return redirect()->route('frontend.member.log-in');
     }
 
 }
