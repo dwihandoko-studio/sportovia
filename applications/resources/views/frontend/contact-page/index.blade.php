@@ -96,7 +96,12 @@
 							type="text" 
 							class="form-control" 
 							placeholder="Name"
+							@if(!empty(auth()->guard('user')->id()))
+							value="{{ auth()->guard('user')->user()->name }}"
+							readonly
+							@else
 							value="{{ old('contact_name') }}"
+							@endif
 						>
 						<span class="input-group-addon">
 							<i class="fa fa-users" aria-hidden="true"></i>
@@ -126,7 +131,12 @@
 							type="text" 
 							class="form-control" 
 							placeholder="Email Address"
+							@if(!empty(auth()->guard('user')->id()))
+							value="{{ auth()->guard('user')->user()->email }}"
+							readonly
+							@else
 							value="{{ old('contact_email') }}"
+							@endif
 						>
 						<span class="input-group-addon">
 							<i class="fa fa-envelope" aria-hidden="true"></i>

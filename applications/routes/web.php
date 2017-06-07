@@ -161,8 +161,10 @@ Route::group(['middleware' => ['user']], function(){
   Route::get('/member-area/log-out', 'Frontend\Auth\LoginController@getLogout')
     ->name('frontend.member.log-out');
 
-  Route::get('/member-area/index', 'Frontend\MemberController@index')
+  Route::get('/member-area', 'Frontend\MemberController@index')
     ->name('frontend.member.index');
+    Route::get('/member-area/{slug}', 'Frontend\MemberController@view')
+    ->name('frontend.member.view');
 });
 
 //-------------------- FRONT END ----------------//

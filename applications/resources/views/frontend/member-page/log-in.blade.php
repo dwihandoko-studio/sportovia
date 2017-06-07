@@ -12,7 +12,7 @@
 
 @section('head-style')
 <link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-publict-sub.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-member-index.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-member-log-in.css') }}">
 
 @endsection
 
@@ -47,6 +47,13 @@
 				<h1>Login</h1>
 				<h1>For Access</h1>
 				<p>Lorem ipsum dolor sit amet, quas assum volutpat ei vix, usu semper laoreet placerat an. Assum recteque te has, ad quidam euripidis eloquentiam sed, equidem fierent phaedrum et sea.</p>
+
+				@if(Session::has('log_user_info'))
+				<div class="info">
+					<p>{{Session('log_user_info')}}</p>
+				</div>
+				@endif
+
 				<form action="{{ route('frontend.member.post') }}" method="post">
 					{{ csrf_field() }}
 					<input type="text" class="form-control {{ $errors->has('email') ? 'error' : '' }}" placeholder="Email" name="email" value="{{ old('email')}}">
