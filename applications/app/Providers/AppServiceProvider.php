@@ -9,6 +9,8 @@ use Request;
 
 use App\Models\Kelas;
 use App\Models\KelasKategori;
+use App\Models\Kontak;
+use App\Models\SosialMedia;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -51,6 +53,18 @@ class AppServiceProvider extends ServiceProvider
             ->orderBy('amd_kelas_program.program_kelas')
             ->get();
             view()->share('callFreeTrialClass', $callFreeTrialClass);
+
+            $callKontak = Kontak::select('alamat')->first();
+            view()->share('callKontak', $callKontak);
+
+            $callSosMed = SosialMedia::select(
+                'nama_sosmed',
+                'link_url'
+            )
+            ->where('flag_publish', '1')
+            ->orderBy('nama_sosmed', 'asc')
+            ->get();
+            view()->share('callSosMed', $callSosMed);
         }
     }
 
