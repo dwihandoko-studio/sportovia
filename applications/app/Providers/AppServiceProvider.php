@@ -11,6 +11,7 @@ use App\Models\Kelas;
 use App\Models\KelasKategori;
 use App\Models\Kontak;
 use App\Models\SosialMedia;
+use App\Models\Inbox;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -65,6 +66,10 @@ class AppServiceProvider extends ServiceProvider
             ->orderBy('nama_sosmed', 'asc')
             ->get();
             view()->share('callSosMed', $callSosMed);
+        }else{
+          // Notifikasi New Inbox
+           $getNotifInbox = Inbox::where('has_read', 0)->orderBy('created_at', 'desc')->get();
+           view()->share('getNotifInbox', $getNotifInbox);
         }
     }
 
