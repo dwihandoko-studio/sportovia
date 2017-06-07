@@ -15,6 +15,9 @@
     <li class="{{ Route::is('member*') ? 'active' : '' }}">
       <a href="{{ route('member.index') }}"><i class="icon icon-group"></i> <span>Member</span></a>
     </li>
+    <li class="{{ Route::is('jadwal*') ? 'active' : '' }}">
+      <a href="{{ route('jadwal.index') }}"><i class="icon icon-calendar"></i> <span>Schedule Course</span></a>
+    </li>
     <li class="submenu {{ Route::is('kelasKategori*') ? 'active' : '' }}{{ Route::is('kelasKursus*') ? 'active' : '' }}{{ Route::is('fasilitas*') ? 'active' : '' }}{{ Route::is('kelasProgram*') ? 'active' : '' }}{{ Route::is('kelasRuang*') ? 'active' : '' }}">
       <a href="#"><i class="icon icon-th-list"></i> <span>Class</span></a>
       <ul>
@@ -25,9 +28,6 @@
         <li class="{{ Route::is('kelasRuang*') ? 'active' : '' }}"><a href="{{ route('kelasRuang.index') }}">Class Room</a></li>
       </ul>
     </li>
-    <li class="{{ Route::is('kontak*') ? 'active' : '' }}">
-      <a href="{{ route('kontak.index') }}"><i class="icon icon-credit-card"></i> <span>Contact</span></a>
-    </li>
     <li class="{{ Route::is('socmed*') ? 'active' : '' }}">
       <a href="{{ route('socmed.index') }}"><i class="icon-facebook-sign"></i> <span>Social Media</span></a>
     </li>
@@ -37,6 +37,9 @@
         <li class="{{ Route::is('news*') ? 'active' : '' }}"><a href="{{ route('news.index')}}">News</a></li>
         <li class="{{ Route::is('event*') ? 'active' : '' }}"><a href="{{ route('event.index') }}">Event</a></li>
       </ul>
+    </li>
+    <li class="{{ Route::is('kontak*') ? 'active' : '' }}">
+      <a href="{{ route('kontak.index') }}"><i class="icon icon-credit-card"></i> <span>Contact</span></a>
     </li>
     <li class="{{ Route::is('logAkses*') ? 'active' : '' }}">
       <a href="{{ route('logAkses.index') }}"><i class="icon icon-list-ul"></i> <span>Log Access</span></a>
