@@ -13,54 +13,54 @@
 @section('head-style')
 <link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-publict-sub.css') }}">
 <style type="text/css">
-#info{
-	padding: 40px 0px;
-}
-#info .info-wrapper{
-	background-color: rgb(232,255,226);
-	width: 100%;
-	text-align: center;
-}
-#info .info-wrapper .content{
-	float: left;
-	padding: 20px;
-}
-#info .info-wrapper .content:nth-child(odd){
-	width: 45%;
-}
-#info .info-wrapper .content:nth-child(even){
-	width: 55%;
-}
-#info .info-wrapper .content h2{
-	text-align: center;
-	font-family: 'open sans';
-    font-weight: bolder;
-	color: rgb(69,186,1);
-}
-#info .info-wrapper .content table{
-	width: 80%;
-	margin: 0 auto 15px;
-}
-#info .info-wrapper .content table tr{
-	margin-bottom: 10px; 
-}
-#info .info-wrapper .content table tr td{
-	font-family: 'open sans';
-    font-weight: bold;
-	color: rgb(166,166,166);	
-	text-align: left;
-}
-#info .info-wrapper .content .vidio-wrapper{
-	width: 100%;
-	padding: 20px;
-	border: 5px solid rgb(255,255,255);
-}
-@media (max-width: 480px) {
-	#info .info-wrapper .content:nth-child(odd),
-	#info .info-wrapper .content:nth-child(even){
-		width: 100%;
+	#info{
+		padding: 40px 0px;
 	}
-}
+	#info .info-wrapper{
+		background-color: rgb(232,255,226);
+		width: 100%;
+		text-align: center;
+	}
+	#info .info-wrapper .content{
+		float: left;
+		padding: 20px;
+	}
+	#info .info-wrapper .content:nth-child(odd){
+		width: 45%;
+	}
+	#info .info-wrapper .content:nth-child(even){
+		width: 55%;
+	}
+	#info .info-wrapper .content h2{
+		text-align: center;
+		font-family: 'open sans';
+	    font-weight: bolder;
+		color: rgb(69,186,1);
+	}
+	#info .info-wrapper .content table{
+		width: 80%;
+		margin: 0 auto 15px;
+	}
+	#info .info-wrapper .content table tr{
+		margin-bottom: 10px; 
+	}
+	#info .info-wrapper .content table tr td{
+		font-family: 'open sans';
+	    font-weight: bold;
+		color: rgb(166,166,166);	
+		text-align: left;
+	}
+	#info .info-wrapper .content .vidio-wrapper{
+		width: 100%;
+		padding: 20px;
+		border: 5px solid rgb(255,255,255);
+	}
+	@media (max-width: 480px) {
+		#info .info-wrapper .content:nth-child(odd),
+		#info .info-wrapper .content:nth-child(even){
+			width: 100%;
+		}
+	}
 </style>
 @endsection
 
