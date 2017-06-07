@@ -20,12 +20,13 @@
 <div class="widget-box">
   <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
     <h5>Schedule</h5>
-    <a href="" data-toggle="modal" class="btn btn-primary pull-right"><i class="icon-plus"></i> Add</a>
+    <a href="{{ route('jadwal.classMember') }}" class="btn btn-primary pull-right"><i class="icon-plus"></i> Add</a>
   </div>
 </div>
 
+@foreach (array_chunk($getKelas->all(), 3) as $kelas)
 <div class="row-fluid">
-@foreach ($getKelas as $key)
+@foreach ($kelas as $key)
 <div class="span4">
   <div class="widget-box">
     <div class="widget-title"> <span class="icon"> <i class="icon-eye-open"></i> </span>
@@ -35,9 +36,9 @@
       <table class="table">
         <tbody>
           <tr>
-            <td><b>Class Category</b></td>
+            <td width="40%"><b>Class Category</b></td>
             <td>&nbsp;</td>
-            <td>{!! $key->kelasKategori->kategori_kelas !!}</td>
+            <td width="60%">{!! $key->kelasKategori->kategori_kelas !!}</td>
           </tr>
           <tr>
             <td><b>Class Program</b></td>
@@ -47,7 +48,7 @@
           <tr>
             <td><b>Description</b></td>
             <td>&nbsp;</td>
-            <td>{!! $key->deskripsi_kelas !!}</td>
+            <td>{{ strip_tags($key->deskripsi_kelas) }}</td>
           </tr>
           <tr>
             <td><b>Quotes</b></td>
@@ -60,7 +61,8 @@
             <td>{!! $key->fasilitas !!}</td>
           </tr>
           <tr>
-            <td colspan="3" style="text-align:center"><a href="{{ route('jadwal.seeSchedule', ['id' => $key->id ]) }}" class="btn btn-primary"><i class="icon-plus"></i> See Schedule</a></td>
+            <td colspan="2" style="text-align:center"><a href="{{ route('jadwal.seeSchedule', ['id' => $key->id ]) }}" class="btn btn-primary"><i class="icon-eye-open"></i> Schedule</a></td>
+            <td><a href="{{ route('jadwal.class', ['id' => $key->id ]) }}" class="btn btn-primary"><i class="icon-plus"></i> Add Student</a></td>
           </tr>
         </tbody>
       </table>
@@ -69,6 +71,7 @@
 </div>
 @endforeach
 </div>
+@endforeach
 
 
 @endsection
