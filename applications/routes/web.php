@@ -138,6 +138,10 @@ Route::group(['middleware' => ['admin']], function () {
   Route::post('admin/member/add', 'Backend\MemberController@store')->name('member.store');
   Route::get('admin/member/edit/{id}', 'Backend\MemberController@getMember')->name('member.getMember');
   Route::post('admin/member/edit', 'Backend\MemberController@edit')->name('member.edit');
+
+  //Jadwal
+  Route::get('admin/schedule', 'Backend\ScheduleController@index')->name('jadwal.index');
+  Route::get('admin/schedule/{id}', 'Backend\ScheduleController@seeSchedule')->name('jadwal.seeSchedule');
 });
 //----------------------- BACKEND -----------------------//
 
