@@ -41,59 +41,65 @@
 <?php // info wrapper ?>
 <div id="info" class="setup-wrapper">
 	<div class="setup-content lar-wd">
-		@for($a=0; $a<=2; $a++)
+		@php ($oldMember = "")
+		@foreach($call as $list)
+		@if($oldMember != $list->kode_member)
+		@php ($oldMember = $list->kode_member)
 		<div class="info-wrapper">
 			<div class="img" style="background-image: url('{{ asset('amadeo/main-image/card.jpg') }}');">
 			</div>
 			<div class="content">
-				<h2>Name Children In Here</h2>
+				<h2>{{ $list->nama_member }}</h2>
 				<table>
 					<tr>
 						<td>Code Member</td>
 						<td>:</td>
-						<td>bla bla bla bla</td>
-					</tr>
-					<tr>
-						<td>Kelas</td>
-						<td>:</td>
-						<td>bla bla bla bla</td>
-					</tr>
-					<tr>
-						<td>Jadwal</td>
-						<td>:</td>
-						<td>bla bla bla bla</td>
-					</tr>
-					<tr>
-						<td>Hari</td>
-						<td>:</td>
-						<td>bla bla bla bla</td>
-					</tr>
-					<tr>
-						<td>Ruang</td>
-						<td>:</td>
-						<td>bla bla bla bla</td>
+						<td>{{ $list->kode_member }}</td>
 					</tr>
 					<tr>
 						<td>Tempat Lahir</td>
 						<td>:</td>
-						<td>bla bla bla bla</td>
+						<td>{{ $list->tempat_lahir }}</td>
 					</tr>
 					<tr>
 						<td>Tanggal Lahir</td>
 						<td>:</td>
-						<td>bla bla bla bla</td>
+						<td>{{ $list->tanggal_lahir }}</td>
 					</tr>
 					<tr>
 						<td>Alamat</td>
 						<td>:</td>
-						<td>bla bla bla bla</td>
+						<td>{{ $list->alamat }}</td>
 					</tr>
 				</table>
-
-				<a href="{{ route('frontend.member.view', ['slug'=>$a]) }}" class="btn btn-green">Lihat</a>
+				<table class="table">
+					<tr>
+						<td>Class</td>
+						<td>Schedule</td>
+						<td></td>
+					</tr>
+					@foreach($call as $listNd)
+					@if($listNd->kode_member == $list->kode_member)
+					<tr>
+						<td>
+							{{ $list->nama_kelas }}
+						</td>
+						<td>
+							{{ $list->hari.', '.$list->jam_mulai.' - '.$list->jam_akhir }}
+						</td>
+						<td>
+							<a href="{{ route('frontend.member.view', ['slug'=>$list->kode_member]) }}">
+								View
+							</a>
+						</td>
+					</tr>
+					@endif
+					@endforeach			
+				</table>
 			</div>
 		</div>
-		@endfor
+		@endif
+		@endforeach
 	</div>
 </div>
 @endsection
