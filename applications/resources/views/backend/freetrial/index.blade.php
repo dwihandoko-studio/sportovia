@@ -63,6 +63,7 @@
           <th>Subject</th>
           <th>Message</th>
           <th>Date</th>
+          <th>Method</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -81,7 +82,8 @@
           <td>{{ $key->subjek }}</td>
           <td>{{ $key->pesan }}</td>
           <td>{{ $key->created_at }}</td>
-          <td><a href="{{ route('socmed.edit').'/'.$key->id }}"><span class="label label-warning tip-top" data-toggle="tooltip" data-placement="top" title="Edit"><i class="icon icon-pencil"></i> Edit</span></a></td>
+          <td>{!! $key->type == 1 ? '<span class="label label-primary">Free Trial</span>' : '<span class="label label important">Register</span>' !!}</td>
+          <td><a href=""><span class="label label-warning tip-top"><i class="icon icon-pencil"></i> Edit</span></a></td>
         </tr>
         @php
           $no++;

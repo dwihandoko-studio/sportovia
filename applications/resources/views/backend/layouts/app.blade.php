@@ -19,6 +19,7 @@
   @yield('breadcrumb')
 
   <div class="container-fluid">
+    @yield('dashboard')
     <hr>
     <div class="row-fluid">
       <div class="span12">
