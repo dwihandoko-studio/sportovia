@@ -42,7 +42,7 @@ class StoreController extends Controller
         $store->id_content  = $request->store_class;
         $store->nama        = $request->store_name;
         $store->telp        = $request->store_phone;
-        $store->email       = $request->store_store_email;
+        $store->email       = $request->store_email;
         $store->subjek      = $request->store_subject;
         $store->pesan       = $request->store_message;
         $store->save();

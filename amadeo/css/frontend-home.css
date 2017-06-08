@@ -122,16 +122,25 @@
 		font-size: 42px;
 	}
 
+	#cards .card.bar{
+		display: inline-block;
+		width: 49%;
+		margin-bottom: 10px;
+		float: none;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
 	#cards .card,
 	#cards .card .card-wrapper,
 	#cards .card .card-wrapper .card-img,
 	#cards .card .card-wrapper .screen{
-		height: 20vh;
+		height: 40vh;
 	}
 	#cards .card .card-wrapper .card-wrapper-icon,
 	#cards .card .card-wrapper .card-wrapper-icon .icon-content,
 	#cards .card .card-wrapper .card-wrapper-icon .icon-content .icon{
-		height: 20px;
+		height: 40px;
 	}
 	#cards .card .card-wrapper .card-wrapper-icon{
 		bottom:0px;
@@ -149,12 +158,12 @@
 	#cards .card:hover .card-wrapper .card-wrapper-icon .icon-content .icon img{
 		width: auto;
 		height: 30px;
-		top: -15vh;
+		top: -25vh;
 	}
 	#cards .card .card-wrapper .card-wrapper-icon .icon-content .icon a{
-		font-size: 10px;
+		font-size: 18px;
 		position: relative;
-		top: -25px;
+		top: -35px;
 	}
 
 	#class .bar.bar-size-3{
