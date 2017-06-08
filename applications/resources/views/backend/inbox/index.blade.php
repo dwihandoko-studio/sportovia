@@ -65,7 +65,8 @@
       "bJQueryUI": true,
       "sPaginationType": "full_numbers",
       "sDom": '<""l>t<"F"fp>',
-      "iDisplayLength": 100
+      "iDisplayLength": 100,
+      "ordering": false,
     });
   </script>
 

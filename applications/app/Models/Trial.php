@@ -9,7 +9,16 @@ class Trial extends Model
 
     protected $table = 'amd_trial';
 
-    protected $fillable = ['id_kelas_kategori','id_kelas','telp','email','subjek','pesan','flag_status'];
+    protected $fillable = ['type','id_content','nama','telp','email','subjek','pesan','flag_status'];
 
-    
+
+    public function kelas()
+    {
+        return $this->belongsTo('App\Models\Kelas', 'id_content');
+    }
+
+    public function event()
+    {
+        return $this->belongsTo('App\Models\NewsEvent', 'id_content');
+    }
 }

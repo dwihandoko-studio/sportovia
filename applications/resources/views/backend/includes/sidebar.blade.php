@@ -19,24 +19,27 @@
       <a href="{{ route('jadwal.index') }}"><i class="icon icon-calendar"></i> <span>Schedule Course</span></a>
     </li>
     <li class="submenu {{ Route::is('kelasKategori*') ? 'active' : '' }}{{ Route::is('kelasKursus*') ? 'active' : '' }}{{ Route::is('fasilitas*') ? 'active' : '' }}{{ Route::is('kelasProgram*') ? 'active' : '' }}{{ Route::is('kelasRuang*') ? 'active' : '' }}">
-      <a href="#"><i class="icon icon-th-list"></i> <span>Class</span></a>
+      <a href="#"><i class="icon icon-magnet"></i> <span>Class</span></a>
       <ul>
         <li class="{{ Route::is('kelasKursus*') ? 'active' : '' }}"><a href="{{ route('kelasKursus.index')}}">Class Course</a></li>
-        <li class="{{ Route::is('fasilitas*') ? 'active' : '' }}"><a href="{{ route('fasilitas.index') }}">Facility</a></li>
+        <li class="{{ Route::is('fasilitas*') ? 'active' : '' }}"><a href="{{ route('fasilitas.index') }}">Class Facility</a></li>
         <li class="{{ Route::is('kelasKategori*') ? 'active' : '' }}"><a href="{{ route('kelasKategori.index') }}">Class Category</a></li>
         <li class="{{ Route::is('kelasProgram*') ? 'active' : '' }}"><a href="{{ route('kelasProgram.index') }}">Class Program</a></li>
         <li class="{{ Route::is('kelasRuang*') ? 'active' : '' }}"><a href="{{ route('kelasRuang.index') }}">Class Room</a></li>
       </ul>
     </li>
-    <li class="{{ Route::is('socmed*') ? 'active' : '' }}">
-      <a href="{{ route('socmed.index') }}"><i class="icon-facebook-sign"></i> <span>Social Media</span></a>
-    </li>
-    <li class="submenu {{ Route::is('news*') ? 'active' : '' }}{{ Route::is('events*') ? 'active' : '' }}">
+    <li class="submenu {{ Route::is('news*') ? 'active' : '' }}{{ Route::is('event*') ? 'active' : '' }}">
       <a href="#"><i class="icon icon-th-list"></i> <span>News & Events</span></a>
       <ul>
         <li class="{{ Route::is('news*') ? 'active' : '' }}"><a href="{{ route('news.index')}}">News</a></li>
         <li class="{{ Route::is('event*') ? 'active' : '' }}"><a href="{{ route('event.index') }}">Event</a></li>
       </ul>
+    </li>
+    <li class="{{ Route::is('freetrial*') ? 'active' : '' }}">
+      <a href="{{ route('freetrial.index') }}"><i class="icon-book"></i> <span>Free Trial Register</span></a>
+    </li>
+    <li class="{{ Route::is('socmed*') ? 'active' : '' }}">
+      <a href="{{ route('socmed.index') }}"><i class="icon-facebook-sign"></i> <span>Social Media</span></a>
     </li>
     <li class="{{ Route::is('kontak*') ? 'active' : '' }}">
       <a href="{{ route('kontak.index') }}"><i class="icon icon-credit-card"></i> <span>Contact</span></a>
