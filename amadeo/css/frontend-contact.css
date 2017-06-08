@@ -86,7 +86,9 @@
 	background-color: rgba(255,255,255,.45);
 }
 #contact #form-wrapper input::-webkit-input-placeholder,
-#contact #form-wrapper textarea::-webkit-input-placeholder{
+#contact #form-wrapper textarea::-webkit-input-placeholder,
+#contact #form-wrapper input::-webkit-moz-placeholder,
+#contact #form-wrapper textarea::-webkit-moz-placeholder{
 	color: rgb(255,255,255);
 }
 #contact #form-wrapper button{

@@ -401,11 +401,15 @@ a.disabled{
 	color: rgb(255,0,0);
 }
 #freeTrialClass #freeTrialClass-wrapper .bar.left .input-group input::-webkit-input-placeholder,
-#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group textarea::-webkit-input-placeholder{
+#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group textarea::-webkit-input-placeholder,
+#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group input::-webkit-moz-placeholder,
+#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group textarea::-webkit-moz-placeholder{
 	color: rgb(255,255,255);
 }
 #freeTrialClass #freeTrialClass-wrapper .bar.left .input-group.error input::-webkit-input-placeholder,
-#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group.error textarea::-webkit-input-placeholder{
+#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group.error textarea::-webkit-input-placeholder,
+#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group.error input::-webkit-moz-placeholder,
+#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group.error textarea::-webkit-moz-placeholder{
 	color: rgb(255,0,0);
 }
 #freeTrialClass #freeTrialClass-wrapper .bar.left .input-group .input-group-addon{
