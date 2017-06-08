@@ -360,10 +360,10 @@ a.disabled{
 	padding: 10px;
 	border-radius: 0;
 	border: .5px solid rgba(255,255,255,.5);
-	background-color: rgba(65,65,65,.45);
+	background-color: rgb(65,65,65);
 }
 #freeTrialClass #freeTrialClass-wrapper .bar.bar-size-2.left p.info.errors{
-	background-color: rgba(255,0,0,.45);
+	background-color: rgb(255,0,0,);
 }
 #freeTrialClass #freeTrialClass-wrapper .bar.left .input-group{
 	margin-bottom: 10px; 
@@ -401,9 +401,11 @@ a.disabled{
 	color: rgb(255,0,0);
 }
 #freeTrialClass #freeTrialClass-wrapper .bar.left .input-group input::-webkit-input-placeholder,
-#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group textarea::-webkit-input-placeholder,
-#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group input::-webkit-moz-placeholder,
-#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group textarea::-webkit-moz-placeholder{
+#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group textarea::-webkit-input-placeholder{
+	color: rgb(255,255,255);
+}
+#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group input::-moz-placeholder,
+#freeTrialClass #freeTrialClass-wrapper .bar.left .input-group textarea::-moz-placeholder{
 	color: rgb(255,255,255);
 }
 #freeTrialClass #freeTrialClass-wrapper .bar.left .input-group.error input::-webkit-input-placeholder,
