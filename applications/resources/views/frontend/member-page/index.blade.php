@@ -75,6 +75,7 @@
 				<table class="table">
 					<tr>
 						<td>Class</td>
+						<td>Room</td>
 						<td>Schedule</td>
 						<td></td>
 					</tr>
@@ -82,13 +83,16 @@
 					@if($listNd->kode_member == $list->kode_member)
 					<tr>
 						<td>
-							{{ $list->nama_kelas }}
+							{{ $listNd->nama_kelas }}
 						</td>
 						<td>
-							{{ $list->hari.', '.$list->jam_mulai.' - '.$list->jam_akhir }}
+							{{ $listNd->nama_ruang }}
 						</td>
 						<td>
-							<a href="{{ route('frontend.member.view', ['slug'=>$list->kode_member]) }}">
+							{{ $listNd->hari.', '.$listNd->jam_mulai.' - '.$listNd->jam_akhir }}
+						</td>
+						<td>
+							<a href="{{ route('frontend.member.view', ['slug'=>$listNd->id_jadwal]) }}">
 								View
 							</a>
 						</td>

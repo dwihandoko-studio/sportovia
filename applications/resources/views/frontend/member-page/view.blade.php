@@ -36,6 +36,7 @@
 		font-family: 'open sans';
 	    font-weight: bolder;
 		color: rgb(69,186,1);
+		text-transform: uppercase;
 	}
 	#info .info-wrapper .content table{
 		width: 80%;
@@ -80,8 +81,8 @@
 				</a>
 			</label>
 			<label>
-				<a href="{{ route('frontend.member.view', ['slug'=>'slug']) }}">
-					This Page
+				<a href="">
+					{{ $call->nama_member }}
 				</a>
 			</label>
 		</div>
@@ -96,54 +97,83 @@
 	<div class="setup-content lar-wd">
 		<div class="info-wrapper">
 			<div class="content">
-				<h2>Name Children In Here</h2>
+				<h2>{{ $call->nama_member }}</h2>
 				<table>
 					<tr>
 						<td>Code Member</td>
 						<td>:</td>
-						<td>bla bla bla bla</td>
+						<td>{{ $call->kode_member }}</td>
+					</tr>
+					<tr>
+						<td>Program</td>
+						<td>:</td>
+						<td>{{ $call->program_kelas }}</td>
+					</tr>
+					<tr>
+						<td>Kategori</td>
+						<td>:</td>
+						<td>{{ $call->kategori_kelas }}</td>
 					</tr>
 					<tr>
 						<td>Kelas</td>
 						<td>:</td>
-						<td>bla bla bla bla</td>
-					</tr>
-					<tr>
-						<td>Jadwal</td>
-						<td>:</td>
-						<td>bla bla bla bla</td>
-					</tr>
-					<tr>
-						<td>Hari</td>
-						<td>:</td>
-						<td>bla bla bla bla</td>
+						<td>{{ $call->nama_kelas }}</td>
 					</tr>
 					<tr>
 						<td>Ruang</td>
 						<td>:</td>
-						<td>bla bla bla bla</td>
+						<td>{{ $call->nama_ruang }}</td>
+					</tr>
+					<tr>
+						<td>Lantai</td>
+						<td>:</td>
+						<td>{{ $call->lantai_kelas }}</td>
+					</tr>
+					<tr>
+						<td>Jadwal</td>
+						<td>:</td>
+						<td>{{ $call->jam_mulai.' - '.$call->jam_akhir }}</td>
+					</tr>
+					<tr>
+						<td>Hari</td>
+						<td>:</td>
+						<td>{{ $call->hari }}</td>
 					</tr>
 					<tr>
 						<td>Tempat Lahir</td>
 						<td>:</td>
-						<td>bla bla bla bla</td>
+						<td>{{ $call->tempat_lahir }}</td>
 					</tr>
 					<tr>
 						<td>Tanggal Lahir</td>
 						<td>:</td>
-						<td>bla bla bla bla</td>
+						<td>{{ $call->tanggal_lahir }}</td>
 					</tr>
 					<tr>
 						<td>Alamat</td>
 						<td>:</td>
-						<td>bla bla bla bla</td>
+						<td>{{ $call->alamat }}</td>
 					</tr>
 				</table>
-				<a href="" class="btn btn-green">Download Pdf</a>
+				<a href="{{ $call->dokumen_rapot }}" class="btn btn-green {{ ($call->dokumen_rapot == null ) ? 'disabled' : '' }}">
+					Download Pdf
+				</a>
 			</div>
+			@php
+				$awal = date( "H:i:s", strtotime( $call->jam_mulai ) );
+				$akhir = date( "H:i:s", strtotime( $call->jam_akhir ) );
+				$sekarang = date('H:i:s');
+				$hari_sekarang = date('l');
+			@endphp
 			<div class="content">
 				<div class="vidio-wrapper">
-					<div style="height: 300px; width: 100%; background-color: black"></div>
+					@if($hari_sekarang == $call->hari && $sekarang > $awal && $sekarang < $akhir)
+					<p>link cctv = {{ $call->link_cctv }}</p>
+					@else
+					<div style="background-color: black; width: 100%;
+					height: 300px;">
+					</div>
+					@endif
 				</div>
 			</div>
 			<div class="clearfix"></div>

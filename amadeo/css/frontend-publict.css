@@ -1,6 +1,9 @@
 a:hover{
 	text-decoration: none;
 }
+a.disabled{
+	pointer-events: none;
+}
 
 .bar{
 	float: left; 
