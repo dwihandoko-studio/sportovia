@@ -39,11 +39,11 @@ class EventsController extends Controller
           'img_banner.image' => 'Format not supported.',
           'img_banner.required' => 'This field is required.',
           'img_banner.max' => 'File Size Too Big.',
-          'img_banner.dimensions' => 'Pixel max 200px x 200px.',
+          'img_banner.dimensions' => 'Pixel max 1020px x 510px.',
           'img_thumb.image' => 'Format not supported.',
           'img_thumb.required' => 'This field is required.',
           'img_thumb.max' => 'File Size Too Big.',
-          'img_thumb.dimensions' => 'Pixel max 200px x 200px.',
+          'img_thumb.dimensions' => 'Pixel max 275px x 500px.',
           'tanggal_event_' => 'This field is required.',
           'tanggal_publish_' => 'This field is required.'
         ];
@@ -51,8 +51,8 @@ class EventsController extends Controller
         $validator = Validator::make($request->all(), [
           'judul' => 'required|max:25|unique:amd_news_event',
           'deskripsi'  => 'required|max:450',
-          'img_banner'  => 'required|image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=500,max_height=500',
-          'img_thumb'  => 'required|image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=300,max_height=300',
+          'img_banner'  => 'required|image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=1020,max_height=510',
+          'img_thumb'  => 'required|image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=275,max_height=500',
           'tanggal_event_' => 'required',
           'tanggal_publish_' => 'required',
         ], $message);
@@ -68,12 +68,14 @@ class EventsController extends Controller
           $flag_publish = 0;
         }
 
+        $salt = rand(100,999);
+
         $image_banner = $request->file('img_banner');
-        $img_url_banner = 'sportopia-'.str_slug($request->judul,'-'). '-banner.' . $image_banner->getClientOriginalExtension();
+        $img_url_banner = 'sportopia-'.str_slug($request->judul,'-'). '-banner-'.$salt.'.'. $image_banner->getClientOriginalExtension();
         Image::make($image_banner)->save('amadeo/images/news-event/'. $img_url_banner);
 
         $image_thumb = $request->file('img_thumb');
-        $img_url_thumb = 'sportopia-'.str_slug($request->judul,'-'). '-thumb.' . $image_thumb->getClientOriginalExtension();
+        $img_url_thumb = 'sportopia-'.str_slug($request->judul,'-'). '-thumb-'.$salt.'.'. $image_thumb->getClientOriginalExtension();
         Image::make($image_thumb)->save('amadeo/images/news-event/'. $img_url_thumb);
 
         $save = New NewsEvent;
@@ -120,10 +122,10 @@ class EventsController extends Controller
           'deskripsi.max' => 'Too long.',
           'img_banner.image' => 'Format not supported.',
           'img_banner.max' => 'File Size Too Big.',
-          'img_banner.dimensions' => 'Pixel max 200px x 200px.',
+          'img_banner.dimensions' => 'Pixel max 1020px x 510px.',
           'img_thumb.image' => 'Format not supported.',
           'img_thumb.max' => 'File Size Too Big.',
-          'img_thumb.dimensions' => 'Pixel max 200px x 200px.',
+          'img_thumb.dimensions' => 'Pixel max 275px x 500px.',
           'tanggal_event' => 'This field is required.',
           'tanggal_publish_' => 'This field is required.'
         ];
@@ -131,8 +133,8 @@ class EventsController extends Controller
         $validator = Validator::make($request->all(), [
           'judul' => 'required|max:25|unique:amd_news_event,judul,'.$request->id,
           'deskripsi'  => 'required|max:450',
-          'img_banner'  => 'image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=500,max_height=500',
-          'img_thumb'  => 'image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=500,max_height=500',
+          'img_banner'  => 'image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=1020,max_height=510',
+          'img_thumb'  => 'image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=275,max_height=500',
           'tanggal_event' => 'required',
           'tanggal_publish_' => 'required'
         ], $message);
@@ -151,18 +153,20 @@ class EventsController extends Controller
         $image_banner = $request->file('img_banner');
         $image_thumb = $request->file('img_thumb');
 
+        $salt = rand(100,999);
+
         $save = NewsEvent::find($request->id);
         $save->news_event = 0;
         $save->judul = $request->judul;
         $save->deskripsi = nl2br($request->deskripsi);
         if($image_banner){
-          $img_url_banner = 'sportopia-'.str_slug($request->judul,'-'). '-banner.' . $image_banner->getClientOriginalExtension();
+          $img_url_banner = 'sportopia-'.str_slug($request->judul,'-'). '-banner-'.$salt.'.'. $image_banner->getClientOriginalExtension();
           Image::make($image_banner)->save('amadeo/images/news-event/'. $img_url_banner);
           $save->img_banner = $img_url_banner;
         }
         $save->img_banner_alt = 'sportopia-'.str_slug($request->judul,'-').'-banner';
         if($image_thumb){
-          $img_url_thumb = 'sportopia-'.str_slug($request->judul,'-'). '-thumb.' . $image_thumb->getClientOriginalExtension();
+          $img_url_thumb = 'sportopia-'.str_slug($request->judul,'-'). '-thumb-'.$salt.'.'. $image_thumb->getClientOriginalExtension();
           Image::make($image_thumb)->save('amadeo/images/news-event/'. $img_url_thumb);
           $save->img_thumb = $img_url_thumb;
         }

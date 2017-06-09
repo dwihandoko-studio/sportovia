@@ -69,8 +69,13 @@
       <div class="control-group {{ $errors->has('img_url') ? 'error' : '' }}">
         <label class="control-label">Image</label>
         <div class="controls">
+          <span>Width: 275px; Height: 500px</span>
+        </div>
+        <div class="controls">
           <input name="img_url" class="span6" id="img_url" type="file"  accept=".jpg, .png"/>
-          <span>Width: 373px; Height: 605px</span>
+          @if($errors->has('img_url'))
+          <span for="img_url" generated="true" class="help-inline">{{ $errors->first('img_url') }}</span>
+          @endif
         </div>
         <div class="controls">
           <img src="{{ asset('amadeo/images/class/').'/'.$get->img_url }}" alt="{{ $get->img_alt }}">

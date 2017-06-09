@@ -76,7 +76,7 @@
           <td>{{ $key->program_kelas }}</td>
           <td>{!! $key->quotes_program !!}</td>
           <td>{!! $key->deskripsi_program !!}</td>
-          <td><img src="{{ asset('amadeo/images/class').'/'.$key->img_banner }}" alt="" width="30%"></td>
+          <td><img src="{{ asset('amadeo/images/class').'/'.$key->img_banner }}" alt="{{ $key->img_banner_alt}}"></td>
           <td>@if ($key->flag_publish == 1)
             <a href="" class="unpublish" data-value="{{ $key->id }}" data-toggle="modal" data-target="#modal-unpublish"><span class="label label-success tip-top" data-original-title="Publish"><i class="icon icon-thumbs-up"></i></span></a>
           @else

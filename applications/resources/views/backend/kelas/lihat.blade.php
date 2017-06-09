@@ -48,7 +48,7 @@
         </tr>
         <tr>
           <td><b>Image</b></td>
-          <td><img src="{{ asset('amadeo/images/class').'/'.$get->img_url}}" class="thumbnail" alt="{{ $get->img_alt}}"></td>
+          <td><img src="{{ asset('amadeo/images/class').'/'.$get->img_url}}" alt="{{ $get->img_alt}}"></td>
         </tr>
         <tr>
           <td><b>Facility</b></td>

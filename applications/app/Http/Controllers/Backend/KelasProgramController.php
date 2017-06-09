@@ -47,18 +47,18 @@ class KelasProgramController extends Controller
           'img_banner.image' => 'Format not supported.',
           'img_banner.required' => 'This field is required.',
           'img_banner.max' => 'File Size Too Big.',
-          'img_banner.dimensions' => 'Pixel max 200px x 200px.',
+          'img_banner.dimensions' => 'Pixel max 1350px x 356px.',
           'img_thumb.image' => 'Format not supported.',
           'img_thumb.required' => 'This field is required.',
           'img_thumb.max' => 'File Size Too Big.',
-          'img_thumb.dimensions' => 'Pixel max 200px x 200px.',
+          'img_thumb.dimensions' => 'Pixel max 300px x 300px.',
         ];
 
         $validator = Validator::make($request->all(), [
           'program_kelas' => 'required|max:25|unique:amd_kelas_program',
           'quotes_program' => 'required|max:125',
           'deskripsi_program'  => 'required|max:250',
-          'img_banner'  => 'required|image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=500,max_height=500',
+          'img_banner'  => 'required|image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=1350,max_height=356',
           'img_thumb'  => 'required|image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=300,max_height=300'
         ], $message);
 
@@ -74,12 +74,14 @@ class KelasProgramController extends Controller
           $flag_publish = 0;
         }
 
+        $salt = rand(100,999);
+
         $image_banner = $request->file('img_banner');
-        $img_url_banner = 'sportopia-'.str_slug($request->program_kelas,'-'). '-banner.' . $image_banner->getClientOriginalExtension();
+        $img_url_banner = 'sportopia-'.str_slug($request->program_kelas,'-'). '-banner-'.$salt.'.'. $image_banner->getClientOriginalExtension();
         Image::make($image_banner)->save('amadeo/images/class/'. $img_url_banner);
 
         $image_thumb = $request->file('img_thumb');
-        $img_url_thumb = 'sportopia-'.str_slug($request->program_kelas,'-'). '-thumb.' . $image_thumb->getClientOriginalExtension();
+        $img_url_thumb = 'sportopia-'.str_slug($request->program_kelas,'-'). '-thumb-'.$salt.'.'. $image_thumb->getClientOriginalExtension();
         Image::make($image_thumb)->save('amadeo/images/class/'. $img_url_thumb);
 
         $save = New KelasProgram;
@@ -128,17 +130,17 @@ class KelasProgramController extends Controller
           'deskripsi_program.max' => 'Too long.',
           'img_banner.image' => 'Format not supported.',
           'img_banner.max' => 'File Size Too Big.',
-          'img_banner.dimensions' => 'Pixel max 200px x 200px.',
+          'img_banner.dimensions' => 'Pixel max 1350px x 356px.',
           'img_thumb.image' => 'Format not supported.',
           'img_thumb.max' => 'File Size Too Big.',
-          'img_thumb.dimensions' => 'Pixel max 200px x 200px.',
+          'img_thumb.dimensions' => 'Pixel max 300px x 300px.',
         ];
 
         $validator = Validator::make($request->all(), [
           'program_kelas' => 'required|max:25|unique:amd_kelas_program,program_kelas,'.$request->id,
           'quotes_program' => 'required|max:125',
           'deskripsi_program'  => 'required|max:250',
-          'img_banner'  => 'image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=500,max_height=500',
+          'img_banner'  => 'image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=1350,max_height=356',
           'img_thumb'  => 'image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=300,max_height=300'
         ], $message);
 
@@ -157,6 +159,7 @@ class KelasProgramController extends Controller
         $image_banner = $request->file('img_banner');
         $image_thumb = $request->file('img_thumb');
 
+        $salt = rand(100,999);
 
         $update = KelasProgram::find($request->id);
         $update->program_kelas = $request->program_kelas;
@@ -167,12 +170,12 @@ class KelasProgramController extends Controller
         $update->img_banner_alt = 'sportopia-'.str_slug($request->program_kelas,'-').'-banner';
         $update->img_thumb_alt = 'sportopia-'.str_slug($request->program_kelas,'-').'-thumb';
         if($image_banner){
-          $img_url_banner = 'sportopia-'.str_slug($request->program_kelas,'-'). '-banner.' . $image_banner->getClientOriginalExtension();
+          $img_url_banner = 'sportopia-'.str_slug($request->program_kelas,'-'). '-banner-'.$salt.'.'. $image_banner->getClientOriginalExtension();
           Image::make($image_banner)->save('amadeo/images/class/'. $img_url_banner);
           $update->img_banner = $img_url_banner;
         }
         if($image_thumb){
-          $img_url_thumb = 'sportopia-'.str_slug($request->program_kelas,'-'). '-thumb.' . $image_thumb->getClientOriginalExtension();
+          $img_url_thumb = 'sportopia-'.str_slug($request->program_kelas,'-'). '-thumb-'.$salt.'.'. $image_thumb->getClientOriginalExtension();
           Image::make($image_thumb)->save('amadeo/images/class/'. $img_url_thumb);
           $update->img_thumb = $img_url_thumb;
         }
