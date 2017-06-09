@@ -53,6 +53,13 @@
 #cards .card .card-wrapper .card-wrapper-icon .icon-content .icon img{
 	height: 40px;
 	width: auto;
+	-moz-filter: invert(0%);
+    filter: invert(0%);
+    transition: all 1.51s;
+}
+#cards .card:hover .card-wrapper .card-wrapper-icon .icon-content .icon img{
+	-moz-filter: invert(100%);
+    filter: invert(100%);
 }
 #cards .card .card-wrapper .card-wrapper-icon .icon-content .icon a{
 	font-family: 'open sans semibold';
