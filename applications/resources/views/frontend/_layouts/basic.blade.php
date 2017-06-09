@@ -23,7 +23,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-publict.css') }}">
     @yield('head-style')
 
-	<link rel="icon" type="image/png" href="{{ asset('amadeo/main-image/sportopia-logo-color.png') }}" />
+	<link rel="icon" type="image/png" href="{{ asset('amadeo/main-image/logo-green-sportopia.png') }}" />
 	<link rel="image_src" href="" />
 
 </head>

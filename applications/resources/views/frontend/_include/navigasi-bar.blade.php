@@ -11,7 +11,7 @@
 			<div id="right">
 				<div class="nav-content-wrapper">
 					<div>
-						<a class="btn btn-green open-form-class" @if(Route::is('frontend.news-event.index') || Route::is('frontend.news-event.view')) style="display: none;" @endif>
+						<a class="btn btn-green open-form-class" <?php /* @if(Route::is('frontend.news-event.index') || Route::is('frontend.news-event.view')) style="display: none;" @endif */ ?>>
 							Free Trial Class
 						</a>
 						@if(empty(auth()->guard('user')->id()))
@@ -119,9 +119,11 @@
 							{{ $errors->has('store_type') ? $errors->first('store_type') : '' }}
 						</label>
 						<select class="form-control" name="store_type">
+							<?php /*
 							@if(Route::is('frontend.news-event.index') || Route::is('frontend.news-event.view'))
 							<option value="3" selected>Register Joint Event</option>
 							@else
+							*/ ?>
 							<option value="" selected="" disabled>Choose Register or Free Trial</option>
 							<option value="1"
 								{{ old('store_type') == 1 ? 'selected="selected"' : '' }}
@@ -133,7 +135,7 @@
 							>
 								Register
 							</option>
-							@endif
+							<?php /* @endif */ ?>
 						</select>
 					</div>
 					<div class="input-group {{ $errors->has('store_name') ? 'error' : '' }}">
@@ -196,11 +198,13 @@
 							{{ $errors->has('store_class') ? $errors->first('store_class') : '' }}
 						</label>
 						<select class="form-control" name="store_class">
+							<?php /* 
 							@if(Route::is('frontend.news-event.index'))
 							<option value="{{ $callEventNew->id }}" selected>{{ $callEventNew->judul }}</option>
 							@elseif(Route::is('frontend.news-event.view'))
 							<option value="{{ $call->id }}" selected>{{ $call->judul }}</option>
 							@else
+							*/ ?>
 							<option value="" selected="" disabled>Choose Class</option>
 							@foreach($callFreeTrialClass as $list)
 							@if(Route::is('frontend.class.view'))
@@ -221,7 +225,7 @@
 							</option>
 							@endif
 							@endforeach
-							@endif
+							<?php /*  @endif */ ?>
 						</select>
 					</div>
 					<div class="input-group {{ $errors->has('store_subject') ? 'error' : '' }}">
