@@ -37,7 +37,7 @@
 		</div>
 		<h2>About Us</h2>
 		<div id="description-wrapper">
-			<p>{{ $call->deskripsi_tentang }}</p>
+			<p>{!! $call->deskripsi_tentang !!}</p>
 		</div>
 	</div>
 </div>
@@ -55,7 +55,7 @@
 					</div>
 					<div class="bar bar-size-1">
 						<div class="midle">
-							<p>{{ $call->visi }}</p>
+							<p>{!! $call->visi !!}</p>
 						</div>
 					</div>
 					<div class="clearfix"></div>
@@ -73,7 +73,7 @@
 					</div>
 					<div class="bar bar-size-1">
 						<div class="midle">
-							<p>{{ $call->misi }}</p>
+							<p>{!! $call->misi !!}</p>
 						</div>
 					</div>
 				</div>

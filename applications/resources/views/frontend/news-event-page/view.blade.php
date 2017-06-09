@@ -46,7 +46,7 @@
 			<h2>{{ $call->news_event == 1 ? 'News' : 'Event' }}</h2>
 			<h1>{{ $call->judul }}</h1>
 			<p>
-				{{ $call->deskripsi }}
+				{!! $call->deskripsi !!}
 			</p>
 			@if($call->news_event == 0)
 			<div class="for-btn">

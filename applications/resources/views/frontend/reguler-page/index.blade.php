@@ -39,10 +39,10 @@
 			{{ $callProgram->program_kelas }} Class
 		</h1>
 		<h1>
-			{{ $callProgram->quotes_program }}
+			{!! $callProgram->quotes_program !!}
 		</h1>
 		<h3>
-			{{ $callProgram->deskripsi_program }}
+			{!! $callProgram->deskripsi_program !!}
 		</h3>
 	</div>
 </div>
