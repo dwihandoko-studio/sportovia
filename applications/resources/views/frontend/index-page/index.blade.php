@@ -42,10 +42,10 @@
 			{{ $callKategori->kategori_kelas }} Class
 		</h1>
 		<h1>
-			{{ $callKategori->quotes_kategori }}
+			{!! $callKategori->quotes_kategori !!}
 		</h1>
 		<h3>
-			{{ $callKategori->deskripsi_kategori }}
+			{!! $callKategori->deskripsi_kategori !!}
 		</h3>
 	</div>
 </div>
@@ -58,7 +58,7 @@
 				<div class="img-back" style="background-image: url('{{ asset('amadeo/images/class/'.$list->img_url) }}');">
 					<div class="img-description-wrapper">
 						<img src="{{ asset('amadeo/main-image/icon-circle.png') }}">
-						<p>{{ Str::words($list->deskripsi_kelas, 40) }}</p>
+						<p>{!! Str::words($list->deskripsi_kelas, 40) !!}</p>
 					</div>
 				</div>
 				<div class="index-title-wrapper">

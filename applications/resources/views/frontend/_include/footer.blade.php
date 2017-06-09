@@ -3,7 +3,7 @@
 		<div class="bar bar-size-4">
 			<div class="footer-wrapper">
 				<div class="footer-content">
-					<img id="footer-logo" src="{{ asset('amadeo/main-image/sportopia-logo-white.png') }}">
+					<img id="footer-logo" src="{{ asset('amadeo/main-image/logo-white-sportopia.png') }}">
 				</div>
 			</div>
 		</div>
@@ -33,7 +33,7 @@
 			<div class="footer-wrapper">
 				<div class="footer-content">
 					<p>© Copyright 2017All Rights Reserved</p>
-					<p>Web development by</p>
+					<p>Web development by <a href="http://amadeo.id/"><img src="{{ asset('amadeo/main-image/logo-white-amadeo.png') }}" height="25px"></a></p>
 				</div>
 			</div>
 		</div>

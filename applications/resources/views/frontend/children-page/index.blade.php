@@ -39,10 +39,10 @@
 			{{ $callProgram->program_kelas }} Class
 		</h1>
 		<h1>
-			{{ $callProgram->quotes_program }}
+			{!! $callProgram->quotes_program !!}
 		</h1>
 		<h3>
-			{{ $callProgram->deskripsi_program }}
+			{!! $callProgram->deskripsi_program !!}
 		</h3>
 	</div>
 </div>
@@ -56,7 +56,7 @@
 				<div class="content">
 					<div class="pict" style="background-image: url('{{ asset('amadeo/images/class/'.$list->img_url) }}');">
 					</div>
-					<p>{{ Str::words($list->deskripsi_kelas, 45, ' ...') }}</p>
+					<p>{!! Str::words($list->deskripsi_kelas, 45, ' ...') !!}</p>
 					<a href="{{ route('frontend.class.view', ['slug'=> $list->kategori_slug, 'subslug' => $list->kelas_slug]) }}" class="btn btn-green">
 						Detail
 					</a>

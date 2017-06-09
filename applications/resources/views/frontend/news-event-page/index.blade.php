@@ -53,7 +53,7 @@
 				<div class="wrapper-description">
 					<h3>Event</h3>
 					<h2>{{ $callEventNew->judul }}</h2>
-					<p>{{ Str::words($callEventNew->deskripsi, 65) }}</p>
+					<p>{!! Str::words($callEventNew->deskripsi, 65) !!}</p>
 					<div class="for-btn">
 						<a class="btn btn-green open-form-class">
 							Register
@@ -78,7 +78,7 @@
 						<div class="img-back" style="background-image: url('{{ asset('amadeo/images/news-event/'.$list->img_thumb) }}');">
 							<div class="img-description-wrapper">
 								<img src="{{ asset('amadeo/main-image/icon-circle.png') }}">
-								<p>{{ Str::words($list->deskripsi, 35) }}</p>
+								<p>{!! Str::words($list->deskripsi, 35) !!}</p>
 							</div>
 						</div>
 						<div class="index-title-wrapper">
@@ -107,7 +107,7 @@
 						<div class="content-wrapper">
 							<h3>{{ $list->judul }}</h3>
 							<p>
-								{{ Str::words($list->deskripsi, 20) }}
+								{!! Str::words($list->deskripsi, 20) !!}
 							</p>
 						</div>
 					</div>

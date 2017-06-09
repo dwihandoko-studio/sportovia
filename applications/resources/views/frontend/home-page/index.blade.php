@@ -26,7 +26,7 @@
 				<div class="card-wrapper-icon">
 					<div class="icon-content">
 						<div class="icon">
-							<img src="{{ asset('amadeo/main-image/icon.png') }}">
+							<img src="{{ asset('amadeo/main-image/kelas-kategori/white/'.$list->kategori_kelas.'.png') }}">
 						</div>
 						<div class="icon">
 							<a href="{{ Route('frontend.class.index', ['slug' => $list->slug]) }}">

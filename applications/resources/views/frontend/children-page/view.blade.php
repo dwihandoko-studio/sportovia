@@ -83,7 +83,7 @@ body{
 				<h1>{{ $callClass->quotes }}</h1>
 			</div>
 			<div class="content">
-				<p>{{ $callClass->deskripsi_kelas }}</p>
+				<p>{!! $callClass->deskripsi_kelas !!}</p>
  				<div class="text-center">
 	 				<a class="btn btn-green open-form-class">Register</a>
  				</div>
