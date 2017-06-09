@@ -47,8 +47,13 @@
       <div class="control-group {{ $errors->has('img_banner') ? 'error' : '' }}">
         <label class="control-label">Image Banner</label>
         <div class="controls">
+          <span>Width: 1350px; Height: 356px</span>
+        </div>
+        <div class="controls">
           <input name="img_banner" class="span6" id="img_banner" type="file"  accept=".jpg, .png"/>
-          <span>Width: 400px; Height: 400px</span>
+          @if($errors->has('img_banner'))
+          <span for="img_banner" generated="true" class="help-inline">{{ $errors->first('img_banner') }}</span>
+          @endif
         </div>
         <div class="controls">
           <img src="{{ asset('amadeo/images/class').'/'.$get->img_banner }}" alt="{{ $get->img_banner_alt }}">
@@ -57,8 +62,13 @@
       <div class="control-group {{ $errors->has('img_thumb') ? 'error' : '' }}">
         <label class="control-label">Image Thumbnail</label>
         <div class="controls">
+          <span>Width: 300px; Height: 300px</span>
+        </div>
+        <div class="controls">
           <input name="img_thumb" class="span6" id="img_thumb" type="file"  accept=".jpg, .png"/>
-          <span>Width: 200px; Height: 200px</span>
+          @if($errors->has('img_thumb'))
+          <span for="img_thumb" generated="true" class="help-inline">{{ $errors->first('img_thumb') }}</span>
+          @endif
         </div>
         <div class="controls">
           <img src="{{ asset('amadeo/images/class').'/'.$get->img_thumb }}" alt="{{ $get->img_thumb_alt }}">

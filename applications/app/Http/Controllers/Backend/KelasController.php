@@ -55,7 +55,7 @@ class KelasController extends Controller
           'img_url.image' => 'Format not supported.',
           'img_url.required' => 'This field is required.',
           'img_url.max' => 'File Size Too Big.',
-          'img_url.dimensions' => 'Pixel max 200px x 200px.',
+          'img_url.dimensions' => 'Pixel max 275px x 500px.',
         ];
 
         $validator = Validator::make($request->all(), [
@@ -65,7 +65,7 @@ class KelasController extends Controller
           'quotes'  => 'required|max:75',
           'fasilitas' =>  'required',
           'deskripsi_kelas'  => 'required|max:250',
-          'img_url'  => 'required|image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=373,max_height=605',
+          'img_url'  => 'required|image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=275,max_height=500',
         ], $message);
 
 
@@ -86,10 +86,12 @@ class KelasController extends Controller
           $program = 'regular';
         }
 
+        $salt = rand(100,999);
+
         $fasilitas = implode(',', $request->fasilitas);
 
         $image = $request->file('img_url');
-        $img_url = 'sportopia-'.$program.'-'.str_slug($request->nama_kelas,'-'). '.' . $image->getClientOriginalExtension();
+        $img_url = 'sportopia-'.$program.'-'.str_slug($request->nama_kelas,'-').'-'.$salt.'.' . $image->getClientOriginalExtension();
         Image::make($image)->save('amadeo/images/class/'. $img_url);
 
         $save = New Kelas;
@@ -158,7 +160,7 @@ class KelasController extends Controller
           'fasilitas.required' => 'This field is required.',
           'img_url.image' => 'Format not supported.',
           'img_url.max' => 'File Size Too Big.',
-          'img_url.dimensions' => 'Pixel max 200px x 200px.',
+          'img_url.dimensions' => 'Pixel max 275px x 500px.',
         ];
 
         $validator = Validator::make($request->all(), [
@@ -168,7 +170,7 @@ class KelasController extends Controller
           'quotes'  => 'required|max:75',
           'fasilitas' =>  'required',
           'deskripsi_kelas'  => 'required|max:250',
-          'img_url'  => 'image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=373,max_height=605',
+          'img_url'  => 'image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=275,max_height=500',
         ], $message);
 
 
@@ -193,6 +195,8 @@ class KelasController extends Controller
 
         $image = $request->file('img_url');
 
+        $salt = rand(100,999);
+
         $update = Kelas::find($request->id);
         $update->id_kelas_kategori = $request->id_kelas_kategori;
         $update->id_program = $request->id_program;
@@ -206,7 +210,7 @@ class KelasController extends Controller
         $update->slug = str_slug($request->nama_kelas,'-');
         $update->img_alt = 'sportopia-'.$program.'-'.str_slug($request->nama_kelas,'-');
         if($image){
-          $img_url = 'sportopia-'.$program.'-'.str_slug($request->nama_kelas,'-'). '-banner.' . $image->getClientOriginalExtension();
+          $img_url = 'sportopia-'.$program.'-'.str_slug($request->nama_kelas,'-').'-'.$salt.'.' . $image->getClientOriginalExtension();
           Image::make($image)->save('amadeo/images/class/'. $img_url);
           $update->img_url = $img_url;
         }
