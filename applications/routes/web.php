@@ -152,6 +152,13 @@ Route::group(['middleware' => ['admin']], function () {
 
   // Free Trial Register
   Route::get('admin/free-trial-register', 'Backend\FreeTrialController@index')->name('freetrial.index');
+
+  // Ads Banner
+  Route::get('admin/ads-banner', 'Backend\AdsBannerController@index')->name('ads.index');
+  Route::post('admin/ads-banner', 'Backend\AdsBannerController@store')->name('ads.store');
+  Route::get('admin/ads-banner/edit/{id}', 'Backend\AdsBannerController@ubah')->name('ads.ubah');
+  Route::post('admin/ads-banner/edit', 'Backend\AdsBannerController@edit')->name('ads.edit');
+  Route::get('admin/ads-banner/publish/{id}', 'Backend\AdsBannerController@publish')->name('ads.publish');
 });
 //----------------------- BACKEND -----------------------//
 
