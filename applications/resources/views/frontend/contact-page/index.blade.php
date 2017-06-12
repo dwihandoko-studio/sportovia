@@ -42,6 +42,7 @@
 <div id="contact" class="setup-wrapper" style="background-image: url('{{ asset('amadeo/main-image/contact.png') }}');">
 	<div id="transparant-wrapper">
 	<div class="setup-content lar-wd">
+		@if($call != null)
 		<div class="bar bar-size-left">
 			<div class="contact-info-wrapper">
 				<div class="bar bar-size-4">
@@ -80,6 +81,7 @@
 				<div class="clearfix"></div>
 			</div>
 		</div>
+		@endif
 		<div class="bar bar-size-right">
 			<div id="form-wrapper">
 				@if(Session::has('contact_info'))

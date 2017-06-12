@@ -25,6 +25,10 @@ class ClassController extends Controller
         ->where('flag_publish', '1')
         ->first();
 
+        if($callKategori == null){
+            abort(404);
+        }
+
         $callClass = Kelas::select(
             'nama_kelas',
             'img_url',
@@ -35,11 +39,12 @@ class ClassController extends Controller
         ->where('flag_publish', '1')
         ->orderBy('nama_kelas', 'asc')
         ->get();
-
+        
 	    return view('frontend.index-page.index', compact(
 	    	'callKategori',
 	    	'callClass'
 	    ));
+        
 	}
 
 	function view($slug, $subslug){
@@ -53,6 +58,10 @@ class ClassController extends Controller
         ->where('slug', $slug)
         ->where('flag_publish', '1')
         ->first();
+
+        if($callKategori == null){
+            abort(404);
+        }
 
         $callClass = Kelas::leftJoin('amd_kelas_program', 'amd_kelas_program.id', '=', 'amd_kelas.id_program')
         ->select(
@@ -71,12 +80,8 @@ class ClassController extends Controller
         ->where('amd_kelas_program.flag_publish', '1')
         ->first();
 
-        if(!$callKategori){
-          abort('errors.404');
-        }
-
-        if(!$callClass){
-          abort('errors.404');
+        if($callClass == null){
+            abort(404);
         }
 
         if (in_array(strtolower($callClass->program_kelas), $arr)){

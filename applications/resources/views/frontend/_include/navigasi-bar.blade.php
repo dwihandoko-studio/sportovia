@@ -26,7 +26,6 @@
 							Logout
 						</a>
 						@endif
-
 					</div>
 					<ul id="list">
 						<li class="dropdown">
@@ -50,6 +49,7 @@
 								</div>
 							</div>
 						</li>
+						@if($callNavKategori != null)
 						@foreach($callNavKategori as $list)
 						<li class="dropdown">
 							<a 
@@ -64,6 +64,7 @@
 							</a>
 							<div class="dropdown-wrapper class">
 								<div class="dropdown-content">
+									@if($callNavClass != null)
 									@php ($looping=1)
 									@foreach($callNavClass as $sublist)
 									@if($sublist->id_kelas_kategori == $list->id)
@@ -81,10 +82,12 @@
 									@php ($looping++)
 									@endif
 									@endforeach
+									@endif
 								</div>
 							</div>
 						</li>
 						@endforeach
+						@endif
 						<li>
 							<a class="{{ Route::is('frontend.news-event*') ? 'active' : '' }}" href="{{ Route('frontend.news-event.index') }}">
 								News & Event
@@ -206,6 +209,7 @@
 							@else
 							*/ ?>
 							<option value="" selected="" disabled>Choose Class</option>
+							@if($callFreeTrialClass != null)
 							@foreach($callFreeTrialClass as $list)
 							@if(Route::is('frontend.class.view'))
 							@if($list->id == $callClass->id)
@@ -225,6 +229,7 @@
 							</option>
 							@endif
 							@endforeach
+							@endif
 							<?php /*  @endif */ ?>
 						</select>
 					</div>
@@ -252,7 +257,7 @@
 					<button class="btn btn-green">Submit</button>
 				</form>
 			</div>
-			<div class="bar bar-size-2 right" style="background-image: url('{{ asset('amadeo/images/ads/'.$callAdv->img_url) }}');" title="{{ $callAdv->ads_judul }}">
+			<div class="bar bar-size-2 right" @if($callAdv != null) style="background-image: url('{{ asset('amadeo/images/ads/'.$callAdv->img_url) }}');" title="{{ $callAdv->ads_judul }}" @endif>
 				<i class="fa fa-times-circle-o close-form-class" aria-hidden="true"></i>
 			</div>
 		</div>

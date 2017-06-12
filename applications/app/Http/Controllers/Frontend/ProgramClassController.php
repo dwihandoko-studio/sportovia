@@ -27,6 +27,10 @@ class ProgramClassController extends Controller
         ->where('flag_publish', '1')
         ->first();
 
+        if($callProgram == null){
+            abort(404);
+        }
+
         $callClass = Kelas::leftJoin('amd_kelas_kategori', 'amd_kelas_kategori.id', '=', 'amd_kelas.id_kelas_kategori')
         ->select(
             'nama_kelas',

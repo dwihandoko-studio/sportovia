@@ -33,7 +33,14 @@ class AppServiceProvider extends ServiceProvider
             ->where('flag_publish', '1')
             ->orderBy('kategori_kelas', 'asc')
             ->get();
+            if($callNavKategori->isEmpty()){
+                $callNavKategori = null;
+            }
             view()->share('callNavKategori', $callNavKategori);
+            // dd($callNavKategori);
+            // else if($callNavKategori->isEmpty()){
+            //     dd('not null');
+            // }
 
             $callNavClass = Kelas::select(
                 'id_kelas_kategori',
@@ -43,6 +50,9 @@ class AppServiceProvider extends ServiceProvider
             ->where('flag_publish', '1')
             ->orderBy('nama_kelas', 'asc')
             ->get();
+            if($callNavClass->isEmpty()){
+                $callNavClass = null;
+            }
             view()->share('callNavClass', $callNavClass);
 
             $callFreeTrialClass = Kelas::leftJoin('amd_kelas_program', 'amd_kelas_program.id', '=', 'amd_kelas.id_program')
@@ -55,6 +65,9 @@ class AppServiceProvider extends ServiceProvider
             ->where('amd_kelas_program.flag_publish', '1')
             ->orderBy('amd_kelas_program.program_kelas')
             ->get();
+            if($callFreeTrialClass->isEmpty()){
+                $callFreeTrialClass = null;
+            }
             view()->share('callFreeTrialClass', $callFreeTrialClass);
 
             $callKontak = Kontak::select('alamat')->first();
@@ -67,6 +80,9 @@ class AppServiceProvider extends ServiceProvider
             ->where('flag_publish', '1')
             ->orderBy('nama_sosmed', 'asc')
             ->get();
+            if($callSosMed->isEmpty()){
+                $callSosMed = null;
+            }
             view()->share('callSosMed', $callSosMed);
 
             $date = new DateTime;
