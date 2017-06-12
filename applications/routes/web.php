@@ -205,9 +205,13 @@ Route::get('/contact', 'Frontend\ContactController@index')
 Route::get('/program-class/{slug}', 'Frontend\ProgramClassController@index')
 	->name('frontend.program.index');
 
+// Sitemap
+Route::get('/sitemap.xml', 'Backend\SitemapController@index')->name('sitemap.index');
+
 Route::get('/{slug}', 'Frontend\ClassController@index')
 	->name('frontend.class.index');
 Route::get('/{slug}/{subslug}', 'Frontend\ClassController@view')
 	->name('frontend.class.view');
+
 
 //-------------------- FRONT END MEMBER ----------------//

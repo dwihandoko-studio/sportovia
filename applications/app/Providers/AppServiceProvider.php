@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if(!Request::is('admin/*')){
+        if(!Request::is('admin/*') || !Request::is('sitemap.xml')){
             $callNavKategori = KelasKategori::select(
                 'id',
                 'kategori_kelas',
@@ -66,11 +66,14 @@ class AppServiceProvider extends ServiceProvider
             ->orderBy('nama_sosmed', 'asc')
             ->get();
             view()->share('callSosMed', $callSosMed);
-        }else{
+        }
+
+        if(Request::is('admin/*')){
           // Notifikasi New Inbox
            $getNotifInbox = Inbox::where('has_read', 0)->orderBy('created_at', 'desc')->get();
            view()->share('getNotifInbox', $getNotifInbox);
         }
+
     }
 
     /**
