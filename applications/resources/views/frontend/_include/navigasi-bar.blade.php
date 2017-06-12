@@ -252,7 +252,7 @@
 					<button class="btn btn-green">Submit</button>
 				</form>
 			</div>
-			<div class="bar bar-size-2 right" style="background-image: url('{{ asset('amadeo/main-image/popup.png') }}');">
+			<div class="bar bar-size-2 right" style="background-image: url('{{ asset('amadeo/images/ads/'.$callAdv->img_url) }}');" title="{{ $callAdv->ads_judul }}">
 				<i class="fa fa-times-circle-o close-form-class" aria-hidden="true"></i>
 			</div>
 		</div>
