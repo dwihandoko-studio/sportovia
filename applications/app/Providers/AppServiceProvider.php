@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if(!Request::is('admin/*')){
+        if(!Request::is('admin/*') || !Request::is('sitemap.xml')){
             $callNavKategori = KelasKategori::select(
                 'id',
                 'kategori_kelas',
@@ -85,6 +85,7 @@ class AppServiceProvider extends ServiceProvider
             }
             view()->share('callSosMed', $callSosMed);
 
+
             $date = new DateTime;
             $format_date = $date->format('Y-m-d');
             $callAdv = AdsBanner::select(
@@ -99,11 +100,14 @@ class AppServiceProvider extends ServiceProvider
             view()->share('callAdv', $callAdv);
 
 
-        }else{
+        }
+
+        if(Request::is('admin/*')){
           // Notifikasi New Inbox
            $getNotifInbox = Inbox::where('has_read', 0)->orderBy('created_at', 'desc')->get();
            view()->share('getNotifInbox', $getNotifInbox);
         }
+
     }
 
     /**

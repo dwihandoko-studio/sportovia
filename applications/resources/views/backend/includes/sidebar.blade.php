@@ -39,7 +39,7 @@
       <a href="{{ route('freetrial.index') }}"><i class="icon-book"></i> <span>Free Trial Register</span></a>
     </li>
     <li class="{{ Route::is('ads*') ? 'active' : '' }}">
-      <a href="{{ route('ads.index') }}"><i class="icon-book"></i> <span>Ads Banner</span></a>
+      <a href="{{ route('ads.index') }}"><i class="icon-picture"></i> <span>Ads Banner</span></a>
     </li>
     <li class="{{ Route::is('socmed*') ? 'active' : '' }}">
       <a href="{{ route('socmed.index') }}"><i class="icon-facebook-sign"></i> <span>Social Media</span></a>
