@@ -6,7 +6,9 @@ use Illuminate\Support\ServiceProvider;
 
 use Route;
 use Request;
+use DateTime;
 
+use App\Models\AdsBanner;
 use App\Models\Kelas;
 use App\Models\KelasKategori;
 use App\Models\Kontak;
@@ -66,6 +68,22 @@ class AppServiceProvider extends ServiceProvider
             ->orderBy('nama_sosmed', 'asc')
             ->get();
             view()->share('callSosMed', $callSosMed);
+
+
+            $date = new DateTime;
+            $format_date = $date->format('Y-m-d');
+            $callAdv = AdsBanner::select(
+                'ads_judul',
+                'img_url',
+                'img_alt'
+            )
+            ->where('flag_publish', '1')
+            ->whereDATE('tanggal_publish', '<=', $format_date)
+            ->inRandomOrder()
+            ->first();
+            view()->share('callAdv', $callAdv);
+
+
         }
 
         if(Request::is('admin/*')){
