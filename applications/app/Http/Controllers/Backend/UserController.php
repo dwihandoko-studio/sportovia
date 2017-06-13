@@ -45,11 +45,11 @@ class UserController extends Controller
             'password' => 12345678
           ]);
 
-        // Mail::send('backend.email.reset', ['data' => $data], function($message) use ($data) {
-        //   $message->from('administrator@sportopia', 'Administrator')
-        //           ->to($data[0]['email'], $data[0]['name'])
-        //           ->subject('Reset Password Akun CMS Sportopia');
-        // });
+        Mail::send('backend.email.reset', ['data' => $data], function($message) use ($data) {
+          $message->from('administrator@sportopia.com', 'Administrator')
+                  ->to($data[0]['email'], $data[0]['name'])
+                  ->subject('Reset Password Akun CMS Sportopia');
+        });
 
         return redirect()->route('userAdmin.index')->with('berhasil', 'Berhasil Me Reset Password '.$getUser->name);
     }
