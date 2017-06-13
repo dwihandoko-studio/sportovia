@@ -47,6 +47,9 @@
     <li class="{{ Route::is('kontak*') ? 'active' : '' }}">
       <a href="{{ route('kontak.index') }}"><i class="icon icon-credit-card"></i> <span>Contact</span></a>
     </li>
+    <li class="{{ Route::is('facebook*') ? 'active' : '' }}">
+      <a href="{{ route('facebook.index') }}"><i class="icon icon-facebook"></i> <span>Facebook App</span></a>
+    </li>
     <li class="{{ Route::is('logAkses*') ? 'active' : '' }}">
       <a href="{{ route('logAkses.index') }}"><i class="icon icon-list-ul"></i> <span>Log Access</span></a>
     </li>

@@ -178,18 +178,20 @@ return [
         App\Providers\RouteServiceProvider::class,
 
 
-		// Tag HTML providers
+		    // Tag HTML providers
         Collective\Html\HtmlServiceProvider::class,
         // Manipulate Images
         Intervention\Image\ImageServiceProvider::class,
-		// Report export to documents
+		    // Report export to documents
         Maatwebsite\Excel\ExcelServiceProvider::class,
         // DOM PDF
         Barryvdh\DomPDF\ServiceProvider::class,
         // Yajra Datatables
         Yajra\Datatables\DatatablesServiceProvider::class,
-		// Google Analytics
+		    // Google Analytics
         Spatie\Analytics\AnalyticsServiceProvider::class,
+        // Socialite Laravel
+        // Laravel\Socialite\SocialiteServiceProvider::class,
 
     ],
 
@@ -247,6 +249,7 @@ return [
         'Datatables' => Yajra\Datatables\Facades\Datatables::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Analytics' => Spatie\Analytics\AnalyticsFacade::class,
+        // 'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
     ],
 

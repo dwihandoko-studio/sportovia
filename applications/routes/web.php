@@ -159,6 +159,15 @@ Route::group(['middleware' => ['admin']], function () {
   Route::get('admin/ads-banner/edit/{id}', 'Backend\AdsBannerController@ubah')->name('ads.ubah');
   Route::post('admin/ads-banner/edit', 'Backend\AdsBannerController@edit')->name('ads.edit');
   Route::get('admin/ads-banner/publish/{id}', 'Backend\AdsBannerController@publish')->name('ads.publish');
+
+  // Facebook API
+  Route::get('admin/facebook', 'Backend\FacebookController@index')->name('facebook.index');
+  Route::get('admin/facebook/edit/{id}', 'Backend\FacebookController@ubah')->name('facebook.ubah');
+  Route::post('admin/facebook/edit', 'Backend\FacebookController@edit')->name('facebook.edit');
+
+  // Stream Api
+  Route::get('admin/facebook/api', 'Backend\DashboardController@getFB')->name('analytics.getFB');
+  Route::get('admin/google/api', 'Backend\DashboardController@getGA')->name('analytics.getGA');
 });
 //----------------------- BACKEND -----------------------//
 

@@ -25,7 +25,7 @@
     <a href="{{ route('tentang.ubah', array('id' => $getTentang[0]->id )) }}" class="btn btn-warning pull-right"><i class="icon-plus"></i> Edit</a>
     @endif
   </div>
-  <div class="widget-content">
+  <div class="widget-content" style="overflow-x:auto;">
     @if($getTentang->isEmpty())
     @else
     <table class="table table-bordered">
