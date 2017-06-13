@@ -106,18 +106,6 @@ $('.free-table').dataTable({
   "iDisplayLength": 100,
   "ordering": false,
 });
-
-// $(function(){
-//   $('a.unpublish').click(function(){
-//     var a = $(this).data('value');
-//     $('#setUnpublish').attr('href', "{{ url('/') }}/admin/social-media/publish/"+a);
-//   });
-//
-//   $('a.publish').click(function(){
-//       var a = $(this).data('value');
-//       $('#setPublish').attr('href', "{{ url('/') }}/admin/social-media/publish/"+a);
-//     });
-// });
 </script>
 
 @if(Session::has('berhasil'))
