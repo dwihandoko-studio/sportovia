@@ -76,10 +76,16 @@ class NewsEventController extends Controller
     	->where('flag_publish', '1')
         ->whereDATE('tanggal_publish', '<=', $format_date)
     	->first();
-
-	    return view('frontend.news-event-page.view', compact(
-	    	'call'
-	    ));
+        
+        if($call == null){
+            abort(404);
+        }
+        else{
+    	    return view('frontend.news-event-page.view', compact(
+    	    	'call'
+    	    ));
+        }
+        
 	}
 
 }

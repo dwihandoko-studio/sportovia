@@ -20,10 +20,14 @@ class AboutController extends Controller
             'misi'
         )
         ->first();
-
-	    return view('frontend.about-page.us', compact(
-	    	'call'
-	    ));
+        if($call == null){
+            abort(404);
+        }
+        else{
+    	    return view('frontend.about-page.us', compact(
+    	    	'call'
+    	    ));
+        }
 	}
 
 	function staff(){

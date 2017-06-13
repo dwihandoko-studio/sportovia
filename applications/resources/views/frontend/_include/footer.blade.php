@@ -11,13 +11,14 @@
 			<div class="footer-wrapper">
 				<div class="footer-content">
 					<p>SPORTOPIA</p>
-					<p>{{ $callKontak->alamat }}</p>
+					<p>@if($callKontak != null){{ $callKontak->alamat }}@endif</p>
 				</div>
 			</div>
 		</div>
 		<div class="bar bar-size-4">
 			<div class="footer-wrapper">
 				<div class="footer-content">
+				@if($callSosMed != null)
 				@foreach($callSosMed as $list)
 					<a href="{{ $list->link_url }}" title="{{ $list->nama_sosmed }}">
 						<span class="fa-stack fa-lg">
@@ -26,6 +27,7 @@
 						</span>
 					</a>
 				@endforeach
+				@endif
 				</div>
 			</div>
 		</div>

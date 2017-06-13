@@ -46,6 +46,7 @@
 	</div>
 </div>
 <?php // banner wrapper ?>
+@if($callEventNew != null)
 <div id="banner">
 	<div class="banner-content" style="background-image: url('{{ asset('amadeo/images/news-event/'.$callEventNew->img_banner) }}');">
 		<div class="setup-wrapper">
@@ -67,6 +68,7 @@
 		</div>
 	</div>
 </div>
+@endif
 <?php // index 1 wrapper ?>
 <div id="index" class="setup-wrapper">
 	<div class="setup-content lar-wd">
