@@ -11,7 +11,7 @@
 			<div class="footer-wrapper">
 				<div class="footer-content">
 					<p>SPORTOPIA</p>
-					<p>@if($callKontak != null){{ $callKontak->alamat }}@endif</p>
+					<p>@if($callKontak != null){!! $callKontak->alamat !!}@endif</p>
 				</div>
 			</div>
 		</div>
@@ -34,7 +34,7 @@
 		<div class="bar bar-size-4">
 			<div class="footer-wrapper">
 				<div class="footer-content">
-					<p>© Copyright 2017All Rights Reserved</p>
+					<p>© Copyright 2017 All Rights Reserved</p>
 					<p>Web development by <a href="http://amadeo.id/"><img src="{{ asset('amadeo/main-image/logo-white-amadeo.png') }}" height="25px"></a></p>
 				</div>
 			</div>
