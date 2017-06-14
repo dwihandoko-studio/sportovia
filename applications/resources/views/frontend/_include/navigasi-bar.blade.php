@@ -65,7 +65,10 @@
 							<div class="dropdown-wrapper class">
 								<div class="dropdown-content">
 									@if($callNavClass != null)
-									@php ($looping=1)
+									@php 
+										$looping=1;
+										$lenArr = count($callNavClass);
+									@endphp
 									@foreach($callNavClass as $sublist)
 									@if($sublist->id_kelas_kategori == $list->id)
 									@if($looping%2 != 0)
@@ -79,6 +82,12 @@
 									@if($looping%2 == 0)
 									</div>
 									@endif
+									@if($looping == $lenArr)
+									@if($looping%2 != 0)
+									</div>
+									@endif
+									@endif
+
 									@php ($looping++)
 									@endif
 									@endforeach
