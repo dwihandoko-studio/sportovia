@@ -5,14 +5,33 @@
 @endsection
 
 @section('meta')
-<meta name="title" content="Sportopia">
-<meta name="description" content="Sportopia - {{ $call->judul }} : {{ Str::words($call->deskripsi, 30) }}">
-<meta name="keywords" content="Sportopia " />
+<meta name="title" content="Sportopia {{ $call->judul }}">
+	<meta name="description" content="Sportopia - {{ $call->judul }} : {{ strip_tags(Str::words($call->deskripsi, 45)) }}">
+	<meta name="keywords" content="Sportopia News Event, Sport, Art, Games, Education" />
 @endsection
 
 @section('head-style')
-<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-publict-sub.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-news-event-view.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-public-sub.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-news-event-view.css') }}">
+
+	<meta itemprop="thumbnailUrl" content="{{ asset('amadeo/images/news-event/').'/'.$call->img_thumb }}"/>
+	<meta itemprop="image" content="{{ asset('amadeo/images/news-event/').'/'.$call->img_banner }}" />
+
+	<meta property="og:type" content="Article" />
+	<meta property="og:site_name" content="sportopia.com">
+	<meta property="og:title" content="{{ $call->judul }}">
+	<meta property="og:url" content="{{ route('frontend.news-event.view', ['slug' => $call->slug])}}">
+	<meta property="og:description" content="{{ strip_tags(Str::words($call->deskripsi_kategori, 35)) }}">
+	<meta property="og:image" content="{{ asset('amadeo/images/news-event/').'/'.$call->img_banner }}">
+
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v2.5";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	</script>
 @endsection
 
 @section('body-content')

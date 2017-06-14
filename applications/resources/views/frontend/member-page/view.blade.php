@@ -5,13 +5,12 @@
 @endsection
 
 @section('meta')
-<meta name="title" content="Sportopia">
-<meta name="description" content="Sportopia - ">
-<meta name="keywords" content="Sportopia " />
+<meta name="title" content="Member Area">
+	<meta name="keywords" content="Sportopia, Sport, Art, Games, Education" />
 @endsection
 
 @section('head-style')
-<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-publict-sub.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-public-sub.css') }}">
 <style type="text/css">
 	#info{
 		padding: 40px 0px;
@@ -43,12 +42,12 @@
 		margin: 0 auto 15px;
 	}
 	#info .info-wrapper .content table tr{
-		margin-bottom: 10px; 
+		margin-bottom: 10px;
 	}
 	#info .info-wrapper .content table tr td{
 		font-family: 'open sans';
 	    font-weight: bold;
-		color: rgb(166,166,166);	
+		color: rgb(166,166,166);
 		text-align: left;
 	}
 	#info .info-wrapper .content .vidio-wrapper{

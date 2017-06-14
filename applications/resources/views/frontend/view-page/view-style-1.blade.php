@@ -5,17 +5,32 @@
 @endsection
 
 @section('meta')
-<meta name="title" content="Sportopia">
-<meta name="description" content="Sportopia - {{ $callClass->nama_kelas }} : {{ Str::words($callClass->deskripsi_kelas, 30) }}">
-<meta name="keywords" content="Sportopia " />
+<meta name="title" content="Sportopia {{ $callClass->nama_kelas }} Class">
+	<meta name="description" content="Sportopia - {{ $callClass->nama_kelas }} : {{ Str::words($callClass->deskripsi_kelas, 30) }}">
+	<meta name="keywords" content="Sportopia {{ $callClass->nama_kelas }}, {{ $callClass->nama_kelas }}, Sports, Art, Games, Education " />
 @endsection
 
 @section('head-style')
-<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-publict-sub.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-view-style-1.css') }}">
-<style type="text/css">
+<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-public-sub.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-view-style-1.css') }}">
+	<meta itemprop="thumbnailUrl" content="{{ asset('amadeo/images/class/').'/'.$callClass->img_url }}"/>
+	<meta itemprop="image" content="{{ asset('amadeo/images/class/').'/'.$callClass->img_url }}" />
 
-</style>
+	<meta property="og:type" content="Article" />
+	<meta property="og:site_name" content="sportopia.com">
+	<meta property="og:title" content="{{ $callClass->nama_kelas }}">
+	<meta property="og:url" content="{{ route('frontend.class.view', ['slug' => $callKategori->slug, 'subslug' => $callClass->slug])}}">
+	<meta property="og:description" content="{{ strip_tags(Str::words($callClass->deskripsi_kelas, 75)) }}">
+	<meta property="og:image" content="{{ asset('amadeo/images/class/').'/'.$callClass->img_url }}">
+
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v2.5";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	</script>
 @endsection
 
 @section('body-content')
@@ -73,7 +88,7 @@
 				</div>
 			</div>
 			<div  id="fasilitas-CO" class="collapse body-CO">
-				@php 
+				@php
 					$fasilitasArr = explode(",", $callClass->fasilitas)
 				@endphp
 				@foreach($fasilitasArr as $list)

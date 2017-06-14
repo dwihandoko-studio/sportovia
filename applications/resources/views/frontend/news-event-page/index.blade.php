@@ -1,22 +1,24 @@
 @extends('frontend._layouts.basic')
 
 @section('head-title')
-<title>Sportopia - News & Event</title>
+<title>Sportopia - News & Events</title>
 @endsection
 
 @section('meta')
-<meta name="title" content="Sportopia">
-<meta name="description" content="Sportopia - ">
-<meta name="keywords" content="Sportopia " />
+<meta name="title" content="Sportopia News & Events">
+@if($callAbout != null)
+	<meta name="descriptions" content="Sportopia - {{ strip_tags(Str::words($callAbout->deskripsi_tentang, 40)) }}">
+@endif
+	<meta name="keywords" content="Sportopia, Sport, Art, Games, Education" />
 @endsection
 
 @section('head-style')
 <link rel="stylesheet" href="{{ asset('plugin/owl-carousel/owl.carousel.css') }}">
-<link rel="stylesheet" href="{{ asset('plugin/owl-carousel/owl.theme.css') }}">
+	<link rel="stylesheet" href="{{ asset('plugin/owl-carousel/owl.theme.css') }}">
 
-<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-publict-sub.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-index-style-1.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-news-event-index.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-public-sub.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-index-style-1.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-news-event-index.css') }}">
 
 @endsection
 
@@ -41,7 +43,7 @@
 			News & Event
 		</h1>
 		<h3>
-			Lorem ipsum dolor sit amet, quas assum volutpat ei vix, usu semper laoreet placerat an. Assum recteque te has, ad quidam euripidis eloquentiam sed, equidem fierent phaedrum et sea. An legendos praesent quo. Sea cu dicta partem signiferumque. 
+			Lorem ipsum dolor sit amet, quas assum volutpat ei vix, usu semper laoreet placerat an. Assum recteque te has, ad quidam euripidis eloquentiam sed, equidem fierent phaedrum et sea. An legendos praesent quo. Sea cu dicta partem signiferumque.
 		</h3>
 	</div>
 </div>
@@ -132,14 +134,14 @@ $(document).ready(function() {
       items: 4,
       pagination:false,
       navigationText : ["<i class='fa fa-chevron-left' aria-hidden='true'></i>","<i class='fa fa-chevron-right' aria-hidden='true'></i>"]
- 
+
     });
     $(".owl-wrapper-nd").owlCarousel({
       navigation : true, // Show next and prev buttons
       items: 3,
       pagination:false,
       navigationText : ["<i class='fa fa-chevron-left' aria-hidden='true'></i>","<i class='fa fa-chevron-right' aria-hidden='true'></i>"]
- 
+
     });
 })
 </script>

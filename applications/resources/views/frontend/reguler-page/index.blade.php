@@ -5,14 +5,14 @@
 @endsection
 
 @section('meta')
-<meta name="title" content="Sportopia">
-<meta name="description" content="Sportopia - ">
-<meta name="keywords" content="Sportopia " />
+<meta name="title" content="Sportopia {{ $callProgram->program_kelas }} Class">
+	<meta name="description" content="Sportopia - {{ $callProgram->program_kelas }} : {{ strip_tags(Str::words($callProgram->deskripsi_program, 30)) }}">
+	<meta name="keywords" content="Sportopia {{ $callProgram->program_kelas }}, {{ $callProgram->program_kelas }}, Art, Games, Education, Sports" />
 @endsection
 
 @section('head-style')
-<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-publict-sub.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-reguler-index.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-public-sub.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-reguler-index.css') }}">
 @endsection
 
 @section('body-content')

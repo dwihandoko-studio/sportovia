@@ -5,15 +5,16 @@
 @endsection
 
 @section('meta')
-<meta name="contact_title" content="Sportopia">
-<meta name="contact_description" content="Sportopia - ">
-<meta name="contact_keywords" content="Sportopia " />
+<meta name="title" content="Sportopia Contact">
+@if($callAbout != null)
+	<meta name="descriptions" content="Sportopia - {{ strip_tags(Str::words($callAbout->deskripsi_tentang, 40)) }}">
+@endif
+	<meta name="keywords" content="Sportopia, Sport, Art, Games, Education" />
 @endsection
 
 @section('head-style')
-<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-publict-sub.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-contact.css') }}">
-
+<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-public-sub.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-contact.css') }}">
 @endsection
 
 @section('body-content')
@@ -93,10 +94,10 @@
 						<label>
 							{{ $errors->has('contact_name') ? $errors->first('contact_name') : '' }}
 						</label>
-						<input 
-							name="contact_name" 
-							type="text" 
-							class="form-control" 
+						<input
+							name="contact_name"
+							type="text"
+							class="form-control"
 							placeholder="Name"
 							@if(!empty(auth()->guard('user')->id()))
 							value="{{ auth()->guard('user')->user()->name }}"
@@ -113,10 +114,10 @@
 						<label>
 							{{ $errors->has('contact_phone') ? $errors->first('contact_phone') : '' }}
 						</label>
-						<input 
-							name="contact_phone" 
-							type="text" 
-							class="form-control" 
+						<input
+							name="contact_phone"
+							type="text"
+							class="form-control"
 							placeholder="Phone"
 							value="{{ old('contact_phone') }}"
 						>
@@ -128,10 +129,10 @@
 						<label>
 							{{ $errors->has('contact_email') ? $errors->first('contact_email') : '' }}
 						</label>
-						<input 
-							name="contact_email" 
-							type="text" 
-							class="form-control" 
+						<input
+							name="contact_email"
+							type="text"
+							class="form-control"
 							placeholder="Email Address"
 							@if(!empty(auth()->guard('user')->id()))
 							value="{{ auth()->guard('user')->user()->email }}"
@@ -148,10 +149,10 @@
 						<label>
 							{{ $errors->has('contact_subject') ? $errors->first('contact_subject') : '' }}
 						</label>
-						<input 
-							name="contact_subject" 
-							type="text" 
-							class="form-control" 
+						<input
+							name="contact_subject"
+							type="text"
+							class="form-control"
 							placeholder="Subject"
 							value="{{ old('contact_subject') }}"
 						>
@@ -163,10 +164,10 @@
 						<label>
 							{{ $errors->has('contact_message') ? $errors->first('contact_message') : '' }}
 						</label>
-						<textarea 
-							name="contact_message" 
-							class="form-control" 
-							placeholder="Message" 
+						<textarea
+							name="contact_message"
+							class="form-control"
+							placeholder="Message"
 							rows="6"
 						>{{ old('contact_message') }}</textarea>
 					</div>

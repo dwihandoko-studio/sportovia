@@ -12,6 +12,7 @@ use App\Models\AdsBanner;
 use App\Models\Kelas;
 use App\Models\KelasKategori;
 use App\Models\Kontak;
+use App\Models\Tentang;
 use App\Models\SosialMedia;
 use App\Models\Inbox;
 
@@ -37,10 +38,6 @@ class AppServiceProvider extends ServiceProvider
                 $callNavKategori = null;
             }
             view()->share('callNavKategori', $callNavKategori);
-            // dd($callNavKategori);
-            // else if($callNavKategori->isEmpty()){
-            //     dd('not null');
-            // }
 
             $callNavClass = Kelas::select(
                 'id_kelas_kategori',
@@ -99,6 +96,10 @@ class AppServiceProvider extends ServiceProvider
             ->first();
             view()->share('callAdv', $callAdv);
 
+
+            // FOR META DESC
+            $callAbout = Tentang::select('deskripsi_tentang')->first();
+            view()->share('callAbout', $callAbout);
 
         }
 

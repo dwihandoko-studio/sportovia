@@ -5,47 +5,66 @@
 @endsection
 
 @section('meta')
-<meta name="title" content="Sportopia">
-<meta name="description" content="Sportopia - {{ $callClass->nama_kelas }} : {{ Str::words($callClass->deskripsi_kelas, 30) }}">
-<meta name="keywords" content="Sportopia " />
+<meta name="title" content="Sportopia {{ $callClass->nama_kelas }} Class">
+	<meta name="description" content="Sportopia - {{ $callClass->nama_kelas }} : {{ strip_tags(Str::words($callClass->deskripsi_kelas, 30)) }}">
+	<meta name="keywords" content="Sportopia {{ $callClass->nama_kelas }}, {{ $callClass->nama_kelas }}, Art, Games, Education, Sports" />
 @endsection
 
 @section('head-style')
-<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-publict-sub.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-view-style-1.css') }}">
-<style type="text/css">
-body{
-	background-image: url('../amadeo/main-image/children-bg.png');
-	background-size: contain;
-	background-repeat: repeat-y;
-	background-position: center;
-}
-#iad{
-	background-image: none;
-}
-#iad #index-wrapper label a{
-	color: rgb(122,122,122);
-}
+<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-public-sub.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-view-style-1.css') }}">
 
-#footer{
-	background-color: rgb(163,219,221);
-	margin-top: 65px;
-}
-#footer:before{
-	content: "";
-	position: absolute;
-	width: 100%;
-	height: 10vh;
-	top: -65px;
-	left: 0;
-	background-image: url('../amadeo/main-image/children-ft.png');
-}
-#footer .footer-wrapper .footer-content .fa-stack-1x{
-	color: rgb(163,219,221);
-}
+	<meta itemprop="thumbnailUrl" content="{{ asset('amadeo/images/class/').'/'.$callClass->img_url }}"/>
+	<meta itemprop="image" content="{{ asset('amadeo/images/class/').'/'.$callClass->img_url }}" />
 
+	<meta property="og:type" content="Article" />
+	<meta property="og:site_name" content="sportopia.com">
+	<meta property="og:title" content="{{ $callClass->nama_kelas }}">
+	<meta property="og:url" content="{{ route('frontend.class.view', ['slug' => $callKategori->slug, 'subslug' => $callClass->slug])}}">
+	<meta property="og:description" content="{{ strip_tags(Str::words($callClass->deskripsi_kelas, 75)) }}">
+	<meta property="og:image" content="{{ asset('amadeo/images/class/').'/'.$callClass->img_url }}">
 
-</style>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v2.5";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	</script>
+
+	<style type="text/css">
+	body{
+		background-image: url('../amadeo/main-image/children-bg.png');
+		background-size: contain;
+		background-repeat: repeat-y;
+		background-position: center;
+	}
+	#iad{
+		background-image: none;
+	}
+	#iad #index-wrapper label a{
+		color: rgb(122,122,122);
+	}
+
+	#footer{
+		background-color: rgb(163,219,221);
+		margin-top: 65px;
+	}
+	#footer:before{
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 10vh;
+		top: -65px;
+		left: 0;
+		background-image: url('../amadeo/main-image/children-ft.png');
+	}
+	#footer .footer-wrapper .footer-content .fa-stack-1x{
+		color: rgb(163,219,221);
+	}
+	</style>
+
 @endsection
 
 @section('body-content')
@@ -103,7 +122,7 @@ body{
 				</div>
 			</div>
 			<div  id="fasilitas-CO" class="collapse body-CO">
-				@php 
+				@php
 					$fasilitasArr = explode(",", $callClass->fasilitas)
 				@endphp
 				@foreach($fasilitasArr as $list)

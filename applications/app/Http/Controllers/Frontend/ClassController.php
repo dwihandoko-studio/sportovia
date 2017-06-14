@@ -17,6 +17,7 @@ class ClassController extends Controller
             'id',
             'kategori_kelas',
             'img_banner',
+            'img_thumb',
             'quotes_kategori',
             'deskripsi_kategori',
             'slug'
@@ -39,12 +40,12 @@ class ClassController extends Controller
         ->where('flag_publish', '1')
         ->orderBy('nama_kelas', 'asc')
         ->get();
-        
+
 	    return view('frontend.index-page.index', compact(
 	    	'callKategori',
 	    	'callClass'
 	    ));
-        
+
 	}
 
 	function view($slug, $subslug){

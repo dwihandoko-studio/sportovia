@@ -5,17 +5,34 @@
 @endsection
 
 @section('meta')
-<meta name="title" content="Sportopia">
-<meta name="description" content="Sportopia - ">
-<meta name="keywords" content="Sportopia " />
+<meta name="title" content="Sportopia {{ $callKategori->kategori_kelas }} Class">
+@if($callKategori != null)
+	<meta name="descriptions" content="Sportopia - {{ strip_tags(Str::words($callKategori->deskripsi_kategori, 40)) }}">
+@endif
+	<meta name="keywords" content="Sportopia, Sport, Art, Games, Education" />
 @endsection
 
 @section('head-style')
-<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-publict-sub.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-index-style-1.css') }}">
-<style type="text/css">
+<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-public-sub.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-index-style-1.css') }}">
+	<meta itemprop="thumbnailUrl" content="{{ asset('amadeo/images/class/').'/'.$callKategori->img_thumb }}"/>
+	<meta itemprop="image" content="{{ asset('amadeo/images/class/').'/'.$callKategori->img_banner }}" />
 
-</style>
+	<meta property="og:type" content="Article" />
+	<meta property="og:site_name" content="sportopia.com">
+	<meta property="og:title" content="{{ $callKategori->kategori_kelas }}">
+	<meta property="og:url" content="{{ route('frontend.class.index', ['slug' => $callKategori->slug])}}">
+	<meta property="og:description" content="{{ strip_tags(Str::words($callKategori->deskripsi_kategori, 35)) }}">
+	<meta property="og:image" content="{{ asset('amadeo/images/class/').'/'.$callKategori->img_thumb }}">
+
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v2.5";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	</script>
 @endsection
 
 @section('body-content')

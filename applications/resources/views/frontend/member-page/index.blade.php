@@ -5,13 +5,12 @@
 @endsection
 
 @section('meta')
-<meta name="title" content="Sportopia">
-<meta name="description" content="Sportopia - Member Area">
-<meta name="keywords" content="Sportopia " />
+<meta name="title" content="Member Area">
+	<meta name="keywords" content="Sportopia, Sport, Art, Games, Education" />
 @endsection
 
 @section('head-style')
-<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-publict-sub.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-public-sub.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-member-index.css') }}">
 
 @endsection
@@ -98,7 +97,7 @@
 						</td>
 					</tr>
 					@endif
-					@endforeach			
+					@endforeach
 				</table>
 			</div>
 		</div>

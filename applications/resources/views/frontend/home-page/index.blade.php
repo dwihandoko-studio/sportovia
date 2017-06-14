@@ -6,8 +6,10 @@
 
 @section('meta')
 <meta name="title" content="Sportopia">
-<meta name="description" content="Sportopia - ">
-<meta name="keywords" content="Sportopia " />
+@if($callAbout != null)
+	<meta name="descriptions" content="Sportopia - {{ strip_tags(Str::words($callAbout->deskripsi_tentang, 40)) }}">
+@endif
+	<meta name="keywords" content="Sportopia, Sport, Art, Games, Education" />
 @endsection
 
 @section('head-style')
@@ -51,7 +53,7 @@
 				Free Trial Class
 			</a>
 		</div>
-	</div>	
+	</div>
 </div>
 <?php // class wrapper ?>
 <div id="class" class="setup-wrapper">
