@@ -4,7 +4,7 @@
 			<div id="left">
 				<div class="nav-content-wrapper">
 					<a href="{{ Route('frontend.home') }}">
-						<img id="nav-logo" src="{{ asset('amadeo/main-image/logo-green-sportopia.png') }}">
+						<img id="nav-logo" src="{{ asset('amadeo/main-image/logo-sportopia.png') }}">
 					</a>
 				</div>
 			</div>

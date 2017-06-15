@@ -3,7 +3,7 @@
 		<div class="bar bar-size-4">
 			<div class="footer-wrapper">
 				<div class="footer-content">
-					<img id="footer-logo" src="{{ asset('amadeo/main-image/logo-white-sportopia.png') }}">
+					<img id="footer-logo" src="{{ asset('amadeo/main-image/logo-sportopia.png') }}">
 				</div>
 			</div>
 		</div>
