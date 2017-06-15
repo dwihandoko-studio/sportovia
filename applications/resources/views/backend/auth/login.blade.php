@@ -31,8 +31,7 @@
     <form id="loginform" class="form-vertical" action="{{ route('login.admin.post')}}" method="POST">
     {{ csrf_field() }}
       <div class="control-group normal_text">
-        <h3><img src="{{ asset('amadeo/images/logo-cms.png') }}" alt="Logo" /></h3>
-        <h3>Login</h3>
+        <h3><img src="{{ asset('amadeo/main-image/logo-green-sportopia.png') }}" alt="Sportopia" /></h3>
       </div>
         <div class="control-group {{ $errors->has('email') ? 'error' : '' }}">
           <div class="controls">
@@ -69,8 +68,8 @@
           </div>
         </div>
         <div class="form-actions">
-            <span class="pull-left"><a href="#" class="flip-link btn btn-info" id="to-recover">Lost password?</a></span>
-            <span class="pull-right"><button type="submit" class="btn btn-success" /> Login</button></span>
+            {{-- <span class="pull-left"><a href="#" class="flip-link btn btn-info" id="to-recover">Lost password?</a></span> --}}
+            <span class="btn-large"><button type="submit" class="btn btn-success" /> Login</button></span>
         </div>
     </form>
     <form id="recoverform" action="#" class="form-vertical">
