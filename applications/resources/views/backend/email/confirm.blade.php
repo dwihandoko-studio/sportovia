@@ -9,9 +9,9 @@
     </p>
 
     <p>
-      Anda telah didaftarkan sebagai admin CMS Sportopia.com.
-      <br>Silahkan klik link berikut untuk aktifasi akun kamu :<br><br>
-      Dengan Password : 12345678<br><br>
+      You have been registered as CMS Sportopia.com Admin
+      <br>Please click the following link to activate your account :<br><br>
+      Password : 12345678<br><br>
       <a href="{{ URL::to('admin/verify/' . $data[0]['confirmation_code']) }}">
         {{ URL::to('admin/verify/' . $data[0]['confirmation_code']) }}
       </a>
