@@ -142,6 +142,9 @@ Route::group(['middleware' => ['admin']], function () {
   //Jadwal
   Route::get('admin/schedule', 'Backend\ScheduleController@index')->name('jadwal.index');
   Route::get('admin/schedule/{id}', 'Backend\ScheduleController@seeSchedule')->name('jadwal.seeSchedule');
+  Route::get('admin/schedule/edit/{id}', 'Backend\ScheduleController@ubahSchedule')->name('jadwal.ubah.schedule');
+  Route::post('admin/schedule/edit/', 'Backend\ScheduleController@editSchedule')->name('jadwal.edit.schedule');
+  Route::get('admin/schedule/status/{id}', 'Backend\ScheduleController@status')->name('jadwal.status.schedule');
   Route::get('admin/schedule/class-room/{id}', 'Backend\ScheduleController@class')->name('jadwal.class');
   Route::post('admin/schedule/class-room', 'Backend\ScheduleController@classStore')->name('jadwal.classStore');
   Route::get('admin/schedule/class-member/add', 'Backend\ScheduleController@classMember')->name('jadwal.classMember');

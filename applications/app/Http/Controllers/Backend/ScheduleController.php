@@ -30,13 +30,114 @@ class ScheduleController extends Controller
 
     public function seeSchedule($id)
     {
-        $getJadwal = Jadwal::where('id_kelas', $id)->get();
+        $getJadwal = Jadwal::where('id_kelas', $id)->where('flag_status', 1)->get();
 
         $getKelas = Kelas::find($id);
 
         $getDay = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
         return view('backend.jadwal.seeSchedule', compact('getJadwal', 'getDay', 'getKelas'));
+    }
+
+    public function ubahSchedule($id)
+    {
+        $getJadwal = Jadwal::find($id);
+
+        if(!$getJadwal){
+          return view('backend.errors.404');
+        }
+
+        $getKelas = Kelas::get();
+        $getKelasRuang = KelasRuang::get();
+
+        return view('backend.jadwal.editSchedule', compact('getJadwal', 'getKelas', 'getKelasRuang'));
+    }
+
+    public function editSchedule(Request $request)
+    {
+        $message = [
+          'id_member.required' => 'This field is required.',
+          'id_kelas_ruang.required' => 'This field is required.',
+          'id_kelas.required' => 'This field is required.',
+          'id_jadwal.required' => 'This field is required.',
+          'hari.required' => 'This field is required.',
+          'jam_akhir.required' => 'This field is required.',
+          'jam_akhir.required' => 'This field is required.',
+        ];
+
+        $validator = Validator::make($request->all(), [
+          'id_member' => 'required',
+          'id_kelas_ruang' => 'required',
+          'id_kelas' => 'required',
+          'id_jadwal' => 'required',
+          'hari' => 'required',
+          'jam_mulai' => 'required',
+          'jam_akhir' => 'required',
+        ], $message);
+
+        if($validator->fails()){
+          return redirect()->route('ubah.shcedule', ['id' => $request->id_jadwal])->withErrors($validator)->withInput();
+        }
+
+        // Validasi Jam Member
+        $cekJadwal = Jadwal::where('id_member', $request->id_member)
+                            ->where('id_kelas_ruang', $request->id_kelas_ruang)
+                            ->where('id_kelas', $request->id_kelas)
+                            ->where('hari', $request->hari)
+                            ->first();
+
+        if($cekJadwal){
+          return redirect()->route('ubah.shcedule', ['id' => $request->id_jadwal])->with('gagal', 'Students already have classes in this day')->withInput();
+        }
+
+        $update = Jadwal::find($request->id_jadwal);
+        $update->id_kelas = $request->id_kelas;
+        $update->id_kelas_ruang = $request->id_kelas_ruang;
+        $update->id_member = $request->id_member;
+        $update->hari = $request->hari;
+        $update->jam_mulai = $request->jam_mulai;
+        $update->jam_akhir = $request->jam_akhir;
+        $update->flag_status = 1;
+        $update->update();
+
+        $log = new LogAkses;
+        $log->actor = auth()->guard('admin')->id();
+        $log->aksi = 'Update Member Schedule '.$request->nama_member;
+        $log->save();
+
+        return redirect()->route('jadwal.seeSchedule', ['id' => $request->id_kelas ])->with('berhasil', 'Your data has been successfully updated.');
+
+    }
+
+    public function status($id)
+    {
+        $set = Jadwal::find($id);
+
+        if(!$set){
+          return view('backend.errors.404');
+        }
+
+        if ($set->flag_status == 1) {
+          $set->flag_status = 0;
+          $set->update();
+
+          $log = new LogAkses;
+          $log->actor = auth()->guard('admin')->id();
+          $log->aksi = 'Deactivated Member Class '.$set->member->kode_member.' - '.$set->member->nama_member;
+          $log->save();
+
+          return redirect()->route('jadwal.seeSchedule', ['id' => $set->id_kelas ])->with('berhasil', 'Successfully deactivated '.$set->nama_member);
+        }else{
+          $set->flag_status = 1;
+          $set->update();
+
+          $log = new LogAkses;
+          $log->actor = auth()->guard('admin')->id();
+          $log->aksi = 'Acivated Member Class '.$set->member->kode_member.' - '.$set->member->nama_member;
+          $log->save();
+
+          return redirect()->route('jadwal.seeSchedule', ['id' => $set->id_kelas ])->with('berhasil', 'Successfully activated '.$set->nama_member);
+        }
     }
 
     public function class($id)
