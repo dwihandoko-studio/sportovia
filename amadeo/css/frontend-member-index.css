@@ -52,17 +52,19 @@
 	text-transform: uppercase;
 }
 #info .info-wrapper .content table{
-	width: 80%;
+	width: 95%;
 	margin: 0 auto 15px;
-}
-#info .info-wrapper .content table tr{
-	margin-bottom: 10px; 
 }
 #info .info-wrapper .content table tr td{
 	font-family: 'open sans';
     font-weight: bold;
 	color: rgb(166,166,166);	
 	text-align: left;
+	padding: 0px 4px 8px;
+	vertical-align: top;
+}
+#info .info-wrapper .content table.table tr td{
+	padding: 8px;
 }
 @media (max-width: 480px) {
 	#info .info-wrapper{
