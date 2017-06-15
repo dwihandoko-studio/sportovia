@@ -22,7 +22,19 @@ $(document).ready(function() {
 	    	}
 	    });
 
+		var win = $(window);
+		if(win.width() > 960){
+		    $("#list li.dropdown").hover(
+		    	function(){
+				    $(".nav-content-wrapper").css("height", "22.8vh");
+				    $("#nav-logo").css("height", "19.8vh");
+		    	},
+		    	function(){
+				    $(".nav-content-wrapper").css("height", "");
+				    $("#nav-logo").css("height", "");
+		    	}
+		    );
+		}
 	});
 	// navbar open close function runing in mobile
-
 })

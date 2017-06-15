@@ -92,10 +92,12 @@ a.disabled{
 }
 #nav #nav-wrapper #nav-content .nav-content-wrapper{
 	padding: 1.5vh 0;
-	height: 22vh;
+	height: 13.8vh;
+	transition: all .51s;
 }
 #nav #nav-wrapper #nav-content .nav-content-wrapper #nav-logo{
-	height: 15vh;
+	height: 10vh;
+	transition: all .51s;
 }
 #nav #nav-wrapper #nav-content #right .nav-content-wrapper{
 	text-align: right;
@@ -146,7 +148,6 @@ a.disabled{
 	float: left;
 	width: 160px;
 	padding: 3px 0px 0px;
-	background-color: white;
 }
 #nav #list li.dropdown .dropdown-wrapper .dropdown-content .link-wrapper .link{
 	width: 80%;
@@ -163,7 +164,7 @@ a.disabled{
 	position: relative;
 	display: block;
 	width: 100%;
-	height: 22vh;
+	height: 13.8vh;
 	margin: 0;
 	padding:0;
 }
@@ -448,7 +449,7 @@ a.disabled{
 	opacity: 1;
 }
 #freeTrialClass.active #freeTrialClass-wrapper .bar{
-	height: 78vh;
+	height: 86.2vh;
 	visibility: visible;
 	opacity: 1;
 }
