@@ -25,7 +25,7 @@ class NewsEventController extends Controller
     	->where('news_event', '0')
     	->where('flag_publish', '1')
         ->whereDATE('tanggal_publish', '<=', $format_date)
-        ->orderBy('tanggal_publish', 'desc')
+        ->orderBy('tanggal_event', 'desc')
     	->first();
     	
     	$callEvent = NewsEvent::select(
@@ -37,7 +37,7 @@ class NewsEventController extends Controller
     	->where('news_event', '0')
     	->where('flag_publish', '1')
         ->whereDATE('tanggal_publish', '<=', $format_date)
-        ->orderBy('tanggal_publish', 'desc')
+        ->orderBy('tanggal_event', 'desc')
     	->get();
 
     	$callNews = NewsEvent::select(
