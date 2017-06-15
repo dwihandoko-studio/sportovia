@@ -61,13 +61,13 @@
 	-moz-filter: invert(100%);
     filter: invert(100%);
 }
-#cards .card .card-wrapper .card-wrapper-icon .icon-content .icon a{
+#cards .card .card-wrapper .card-wrapper-icon a .icon-content .icon{
 	font-family: 'open sans semibold';
 	font-size: 20px;
 	color: rgb(255,255,255);
 	transition: all .51s;
 }
-#cards .card:hover .card-wrapper .card-wrapper-icon .icon-content .icon a{
+#cards .card:hover .card-wrapper .card-wrapper-icon a .icon-content .icon{
 	color: rgb(69,186,1);
 }
 

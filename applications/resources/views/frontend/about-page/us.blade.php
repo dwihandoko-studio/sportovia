@@ -48,7 +48,7 @@
 	<div class="setup-content nor-wd">
 		<div class="bar bar-size-2">
 			<div class="vam-content">
-				<img src="{{ asset('amadeo/images/tentang/'.$call->img_visi) }}">
+				<div class="img" style="background-image: url('{{ asset('amadeo/images/tentang/'.$call->img_visi) }}');"></div>
 				<div class="vam-descript-wrapper">
 					<div class="bar bar-size-4">
 						<div class="midle">
@@ -66,7 +66,7 @@
 		</div>
 		<div class="bar bar-size-2">
 			<div class="vam-content">
-				<img src="{{ asset('amadeo/images/tentang/'.$call->img_misi) }}">
+				<div class="img" style="background-image: url('{{ asset('amadeo/images/tentang/'.$call->img_misi) }}')"></div>
 				<div class="vam-descript-wrapper">
 					<div class="bar bar-size-4">
 						<div class="midle">

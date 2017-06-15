@@ -26,16 +26,16 @@
 				<div class="card-img" style="background-image: url('{{ asset('amadeo/images/class/'.$list->img_thumb) }}')"></div>
 				<div class="screen"></div>
 				<div class="card-wrapper-icon">
+					<a href="{{ Route('frontend.class.index', ['slug' => $list->slug]) }}">
 					<div class="icon-content">
 						<div class="icon">
-							<img src="{{ asset('amadeo/main-image/kelas-kategori/white/'.$list->kategori_kelas.'.png') }}">
+							<img src="{{ asset('amadeo/main-image/kelas-kategori/white/'.strtolower($list->kategori_kelas).'.png') }}">
 						</div>
-						<div class="icon">
-							<a href="{{ Route('frontend.class.index', ['slug' => $list->slug]) }}">
+							<div class="icon">
 								{{ $list->kategori_kelas }}
-							</a>
-						</div>
+							</div>
 					</div>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -74,7 +74,7 @@
 			<div class="class">
 				<div class="class-wrapper">
 					<a href="{{ Route('frontend.member.log-in') }}">
-						<div class="img" style="background-image: url('{{ asset('amadeo/main-image/card.jpg')}}')"></div>
+						<div class="img" style="background-image: url('{{ asset('amadeo/main-image/member-thum.jpg')}}')"></div>
 					</a>
 					<h2>Member Area</h2>
 				</div>
