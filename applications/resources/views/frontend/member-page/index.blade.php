@@ -56,17 +56,17 @@
 						<td>{{ $list->kode_member }}</td>
 					</tr>
 					<tr>
-						<td>Tempat Lahir</td>
+						<td>Place of birth</td>
 						<td>:</td>
 						<td>{{ $list->tempat_lahir }}</td>
 					</tr>
 					<tr>
-						<td>Tanggal Lahir</td>
+						<td>Date of birth</td>
 						<td>:</td>
 						<td>{{ $list->tanggal_lahir }}</td>
 					</tr>
 					<tr>
-						<td>Alamat</td>
+						<td>Address</td>
 						<td>:</td>
 						<td>{{ $list->alamat }}</td>
 					</tr>

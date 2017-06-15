@@ -38,17 +38,16 @@
 		text-transform: uppercase;
 	}
 	#info .info-wrapper .content table{
-		width: 80%;
+		width: 90%;
 		margin: 0 auto 15px;
-	}
-	#info .info-wrapper .content table tr{
-		margin-bottom: 10px;
 	}
 	#info .info-wrapper .content table tr td{
 		font-family: 'open sans';
 	    font-weight: bold;
 		color: rgb(166,166,166);
 		text-align: left;
+		padding: 0px 4px 8px;
+		vertical-align: top;
 	}
 	#info .info-wrapper .content .vidio-wrapper{
 		width: 100%;
@@ -109,47 +108,47 @@
 						<td>{{ $call->program_kelas }}</td>
 					</tr>
 					<tr>
-						<td>Kategori</td>
+						<td>Category</td>
 						<td>:</td>
 						<td>{{ $call->kategori_kelas }}</td>
 					</tr>
 					<tr>
-						<td>Kelas</td>
+						<td>Class</td>
 						<td>:</td>
 						<td>{{ $call->nama_kelas }}</td>
 					</tr>
 					<tr>
-						<td>Ruang</td>
+						<td>Room</td>
 						<td>:</td>
 						<td>{{ $call->nama_ruang }}</td>
 					</tr>
 					<tr>
-						<td>Lantai</td>
+						<td>Floor</td>
 						<td>:</td>
 						<td>{{ $call->lantai_kelas }}</td>
 					</tr>
 					<tr>
-						<td>Jadwal</td>
+						<td>O'clock</td>
 						<td>:</td>
 						<td>{{ $call->jam_mulai.' - '.$call->jam_akhir }}</td>
 					</tr>
 					<tr>
-						<td>Hari</td>
+						<td>Day</td>
 						<td>:</td>
 						<td>{{ $call->hari }}</td>
 					</tr>
 					<tr>
-						<td>Tempat Lahir</td>
+						<td>Place of birth</td>
 						<td>:</td>
 						<td>{{ $call->tempat_lahir }}</td>
 					</tr>
 					<tr>
-						<td>Tanggal Lahir</td>
+						<td>Date of birth</td>
 						<td>:</td>
 						<td>{{ $call->tanggal_lahir }}</td>
 					</tr>
 					<tr>
-						<td>Alamat</td>
+						<td>Address</td>
 						<td>:</td>
 						<td>{{ $call->alamat }}</td>
 					</tr>
