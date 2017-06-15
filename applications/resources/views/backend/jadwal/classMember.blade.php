@@ -41,7 +41,7 @@
       <a href="{{ route('jadwal.index') }}" class="btn btn-inverse pull-right"> Back</a>
     </div>
   <div class="widget-content nopadding">
-    <form class="form-horizontal" method="post" action="{{ route('jadwal.classMemberStore') }}" name="basic_validate" id="basic_validate" novalidate="novalidate" enctype="multipart/form-data">
+    <form class="form-horizontal" method="post" action="{{ route('jadwal.classMemberStore') }}" name="basic_validate" id="basic_validate" novalidate="novalidate">
       {{ csrf_field() }}
       <div class="control-group {{ $errors->has('id_member') ? 'error' : ''}}">
         <label class="control-label">Student *</label>
@@ -96,38 +96,38 @@
         <div class="controls">
           <select class="span6" name="jam_mulai">
             <option value="">--Choose--</option>
-            <option value="08:00 AM" {{ old('jam_mulai') == '08:00 AM' ? 'selected=""' : '' }}>08:00 AM</option>
-            <option value="08:30 AM" {{ old('jam_mulai') == '08:30 AM' ? 'selected=""' : '' }}>08:30 AM</option>
-            <option value="09:00 AM" {{ old('jam_mulai') == '09:00 AM' ? 'selected=""' : '' }}>09:00 AM</option>
-            <option value="09:30 AM" {{ old('jam_mulai') == '09:30 AM' ? 'selected=""' : '' }}>09:30 AM</option>
-            <option value="10:00 AM" {{ old('jam_mulai') == '10:00 AM' ? 'selected=""' : '' }}>10:00 AM</option>
-            <option value="10:30 AM" {{ old('jam_mulai') == '10:30 AM' ? 'selected=""' : '' }}>10:30 AM</option>
-            <option value="11:00 AM" {{ old('jam_mulai') == '11:00 AM' ? 'selected=""' : '' }}>11:00 AM</option>
-            <option value="11:30 AM" {{ old('jam_mulai') == '11:30 AM' ? 'selected=""' : '' }}>11:30 AM</option>
-            <option value="12:00 AM" {{ old('jam_mulai') == '12:00 AM' ? 'selected=""' : '' }}>12:00 AM</option>
-            <option value="12:30 PM" {{ old('jam_mulai') == '12:30 PM' ? 'selected=""' : '' }}>12:30 PM</option>
-            <option value="01:00 PM" {{ old('jam_mulai') == '01:00 PM' ? 'selected=""' : '' }}>01:00 PM</option>
-            <option value="01:30 PM" {{ old('jam_mulai') == '01:30 PM' ? 'selected=""' : '' }}>01:30 PM</option>
-            <option value="02:00 PM" {{ old('jam_mulai') == '02:00 PM' ? 'selected=""' : '' }}>02:00 PM</option>
-            <option value="02:30 PM" {{ old('jam_mulai') == '02:30 PM' ? 'selected=""' : '' }}>02:30 PM</option>
-            <option value="03:00 PM" {{ old('jam_mulai') == '03:00 PM' ? 'selected=""' : '' }}>03:00 PM</option>
-            <option value="03:30 PM" {{ old('jam_mulai') == '03:30 PM' ? 'selected=""' : '' }}>03:30 PM</option>
-            <option value="04:00 PM" {{ old('jam_mulai') == '04:00 PM' ? 'selected=""' : '' }}>04:00 PM</option>
-            <option value="04:30 PM" {{ old('jam_mulai') == '04:30 PM' ? 'selected=""' : '' }}>04:30 PM</option>
-            <option value="05:00 PM" {{ old('jam_mulai') == '05:00 PM' ? 'selected=""' : '' }}>05:00 PM</option>
-            <option value="05:30 PM" {{ old('jam_mulai') == '05:30 PM' ? 'selected=""' : '' }}>05:30 PM</option>
-            <option value="06:00 PM" {{ old('jam_mulai') == '06:00 PM' ? 'selected=""' : '' }}>06:00 PM</option>
-            <option value="06:30 PM" {{ old('jam_mulai') == '06:30 PM' ? 'selected=""' : '' }}>06:30 PM</option>
-            <option value="07:00 PM" {{ old('jam_mulai') == '07:00 PM' ? 'selected=""' : '' }}>07:00 PM</option>
-            <option value="07:30 PM" {{ old('jam_mulai') == '07:30 PM' ? 'selected=""' : '' }}>07:30 PM</option>
-            <option value="08:00 PM" {{ old('jam_mulai') == '08:00 PM' ? 'selected=""' : '' }}>08:00 PM</option>
-            <option value="08:30 PM" {{ old('jam_mulai') == '08:30 PM' ? 'selected=""' : '' }}>08:30 PM</option>
-            <option value="09:00 PM" {{ old('jam_mulai') == '09:00 PM' ? 'selected=""' : '' }}>09:00 PM</option>
-            <option value="09:30 PM" {{ old('jam_mulai') == '09:30 PM' ? 'selected=""' : '' }}>09:30 PM</option>
-            <option value="10:00 PM" {{ old('jam_mulai') == '10:00 PM' ? 'selected=""' : '' }}>10:00 PM</option>
-            <option value="10:30 PM" {{ old('jam_mulai') == '10:30 PM' ? 'selected=""' : '' }}>10:30 PM</option>
-            <option value="11:00 PM" {{ old('jam_mulai') == '11:00 PM' ? 'selected=""' : '' }}>11:00 PM</option>
-            <option value="11:30 PM" {{ old('jam_mulai') == '11:30 PM' ? 'selected=""' : '' }}>11:30 PM</option>
+            <option value="08:00" {{ old('jam_mulai') == '08:00' ? 'selected=""' : '' }}>08:00</option>
+            <option value="08:30" {{ old('jam_mulai') == '08:30' ? 'selected=""' : '' }}>08:30</option>
+            <option value="09:00" {{ old('jam_mulai') == '09:00' ? 'selected=""' : '' }}>09:00</option>
+            <option value="09:30" {{ old('jam_mulai') == '09:30' ? 'selected=""' : '' }}>09:30</option>
+            <option value="10:00" {{ old('jam_mulai') == '10:00' ? 'selected=""' : '' }}>10:00</option>
+            <option value="10:30" {{ old('jam_mulai') == '10:30' ? 'selected=""' : '' }}>10:30</option>
+            <option value="11:00" {{ old('jam_mulai') == '11:00' ? 'selected=""' : '' }}>11:00</option>
+            <option value="11:30" {{ old('jam_mulai') == '11:30' ? 'selected=""' : '' }}>11:30</option>
+            <option value="12:00" {{ old('jam_mulai') == '12:00' ? 'selected=""' : '' }}>12:00</option>
+            <option value="12:30" {{ old('jam_mulai') == '12:30' ? 'selected=""' : '' }}>12:30</option>
+            <option value="13:00" {{ old('jam_mulai') == '13:00' ? 'selected=""' : '' }}>13:00</option>
+            <option value="13:30" {{ old('jam_mulai') == '13:30' ? 'selected=""' : '' }}>13:30</option>
+            <option value="14:00" {{ old('jam_mulai') == '14:00' ? 'selected=""' : '' }}>14:00</option>
+            <option value="14:30" {{ old('jam_mulai') == '14:30' ? 'selected=""' : '' }}>14:30</option>
+            <option value="15:00" {{ old('jam_mulai') == '15:00' ? 'selected=""' : '' }}>15:00</option>
+            <option value="15:30" {{ old('jam_mulai') == '15:30' ? 'selected=""' : '' }}>15:30</option>
+            <option value="16:00" {{ old('jam_mulai') == '16:00' ? 'selected=""' : '' }}>16:00</option>
+            <option value="16:30" {{ old('jam_mulai') == '16:30' ? 'selected=""' : '' }}>16:30</option>
+            <option value="17:00" {{ old('jam_mulai') == '17:00' ? 'selected=""' : '' }}>17:00</option>
+            <option value="17:30" {{ old('jam_mulai') == '17:30' ? 'selected=""' : '' }}>17:30</option>
+            <option value="18:00" {{ old('jam_mulai') == '18:00' ? 'selected=""' : '' }}>18:00</option>
+            <option value="18:30" {{ old('jam_mulai') == '18:30' ? 'selected=""' : '' }}>18:30</option>
+            <option value="19:00" {{ old('jam_mulai') == '19:00' ? 'selected=""' : '' }}>19:00</option>
+            <option value="19:30" {{ old('jam_mulai') == '19:30' ? 'selected=""' : '' }}>19:30</option>
+            <option value="20:00" {{ old('jam_mulai') == '20:00' ? 'selected=""' : '' }}>20:00</option>
+            <option value="20:30" {{ old('jam_mulai') == '20:30' ? 'selected=""' : '' }}>20:30</option>
+            <option value="21:00" {{ old('jam_mulai') == '21:00' ? 'selected=""' : '' }}>21:00</option>
+            <option value="21:30" {{ old('jam_mulai') == '21:30' ? 'selected=""' : '' }}>21:30</option>
+            <option value="22:00" {{ old('jam_mulai') == '22:00' ? 'selected=""' : '' }}>22:00</option>
+            <option value="22:30" {{ old('jam_mulai') == '22:30' ? 'selected=""' : '' }}>22:30</option>
+            <option value="23:00" {{ old('jam_mulai') == '23:00' ? 'selected=""' : '' }}>23:00</option>
+            <option value="23:30" {{ old('jam_mulai') == '23:30' ? 'selected=""' : '' }}>23:30</option>
           </select>
         </div>
       </div>
@@ -136,38 +136,38 @@
         <div class="controls">
           <select class="span6" name="jam_akhir">
             <option value="">--Choose--</option>
-            <option value="08:00 AM" {{ old('jam_akhir') == '08:00 AM' ? 'selected=""' : '' }}>08:00 AM</option>
-            <option value="08:30 AM" {{ old('jam_akhir') == '08:30 AM' ? 'selected=""' : '' }}>08:30 AM</option>
-            <option value="09:00 AM" {{ old('jam_akhir') == '09:00 AM' ? 'selected=""' : '' }}>09:00 AM</option>
-            <option value="09:30 AM" {{ old('jam_akhir') == '09:30 AM' ? 'selected=""' : '' }}>09:30 AM</option>
-            <option value="10:00 AM" {{ old('jam_akhir') == '10:00 AM' ? 'selected=""' : '' }}>10:00 AM</option>
-            <option value="10:30 AM" {{ old('jam_akhir') == '10:30 AM' ? 'selected=""' : '' }}>10:30 AM</option>
-            <option value="11:00 AM" {{ old('jam_akhir') == '11:00 AM' ? 'selected=""' : '' }}>11:00 AM</option>
-            <option value="11:30 AM" {{ old('jam_akhir') == '11:30 AM' ? 'selected=""' : '' }}>11:30 AM</option>
-            <option value="12:00 AM" {{ old('jam_akhir') == '12:00 AM' ? 'selected=""' : '' }}>12:00 AM</option>
-            <option value="12:30 PM" {{ old('jam_akhir') == '12:30 PM' ? 'selected=""' : '' }}>12:30 PM</option>
-            <option value="01:00 PM" {{ old('jam_akhir') == '01:00 PM' ? 'selected=""' : '' }}>01:00 PM</option>
-            <option value="01:30 PM" {{ old('jam_akhir') == '01:30 PM' ? 'selected=""' : '' }}>01:30 PM</option>
-            <option value="02:00 PM" {{ old('jam_akhir') == '02:00 PM' ? 'selected=""' : '' }}>02:00 PM</option>
-            <option value="02:30 PM" {{ old('jam_akhir') == '02:30 PM' ? 'selected=""' : '' }}>02:30 PM</option>
-            <option value="03:00 PM" {{ old('jam_akhir') == '03:00 PM' ? 'selected=""' : '' }}>03:00 PM</option>
-            <option value="03:30 PM" {{ old('jam_akhir') == '03:30 PM' ? 'selected=""' : '' }}>03:30 PM</option>
-            <option value="04:00 PM" {{ old('jam_akhir') == '04:00 PM' ? 'selected=""' : '' }}>04:00 PM</option>
-            <option value="04:30 PM" {{ old('jam_akhir') == '04:30 PM' ? 'selected=""' : '' }}>04:30 PM</option>
-            <option value="05:00 PM" {{ old('jam_akhir') == '05:00 PM' ? 'selected=""' : '' }}>05:00 PM</option>
-            <option value="05:30 PM" {{ old('jam_akhir') == '05:30 PM' ? 'selected=""' : '' }}>05:30 PM</option>
-            <option value="06:00 PM" {{ old('jam_akhir') == '06:00 PM' ? 'selected=""' : '' }}>06:00 PM</option>
-            <option value="06:30 PM" {{ old('jam_akhir') == '06:30 PM' ? 'selected=""' : '' }}>06:30 PM</option>
-            <option value="07:00 PM" {{ old('jam_akhir') == '07:00 PM' ? 'selected=""' : '' }}>07:00 PM</option>
-            <option value="07:30 PM" {{ old('jam_akhir') == '07:30 PM' ? 'selected=""' : '' }}>07:30 PM</option>
-            <option value="08:00 PM" {{ old('jam_akhir') == '08:00 PM' ? 'selected=""' : '' }}>08:00 PM</option>
-            <option value="08:30 PM" {{ old('jam_akhir') == '08:30 PM' ? 'selected=""' : '' }}>08:30 PM</option>
-            <option value="09:00 PM" {{ old('jam_akhir') == '09:00 PM' ? 'selected=""' : '' }}>09:00 PM</option>
-            <option value="09:30 PM" {{ old('jam_akhir') == '09:30 PM' ? 'selected=""' : '' }}>09:30 PM</option>
-            <option value="10:00 PM" {{ old('jam_akhir') == '10:00 PM' ? 'selected=""' : '' }}>10:00 PM</option>
-            <option value="10:30 PM" {{ old('jam_akhir') == '10:30 PM' ? 'selected=""' : '' }}>10:30 PM</option>
-            <option value="11:00 PM" {{ old('jam_akhir') == '11:00 PM' ? 'selected=""' : '' }}>11:00 PM</option>
-            <option value="11:30 PM" {{ old('jam_akhir') == '11:30 PM' ? 'selected=""' : '' }}>11:30 PM</option>
+            <option value="08:00" {{ old('jam_akhir') == '08:00' ? 'selected=""' : '' }}>08:00</option>
+            <option value="08:30" {{ old('jam_akhir') == '08:30' ? 'selected=""' : '' }}>08:30</option>
+            <option value="09:00" {{ old('jam_akhir') == '09:00' ? 'selected=""' : '' }}>09:00</option>
+            <option value="09:30" {{ old('jam_akhir') == '09:30' ? 'selected=""' : '' }}>09:30</option>
+            <option value="10:00" {{ old('jam_akhir') == '10:00' ? 'selected=""' : '' }}>10:00</option>
+            <option value="10:30" {{ old('jam_akhir') == '10:30' ? 'selected=""' : '' }}>10:30</option>
+            <option value="11:00" {{ old('jam_akhir') == '11:00' ? 'selected=""' : '' }}>11:00</option>
+            <option value="11:30" {{ old('jam_akhir') == '11:30' ? 'selected=""' : '' }}>11:30</option>
+            <option value="12:00" {{ old('jam_akhir') == '12:00' ? 'selected=""' : '' }}>12:00</option>
+            <option value="12:30" {{ old('jam_akhir') == '12:30' ? 'selected=""' : '' }}>12:30</option>
+            <option value="13:00" {{ old('jam_akhir') == '13:00' ? 'selected=""' : '' }}>13:00</option>
+            <option value="13:30" {{ old('jam_akhir') == '13:30' ? 'selected=""' : '' }}>13:30</option>
+            <option value="14:00" {{ old('jam_akhir') == '14:00' ? 'selected=""' : '' }}>14:00</option>
+            <option value="14:30" {{ old('jam_akhir') == '14:30' ? 'selected=""' : '' }}>14:30</option>
+            <option value="15:00" {{ old('jam_akhir') == '15:00' ? 'selected=""' : '' }}>15:00</option>
+            <option value="15:30" {{ old('jam_akhir') == '15:30' ? 'selected=""' : '' }}>15:30</option>
+            <option value="16:00" {{ old('jam_akhir') == '16:00' ? 'selected=""' : '' }}>16:00</option>
+            <option value="16:30" {{ old('jam_akhir') == '16:30' ? 'selected=""' : '' }}>16:30</option>
+            <option value="17:00" {{ old('jam_akhir') == '17:00' ? 'selected=""' : '' }}>17:00</option>
+            <option value="17:30" {{ old('jam_akhir') == '17:30' ? 'selected=""' : '' }}>17:30</option>
+            <option value="18:00" {{ old('jam_akhir') == '18:00' ? 'selected=""' : '' }}>18:00</option>
+            <option value="18:30" {{ old('jam_akhir') == '18:30' ? 'selected=""' : '' }}>18:30</option>
+            <option value="19:00" {{ old('jam_akhir') == '19:00' ? 'selected=""' : '' }}>19:00</option>
+            <option value="19:30" {{ old('jam_akhir') == '19:30' ? 'selected=""' : '' }}>19:30</option>
+            <option value="20:00" {{ old('jam_akhir') == '20:00' ? 'selected=""' : '' }}>20:00</option>
+            <option value="20:30" {{ old('jam_akhir') == '20:30' ? 'selected=""' : '' }}>20:30</option>
+            <option value="21:00" {{ old('jam_akhir') == '21:00' ? 'selected=""' : '' }}>21:00</option>
+            <option value="21:30" {{ old('jam_akhir') == '21:30' ? 'selected=""' : '' }}>21:30</option>
+            <option value="22:00" {{ old('jam_akhir') == '22:00' ? 'selected=""' : '' }}>22:00</option>
+            <option value="22:30" {{ old('jam_akhir') == '22:30' ? 'selected=""' : '' }}>22:30</option>
+            <option value="23:00" {{ old('jam_akhir') == '23:00' ? 'selected=""' : '' }}>23:00</option>
+            <option value="23:30" {{ old('jam_akhir') == '23:30' ? 'selected=""' : '' }}>23:30</option>
           </select>
         </div>
       </div>

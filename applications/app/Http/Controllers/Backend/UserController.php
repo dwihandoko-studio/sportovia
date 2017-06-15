@@ -35,6 +35,11 @@ class UserController extends Controller
         $getUser->password = Hash::make(12345678);
         $getUser->save();
 
+        $log = new LogAkses;
+        $log->actor = auth()->guard('admin')->id();
+        $log->aksi = 'Reset Password '.$getUser->name;
+        $log->save();
+
         if($getUser->id == auth()->guard('admin')->id()){
             auth()->guard('admin')->logout();
         }
@@ -50,6 +55,7 @@ class UserController extends Controller
                   ->to($data[0]['email'], $data[0]['name'])
                   ->subject('Reset Password Akun CMS Sportopia');
         });
+
 
         return redirect()->route('userAdmin.index')->with('berhasil', 'Berhasil Me Reset Password '.$getUser->name);
     }
@@ -87,6 +93,11 @@ class UserController extends Controller
           $user->login_count = 0;
           $user->save();
 
+          $log = new LogAkses;
+          $log->actor = auth()->guard('admin')->id();
+          $log->aksi = 'Create New User '.$request->name;
+          $log->save();
+
           $data = array([
               'name' => $request->name,
               'email' => $request->email,
@@ -96,6 +107,7 @@ class UserController extends Controller
           Mail::send('backend.email.confirm', ['data' => $data], function($message) use ($data) {
             $message->to($data[0]['email'], $data[0]['name'])->subject('Aktifasi Akun CMS Sportopia');
           });
+
 
         });
 
@@ -143,7 +155,13 @@ class UserController extends Controller
         $user->login_count = 1;
         $user->update();
 
+
         auth()->guard('admin')->login($user);
+
+        $log = new LogAkses;
+        $log->actor = auth()->guard('admin')->id();
+        $log->aksi = 'First Login '.$user->name;
+        $log->save();
 
         return redirect()->route('profile.index')->with('berhasil', 'Selamat Datang '.$user->name.' Segera ganti password anda');
 

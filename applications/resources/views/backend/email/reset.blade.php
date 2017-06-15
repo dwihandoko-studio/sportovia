@@ -9,10 +9,10 @@
     </p>
 
     <p>
-      Password anda telah di reset pada akun CMS Sportopia.
-      <br>Silahkan login dengan
+      Your password has been reset on CMS Sportopia account.
+      <br>Please login with
       <br><br>
-      Email : {{ $data[0]['email'] }}
+      Email : {{ $data[0]['email'] }}<br>
       Password : 12345678
       <br><br>
       <br><br>
