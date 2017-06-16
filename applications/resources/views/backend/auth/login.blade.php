@@ -31,7 +31,7 @@
     <form id="loginform" class="form-vertical" action="{{ route('login.admin.post')}}" method="POST">
     {{ csrf_field() }}
       <div class="control-group normal_text">
-        <h3><img src="{{ asset('amadeo/main-image/logo-green-sportopia.png') }}" alt="Sportopia" /></h3>
+        <h3><img src="{{ asset('amadeo/main-image/logo-sportopia.png') }}" alt="Sportopia" /></h3>
       </div>
         <div class="control-group {{ $errors->has('email') ? 'error' : '' }}">
           <div class="controls">
