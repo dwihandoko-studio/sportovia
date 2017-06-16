@@ -153,6 +153,7 @@
 	}
 	#view .bar.left .img{
 		background-position: center top;
+		background-size: 60%;
 		height: 40vh;
 	}
 	#view .bar.right{

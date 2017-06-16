@@ -27,14 +27,14 @@
 				<div class="screen"></div>
 				<div class="card-wrapper-icon">
 					<a href="{{ Route('frontend.class.index', ['slug' => $list->slug]) }}">
-					<div class="icon-content">
-						<div class="icon">
-							<img src="{{ asset('amadeo/main-image/kelas-kategori/white/'.strtolower($list->kategori_kelas).'.png') }}">
-						</div>
+						<div class="icon-content">
+							<div class="icon">
+								<img src="{{ asset('amadeo/main-image/kelas-kategori/white/'.strtolower($list->kategori_kelas).'.png') }}">
+							</div>
 							<div class="icon">
 								{{ $list->kategori_kelas }}
 							</div>
-					</div>
+						</div>
 					</a>
 				</div>
 			</div>

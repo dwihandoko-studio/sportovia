@@ -185,8 +185,12 @@
 	}
 
 	#index{
-		margin: 40px 0px 0px;
+		margin: 80px 0px 0px;
 		padding: 0;
+	}
+	#index .index-wrapper .img-back,
+	#index .index-wrapper .img-back .img-description-wrapper{
+		height: 60vh;
 	}
 	#index .index-wrapper .img-back .img-description-wrapper p{
 		-webkit-animation-name: none;

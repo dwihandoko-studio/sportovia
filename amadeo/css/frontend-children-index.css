@@ -48,11 +48,11 @@ body{
 }
 #index .index-wrapper .img-back{
     width: 100%;
-    height: 73vh;
+    height: 60vh;
     text-align: center;
-    background-position: center;
+    background-position: center top;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 275px;
     overflow: hidden;
     position: relative;
     transition: all .51s;
@@ -67,7 +67,7 @@ body{
 #index .index-wrapper .img-back .content{
 	text-align: center;
     width: 70%;
-    height: 45vh;
+    height: 40vh;
     margin-left: 50px;
     margin-top: 50px;
     padding: 0px 10px;
@@ -106,7 +106,12 @@ body{
     }
     #index .index-wrapper,
     #index .index-wrapper .img-back{
-        height: 520px;
+        height: 390px;
+    }
+
+    #index .index-wrapper .img-back .content{
+        width: 65%;
+        margin-left: 65px;
     }
 
     #footer:before{

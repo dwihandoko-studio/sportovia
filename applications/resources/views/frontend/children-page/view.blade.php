@@ -55,7 +55,7 @@
 		content: "";
 		position: absolute;
 		width: 100%;
-		height: 10vh;
+		height: 85px;
 		top: -65px;
 		left: 0;
 		background-image: url('../amadeo/main-image/children-ft.png');

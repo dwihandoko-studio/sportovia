@@ -80,22 +80,20 @@
         width: 50%;
         height: 35vh;
     }
+    #index .index-wrapper .img-back{
+        height: 35vh;
+    }
     #index .index-wrapper .img-back .img-description-wrapper{
         opacity: .8;
         overflow: hidden;
+        height: 35vh;
     }
     #index .index-wrapper .img-back .img-description-wrapper img{
         padding-top: 1vh;
     }
     #index .index-wrapper .img-back .img-description-wrapper p{
-        padding-top: 1vh;
-        font-size: 16px;
-        height: auto;
-        -webkit-animation-name: scrollup;
-        -webkit-animation-duration: 6s;
-        -webkit-animation-iteration-count: infinite;
-        -webkit-animation-direction: top;
-        -webkit-animation-timing-function: linear;
+        visibility: hidden;
+        opacity: 0;
     }
     #index .index-wrapper .index-title-wrapper{
         border: none;
@@ -114,15 +112,6 @@
         text-align: center;
         width: 100%;
         color: rgb(122,122,122);
-    }
-
-    @-webkit-keyframes scrollup {
-        0% {
-            margin-top: 35vh;
-        }
-        100% {
-            margin-top: -70vh;
-        }
     }
 
 }

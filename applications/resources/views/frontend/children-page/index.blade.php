@@ -56,7 +56,7 @@
 				<div class="content">
 					<div class="pict" style="background-image: url('{{ asset('amadeo/images/class/'.$list->img_url) }}');">
 					</div>
-					<p>{!! Str::words($list->deskripsi_kelas, 45, ' ...') !!}</p>
+					<p>{!! Str::words($list->deskripsi_kelas, 30, ' ...') !!}</p>
 					<a href="{{ route('frontend.class.view', ['slug'=> $list->kategori_slug, 'subslug' => $list->kelas_slug]) }}" class="btn btn-green">
 						Detail
 					</a>
