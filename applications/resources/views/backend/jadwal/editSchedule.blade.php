@@ -48,7 +48,7 @@
         <th><label class="control-label"><b>{{$getJadwal->kelas->kelasProgram->program_kelas}}</b></label></th>
       </thead>
     </table>
-    <form class="form-horizontal" method="post" action="{{ route('jadwal.edit.schedule') }}" name="basic_validate" id="basic_validate" novalidate="novalidate">
+    <form class="form-horizontal" method="post" action="{{ route('jadwal.edit.schedule') }}" name="basic_validate" id="basic_validate" novalidate="novalidate" enctype="multipart/form-data">
       {{ csrf_field() }}
       <input type="hidden" name="id_jadwal" value="{{ $getJadwal->id }}">
       <input type="hidden" name="id_kelas" value="{{ $getJadwal->id_kelas }}">
@@ -164,6 +164,20 @@
             <option value="23:30" {{ old('jam_akhir', $getJadwal->jam_akhir) == '23:30' ? 'selected=""' : '' }}>23:30</option>
           </select>
         </div>
+      </div>
+      <div class="control-group {{ $errors->has('dokumen_rapot') ? 'error' : ''}}">
+        <label class="control-label">Document Report</label>
+        <div class="controls">
+          <input type="file" class="span6" name="dokumen_rapot" value="{{ old('dokumen_rapot')}}" accept=".pdf">
+        </div>
+        @if($getJadwal->dokumen_rapot)
+        <div class="controls">
+          <span style="color:red;">Leave empty if document already uploaded</span>
+        </div>
+        <div class="controls">
+          <a href="{{ asset('amadeo/documents').'/'.$getJadwal->dokumen_rapot }}"><span class="label label-success">Download Report</span></a>
+        </div>
+        @endif
       </div>
       <div class="form-actions">
         <input type="submit" value="Update" class="btn btn-success">

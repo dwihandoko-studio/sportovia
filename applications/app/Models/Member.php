@@ -9,7 +9,7 @@ class Member extends Model
     protected $table = 'amd_member';
 
     protected $fillable = ['anak_member','kode_member','email','nama_member','tempat_lahir','tanggal_lahir',
-                            'tanggal_gabung','alamat','dokumen_rapot','flag_status','aktor'];
+                            'tanggal_gabung','alamat','flag_status','aktor'];
 
 
     public function user()

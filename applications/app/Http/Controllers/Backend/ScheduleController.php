@@ -63,6 +63,8 @@ class ScheduleController extends Controller
           'hari.required' => 'This field is required.',
           'jam_akhir.required' => 'This field is required.',
           'jam_akhir.required' => 'This field is required.',
+          'dokumen_rapot.mimes' => 'Only .pdf file',
+          'dokumen_rapot.max' => 'Max 2Mb in file'
         ];
 
         $validator = Validator::make($request->all(), [
@@ -73,10 +75,11 @@ class ScheduleController extends Controller
           'hari' => 'required',
           'jam_mulai' => 'required',
           'jam_akhir' => 'required',
+          'dokumen_rapot' => 'file|mimes:pdf|max:2000'
         ], $message);
 
         if($validator->fails()){
-          return redirect()->route('ubah.shcedule', ['id' => $request->id_jadwal])->withErrors($validator)->withInput();
+          return redirect()->route('jadwal.ubah.schedule', ['id' => $request->id_jadwal])->withErrors($validator)->withInput();
         }
 
         // Validasi Jam Member
@@ -84,11 +87,13 @@ class ScheduleController extends Controller
                             ->where('id_kelas_ruang', $request->id_kelas_ruang)
                             ->where('id_kelas', $request->id_kelas)
                             ->where('hari', $request->hari)
-                            ->first();
+                            ->count();
 
-        if($cekJadwal){
-          return redirect()->route('ubah.shcedule', ['id' => $request->id_jadwal])->with('gagal', 'Students already have classes in this day')->withInput();
+        if($cekJadwal > 1){
+          return redirect()->route('jadwal.ubah.schedule', ['id' => $request->id_jadwal])->with('gagal', 'Students already have classes in this day')->withInput();
         }
+
+
 
         $update = Jadwal::find($request->id_jadwal);
         $update->id_kelas = $request->id_kelas;
@@ -97,6 +102,18 @@ class ScheduleController extends Controller
         $update->hari = $request->hari;
         $update->jam_mulai = $request->jam_mulai;
         $update->jam_akhir = $request->jam_akhir;
+
+        if($request->hasFile('dokumen_rapot')){
+          $pathUpload = 'amadeo/documents/';
+          $rand = rand(1000,9999);
+
+          $dok = $request->file('dokumen_rapot');
+          $dok_up = $update->member->kode_member.' - '.$update->kelas->nama_kelas.' - '.$rand.' - '.$dok->getClientOriginalName();
+          $dok->move($pathUpload, $dok_up);
+
+          $update->dokumen_rapot = $dok_up;
+        }
+
         $update->flag_status = 1;
         $update->update();
 

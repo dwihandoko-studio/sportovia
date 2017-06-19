@@ -8,7 +8,7 @@ class Jadwal extends Model
 {
     protected $table = 'amd_jadwal';
 
-    protected $fillable = ['id_member','id_kelas','id_kelas_ruang','hari','jam_mulai','jam_akhir','flag_status','aktor'];
+    protected $fillable = ['id_member','id_kelas','id_kelas_ruang','hari','jam_mulai','jam_akhir','dokumen_rapot','flag_status','aktor'];
 
     public function member()
     {
