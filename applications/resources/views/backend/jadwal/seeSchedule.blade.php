@@ -20,13 +20,13 @@
 <div id="modal-unpublish" class="modal hide">
   <div class="modal-header">
     <button data-dismiss="modal" class="close" type="button">×</button>
-    <h3>Unpublish Staff</h3>
+    <h3>Deactivated Schedule</h3>
   </div>
   <div class="modal-body">
-    <p>Are you sure to un publish this staff ?</p>
+    <p>Are you sure to deactivated this schedule ?</p>
   </div>
   <div class="modal-footer">
-    <a class="btn btn-danger" id="setUnpublish">Unpublish</a>
+    <a class="btn btn-danger" id="setUnpublish">Deactivated</a>
     <a data-dismiss="modal" class="btn" href="#">Cancel</a>
   </div>
 </div>
@@ -34,13 +34,13 @@
 <div id="modal-publish" class="modal hide">
   <div class="modal-header">
     <button data-dismiss="modal" class="close" type="button">×</button>
-    <h3>Publish Staff</h3>
+    <h3>Activated Schedule</h3>
   </div>
   <div class="modal-body">
-    <p>Are you sure to publish this staff ?</p>
+    <p>Are you sure to activated this schedule ?</p>
   </div>
   <div class="modal-footer">
-    <a class="btn btn-success" id="setPublish">Publish</a>
+    <a class="btn btn-success" id="setPublish">Activated</a>
     <a data-dismiss="modal" class="btn" href="#">Cancel</a>
   </div>
 </div>

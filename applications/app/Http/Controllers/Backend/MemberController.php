@@ -7,12 +7,14 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Member;
 use App\Models\User;
+use App\Models\Jadwal;
 use App\Models\LogAkses;
 
 use DB;
 use Auth;
 use Validator;
 use Hash;
+use Mail;
 
 class MemberController extends Controller
 {
@@ -87,36 +89,53 @@ class MemberController extends Controller
           $email = null;
         }
 
-        $member = Member::create([
-          'anak_member' => $anak_member,
-          'kode_member' => $request->kode_member,
-          'nama_member' => $request->nama_member,
-          'email' => $email,
-          'tempat_lahir' => $request->tempat_lahir,
-          'tanggal_lahir' => $request->tanggal_lahir,
-          'tanggal_gabung' => $request->tanggal_gabung,
-          'alamat' => $request->alamat,
-          'flag_status' => 1,
-          'aktor' => auth()->guard('admin')->id()
-        ]);
+        DB::transaction(function() use($request, $email, $anak_member){
+          $member = Member::create([
+            'anak_member' => $anak_member,
+            'kode_member' => $request->kode_member,
+            'nama_member' => $request->nama_member,
+            'email' => $email,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'tanggal_gabung' => $request->tanggal_gabung,
+            'alamat' => $request->alamat,
+            'flag_status' => 1,
+            'aktor' => auth()->guard('admin')->id()
+          ]);
 
-        if($request->id_program == 1){
-          $user = new User;
-          $user->id_member = $member->id;
-          $user->name = $request->nama_member;
-          $user->email  = $email;
-          $user->password = Hash::make($request->kode_member);
-          $user->confirmed = 1;
-          $user->flag_status = 1;
-          $user->role_id = 3;
-          $user->login_count = 0;
-          $user->save();
-        }
+          if($request->id_program == 1){
+            $user = new User;
+            $user->id_member = $member->id;
+            $user->name = $request->nama_member;
+            $user->email  = $email;
+            $user->password = Hash::make($request->kode_member);
+            $user->confirmed = 1;
+            $user->flag_status = 1;
+            $user->role_id = 3;
+            $user->login_count = 0;
+            $user->save();
 
-        $log = new LogAkses;
-        $log->actor = auth()->guard('admin')->id();
-        $log->aksi = 'Adding member '.$request->nama_member;
-        $log->save();
+
+            $data = array([
+                'name' => $request->nama_member,
+                'email' => $request->email,
+                'password' => $request->kode_member
+              ]);
+
+            Mail::send('backend.email.member', ['data' => $data], function($message) use ($data) {
+              $message->from('administrator@sportopia.com', 'Administrator')
+                      ->to($data[0]['email'], $data[0]['name'])
+                      ->subject('Account Sportopia');
+            });
+
+          }
+
+          $log = new LogAkses;
+          $log->actor = auth()->guard('admin')->id();
+          $log->aksi = 'Add new member '.$request->nama_member;
+          $log->save();
+        });
+
 
         return redirect()->route('member.index')->with('berhasil', 'Your new member has been successfully saved.');
     }
@@ -168,5 +187,43 @@ class MemberController extends Controller
         }
 
         return redirect()->route('member.index')->with('berhasil', 'Your data member has been successfully updated.');
+    }
+
+    public function lihatJadwal($id)
+    {
+        $getJadwal = Jadwal::where('id_member', $id)->get();
+
+        return view('backend.member.lihatJadwal', compact('getJadwal'));
+    }
+
+    public function status($id)
+    {
+        $set = Jadwal::find($id);
+
+        if(!$set){
+          return view('backend.errors.404');
+        }
+
+        if ($set->flag_status == 1) {
+          $set->flag_status = 0;
+          $set->update();
+
+          $log = new LogAkses;
+          $log->actor = auth()->guard('admin')->id();
+          $log->aksi = 'Deactivated Member Class '.$set->member->kode_member.' - '.$set->member->nama_member;
+          $log->save();
+
+          return redirect()->route('member.lihatJadwal', ['id' => $set->id_member ])->with('berhasil', 'Successfully deactivated '.$set->nama_member);
+        }else{
+          $set->flag_status = 1;
+          $set->update();
+
+          $log = new LogAkses;
+          $log->actor = auth()->guard('admin')->id();
+          $log->aksi = 'Acivated Member Class '.$set->member->kode_member.' - '.$set->member->nama_member;
+          $log->save();
+
+          return redirect()->route('member.lihatJadwal', ['id' => $set->id_member ])->with('berhasil', 'Successfully activated '.$set->nama_member);
+        }
     }
 }

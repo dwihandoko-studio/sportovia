@@ -46,7 +46,9 @@
           <td>{{ $key->nama_member }}</td>
           <td>{{ ($key->email != null) ? $key->email : '-' }}</td>
           <td>{{ $key->tanggal_gabung }}</td>
-          <td><a href="{{ route('member.getMember', ['id' => $key->id])}}"><span class="label label-warning tip-top" data-toggle="tooltip" data-placement="top" title="Edit"><i class="icon icon-pencil"></i> Edit</span></a></td>
+          <td>
+            <a href="{{ route('member.getMember', ['id' => $key->id])}}"><span class="label label-warning tip-top" data-toggle="tooltip" data-placement="top" title="Edit"><i class="icon icon-pencil"></i> Edit</span></a>
+            <a href="{{ route('member.lihatJadwal', ['id' => $key->id])}}"><span class="label label-success tip-top" data-toggle="tooltip" data-placement="top" title="Schedule"><i class="icon icon-calendar"></i> Schedule</span></a></td>
         </tr>
         @php
           $no++;
