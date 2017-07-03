@@ -45,7 +45,11 @@
 		@if($oldMember != $list->kode_member)
 		@php ($oldMember = $list->kode_member)
 		<div class="info-wrapper">
-			<div class="img" style="background-image: url('{{ asset('amadeo/images/users/userdefault.png') }}');">
+			@if($list->img_member != null)
+				<div class="img" style="background-image: url('{{ asset('amadeo/images/users/').'/'.$list->img_member }}');">
+			@else
+				<div class="img" style="background-image: url('{{ asset('amadeo/images/users/userdefault.png') }}');">
+			@endif
 			</div>
 			<div class="content">
 				<h2>{{ $list->nama_member }}</h2>

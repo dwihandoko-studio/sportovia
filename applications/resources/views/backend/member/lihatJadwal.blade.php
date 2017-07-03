@@ -49,7 +49,11 @@
 
 <div class="widget-box">
   <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-    <h5>Member Shcedule</h5><h5>{{ $getJadwal[0]->member->kode_member}} / {{ $getJadwal[0]->member->nama_member}}</h5>
+    @if (!$getJadwal->isEmpty())
+      <h5>Member Shcedule</h5><h5>{{ $getJadwal[0]->member->kode_member}} / {{ $getJadwal[0]->member->nama_member}}</h5>
+    @else
+      <h5>Member Shcedule</h5>
+    @endif
     <a href="{{ route('member.index') }}" class="btn btn-inverse pull-right"><i class="icon-plus"></i> Back</a>
     <a href="{{ route('jadwal.classMember') }}" class="btn btn-primary pull-right"><i class="icon-plus"></i> Add Schedule</a>
   </div>

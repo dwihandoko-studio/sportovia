@@ -11,27 +11,28 @@ class MemberController extends Controller
 {
     function index(){
     	$call = Jadwal::leftJoin(
-    		'amd_member', 
-    		'amd_member.id', 
-    		'=', 
+    		'amd_member',
+    		'amd_member.id',
+    		'=',
     		'amd_jadwal.id_member'
     	)
     	->leftJoin(
-    		'amd_kelas_ruang', 
-    		'amd_kelas_ruang.id', 
-    		'=', 
+    		'amd_kelas_ruang',
+    		'amd_kelas_ruang.id',
+    		'=',
     		'amd_jadwal.id_kelas_ruang'
     	)
         ->leftJoin(
-            'amd_kelas', 
-            'amd_kelas.id', 
-            '=', 
+            'amd_kelas',
+            'amd_kelas.id',
+            '=',
             'amd_jadwal.id_kelas'
         )
     	->select(
     		'amd_jadwal.id as id_jadwal',
     		'kode_member',
-    		'nama_member',
+        'nama_member',
+    		'img_member',
     		'tempat_lahir',
     		'tanggal_lahir',
     		'alamat',
@@ -56,33 +57,33 @@ class MemberController extends Controller
 
 	function view($slug){
 		$call = Jadwal::leftJoin(
-    		'amd_member', 
-    		'amd_member.id', 
-    		'=', 
+    		'amd_member',
+    		'amd_member.id',
+    		'=',
     		'amd_jadwal.id_member'
     	)
     	->leftJoin(
-            'amd_kelas', 
-            'amd_kelas.id', 
-            '=', 
+            'amd_kelas',
+            'amd_kelas.id',
+            '=',
             'amd_jadwal.id_kelas'
         )
         ->leftJoin(
-            'amd_kelas_program', 
-            'amd_kelas_program.id', 
-            '=', 
+            'amd_kelas_program',
+            'amd_kelas_program.id',
+            '=',
             'amd_kelas.id_program'
         )
         ->leftJoin(
-            'amd_kelas_kategori', 
-            'amd_kelas_kategori.id', 
-            '=', 
+            'amd_kelas_kategori',
+            'amd_kelas_kategori.id',
+            '=',
             'amd_kelas.id_kelas_kategori'
         )
         ->leftJoin(
-            'amd_kelas_ruang', 
-            'amd_kelas_ruang.id', 
-            '=', 
+            'amd_kelas_ruang',
+            'amd_kelas_ruang.id',
+            '=',
             'amd_jadwal.id_kelas_ruang'
         )
         ->select(

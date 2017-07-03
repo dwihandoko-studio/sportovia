@@ -94,6 +94,21 @@
           <textarea name="alamat" class="span6" id="alamat" cols="8" rows="8">{{ old('alamat', $getMember->alamat) }}</textarea>
         </div>
       </div>
+      <div class="control-group {{ $errors->has('img_member') ? 'error' : '' }}">
+        <label class="control-label">Image *</label>
+        <div class="controls">
+          <span>Width: 250px; Height: 250px</span>
+        </div>
+        <div class="controls">
+          <input name="img_member" class="span6" id="img_member" type="file"  accept=".jpg, .png"/>
+          @if($errors->has('img_member'))
+          <span for="img_member" generated="true" class="help-inline">{{ $errors->first('img_member') }}</span>
+          @endif
+        </div>
+        <div class="controls">
+          <img src="{{ asset('amadeo/images/users').'/'.$getMember->img_member }}" alt="">
+        </div>
+      </div>
       <div class="form-actions">
         <input type="submit" value="Submit" class="btn btn-success">
       </div>
@@ -132,6 +147,9 @@
       },
       alamat:{
         required:true,
+      },
+      img_member:{
+        accept:"png|jpe?g"
       },
     },
     errorClass: "help-inline",

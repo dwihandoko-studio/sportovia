@@ -28,6 +28,7 @@
       <thead>
         <tr>
           <th>No</th>
+          <th>Image</th>
           <th>Member Code</th>
           <th>Member</th>
           <th>Email</th>
@@ -42,6 +43,11 @@
         @foreach ($getMember as $key)
         <tr>
           <td>{{ $no }}</td>
+          <td>@if($key->img_member != null)
+            <img src="{{ asset('amadeo/images/users/').'/'.$key->img_member }}" alt="">
+          @else
+            <img src="{{ asset('amadeo/images/users/userdefault.png') }}" alt="">
+          @endif</td>
           <td>{{ $key->kode_member }}</td>
           <td>{{ $key->nama_member }}</td>
           <td>{{ ($key->email != null) ? $key->email : '-' }}</td>

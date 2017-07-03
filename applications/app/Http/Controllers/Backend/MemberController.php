@@ -15,6 +15,7 @@ use Auth;
 use Validator;
 use Hash;
 use Mail;
+use Image;
 
 class MemberController extends Controller
 {
@@ -62,6 +63,10 @@ class MemberController extends Controller
           'tanggal_lahir.required' => 'This field is required.',
           'tanggal_gabung.required' => 'This field is required.',
           'alamat.required' => 'This field is required.',
+          'img_member.required' => 'This field is required.',
+          'img_member.image' => 'Format not supported.',
+          'img_member.max' => 'File Size Too Big.',
+          'img_member.dimensions' => 'Pixel max 250px x 250px.',
         ];
 
         $validator = Validator::make($request->all(), [
@@ -70,7 +75,9 @@ class MemberController extends Controller
           'tanggal_lahir' => 'required',
           'tanggal_gabung' => 'required',
           'alamat' => 'required',
+          'img_member' => 'required|image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=250,max_height=250'
         ], $message);
+
 
         if($validator->fails()){
           return redirect()->route('member.tambah')->withErrors($validator)->withInput();
@@ -89,11 +96,21 @@ class MemberController extends Controller
           $email = null;
         }
 
-        DB::transaction(function() use($request, $email, $anak_member){
+        $salt = rand(100,999);
+        $image = $request->file('img_member');
+        if($image){
+          $img_url = 'sportopia-'.str_slug($request->kode_member,'-').'-'.$salt.'.' . $image->getClientOriginalExtension();
+          Image::make($image)->save('amadeo/images/users/'. $img_url);
+        }else{
+          $img_url = null;
+        }
+
+        DB::transaction(function() use($request, $email, $anak_member, $img_url){
           $member = Member::create([
             'anak_member' => $anak_member,
             'kode_member' => $request->kode_member,
             'nama_member' => $request->nama_member,
+            'img_member'  => $img_url,
             'email' => $email,
             'tempat_lahir' => $request->tempat_lahir,
             'tanggal_lahir' => $request->tanggal_lahir,
@@ -157,6 +174,9 @@ class MemberController extends Controller
           'tanggal_lahir.required' => 'This field is required.',
           'tanggal_gabung.required' => 'This field is required.',
           'alamat.required' => 'This field is required.',
+          'img_member.image' => 'Format not supported.',
+          'img_member.max' => 'File Size Too Big.',
+          'img_member.dimensions' => 'Pixel max 250px x 250px.',
         ];
 
         $validator = Validator::make($request->all(), [
@@ -165,14 +185,25 @@ class MemberController extends Controller
           'tanggal_lahir' => 'required',
           'tanggal_gabung' => 'required',
           'alamat' => 'required',
+          'img_member' => 'image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=250,max_height=250'
         ], $message);
 
         if($validator->fails()){
           return redirect()->route('member.ubah', ['id' => $request->id])->withErrors($validator)->withInput();
         }
 
+        $salt = rand(100,999);
+        $image = $request->file('img_member');
+        if($image){
+          $img_url = 'sportopia-'.str_slug($request->kode_member,'-').'-'.$salt.'.' . $image->getClientOriginalExtension();
+          Image::make($image)->save('amadeo/images/users/'. $img_url);
+        }else{
+          $img_url = null;
+        }
+
         $update = Member::find($request->id);
         $update->nama_member = $request->nama_member;
+        $update->img_member = $img_url;
         $update->tempat_lahir = $request->tempat_lahir;
         $update->tanggal_lahir = $request->tanggal_lahir;
         $update->tanggal_gabung = $request->tanggal_gabung;
