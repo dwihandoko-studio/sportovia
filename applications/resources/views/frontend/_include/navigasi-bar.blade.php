@@ -242,6 +242,61 @@
 							<?php /*  @endif */ ?>
 						</select>
 					</div>
+					<div class="input-group {{ $errors->has('store_day') ? 'error' : '' }}">
+						<label>
+							{{ $errors->has('store_day') ? $errors->first('store_day') : '' }}
+						</label>
+						<select class="form-control" name="store_day">
+							<option value="" selected="" disabled>Choose Day</option>
+							<option value="Sunday" {{ old('store_day') == 'Sunday' ? 'selected=""' : '' }} >Sunday</option>
+	            <option value="Monday" {{ old('store_day') == 'Monday' ? 'selected=""' : '' }} >Monday</option>
+	            <option value="Tuesday" {{ old('store_day') == 'Tuesday' ? 'selected=""' : '' }} >Tuesday</option>
+	            <option value="Wednesday" {{ old('store_day') == 'Wednesday' ? 'selected=""' : '' }} >Wednesday</option>
+	            <option value="Thursday" {{ old('store_day') == 'Thursday' ? 'selected=""' : '' }} >Thursday</option>
+	            <option value="Friday" {{ old('store_day') == 'Friday' ? 'selected=""' : '' }} >Friday</option>
+	            <option value="Saturday" {{ old('store_day') == 'Saturday' ? 'selected=""' : '' }} >Saturday</option>
+						</select>
+					</div>
+					<div class="input-group {{ $errors->has('store_hour') ? 'error' : '' }}">
+						<label>
+							{{ $errors->has('store_hour') ? $errors->first('store_hour') : '' }}
+						</label>
+						<select class="form-control" name="store_hour">
+							<option value="" selected="" disabled>Choose Session</option>
+							<option value="08:00" {{ old('store_hour') == '08:00' ? 'selected=""' : '' }}>08:00</option>
+	            <option value="08:30" {{ old('store_hour') == '08:30' ? 'selected=""' : '' }}>08:30</option>
+	            <option value="09:00" {{ old('store_hour') == '09:00' ? 'selected=""' : '' }}>09:00</option>
+	            <option value="09:30" {{ old('store_hour') == '09:30' ? 'selected=""' : '' }}>09:30</option>
+	            <option value="10:00" {{ old('store_hour') == '10:00' ? 'selected=""' : '' }}>10:00</option>
+	            <option value="10:30" {{ old('store_hour') == '10:30' ? 'selected=""' : '' }}>10:30</option>
+	            <option value="11:00" {{ old('store_hour') == '11:00' ? 'selected=""' : '' }}>11:00</option>
+	            <option value="11:30" {{ old('store_hour') == '11:30' ? 'selected=""' : '' }}>11:30</option>
+	            <option value="12:00" {{ old('store_hour') == '12:00' ? 'selected=""' : '' }}>12:00</option>
+	            <option value="12:30" {{ old('store_hour') == '12:30' ? 'selected=""' : '' }}>12:30</option>
+	            <option value="13:00" {{ old('store_hour') == '13:00' ? 'selected=""' : '' }}>13:00</option>
+	            <option value="13:30" {{ old('store_hour') == '13:30' ? 'selected=""' : '' }}>13:30</option>
+	            <option value="14:00" {{ old('store_hour') == '14:00' ? 'selected=""' : '' }}>14:00</option>
+	            <option value="14:30" {{ old('store_hour') == '14:30' ? 'selected=""' : '' }}>14:30</option>
+	            <option value="15:00" {{ old('store_hour') == '15:00' ? 'selected=""' : '' }}>15:00</option>
+	            <option value="15:30" {{ old('store_hour') == '15:30' ? 'selected=""' : '' }}>15:30</option>
+	            <option value="16:00" {{ old('store_hour') == '16:00' ? 'selected=""' : '' }}>16:00</option>
+	            <option value="16:30" {{ old('store_hour') == '16:30' ? 'selected=""' : '' }}>16:30</option>
+	            <option value="17:00" {{ old('store_hour') == '17:00' ? 'selected=""' : '' }}>17:00</option>
+	            <option value="17:30" {{ old('store_hour') == '17:30' ? 'selected=""' : '' }}>17:30</option>
+	            <option value="18:00" {{ old('store_hour') == '18:00' ? 'selected=""' : '' }}>18:00</option>
+	            <option value="18:30" {{ old('store_hour') == '18:30' ? 'selected=""' : '' }}>18:30</option>
+	            <option value="19:00" {{ old('store_hour') == '19:00' ? 'selected=""' : '' }}>19:00</option>
+	            <option value="19:30" {{ old('store_hour') == '19:30' ? 'selected=""' : '' }}>19:30</option>
+	            <option value="20:00" {{ old('store_hour') == '20:00' ? 'selected=""' : '' }}>20:00</option>
+	            <option value="20:30" {{ old('store_hour') == '20:30' ? 'selected=""' : '' }}>20:30</option>
+	            <option value="21:00" {{ old('store_hour') == '21:00' ? 'selected=""' : '' }}>21:00</option>
+	            <option value="21:30" {{ old('store_hour') == '21:30' ? 'selected=""' : '' }}>21:30</option>
+	            <option value="22:00" {{ old('store_hour') == '22:00' ? 'selected=""' : '' }}>22:00</option>
+	            <option value="22:30" {{ old('store_hour') == '22:30' ? 'selected=""' : '' }}>22:30</option>
+	            <option value="23:00" {{ old('store_hour') == '23:00' ? 'selected=""' : '' }}>23:00</option>
+	            <option value="23:30" {{ old('store_hour') == '23:30' ? 'selected=""' : '' }}>23:30</option>
+						</select>
+					</div>
 					<div class="input-group {{ $errors->has('store_subject') ? 'error' : '' }}">
 						<label>
 							{{ $errors->has('store_subject') ? $errors->first('store_subject') : '' }}

@@ -9,7 +9,7 @@
 <div id="content-header">
   <div id="breadcrumb">
     <a href="{{ route('dashboard') }}" title="Dashboard" class="tip-bottom"><i class="icon-home"></i> Dashboard</a>
-    <a href="{{ route('fasilitas.index') }}" class="current">Ads Banner</a>
+    <a href="" class="current">Ads Banner</a>
   </div>
   <h1>Ads Banner</h1>
 </div>
@@ -81,7 +81,7 @@
       <h3>Edit Ads Banner</h3>
     </div>
     <div class="modal-body">
-      <form class="form-horizontal" method="post" action="{{ route('fasilitas.edit') }}" name="basic_validate" id="basic_validate" novalidate="novalidate">
+      <form class="form-horizontal" method="post" action="{{ route('ads.edit') }}" name="basic_validate" id="basic_validate" novalidate="novalidate">
         {{ csrf_field() }}
         <div class="control-group {{ $errors->has('edit_ads_judul') ? 'error' : ''}}">
           <label class="control-label">Ads Banner Name</label>

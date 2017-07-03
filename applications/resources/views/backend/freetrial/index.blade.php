@@ -58,6 +58,8 @@
           <th>Class Course</th>
           <th>Program</th>
           <th>Name</th>
+          <th>Day</th>
+          <th>Session</th>
           <th>Telp</th>
           <th>Email</th>
           <th>Subject</th>
@@ -72,15 +74,20 @@
           $no = 1;
         @endphp
         @foreach ($getFree as $key)
+        @php
+          $hacep = explode('||', $key->pesan);
+        @endphp
         <tr>
           <td>{{ $no }}</td>
           <td>{{ $key->kelas->nama_kelas }}</td>
           <td>{{ $key->kelas->kelasProgram->program_kelas }}</td>
           <td>{{ $key->nama }}</td>
+          <td>{{ $hacep[1] }}</td>
+          <td>{{ $hacep[2] }}</td>
           <td>{{ $key->telp }}</td>
           <td>{{ $key->email }}</td>
           <td>{{ $key->subjek }}</td>
-          <td>{{ $key->pesan }}</td>
+          <td>{{ $hacep[0] }}</td>
           <td>{{ $key->created_at }}</td>
           <td>{!! $key->type == 1 ? '<span class="label label-primary">Free Trial</span>' : '<span class="label label important">Register</span>' !!}</td>
           <td><a href=""><span class="label label-warning tip-top"><i class="icon icon-pencil"></i> Edit</span></a></td>

@@ -17,13 +17,11 @@ class FreeTrialController extends Controller
 
     public function index()
     {
-        $getFree = Trial::where('type', 1)
-                        ->orWhere('type', 1)
-                        ->where('flag_status', 1)
+        $getFree = Trial::where('flag_status', 1)
                         ->get();
 
         return view('backend.freetrial.index', compact('getFree'));
     }
 
-    
+
 }

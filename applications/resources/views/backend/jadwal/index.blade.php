@@ -55,11 +55,11 @@
             <td>&nbsp;</td>
             <td>{!! $key->quotes !!}</td>
           </tr>
-          <tr>
+          {{-- <tr>
             <td><b>Facility</b></td>
             <td>&nbsp;</td>
             <td>{!! $key->fasilitas !!}</td>
-          </tr>
+          </tr> --}}
           <tr>
             <td colspan="2" style="text-align:center"><a href="{{ route('jadwal.seeSchedule', ['id' => $key->id ]) }}" class="btn btn-primary"><i class="icon-eye-open"></i> Schedule</a></td>
             <td><a href="{{ route('jadwal.class', ['id' => $key->id ]) }}" class="btn btn-primary"><i class="icon-plus"></i> Add Student</a></td>

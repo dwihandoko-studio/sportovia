@@ -21,6 +21,8 @@ class StoreController extends Controller
           'store_email.email' => 'Invalid email',
           'store_email.required' => 'Required',
           'store_class.required' => 'Choose One',
+          'store_day.required' => 'Choose One',
+          'store_hour.required' => 'Choose One',
         ];
 
         $validator = Validator::make($request->all(), [
@@ -30,7 +32,9 @@ class StoreController extends Controller
           'store_message' => 'required',
           'store_email' => 'required|email',
           'store_phone' => 'required',
-          'store_class' => 'required'
+          'store_class' => 'required',
+          'store_day' => 'required',
+          'store_hour' => 'required',
         ], $message);
 
         if($validator->fails()){
@@ -44,7 +48,7 @@ class StoreController extends Controller
         $store->telp        = $request->store_phone;
         $store->email       = $request->store_email;
         $store->subjek      = $request->store_subject;
-        $store->pesan       = $request->store_message;
+        $store->pesan       = $request->store_message.' || '.$request->store_day.' || '.$request->store_hour;
         $store->save();
         return redirect()->back()->with('store_info', 'Your data has been successfully saved.');
     }
@@ -66,7 +70,7 @@ class StoreController extends Controller
           'contact_email' => 'required|email',
           'contact_phone' => 'required'
         ], $message);
-        
+
         if($validator->fails()){
           return redirect()->back()->with('contact_info', 'Wrong Input')->withErrors($validator)->withInput();
         }
