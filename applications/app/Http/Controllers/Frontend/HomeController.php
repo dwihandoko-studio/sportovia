@@ -13,16 +13,16 @@ class HomeController extends Controller
 	function index(){
 		$callKelasKategori = KelasKategori::select(
             'kategori_kelas',
-            'img_thumb', 
+            'img_thumb',
             'slug'
         )
         ->where('flag_publish', '1')
-        ->orderby('kategori_kelas', 'asc')
+        ->orderby('id', 'asc')
         ->get();
 
         $callKelasProgram = KelasProgram::select(
             'program_kelas',
-            'img_thumb', 
+            'img_thumb',
             'slug'
         )
         ->where('flag_publish', '1')
@@ -35,5 +35,5 @@ class HomeController extends Controller
 	    	'callKelasProgram'
 	    ));
 	}
-	
+
 }

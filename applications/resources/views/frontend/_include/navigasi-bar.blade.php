@@ -41,8 +41,8 @@
 											</a>
 										</div>
 										<div class="link">
-											<a href="{{ Route('frontend.about.staff') }}">
-												Our Staff
+											<a href="{{ Route('frontend.about.trainer') }}">
+												Our Tranner
 											</a>
 										</div>
 									</div>
@@ -52,7 +52,7 @@
 						@if($callNavKategori != null)
 						@foreach($callNavKategori as $list)
 						<li class="dropdown">
-							<a 
+							<a
 								@if(Route::is('frontend.class*'))
 								@if($callKategori->slug == $list->slug)
 								class="active"
@@ -65,7 +65,7 @@
 							<div class="dropdown-wrapper class">
 								<div class="dropdown-content">
 									@if($callNavClass != null)
-									@php 
+									@php
 										$looping=1;
 										$lenArr = count($callNavClass);
 									@endphp
@@ -115,8 +115,8 @@
 	</div>
 </div>
 <div id="space-nav">
-	<div 
-		id="freeTrialClass" 
+	<div
+		id="freeTrialClass"
 		class="fre-tri-clas @if($errors->has('store_type') || $errors->has('store_name') || $errors->has('store_phone') || $errors->has('store_email') || $errors->has('store_class') || $errors->has('store_subject') || $errors->has('store_message') || Session::has('store_info')) active @endif"
 	>
 		<div id="freeTrialClass-wrapper">
@@ -140,7 +140,7 @@
 							<option value="1"
 								{{ old('store_type') == 1 ? 'selected="selected"' : '' }}
 							>
-								Free Trial	
+								Free Trial
 							</option>
 							<option value="2"
 								{{ old('store_type') == 2 ? 'selected="selected"' : '' }}
@@ -154,10 +154,10 @@
 						<label>
 							{{ $errors->has('store_name') ? $errors->first('store_name') : '' }}
 						</label>
-						<input 
-							type="text" 
-							name="store_name" 
-							class="form-control" 
+						<input
+							type="text"
+							name="store_name"
+							class="form-control"
 							placeholder="Name"
 							@if(!empty(auth()->guard('user')->id()))
 							value="{{ auth()->guard('user')->user()->name }}"
@@ -174,10 +174,10 @@
 						<label>
 							{{ $errors->has('store_phone') ? $errors->first('store_phone') : '' }}
 						</label>
-						<input 
-							type="phone" 
-							name="store_phone" 
-							class="form-control" 
+						<input
+							type="phone"
+							name="store_phone"
+							class="form-control"
 							placeholder="Phone"
 							value="{{ old('store_phone') }}"
 						>
@@ -189,10 +189,10 @@
 						<label>
 							{{ $errors->has('store_email') ? $errors->first('store_email') : '' }}
 						</label>
-						<input 
-							type="email" 
-							name="store_email" 
-							class="form-control" 
+						<input
+							type="email"
+							name="store_email"
+							class="form-control"
 							placeholder="Email Address"
 							@if(!empty(auth()->guard('user')->id()))
 							value="{{ auth()->guard('user')->user()->email }}"
@@ -210,7 +210,7 @@
 							{{ $errors->has('store_class') ? $errors->first('store_class') : '' }}
 						</label>
 						<select class="form-control" name="store_class">
-							<?php /* 
+							<?php /*
 							@if(Route::is('frontend.news-event.index'))
 							<option value="{{ $callEventNew->id }}" selected>{{ $callEventNew->judul }}</option>
 							@elseif(Route::is('frontend.news-event.view'))
@@ -222,7 +222,7 @@
 							@foreach($callFreeTrialClass as $list)
 							@if(Route::is('frontend.class.view'))
 							@if($list->id == $callClass->id)
-							<option 
+							<option
 								value="{{ $list->id }}"
 								 {{ old('store_class') == $list->id ? 'selected="selected"' : '' }}
 							>
@@ -230,7 +230,7 @@
 							</option>
 							@endif
 							@else
-							<option 
+							<option
 								value="{{ $list->id }}"
 								 {{ old('store_class') == $list->id ? 'selected="selected"' : '' }}
 							>
@@ -246,10 +246,10 @@
 						<label>
 							{{ $errors->has('store_subject') ? $errors->first('store_subject') : '' }}
 						</label>
-						<input 
-							type="text" 
-							name="store_subject" 
-							class="form-control" 
+						<input
+							type="text"
+							name="store_subject"
+							class="form-control"
 							placeholder="Subject"
 							value="{{ old('subject') }}"
 						>

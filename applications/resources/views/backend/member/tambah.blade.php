@@ -146,7 +146,7 @@
     }
   });
 
-  // add nama_atasan column to specific intervention type
+  
   $('select#id_program').on('change', function(){
 
     var optionSelected = $("option:selected", this);

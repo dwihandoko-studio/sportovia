@@ -13,9 +13,9 @@ class AboutController extends Controller
 {
     function us(){
     	$call = Tentang::select(
-            'deskripsi_tentang', 
-            'img_visi', 
-            'visi', 
+            'deskripsi_tentang',
+            'img_visi',
+            'visi',
             'img_misi',
             'misi'
         )
@@ -30,12 +30,12 @@ class AboutController extends Controller
         }
 	}
 
-	function staff(){
-		
+	function trainer(){
+
 		$call_st = Staff::leftJoin('amd_staff_jabatan', 'amd_staff_jabatan.id', '=', 'amd_staff.id_jabatan')
         ->select(
             'nama_staff',
-            'quotes_staff', 
+            'quotes_staff',
             'nama_jabatan',
             'avatar'
         )
@@ -43,10 +43,10 @@ class AboutController extends Controller
         ->where('amd_staff_jabatan.flag_publish', '1')
         ->orderby('amd_staff.id_jabatan', 'asc')
         ->get();
-        
+
 	    return view('frontend.about-page.staff', compact(
 	    	'call_st'
 	    ));
 	}
-	
+
 }
