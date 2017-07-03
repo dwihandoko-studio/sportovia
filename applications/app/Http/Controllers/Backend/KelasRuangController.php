@@ -48,7 +48,7 @@ class KelasRuangController extends Controller
         $save->nama_kelas = $request->nama_kelas;
         $save->lantai_kelas = $request->lantai_kelas;
         $save->kapasitas = $request->kapasitas;
-        $save->link_cctv = $request->link_cctv;
+        // $save->link_cctv = $request->link_cctv;
         $save->actor = auth()->guard('admin')->id();
         $save->flag_publish = 1;
         $save->save();
@@ -92,7 +92,7 @@ class KelasRuangController extends Controller
         $update->nama_kelas = $request->edit_nama_kelas;
         $update->lantai_kelas = $request->edit_lantai_kelas;
         $update->kapasitas = $request->edit_kapasitas;
-        $update->link_cctv = $request->edit_link_cctv;
+        // $update->link_cctv = $request->edit_link_cctv;
         $update->actor = auth()->guard('admin')->id();
         $update->flag_publish = 1;
         $update->update();

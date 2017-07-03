@@ -62,7 +62,7 @@
   			    @endif
           </div>
         </div>
-        <div class="control-group {{ $errors->has('link_cctv') ? 'error' : ''}}">
+        {{-- <div class="control-group {{ $errors->has('link_cctv') ? 'error' : ''}}">
           <label class="control-label">Link CCTV</label>
           <div class="controls">
             <input type="text" name="link_cctv" class="span9" id="link_cctv" value="{{ old('link_cctv') }}">
@@ -72,7 +72,7 @@
     				</span>
   			    @endif
           </div>
-        </div>
+        </div> --}}
     </div>
     <div class="modal-footer">
       <input type="submit" value="Submit" class="btn btn-success">
@@ -129,7 +129,7 @@
   			    @endif
           </div>
         </div>
-        <div class="control-group {{ $errors->has('edit_link_cctv') ? 'error' : ''}}">
+        {{-- <div class="control-group {{ $errors->has('edit_link_cctv') ? 'error' : ''}}">
           <label class="control-label">Llink CCTV</label>
           <div class="controls">
             <input type="text" name="edit_link_cctv" class="span9" id="edit_link_cctv" value="{{ old('edit_link_cctv') }}">
@@ -139,7 +139,7 @@
     				</span>
   			    @endif
           </div>
-        </div>
+        </div> --}}
 
     </div>
     <div class="modal-footer">
@@ -191,7 +191,7 @@
           <th>Room Name</th>
           <th>Floor</th>
           <th>Capacity</th>
-          <th>Link CCTV</th>
+          {{-- <th>Link CCTV</th> --}}
           <th>Action</th>
         </tr>
       </thead>
@@ -205,7 +205,7 @@
           <td>{{ $key->nama_kelas }}</td>
           <td>{{ $key->lantai_kelas }}</td>
           <td>{{ $key->kapasitas }}</td>
-          <td>{{ $key->link_cctv }}</td>
+          {{-- <td>{{ $key->link_cctv }}</td> --}}
           {{-- <td>@if ($key->flag_publish == 1)
             <a href="" class="unpublish" data-value="{{ $key->id }}" data-toggle="modal" data-target="#modal-unpublish"><span class="label label-success tip-top" data-original-title="Publish"><i class="icon icon-thumbs-up"></i></span></a>
           @else
@@ -267,13 +267,13 @@ $(function(){
         var nama_kelas = data.nama_kelas;
         var lantai_kelas = data.lantai_kelas;
         var kapasitas = data.kapasitas;
-        var link_cctv = data.link_cctv;
+        // var link_cctv = data.link_cctv;
 
         $('#id_kelas_ruang').attr('value', id_kelas_ruang);
         $('#edit_nama_kelas').attr('value', nama_kelas);
         $('#edit_lantai_kelas').attr('value', lantai_kelas);
         $('#edit_kapasitas').attr('value', kapasitas);
-        $('#edit_link_cctv').attr('value', link_cctv);
+        // $('#edit_link_cctv').attr('value', link_cctv);
 
         if(lantai_kelas == 1){
           $('#satu').attr('selected', 'true');
@@ -295,9 +295,9 @@ $(function(){
   });
 
   $('a.publish').click(function(){
-      var a = $(this).data('value');
-      $('#setPublish').attr('href', "{{ url('/') }}/admin/class-room/publish/"+a);
-    });
+    var a = $(this).data('value');
+    $('#setPublish').attr('href', "{{ url('/') }}/admin/class-room/publish/"+a);
+  });
 });
 </script>
 
