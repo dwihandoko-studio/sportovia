@@ -18,11 +18,11 @@
     <li class="{{ Route::is('jadwal*') ? 'active' : '' }}">
       <a href="{{ route('jadwal.index') }}"><i class="icon icon-calendar"></i> <span>Schedule Course</span></a>
     </li>
-    <li class="submenu {{ Route::is('kelasKategori*') ? 'active' : '' }}{{ Route::is('kelasKursus*') ? 'active' : '' }}{{ Route::is('fasilitas*') ? 'active' : '' }}{{ Route::is('kelasProgram*') ? 'active' : '' }}{{ Route::is('kelasRuang*') ? 'active' : '' }}">
+    <li class="submenu {{ Route::is('kelasKategori*') ? 'active' : '' }}{{ Route::is('kelasKursus*') ? 'active' : '' }}{{ Route::is('kelasProgram*') ? 'active' : '' }}{{ Route::is('kelasRuang*') ? 'active' : '' }}">
       <a href="#"><i class="icon icon-magnet"></i> <span>Class</span></a>
       <ul>
         <li class="{{ Route::is('kelasKursus*') ? 'active' : '' }}"><a href="{{ route('kelasKursus.index')}}">Class Course</a></li>
-        <li class="{{ Route::is('fasilitas*') ? 'active' : '' }}"><a href="{{ route('fasilitas.index') }}">Class Facility</a></li>
+        {{-- <li class="{{ Route::is('fasilitas*') ? 'active' : '' }}"><a href="{{ route('fasilitas.index') }}">Class Facility</a></li> --}}
         <li class="{{ Route::is('kelasKategori*') ? 'active' : '' }}"><a href="{{ route('kelasKategori.index') }}">Class Category</a></li>
         <li class="{{ Route::is('kelasProgram*') ? 'active' : '' }}"><a href="{{ route('kelasProgram.index') }}">Class Program</a></li>
         <li class="{{ Route::is('kelasRuang*') ? 'active' : '' }}"><a href="{{ route('kelasRuang.index') }}">Class Room</a></li>

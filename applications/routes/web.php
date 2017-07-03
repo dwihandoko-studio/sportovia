@@ -44,11 +44,11 @@ Route::group(['middleware' => ['admin']], function () {
   Route::post('admin/about/edit', 'Backend\TentangController@edit')->name('tentang.edit');
 
   // Facility
-  Route::get('admin/facility', 'Backend\FasilitasController@index')->name('fasilitas.index');
-  Route::post('admin/facility', 'Backend\FasilitasController@store')->name('fasilitas.store');
-  Route::get('admin/facility/edit/{id}', 'Backend\FasilitasController@ubah')->name('fasilitas.ubah');
-  Route::post('admin/facility/edit', 'Backend\FasilitasController@edit')->name('fasilitas.edit');
-  Route::get('admin/facility/publish/{id}', 'Backend\FasilitasController@publish')->name('fasilitas.publish');
+  // Route::get('admin/facility', 'Backend\FasilitasController@index')->name('fasilitas.index');
+  // Route::post('admin/facility', 'Backend\FasilitasController@store')->name('fasilitas.store');
+  // Route::get('admin/facility/edit/{id}', 'Backend\FasilitasController@ubah')->name('fasilitas.ubah');
+  // Route::post('admin/facility/edit', 'Backend\FasilitasController@edit')->name('fasilitas.edit');
+  // Route::get('admin/facility/publish/{id}', 'Backend\FasilitasController@publish')->name('fasilitas.publish');
 
   // Staff Position
   Route::get('admin/staff-position', 'Backend\StaffController@index')->name('staff-jabatan.index');

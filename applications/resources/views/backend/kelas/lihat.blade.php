@@ -50,10 +50,10 @@
           <td><b>Image</b></td>
           <td><img src="{{ asset('amadeo/images/class').'/'.$get->img_url}}" alt="{{ $get->img_alt}}"></td>
         </tr>
-        <tr>
+        {{-- <tr>
           <td><b>Facility</b></td>
           <td>{{ $get->fasilitas }}</td>
-        </tr>
+        </tr> --}}
         <tr>
           <td><b>Video Url</b></td>
           <td>@if (!$get->video_url) - @else {{ $get->video_url }} @endif <br>

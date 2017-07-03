@@ -81,7 +81,7 @@
           <img src="{{ asset('amadeo/images/class/').'/'.$get->img_url }}" alt="{{ $get->img_alt }}">
         </div>
       </div>
-      <div class="control-group {{ $errors->has('fasilitas') ? 'error' : '' }}">
+      {{-- <div class="control-group {{ $errors->has('fasilitas') ? 'error' : '' }}">
         <label class="control-label">Facility *</label>
         <div class="controls">
           @php
@@ -93,7 +93,7 @@
             @endforeach
           </select>
         </div>
-      </div>
+      </div> --}}
       <div class="control-group {{ $errors->has('video_url') ? 'error' : '' }}">
         <label class="control-label">Video Url</label>
         <div class="controls">
@@ -171,9 +171,9 @@
       img_url:{
         accept:"png|jpe?g"
       },
-      fasilitas:{
-        required:true,
-      },
+      // fasilitas:{
+      //   required:true,
+      // },
       video:{
         url:true,
       },

@@ -143,24 +143,24 @@
 
 <script type="text/javascript">
 $(function(){
-  $('a.unpublish').click(function(){
-    var a = $(this).data('value');
-    $('#setUnpublish').attr('href', "{{ url('/') }}/admin/class-course/publish/"+a);
+  $('.kelasKursus-table').on('click','.unpublish', function(){
+    var id = $(this).data('value');
+    $('#setUnpublish').attr('href', '{{url('/')}}/admin/class-course/publish/'+id);
   });
 
-  $('a.publish').click(function(){
-    var a = $(this).data('value');
-    $('#setPublish').attr('href', "{{ url('/') }}/admin/class-course/publish/"+a);
+  $('.kelasKursus-table').on('click','.publish', function(){
+    var id = $(this).data('value');
+    $('#setPublish').attr('href', '{{url('/')}}/admin/class-course/publish/'+id);
   });
 
-  $('a.unhome').click(function(){
-    var a = $(this).data('value');
-    $('#setHome').attr('href', "{{ url('/') }}/admin/class-course/slider/"+a);
+  $('.kelasKursus-table').on('click','.unhome', function(){
+    var id = $(this).data('value');
+    $('#setUnhome').attr('href', '{{url('/')}}/admin/class-course/slider/'+id);
   });
 
-  $('a.home').click(function(){
-    var a = $(this).data('value');
-    $('#setHome').attr('href', "{{ url('/') }}/admin/class-course/slider/"+a);
+  $('.kelasKursus-table').on('click','.home', function(){
+    var id = $(this).data('value');
+    $('#setHome').attr('href', '{{url('/')}}/admin/class-course/slider/'+id);
   });
 });
 </script>

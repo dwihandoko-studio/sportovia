@@ -77,7 +77,7 @@
           @endif
         </div>
       </div>
-      <div class="control-group {{ $errors->has('fasilitas') ? 'error' : '' }}">
+      {{-- <div class="control-group {{ $errors->has('fasilitas') ? 'error' : '' }}">
         <label class="control-label">Facility *</label>
         <div class="controls">
           <select class="span6" name="fasilitas[]" id="fasilitas" title="Please select." multiple="">
@@ -86,7 +86,7 @@
             @endforeach
           </select>
         </div>
-      </div>
+      </div> --}}
       <div class="control-group {{ $errors->has('video_url') ? 'error' : '' }}">
         <label class="control-label">Video Url</label>
         <div class="controls">
@@ -143,9 +143,9 @@
         required:true,
         accept:"png|jpe?g"
       },
-      fasilitas:{
-        required:true,
-      },
+      // fasilitas:{
+      //   required:true,
+      // },
       video:{
         url:true,
       },

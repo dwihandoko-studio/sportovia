@@ -34,10 +34,9 @@ class KelasController extends Controller
     {
         $getKelasProgram = KelasProgram::where('flag_publish', 1)->get();
         $getKelasKategori = KelasKategori::where('flag_publish', 1)->get();
-        $getFasilitas = Fasilitas::where('flag_publish', 1)->get();
+        // $getFasilitas = Fasilitas::where('flag_publish', 1)->get();
 
-
-        return view('backend.kelas.tambah', compact('getKelasProgram','getKelasKategori', 'getFasilitas'));
+        return view('backend.kelas.tambah', compact('getKelasProgram','getKelasKategori'));
     }
 
     public function store(Request $request)
@@ -51,7 +50,7 @@ class KelasController extends Controller
           'quotes.max' => 'Too long.',
           'deskripsi_kelas.required' => 'This field is required.',
           'deskripsi_kelas.max' => 'Too long.',
-          'fasilitas.required' => 'This field is required.',
+          // 'fasilitas.required' => 'This field is required.',
           'img_url.image' => 'Format not supported.',
           'img_url.required' => 'This field is required.',
           'img_url.max' => 'File Size Too Big.',
@@ -63,7 +62,7 @@ class KelasController extends Controller
           'id_program' => 'required',
           'nama_kelas'  => 'required|max:25',
           'quotes'  => 'required|max:75',
-          'fasilitas' =>  'required',
+          // 'fasilitas' =>  'required',
           'deskripsi_kelas'  => 'required|max:250',
           'img_url'  => 'required|image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=275,max_height=500',
         ], $message);
@@ -94,7 +93,7 @@ class KelasController extends Controller
 
         $salt = rand(100,999);
 
-        $fasilitas = implode(',', $request->fasilitas);
+        // $fasilitas = implode(',', $request->fasilitas);
 
         $image = $request->file('img_url');
         $img_url = 'sportopia-'.$program.'-'.str_slug($request->nama_kelas,'-').'-'.$salt.'.' . $image->getClientOriginalExtension();
@@ -108,7 +107,7 @@ class KelasController extends Controller
         $save->deskripsi_kelas = nl2br($request->deskripsi_kelas);
         $save->img_url = $img_url;
         $save->img_alt = 'sportopia-'.$program.'-'.str_slug($request->nama_kelas,'-');
-        $save->fasilitas  = $fasilitas;
+        // $save->fasilitas  = $fasilitas;
         $save->video_url  = $request->video_url;
         $save->flag_homepage = $flag_homepage;
         $save->flag_publish = $flag_publish;
@@ -148,9 +147,9 @@ class KelasController extends Controller
 
         $getKelasProgram = KelasProgram::where('flag_publish', 1)->get();
         $getKelasKategori = KelasKategori::where('flag_publish', 1)->get();
-        $getFasilitas = Fasilitas::where('flag_publish', 1)->get();
+        // $getFasilitas = Fasilitas::where('flag_publish', 1)->get();
 
-        return view('backend.kelas.ubah', compact('get', 'getKelasProgram', 'getKelasKategori', 'getFasilitas'));
+        return view('backend.kelas.ubah', compact('get', 'getKelasProgram', 'getKelasKategori'));
     }
 
     public function edit(Request $request)
@@ -164,7 +163,7 @@ class KelasController extends Controller
           'quotes.max' => 'Too long.',
           'deskripsi_kelas.required' => 'This field is required.',
           'deskripsi_kelas.max' => 'Too long.',
-          'fasilitas.required' => 'This field is required.',
+          // 'fasilitas.required' => 'This field is required.',
           'img_url.image' => 'Format not supported.',
           'img_url.max' => 'File Size Too Big.',
           'img_url.dimensions' => 'Pixel max 275px x 500px.',
@@ -175,7 +174,7 @@ class KelasController extends Controller
           'id_program' => 'required',
           'nama_kelas'  => 'required|max:25',
           'quotes'  => 'required|max:75',
-          'fasilitas' =>  'required',
+          // 'fasilitas' =>  'required',
           'deskripsi_kelas'  => 'required|max:250',
           'img_url'  => 'image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=275,max_height=500',
         ], $message);
@@ -204,7 +203,7 @@ class KelasController extends Controller
           $program = 'regular';
         }
 
-        $fasilitas = implode(',', $request->fasilitas);
+        // $fasilitas = implode(',', $request->fasilitas);
 
         $image = $request->file('img_url');
 
@@ -216,7 +215,7 @@ class KelasController extends Controller
         $update->nama_kelas = $request->nama_kelas;
         $update->quotes = $request->quotes;
         $update->deskripsi_kelas = nl2br($request->deskripsi_kelas);
-        $update->fasilitas = $fasilitas;
+        // $update->fasilitas = $fasilitas;
         $update->video_url = $request->video_url;
         $update->flag_homepage = $flag_homepage;
         $update->flag_publish = $flag_publish;
