@@ -37,7 +37,7 @@
 				</a>
 			</label>
 		</div>
-		<h2>Our Staff</h2>
+		<h2>Our Trainers</h2>
 	</div>
 </div>
 <?php // staff wrapper ?>

@@ -41,8 +41,8 @@
 											</a>
 										</div>
 										<div class="link">
-											<a href="{{ Route('frontend.about.trainer') }}">
-												Our Tranner
+											<a href="{{ Route('frontend.about.trainers') }}">
+												Our Trainers
 											</a>
 										</div>
 									</div>

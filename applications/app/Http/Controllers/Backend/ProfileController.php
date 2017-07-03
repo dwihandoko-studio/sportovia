@@ -30,6 +30,7 @@ class ProfileController extends Controller
         $getUser = Admin::where('id', $request->id)->first();
 
         $messages = [
+          'name.unique' => "This field is required",
           'email.unique'  => "This email already taken",
           'oldpass.required' => "You must enter the old password",
           'newpass.required' => "You must enter the new password",
@@ -39,6 +40,7 @@ class ProfileController extends Controller
         ];
 
         $validator = Validator::make($request->all(), [
+          'name'  => 'required',
           'email' => 'required|email|unique:amd_admin,email,'.$request->id,
           'oldpass' => 'required',
           'newpass' => 'required|min:6',
@@ -51,6 +53,7 @@ class ProfileController extends Controller
 
         if(Hash::check($request->oldpass, $getUser->password))
         {
+          $getUser->name = $request->name;
           $getUser->password = Hash::make($request->newpass);
           $getUser->update();
 

@@ -206,8 +206,8 @@ Route::post('/store/contact', 'Frontend\StoreController@storeContact')
 
 Route::get('/about/us', 'Frontend\AboutController@us')
 	->name('frontend.about.us');
-Route::get('/about/trainer', 'Frontend\AboutController@trainer')
-	->name('frontend.about.trainer');
+Route::get('/about/trainers', 'Frontend\AboutController@trainer')
+	->name('frontend.about.trainers');
 
 Route::get('/news-event', 'Frontend\NewsEventController@index')
 	->name('frontend.news-event.index');
