@@ -94,6 +94,14 @@
         </div>
       </div>
       <div class="control-group">
+        <label class="control-label">Homepage Slider</label>
+        <div class="controls">
+          <label>
+            <input type="checkbox" name="flag_homepage" class="span6"/>
+          </label>
+        </div>
+      </div>
+      <div class="control-group">
         <label class="control-label">Publish</label>
         <div class="controls">
           <label>

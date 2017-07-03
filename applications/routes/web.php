@@ -97,6 +97,7 @@ Route::group(['middleware' => ['admin']], function () {
   Route::post('admin/class-course/edit', 'Backend\KelasController@edit')->name('kelasKursus.edit');
   Route::get('admin/class-course/{id}', 'Backend\KelasController@lihat')->name('kelasKursus.lihat');
   Route::get('admin/class-course/publish/{id}', 'Backend\KelasController@publish')->name('kelasKursus.publish');
+  Route::get('admin/class-course/slider/{id}', 'Backend\KelasController@slider')->name('kelasKursus.slider');
 
   // Class Room
   Route::get('admin/class-room', 'Backend\KelasRuangController@index')->name('kelasRuang.index');

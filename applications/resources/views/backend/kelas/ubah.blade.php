@@ -126,6 +126,14 @@
       </div>
       @endif --}}
       <div class="control-group">
+        <label class="control-label">Homepage Slider</label>
+        <div class="controls">
+          <label>
+            <input type="checkbox" name="flag_homepage" class="span6" {{ ($get->flag_homepage == 1) ? 'checked=""' : ''}} />
+          </label>
+        </div>
+      </div>
+      <div class="control-group">
         <label class="control-label">Publish</label>
         <div class="controls">
           <label>

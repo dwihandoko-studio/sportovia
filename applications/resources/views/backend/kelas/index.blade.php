@@ -23,7 +23,7 @@
       <h3>Unpublish Class Course</h3>
     </div>
     <div class="modal-body">
-      <p>Are you sure to un publish this class course ?</p>
+      <p>Are you sure to unpublish this class course ?</p>
     </div>
     <div class="modal-footer">
       <a class="btn btn-danger" id="setUnpublish">Unpublish</a>
@@ -45,6 +45,34 @@
     </div>
   </div>
 
+  <div id="modal-unhome" class="modal hide">
+    <div class="modal-header">
+      <button data-dismiss="modal" class="close" type="button">×</button>
+      <h3>Remove From Homepage Slider</h3>
+    </div>
+    <div class="modal-body">
+      <p>Are you sure to remove this class course from homepage slider ?</p>
+    </div>
+    <div class="modal-footer">
+      <a class="btn btn-danger" id="setUnhome">Remove</a>
+      <a data-dismiss="modal" class="btn" href="#">Cancel</a>
+    </div>
+  </div>
+
+  <div id="modal-home" class="modal hide">
+    <div class="modal-header">
+      <button data-dismiss="modal" class="close" type="button">×</button>
+      <h3>Show to Homepage Slider Class Course</h3>
+    </div>
+    <div class="modal-body">
+      <p>Are you sure to show in Homepage Slider this class course ?</p>
+    </div>
+    <div class="modal-footer">
+      <a class="btn btn-success" id="setHome">Show Slider</a>
+      <a data-dismiss="modal" class="btn" href="#">Cancel</a>
+    </div>
+  </div>
+
 
 <div class="widget-box">
   <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
@@ -61,6 +89,7 @@
           <th>Program</th>
           <th>Quotes</th>
           <th>Description</th>
+          <th>Homepage Slider</th>
           <th>Status</th>
           <th>Action</th>
         </tr>
@@ -77,6 +106,11 @@
           <td>{{ $key->program_kelas }}</td>
           <td>{{ $key->quotes }}</td>
           <td>{!! $key->deskripsi_kelas !!}</td>
+          <td>@if ($key->flag_homepage == 1)
+            <a href="" class="unhome" data-value="{{ $key->id }}" data-toggle="modal" data-target="#modal-unhome"><span class="label label-success tip-top" data-original-title="Show Slider"><i class="icon icon-thumbs-up"></i></span></a>
+          @else
+            <a href="" class="home" data-value="{{ $key->id }}" data-toggle="modal" data-target="#modal-home"><span class="label label-important tip-top" data-toggle="tooltip" data-placement="top" title="Remove Slider"><i class="icon icon-thumbs-down"></i></span></a>
+          @endif</td>
           <td>@if ($key->flag_publish == 1)
             <a href="" class="unpublish" data-value="{{ $key->id }}" data-toggle="modal" data-target="#modal-unpublish"><span class="label label-success tip-top" data-original-title="Publish"><i class="icon icon-thumbs-up"></i></span></a>
           @else
@@ -115,9 +149,19 @@ $(function(){
   });
 
   $('a.publish').click(function(){
-      var a = $(this).data('value');
-      $('#setPublish').attr('href', "{{ url('/') }}/admin/class-course/publish/"+a);
-    });
+    var a = $(this).data('value');
+    $('#setPublish').attr('href', "{{ url('/') }}/admin/class-course/publish/"+a);
+  });
+
+  $('a.unhome').click(function(){
+    var a = $(this).data('value');
+    $('#setHome').attr('href', "{{ url('/') }}/admin/class-course/slider/"+a);
+  });
+
+  $('a.home').click(function(){
+    var a = $(this).data('value');
+    $('#setHome').attr('href', "{{ url('/') }}/admin/class-course/slider/"+a);
+  });
 });
 </script>
 

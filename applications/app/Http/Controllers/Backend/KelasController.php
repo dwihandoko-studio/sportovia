@@ -80,6 +80,12 @@ class KelasController extends Controller
           $flag_publish = 0;
         }
 
+        if($request->flag_homepage == 'on'){
+          $flag_homepage = 1;
+        }else{
+          $flag_homepage = 0;
+        }
+
         if($request->id_program == 1){
           $program = 'children';
         }else{
@@ -104,6 +110,7 @@ class KelasController extends Controller
         $save->img_alt = 'sportopia-'.$program.'-'.str_slug($request->nama_kelas,'-');
         $save->fasilitas  = $fasilitas;
         $save->video_url  = $request->video_url;
+        $save->flag_homepage = $flag_homepage;
         $save->flag_publish = $flag_publish;
         $save->slug = str_slug($request->nama_kelas,'-');
         $save->actor = auth()->guard('admin')->id();
@@ -185,6 +192,12 @@ class KelasController extends Controller
           $flag_publish = 0;
         }
 
+        if($request->flag_homepage == 'on'){
+          $flag_homepage = 1;
+        }else{
+          $flag_homepage = 0;
+        }
+
         if($request->id_program == 1){
           $program = 'children';
         }else{
@@ -205,6 +218,7 @@ class KelasController extends Controller
         $update->deskripsi_kelas = nl2br($request->deskripsi_kelas);
         $update->fasilitas = $fasilitas;
         $update->video_url = $request->video_url;
+        $update->flag_homepage = $flag_homepage;
         $update->flag_publish = $flag_publish;
         $update->actor = auth()->guard('admin')->id();
         $update->slug = str_slug($request->nama_kelas,'-');
@@ -252,6 +266,38 @@ class KelasController extends Controller
           $log->save();
 
           return redirect()->route('kelasKursus.index')->with('berhasil', 'Successfully published '.$set->nama_kelas);
+        }
+
+    }
+
+    public function slider($id)
+    {
+        $set = Kelas::find($id);
+
+        if(!$set){
+          return view('backend.errors.404');
+        }
+
+        if ($set->flag_homepage == 1) {
+          $set->flag_homepage = 0;
+          $set->update();
+
+          $log = new LogAkses;
+          $log->actor = auth()->guard('admin')->id();
+          $log->aksi = 'Remove From Homepage Slider Class Course '.$set->nama_kelas;
+          $log->save();
+
+          return redirect()->route('kelasKursus.index')->with('berhasil', 'Successfully remove '.$set->nama_kelas);
+        }else{
+          $set->flag_homepage = 1;
+          $set->update();
+
+          $log = new LogAkses;
+          $log->actor = auth()->guard('admin')->id();
+          $log->aksi = 'Show to Homepage Slider Data Class Course '.$set->nama_kelas;
+          $log->save();
+
+          return redirect()->route('kelasKursus.index')->with('berhasil', 'Successfully show '.$set->nama_kelas);
         }
 
     }
