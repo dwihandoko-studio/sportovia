@@ -1,0 +1,4 @@
+*.png
+*.jpg
+!logo-cms.png
+!.gitignore

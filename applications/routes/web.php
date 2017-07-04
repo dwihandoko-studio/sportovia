@@ -101,9 +101,14 @@ Route::group(['middleware' => ['admin']], function () {
 
   // Class Room
   Route::get('admin/class-room', 'Backend\KelasRuangController@index')->name('kelasRuang.index');
-  Route::post('admin/class-room', 'Backend\KelasRuangController@store')->name('kelasRuang.store');
+  Route::post('admin/class-room', 'Backend\KelasRuangCo(ntroller@store')->name('kelasRuang.store');
   Route::get('admin/class-room/edit/{id}', 'Backend\KelasRuangController@ubah')->name('kelasRuang.ubah');
   Route::post('admin/class-room/edit', 'Backend\KelasRuangController@edit')->name('kelasRuang.edit');
+
+  // Class Gallery
+  Route::get('admin/class-gallery/{id}', 'Backend\KelasGaleriController@index')->name('kelasGaleri.index');
+  Route::post('admin/class-gallery', 'Backend\KelasGaleriController@store')->name('kelasGaleri.store');
+  Route::get('admin/class-gallery/delete/{id}', 'Backend\KelasGaleriController@delete')->name('kelasGaleri.delete');
 
   // News
   Route::get('admin/news', 'Backend\NewsController@index')->name('news.index');

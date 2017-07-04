@@ -117,7 +117,8 @@
             <a href="" class="publish" data-value="{{ $key->id }}" data-toggle="modal" data-target="#modal-publish"><span class="label label-important tip-top" data-toggle="tooltip" data-placement="top" title="Unpublish"><i class="icon icon-thumbs-down"></i></span></a>
           @endif</td>
           <td><a href="{{ route('kelasKursus.edit').'/'.$key->id }}"><span class="label label-warning tip-top" data-toggle="tooltip" data-placement="top" title="Edit"><i class="icon icon-pencil"></i> Edit</span></a>
-          <a href="{{ route('kelasKursus.lihat', ['id' => $key->id]) }}"><span class="label label-primary tip-top" data-toggle="tooltip" data-placement="top" title="View"><i class="icon icon-pencil"></i> View</span></a>
+          <a href="{{ route('kelasKursus.lihat', ['id' => $key->id]) }}"><span class="label label-primary tip-top" data-toggle="tooltip" data-placement="top" title="View"><i class="icon icon-folder-open"></i> View</span></a>
+          <a href="{{ route('kelasGaleri.index', ['id' => $key->id]) }}"><span class="label label-success tip-top" data-toggle="tooltip" data-placement="top" title="Gallery"><i class="icon icon-picture"></i> Gallery</span></a>
           </td>
         </tr>
         @php
