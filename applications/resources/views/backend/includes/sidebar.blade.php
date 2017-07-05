@@ -18,7 +18,7 @@
     <li class="{{ Route::is('jadwal*') ? 'active' : '' }}">
       <a href="{{ route('jadwal.index') }}"><i class="icon icon-calendar"></i> <span>Schedule Course</span></a>
     </li>
-    <li class="submenu {{ Route::is('kelasKategori*') ? 'active' : '' }}{{ Route::is('kelasKursus*') ? 'active' : '' }}{{ Route::is('kelasProgram*') ? 'active' : '' }}{{ Route::is('kelasRuang*') ? 'active' : '' }}">
+    <li class="submenu {{ Route::is('kelasKategori*') ? 'active' : '' }}{{ Route::is('kelasKursus*') ? 'active' : '' }}{{ Route::is('kelasProgram*') ? 'active' : '' }}{{ Route::is('kelasRuang*') ? 'active' : '' }}{{ Route::is('kelasGaleri*') ? 'active' : '' }}{{ Route::is('allGaleri*') ? 'active' : '' }}">
       <a href="#"><i class="icon icon-magnet"></i> <span>Class</span></a>
       <ul>
         <li class="{{ Route::is('kelasKursus*') ? 'active' : '' }}"><a href="{{ route('kelasKursus.index')}}">Class Course</a></li>
