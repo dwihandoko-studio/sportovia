@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 
 @section('title')
-<title>Sportopia | Staff</title>
+<title>Sportopia | Trainer</title>
 @endsection
 
 
@@ -9,17 +9,17 @@
 <div id="content-header">
   <div id="breadcrumb">
     <a href="{{ route('dashboard') }}" title="Dashboard" class="tip-bottom"><i class="icon-home"></i> Dashboard</a>
-    <a href="{{ route('pegawai.index') }}">Staff List</a>
-    <a href="" class="current">Edit Staff</a>
+    <a href="{{ route('pegawai.index') }}">Trainer List</a>
+    <a href="" class="current">Edit Trainer</a>
   </div>
-  <h1>Edit Staff</h1>
+  <h1>Edit Trainer</h1>
 </div>
 @endsection
 
 @section('content')
 <div class="widget-box">
     <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-      <h5>Edit Staff</h5>
+      <h5>Edit Trainer</h5>
       <a href="{{ route('pegawai.index') }}" class="btn btn-inverse pull-right"><i class="icon-plus"></i> Back</a>
     </div>
   <div class="widget-content nopadding">

@@ -257,7 +257,8 @@
 
 <script type="text/javascript">
 $(function(){
-  $('a.editKelasRuang').click(function(){
+
+  $('.kelasRuang-table').on('click','a.editKelasRuang', function(){
     var a = $(this).data('value');
     $.ajax({
       url: "{{ url('/') }}/admin/class-room/edit/"+a,

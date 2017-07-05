@@ -173,7 +173,7 @@
 
 <script type="text/javascript">
 $(function(){
-  $('a.editJabatan').click(function(){
+  $('.jabatan-table').on('click','a.editJabatan', function(){
     var a = $(this).data('value');
     $.ajax({
       url: "{{ url('/') }}/admin/staff-position/edit/"+a,
@@ -188,12 +188,12 @@ $(function(){
     });
   });
 
-  $('a.unpublish').click(function(){
+  $('.jabatan-table').on('click','a.unpublish', function(){
     var a = $(this).data('value');
     $('#setUnpublish').attr('href', "{{ url('/') }}/admin/staff-position/publish/"+a);
   });
 
-  $('a.publish').click(function(){
+  $('.jabatan-table').on('click','a.publish', function(){
       var a = $(this).data('value');
       $('#setPublish').attr('href', "{{ url('/') }}/admin/staff-position/publish/"+a);
     });

@@ -94,4 +94,32 @@ class KelasGaleriController extends Controller
 
         return redirect()->route('kelasGaleri.index', ['id' => $getImage->id_kelas])->with('berhasil', 'Your image has been successfully deleted.');
     }
+
+    public function allGaleri()
+    {
+        $getGaleri = KelasGaleri::paginate(20);
+
+        return view('backend.kelasGaleri.allGaleri', compact('getGaleri'));
+    }
+
+    public function deletee($id)
+    {
+        $getImage = KelasGaleri::find($id);
+
+        if(!$getImage){
+          return view('backend.errors.404');
+        }
+
+        DB::transaction(function() use($getImage){
+          File::delete('amadeo/images/gallery/' .$getImage->img_url);
+          $getImage->delete();
+
+          $log = new LogAkses;
+          $log->actor = auth()->guard('admin')->id();
+          $log->aksi = 'Delete Image Gallery '.$getImage->img_url;
+          $log->save();
+        });
+
+        return redirect()->route('kelasGaleri.allGaleri')->with('berhasil', 'Your image has been successfully deleted.');
+    }
 }

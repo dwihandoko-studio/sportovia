@@ -202,35 +202,11 @@
   $('.tanggal_publish').datepicker({
     format: 'yyyy-mm-dd',
   });
-
-  // $("#basic_validate").validate({
-  //   rules:{
-  //     ads_judul:{
-  //       require:true
-  //     },
-  //     img_url:{
-  //       require:true,
-  //       accept:"png|jpe?g",
-  //     },
-  //     img_alt:{
-  //       require:true
-  //     },
-  //   },
-  //   errorClass: "help-inline",
-  //   errorElement: "span",
-  //   highlight:function(element, errorClass, validClass) {
-  //     $(element).parents('.control-group').addClass('error');
-  //   },
-  //   unhighlight: function(element, errorClass, validClass) {
-  //     $(element).parents('.control-group').removeClass('error');
-  //     $(element).parents('.control-group').addClass('success');
-  //   }
-  // });
 </script>
 
 <script type="text/javascript">
 $(function(){
-  $('a.editAds').click(function(){
+  $('.ads-table').on('click','a.editAds', function(){
     var a = $(this).data('value');
     $.ajax({
       url: "{{ url('/') }}/admin/ads-banner/edit/"+a,
@@ -245,12 +221,12 @@ $(function(){
     });
   });
 
-  $('a.unpublish').click(function(){
+  $('.ads-table').on('click','a.unpublish', function(){
     var a = $(this).data('value');
     $('#setUnpublish').attr('href', "{{ url('/') }}/admin/ads-banner/publish/"+a);
   });
 
-  $('a.publish').click(function(){
+  $('.ads-table').on('click','a.publish', function(){
       var a = $(this).data('value');
       $('#setPublish').attr('href', "{{ url('/') }}/admin/ads-banner/publish/"+a);
     });

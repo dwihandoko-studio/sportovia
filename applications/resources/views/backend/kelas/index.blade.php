@@ -77,6 +77,7 @@
 <div class="widget-box">
   <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
     <h5>Class Course</h5>
+    <a href="{{ route('kelasGaleri.allGaleri') }}" class="btn btn-success pull-right"><i class="icon-plus"></i> All Gallery</a>
     <a href="{{ route('kelasKursus.tambah') }}" class="btn btn-primary pull-right"><i class="icon-plus"></i> Add</a>
   </div>
   <div class="widget-content nopadding" style="overflow-x:auto;">

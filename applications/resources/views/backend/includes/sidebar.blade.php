@@ -8,7 +8,7 @@
       <a href="#"><i class="icon icon-asterisk"></i> <span>About</span></a>
       <ul>
         <li class="{{ Route::is('tentang*') ? 'active' : '' }}"><a href="{{ route('tentang.index')}}">About</a></li>
-        <li class="{{ Route::is('pegawai*') ? 'active' : ''}}"><a href="{{ route('pegawai.index')}}">Staff</a></li>
+        <li class="{{ Route::is('pegawai*') ? 'active' : ''}}"><a href="{{ route('pegawai.index')}}">Trainer</a></li>
         <li class="{{ Route::is('staff-jabatan*') ? 'active' : ''}}"><a href="{{ route('staff-jabatan.index') }}">Staff Position</a></li>
       </ul>
     </li>
@@ -18,7 +18,7 @@
     <li class="{{ Route::is('jadwal*') ? 'active' : '' }}">
       <a href="{{ route('jadwal.index') }}"><i class="icon icon-calendar"></i> <span>Schedule Course</span></a>
     </li>
-    <li class="submenu {{ Route::is('kelasKategori*') ? 'active' : '' }}{{ Route::is('kelasKursus*') ? 'active' : '' }}{{ Route::is('kelasProgram*') ? 'active' : '' }}{{ Route::is('kelasRuang*') ? 'active' : '' }}">
+    <li class="submenu {{ Route::is('kelasKategori*') ? 'active' : '' }}{{ Route::is('kelasKursus*') ? 'active' : '' }}{{ Route::is('kelasProgram*') ? 'active' : '' }}{{ Route::is('kelasRuang*') ? 'active' : '' }}{{ Route::is('kelasGaleri*') ? 'active' : '' }}{{ Route::is('allGaleri*') ? 'active' : '' }}">
       <a href="#"><i class="icon icon-magnet"></i> <span>Class</span></a>
       <ul>
         <li class="{{ Route::is('kelasKursus*') ? 'active' : '' }}"><a href="{{ route('kelasKursus.index')}}">Class Course</a></li>
