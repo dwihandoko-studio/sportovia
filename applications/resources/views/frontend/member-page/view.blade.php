@@ -164,6 +164,7 @@
 				$hari_sekarang = date('l');
 			@endphp
 			<div class="content">
+				<?php /*
 				<div class="vidio-wrapper">
 					@if($hari_sekarang == $call->hari && $sekarang > $awal && $sekarang < $akhir)
 					<p>link cctv = {{ $call->link_cctv }}</p>
@@ -173,6 +174,7 @@
 					</div>
 					@endif
 				</div>
+				*/ ?>
 			</div>
 			<div class="clearfix"></div>
 		</div>
