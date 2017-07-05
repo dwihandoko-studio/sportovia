@@ -90,6 +90,12 @@
 	padding-right: 5%;
 	text-align: center;
 }
+#view .content-other .body-CO .img-galeri{
+	height: 300px;
+	width: auto;
+	float: left;
+	padding: 5px;
+}
 #view .content-other .body-CO .item{
 	position: relative;
 	width: 32%;

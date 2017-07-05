@@ -104,11 +104,32 @@
 			<div class="content">
 				<p>{!! $callClass->deskripsi_kelas !!}</p>
  				<div class="text-center">
-	 				<a class="btn btn-green open-form-class">Register</a>
+	 				<a id="register" class="btn btn-green open-form-class">Register</a>
  				</div>
 			</div>
 		</div>
 		<div class="clearfix"></div>
+		@if($getGaleri != null)
+		<div id="galeri-class" class="content-other">
+			<div class="heading-CO">
+				<div class="title-CO part-heading-CO">
+					<label>Galeri Class</label>
+				</div>
+				<div class="hr-CO part-heading-CO">
+					<hr>
+				</div>
+				<div class="icon-CO part-heading-CO">
+					<i class="fa fa-chevron-down" aria-hidden="true" data-toggle="collapse" data-target="#galeri-CO"></i>
+				</div>
+			</div>
+			<div  id="galeri-CO" class="collapse body-CO">
+				@foreach($getGaleri as $list)
+					<img class="img-galeri" src="{{ asset('amadeo/images/gallery/'.$list->img_url) }}" title="{{ $list->img_alt }}">
+				@endforeach
+			</div>
+		</div>
+		@endif
+		@if($callClass->fasilitas != null)
 		<div id="fasilitas" class="content-other">
 			<div class="heading-CO">
 				<div class="title-CO part-heading-CO">
@@ -145,6 +166,7 @@
 				@endforeach
 			</div>
 		</div>
+		@endif
 		@if($callClass->video_url != null)
 		<div id="vidio" class="content-other">
 			<div class="heading-CO">

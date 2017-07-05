@@ -189,7 +189,7 @@ class MemberController extends Controller
         ], $message);
 
         if($validator->fails()){
-          return redirect()->route('member.ubah', ['id' => $request->id])->withErrors($validator)->withInput();
+          return redirect()->route('member.getMember', ['id' => $request->id])->withErrors($validator)->withInput();
         }
 
         $salt = rand(100,999);
