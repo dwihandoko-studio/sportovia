@@ -56,6 +56,13 @@
 			@endif
 	    @endif
 	@endforeach
+	@if($countPercent == 0 && $percent == 0)
+	100%
+    {
+    	background-image : 
+		url('{{ asset('amadeo/images/class/'.$list->img_thumb) }}')
+	}
+	@endif
 }
 @-webkit-keyframes {{ str::slug($list->kategori_kelas, '-') }}-card-img-animate{
 	0%
@@ -86,6 +93,13 @@
 			@endif
 	    @endif
 	@endforeach
+	@if($countPercent == 0 && $percent == 0)
+	100%
+    {
+    	background-image : 
+		url('{{ asset('amadeo/images/class/'.$list->img_thumb) }}')
+	}
+	@endif
 }
 @endforeach
 </style>

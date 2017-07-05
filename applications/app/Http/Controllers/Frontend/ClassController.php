@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Models\Kelas;
+use App\Models\KelasGaleri;
 use App\Models\KelasKategori;
 use App\Models\KelasProgram;
 
@@ -85,6 +86,17 @@ class ClassController extends Controller
             abort(404);
         }
 
+        $getGaleri = KelasGaleri::select(
+            'img_url',
+            'img_alt'
+        )
+        ->where('id_kelas', $callClass->id)
+        ->get();
+
+        if ($getGaleri->isEmpty()) {
+            $getGaleri = null;
+        }
+
         if (in_array(strtolower($callClass->program_kelas), $arr)){
             $goView = 'frontend.children-page.view';
         }
@@ -94,7 +106,8 @@ class ClassController extends Controller
 
 	    return view($goView, compact(
 	    	'callKategori',
-	    	'callClass'
+            'callClass',
+	    	'getGaleri'
 	    ));
 	}
 }
