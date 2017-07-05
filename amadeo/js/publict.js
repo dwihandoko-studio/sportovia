@@ -22,6 +22,13 @@ $(document).ready(function() {
 	    	}
 	    });
 
+	    $('#free-trial').click(function() {
+	    	$("#type-form").val("1");
+	    });
+	    $('#register').click(function() {
+	    	$("#type-form").val("2");
+	    });
+
 		var win = $(window);
 		if(win.width() > 960){
 		    $("#list li.dropdown").hover(

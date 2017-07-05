@@ -11,7 +11,7 @@
 			<div id="right">
 				<div class="nav-content-wrapper">
 					<div>
-						<a class="btn btn-green open-form-class" <?php /* @if(Route::is('frontend.news-event.index') || Route::is('frontend.news-event.view')) style="display: none;" @endif */ ?>>
+						<a id="free-trial" class="btn btn-green open-form-class" <?php /* @if(Route::is('frontend.news-event.index') || Route::is('frontend.news-event.view')) style="display: none;" @endif */ ?>>
 							Free Trial Class
 						</a>
 						@if(empty(auth()->guard('user')->id()))
@@ -138,7 +138,7 @@
 						<label>
 							{{ $errors->has('store_type') ? $errors->first('store_type') : '' }}
 						</label>
-						<select class="form-control" name="store_type">
+						<select class="form-control" name="store_type" id="type-form">
 							<?php /*
 							@if(Route::is('frontend.news-event.index') || Route::is('frontend.news-event.view'))
 							<option value="3" selected>Register Joint Event</option>
@@ -213,7 +213,7 @@
 							<i class="fa fa-envelope" aria-hidden="true"></i>
 						</span>
 					</div>
-					<div class="input-group {{ $errors->has('store_class') ? 'error' : '' }}">
+					<div @if(Route::is('frontend.home')) style="visibility: hidden; opacity: 0; position: absolute;" @endif class="input-group {{ $errors->has('store_class') ? 'error' : '' }}">
 						<label>
 							{{ $errors->has('store_class') ? $errors->first('store_class') : '' }}
 						</label>
@@ -225,7 +225,6 @@
 							<option value="{{ $call->id }}" selected>{{ $call->judul }}</option>
 							@else
 							*/ ?>
-							<option value="" selected="" disabled>Choose Class</option>
 							@if($callFreeTrialClass != null)
 							@foreach($callFreeTrialClass as $list)
 							@if(Route::is('frontend.class.view'))

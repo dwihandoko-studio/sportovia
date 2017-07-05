@@ -104,7 +104,7 @@
 			<div class="content">
 				<p>{!! $callClass->deskripsi_kelas !!}</p>
  				<div class="text-center">
-	 				<a class="btn btn-green open-form-class">Register</a>
+	 				<a id="register" class="btn btn-green open-form-class">Register</a>
  				</div>
 			</div>
 		</div>
