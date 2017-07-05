@@ -17,35 +17,6 @@
 
 @section('content')
 
-  {{-- <div id="modal-unpublish" class="modal hide">
-    <div class="modal-header">
-      <button data-dismiss="modal" class="close" type="button">×</button>
-      <h3>Unpublish Social Media</h3>
-    </div>
-    <div class="modal-body">
-      <p>Are you sure to un publish this social media ?</p>
-    </div>
-    <div class="modal-footer">
-      <a class="btn btn-danger" id="setUnpublish">Unpublish</a>
-      <a data-dismiss="modal" class="btn" href="#">Cancel</a>
-    </div>
-  </div>
-
-  <div id="modal-publish" class="modal hide">
-    <div class="modal-header">
-      <button data-dismiss="modal" class="close" type="button">×</button>
-      <h3>Publish Social Media</h3>
-    </div>
-    <div class="modal-body">
-      <p>Are you sure to publish this social media ?</p>
-    </div>
-    <div class="modal-footer">
-      <a class="btn btn-success" id="setPublish">Publish</a>
-      <a data-dismiss="modal" class="btn" href="#">Cancel</a>
-    </div>
-  </div>
- --}}
-
 <div class="widget-box">
   <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
     <h5>Free Trial Register
@@ -66,7 +37,7 @@
           <th>Message</th>
           <th>Date</th>
           <th>Method</th>
-          <th>Action</th>
+          {{-- <th>Action</th> --}}
         </tr>
       </thead>
       <tbody>
@@ -90,7 +61,7 @@
           <td>{{ $hacep[0] }}</td>
           <td>{{ $key->created_at }}</td>
           <td>{!! $key->type == 1 ? '<span class="label label-primary">Free Trial</span>' : '<span class="label label important">Register</span>' !!}</td>
-          <td><a href=""><span class="label label-warning tip-top"><i class="icon icon-pencil"></i> Edit</span></a></td>
+          {{-- <td><a href=""><span class="label label-warning tip-top"><i class="icon icon-pencil"></i> Edit</span></a></td> --}}
         </tr>
         @php
           $no++;

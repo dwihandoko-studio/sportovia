@@ -101,7 +101,7 @@
 
 @section('script')
 <script type="text/javascript">
-  $('.event-table').dataTable({
+  $('.news-table').dataTable({
     "bJQueryUI": true,
     "sPaginationType": "full_numbers",
     "sDom": '<""l>t<"F"fp>'
@@ -109,17 +109,15 @@
 </script>
 
 <script type="text/javascript">
-$(function(){
-  $('a.unpublish').click(function(){
+  $('.news-table').on('click','a.unpublish', function(){
     var a = $(this).data('value');
     $('#setUnpublish').attr('href', "{{ url('/') }}/admin/event/publish/"+a);
   });
 
-  $('a.publish').click(function(){
+  $('.news-table').on('click','a.publish', function(){
       var a = $(this).data('value');
       $('#setPublish').attr('href', "{{ url('/') }}/admin/event/publish/"+a);
     });
-});
 </script>
 
 @if(Session::has('berhasil'))

@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 
 @section('title')
-<title>Sportopia | Staff</title>
+<title>Sportopia | Trainer</title>
 @endsection
 
 
@@ -9,9 +9,9 @@
 <div id="content-header">
   <div id="breadcrumb">
     <a href="{{ route('dashboard') }}" title="Dashboard" class="tip-bottom"><i class="icon-home"></i> Dashboard</a>
-    <a href="{{ route('pegawai.index') }}" class="current">Staff List</a>
+    <a href="{{ route('pegawai.index') }}" class="current">Trainer List</a>
   </div>
-  <h1>Staff List</h1>
+  <h1>Trainer List</h1>
 </div>
 @endsection
 
@@ -20,10 +20,10 @@
   <div id="modal-unpublish" class="modal hide">
     <div class="modal-header">
       <button data-dismiss="modal" class="close" type="button">×</button>
-      <h3>Unpublish Staff</h3>
+      <h3>Unpublish Trainer</h3>
     </div>
     <div class="modal-body">
-      <p>Are you sure to un publish this staff ?</p>
+      <p>Are you sure to un publish this trainer ?</p>
     </div>
     <div class="modal-footer">
       <a class="btn btn-danger" id="setUnpublish">Unpublish</a>
@@ -34,10 +34,10 @@
   <div id="modal-publish" class="modal hide">
     <div class="modal-header">
       <button data-dismiss="modal" class="close" type="button">×</button>
-      <h3>Publish Staff</h3>
+      <h3>Publish Trainer</h3>
     </div>
     <div class="modal-body">
-      <p>Are you sure to publish this staff ?</p>
+      <p>Are you sure to publish this trainer ?</p>
     </div>
     <div class="modal-footer">
       <a class="btn btn-success" id="setPublish">Publish</a>
@@ -48,7 +48,7 @@
 
 <div class="widget-box">
   <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-    <h5>Staff List</h5>
+    <h5>Trainer List</h5>
     <a href="{{ route('pegawai.tambah') }}" class="btn btn-primary pull-right"><i class="icon-plus"></i> Add</a>
   </div>
   <div class="widget-content nopadding" style="overflow-x:auto;">
@@ -123,12 +123,12 @@
 
 <script type="text/javascript">
 $(function(){
-  $('a.unpublish').click(function(){
+  $('.jabatan-table').on('click','a.unpublish', function(){
     var a = $(this).data('value');
     $('#setUnpublish').attr('href', "{{ url('/') }}/admin/staff/publish/"+a);
   });
 
-  $('a.publish').click(function(){
+  $('.jabatan-table').on('click','a.publish', function(){
       var a = $(this).data('value');
       $('#setPublish').attr('href', "{{ url('/') }}/admin/staff/publish/"+a);
     });

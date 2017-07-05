@@ -8,7 +8,7 @@
       <a href="#"><i class="icon icon-asterisk"></i> <span>About</span></a>
       <ul>
         <li class="{{ Route::is('tentang*') ? 'active' : '' }}"><a href="{{ route('tentang.index')}}">About</a></li>
-        <li class="{{ Route::is('pegawai*') ? 'active' : ''}}"><a href="{{ route('pegawai.index')}}">Staff</a></li>
+        <li class="{{ Route::is('pegawai*') ? 'active' : ''}}"><a href="{{ route('pegawai.index')}}">Trainer</a></li>
         <li class="{{ Route::is('staff-jabatan*') ? 'active' : ''}}"><a href="{{ route('staff-jabatan.index') }}">Staff Position</a></li>
       </ul>
     </li>

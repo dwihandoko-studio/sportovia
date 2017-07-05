@@ -21,7 +21,7 @@
   <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
     <h5>View Class Course</h5>
     <a href="{{ route('kelasKursus.index') }}" class="btn btn-inverse pull-right"><i class="icon-plus"></i> Back</a>
-    <a href="{{ route('kelasKursus.ubah', array('id' => $get->id )) }}" class="btn btn-warning pull-right"><i class="icon-plus"></i> Edit</a>
+    <a href="{{ route('kelasKursus.ubah', array('id' => $get->id )) }}" class="btn btn-warning pull-right"><i class="icon-pencil"></i> Edit</a>
   </div>
   <div class="widget-content"  style="overflow-x:auto;">
     <table class="table table-bordered">
