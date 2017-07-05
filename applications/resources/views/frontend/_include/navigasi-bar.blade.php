@@ -213,7 +213,7 @@
 							<i class="fa fa-envelope" aria-hidden="true"></i>
 						</span>
 					</div>
-					<div @if(Route::is('frontend.home')) style="visibility: hidden; opacity: 0; position: absolute;" @endif class="input-group {{ $errors->has('store_class') ? 'error' : '' }}">
+					<div @if(!Route::is('frontend.class.view')) style="visibility: hidden; opacity: 0; position: absolute;" @endif class="input-group {{ $errors->has('store_class') ? 'error' : '' }}">
 						<label>
 							{{ $errors->has('store_class') ? $errors->first('store_class') : '' }}
 						</label>
