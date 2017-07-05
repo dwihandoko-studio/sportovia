@@ -76,7 +76,7 @@
 									@endif
 										<div class="link">
 											<a href="{{ Route('frontend.class.view', ['slug' => $list->slug, 'subslug' => $sublist->slug]) }}">
-												{{ Str::words($sublist->nama_kelas, 2, '') }}
+												{{ Str::limit($sublist->nama_kelas, 16, '...') }}
 											</a>
 										</div>
 									@if($looping%2 == 0)
@@ -89,6 +89,14 @@
 									@endif
 
 									@php ($looping++)
+									@endif
+									@if($looping == 6)
+										<div class="link">
+											<a href="{{ Route('frontend.class.index', ['slug' => $list->slug]) }}">
+												View More
+											</a>
+										</div>
+										@break
 									@endif
 									@endforeach
 									@endif

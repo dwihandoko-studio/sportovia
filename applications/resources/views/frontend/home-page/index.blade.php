@@ -14,6 +14,82 @@
 
 @section('head-style')
 <link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-home.css') }}">
+@if(count($callClass) > 0)
+@foreach($callKelasKategori as $list)
+	@foreach($callClass as $listSub)
+		@if($list->id == $listSub->id_kelas_kategori)
+		@endif
+	@endforeach
+@endforeach
+<style type="text/css">
+@foreach($callKelasKategori as $list)
+#{{ str::slug($list->kategori_kelas, '-') }}-card-img{
+	animation: {{ str::slug($list->kategori_kelas, '-') }}-card-img-animate 25s infinite;
+	-webkit-animation: {{ str::slug($list->kategori_kelas, '-') }}-card-img-animate 25s infinite;
+}
+@keyframes {{ str::slug($list->kategori_kelas, '-') }}-card-img-animate{
+	0%
+    {
+    	background-image : 
+		url('{{ asset('amadeo/images/class/'.$list->img_thumb) }}')
+	}
+	@php ($countPercent = 0)
+	@foreach($callClass as $listSub)
+		@if($list->id == $listSub->id_kelas_kategori)
+			@php ($countPercent = $countPercent + 1)
+			@if($countPercent == 4)
+			@break
+			@endif
+		@endif
+	@endforeach
+	@php ($percent = 0)
+	@foreach($callClass as $listSub)
+		@if($list->id == $listSub->id_kelas_kategori)
+			@php ($percent = $percent + (100/$countPercent))
+			{{$percent}}%
+			{
+				background-image : 
+				url('{{ asset('amadeo/images/class/'.$listSub->img_url) }}')
+			}
+			@if($percent == 100)
+			@break
+			@endif
+	    @endif
+	@endforeach
+}
+@-webkit-keyframes {{ str::slug($list->kategori_kelas, '-') }}-card-img-animate{
+	0%
+    {
+    	background-image : 
+		url('{{ asset('amadeo/images/class/'.$list->img_thumb) }}')
+	}
+	@php ($countPercent = 0)
+	@foreach($callClass as $listSub)
+		@if($list->id == $listSub->id_kelas_kategori)
+			@php ($countPercent = $countPercent + 1)
+			@if($countPercent == 4)
+			@break
+			@endif
+		@endif
+	@endforeach
+	@php ($percent = 0)
+	@foreach($callClass as $listSub)
+		@if($list->id == $listSub->id_kelas_kategori)
+			@php ($percent = $percent + (100/$countPercent))
+			{{$percent}}%
+			{
+				background-image : 
+				url('{{ asset('amadeo/images/class/'.$listSub->img_url) }}')
+			}
+			@if($percent == 100)
+			@break
+			@endif
+	    @endif
+	@endforeach
+}
+@endforeach
+</style>
+@endif
 @endsection
 
 @section('body-content')
@@ -23,7 +99,7 @@
 		@foreach($callKelasKategori as $list)
 		<div class="bar bar-size-4 card">
 			<div class="card-wrapper">
-				<div class="card-img" style="background-image: url('{{ asset('amadeo/images/class/'.$list->img_thumb) }}')"></div>
+				<div id="{{ str::slug($list->kategori_kelas, '-') }}-card-img" class="card-img"></div>
 				<div class="screen"></div>
 				<div class="card-wrapper-icon">
 					<a href="{{ Route('frontend.class.index', ['slug' => $list->slug]) }}">
