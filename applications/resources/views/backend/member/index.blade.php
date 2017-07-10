@@ -21,6 +21,7 @@
 <div class="widget-box">
   <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
     <h5>Member</h5>
+    <a href="{{ route('memberGaleri.allGaleri') }}" class="btn btn-success pull-right"><i class="icon-picture"></i>All Gallery</a>
     <a href="{{ route('member.tambah') }}" class="btn btn-primary pull-right"><i class="icon-plus"></i> Add</a>
   </div>
   <div class="widget-content" style="overflow-x:auto;">
@@ -54,7 +55,9 @@
           <td>{{ $key->tanggal_gabung }}</td>
           <td>
             <a href="{{ route('member.getMember', ['id' => $key->id])}}"><span class="label label-warning tip-top" data-toggle="tooltip" data-placement="top" title="Edit"><i class="icon icon-pencil"></i> Edit</span></a>
-            <a href="{{ route('member.lihatJadwal', ['id' => $key->id])}}"><span class="label label-success tip-top" data-toggle="tooltip" data-placement="top" title="Schedule"><i class="icon icon-calendar"></i> Schedule</span></a></td>
+            <a href="{{ route('member.lihatJadwal', ['id' => $key->id])}}"><span class="label label-primary tip-top" data-toggle="tooltip" data-placement="top" title="Schedule"><i class="icon icon-calendar"></i> Schedule</span></a>
+            <a href="{{ route('memberGaleri.index', ['id' => $key->id]) }}"><span class="label label-success tip-top" data-toggle="tooltip" data-placement="top" title="Gallery"><i class="icon icon-picture"></i> Gallery</span></a>
+          </td>
         </tr>
         @php
           $no++;
