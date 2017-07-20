@@ -1,6 +1,81 @@
 #info{
-	padding: 20px 0px;
+	padding: 0px 0px 20px ;
 	text-align: center;
+}
+#info #tabs-wrapper{
+	padding-top: 5px;
+	background-color: rgb(225,243,213);
+}
+#info #tabs-wrapper .nav.nav-tabs{
+	padding-left: 8.5%;
+	border-bottom: 1px solid rgb(167,167,167);
+}
+#info #tabs-wrapper .nav.nav-tabs li{
+	margin-left: -15px;
+}
+#info #tabs-wrapper .nav.nav-tabs li a{
+	font-family: 'open sans';
+    font-weight: bolder;
+    text-shadow: 0px 2px 2px rgb(167,167,167);
+	border: 1px solid rgb(167,167,167);   
+	border-bottom: 1px solid rgba(167,167,167,0);   
+    border-radius: 25px 25px 0px 0;
+    padding: 5px 40px;
+	color: rgb(255,255,255);
+	background-color: rgb(185,212,176);
+	transition: all .51s;
+}
+#info #tabs-wrapper .nav.nav-tabs li:hover a{
+	color: rgb(69,186,1);
+	background-color: rgb(255,255,255);
+}
+#info #tabs-wrapper .nav.nav-tabs li.active a{
+	color: rgb(69,186,1);
+	background-color: rgb(255,255,255);
+	z-index: 1;
+}
+#info .info-wrapper.reguler-class{
+	width: 100%; 
+	padding: 40px 0px; 
+}
+#info .info-wrapper.reguler-class .img:after{
+	width: 0px;
+    height: 0px;
+}
+#info .info-wrapper.reguler-class .content{
+	padding: 0px;
+	margin-top: 0px;
+	width: 100%;
+    background-image: none;
+}
+#info .info-wrapper.reguler-class .content p.info,
+#info .info-wrapper.reguler-class .content label.info{
+	color: red;
+}
+
+#info .info-wrapper.reguler-class .input-group{
+	width: 100%;
+	margin-bottom: 20px;
+}
+#info .info-wrapper.reguler-class .input-group-cell{
+	display: table-cell;
+	vertical-align: middle;
+	height: 40px;
+    text-align: left;
+}
+#info .info-wrapper.reguler-class .input-group-cell:nth-child(odd){
+	width: 40%;
+}
+#info .info-wrapper.reguler-class .input-group-cell:nth-child(even){
+	width: 60%;
+}
+#info .info-wrapper.reguler-class .input-group-cell.label label{
+	position: relative;
+	font-family: 'open sans';
+    font-weight: bold;
+    color: rgb(166,166,166);
+    text-align: left;
+    font-size: 14px;
 }
 #info .info-wrapper{
 	position: relative; 
@@ -66,9 +141,23 @@
 #info .info-wrapper .content table.table tr td{
 	padding: 8px;
 }
+#info .info-wrapper .content table.table tr:first-child td{
+	border: none;
+}
+#info .info-wrapper .content table.table tr td .font-style{
+	text-align: center;
+	font-family: 'open sans';
+    font-weight: bolder;
+	color: rgb(69,186,1);
+	text-transform: uppercase;
+}
 @media (max-width: 480px) {
 	#info .info-wrapper{
+		padding: 0;
 		width: 100%;
+	}
+	#info .info-wrapper .content{
+		padding: 160px 10px 20px;
 	}
 	#info .info-wrapper .img{
 		width: 180px;
@@ -88,4 +177,11 @@
 	#info .info-wrapper .content table{
 		width: 100%;
 	}
+	#info .info-wrapper.reguler-class .bar,
+	#info .info-wrapper.reguler-class .input-group-cell:nth-child(odd),
+	#info .info-wrapper.reguler-class .input-group-cell:nth-child(even){
+		display: block;
+		width: 100%;
+	}
+
 }

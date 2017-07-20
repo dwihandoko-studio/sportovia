@@ -11,56 +11,7 @@
 
 @section('head-style')
 <link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-public-sub.css') }}">
-<style type="text/css">
-	#info{
-		padding: 40px 0px;
-	}
-	#info .info-wrapper{
-		background-color: rgb(232,255,226);
-		width: 100%;
-		text-align: center;
-	}
-	#info .info-wrapper .content{
-		float: left;
-		padding: 20px;
-	}
-	#info .info-wrapper .content:nth-child(odd){
-		width: 45%;
-	}
-	#info .info-wrapper .content:nth-child(even){
-		width: 55%;
-	}
-	#info .info-wrapper .content h2{
-		text-align: center;
-		font-family: 'open sans';
-	    font-weight: bolder;
-		color: rgb(69,186,1);
-		text-transform: uppercase;
-	}
-	#info .info-wrapper .content table{
-		width: 90%;
-		margin: 0 auto 15px;
-	}
-	#info .info-wrapper .content table tr td{
-		font-family: 'open sans';
-	    font-weight: bold;
-		color: rgb(166,166,166);
-		text-align: left;
-		padding: 0px 4px 8px;
-		vertical-align: top;
-	}
-	#info .info-wrapper .content .vidio-wrapper{
-		width: 100%;
-		padding: 20px;
-		border: 5px solid rgb(255,255,255);
-	}
-	@media (max-width: 480px) {
-		#info .info-wrapper .content:nth-child(odd),
-		#info .info-wrapper .content:nth-child(even){
-			width: 100%;
-		}
-	}
-</style>
+<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-member-view.css') }}">
 @endsection
 
 @section('body-content')
@@ -164,6 +115,53 @@
 				$hari_sekarang = date('l');
 			@endphp
 			<div class="content">
+				<div id="photo" class="content-other">
+					<div class="heading-CO">
+						<div class="icon-CO part-heading-CO">
+							<i class="fa fa-chevron-circle-down" aria-hidden="true" data-toggle="collapse" data-target="#photo-CO"></i>
+						</div>
+						<div class="title-CO part-heading-CO">
+							<label>Photo</label>
+						</div>
+						<div class="hr-CO part-heading-CO">
+							<hr>
+						</div>
+					</div>
+					<div  id="photo-CO" class="collapse body-CO">
+						@for($a=0; $a<=3; $a++)
+						<div class="item">
+							<div class="img" style="background-image: url('{{ asset('amadeo/images/gallery/english speaking - 6328 - children thum.jpg') }}');">
+							</div>
+						</div>
+						@endfor
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<div id="vidio" class="content-other">
+					<div class="heading-CO">
+						<div class="icon-CO part-heading-CO">
+							<i class="fa fa-chevron-circle-down" aria-hidden="true" data-toggle="collapse" data-target="#vidio-CO"></i>
+						</div>
+						<div class="title-CO part-heading-CO">
+							<label>Vidio</label>
+						</div>
+						<div class="hr-CO part-heading-CO">
+							<hr>
+						</div>
+					</div>
+					@php
+						$url = 'https://www.youtube.com/watch?v=MmeydJhyXGc&list=RDMM0v18YIwEmKE&index=27';
+						$step1=explode('v=', $url);
+						$step2 =explode('&',$step1[1]);
+						$vedio_id = $step2[0];
+					@endphp
+					<div id="vidio-CO" class="collapse body-CO">
+						<div class="iframe-wrapper">
+							<iframe src="https://www.youtube.com/embed/{{ $vedio_id }}" frameborder="0" allowfullscreen></iframe>
+						</div>
+					</div>
+				</div>
+
 				<?php /*
 				<div class="vidio-wrapper">
 					@if($hari_sekarang == $call->hari && $sekarang > $awal && $sekarang < $akhir)

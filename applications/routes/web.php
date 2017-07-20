@@ -200,6 +200,8 @@ Route::group(['middleware' => ['user']], function(){
     ->name('frontend.member.index');
     Route::get('/member-area/{slug}', 'Frontend\MemberController@view')
     ->name('frontend.member.view');
+    Route::post('/member-area/change-password', 'Frontend\MemberController@changePassword')
+    ->name('frontend.member.changePassword');
 });
 
 //-------------------- FRONT END ----------------//

@@ -78,34 +78,85 @@
 		@if($getGaleri != null)
 		<div id="galeri-class" class="content-other">
 			<div class="heading-CO">
+				<div class="icon-CO part-heading-CO">
+					<i class="fa fa-chevron-circle-down" aria-hidden="true" data-toggle="collapse" data-target="#galeri-CO"></i>
+				</div>
 				<div class="title-CO part-heading-CO">
 					<label>Galeri Class</label>
 				</div>
 				<div class="hr-CO part-heading-CO">
 					<hr>
 				</div>
-				<div class="icon-CO part-heading-CO">
-					<i class="fa fa-chevron-down" aria-hidden="true" data-toggle="collapse" data-target="#galeri-CO"></i>
-				</div>
 			</div>
 			<div  id="galeri-CO" class="collapse body-CO">
 				@foreach($getGaleri as $list)
-					<img class="img-galeri" src="{{ asset('amadeo/images/gallery/'.$list->img_url) }}" title="{{ $list->img_alt }}">
+				<div class="item">
+					<div class="img" style="background-image: url('{{ asset('amadeo/images/gallery/'.$list->img_url) }}');">
+						<div class="description">
+							<div class="wrapper">
+								<div class="content">
+									<img src="{{ asset('amadeo/main-image/icon-circle.png') }}">
+								</div>
+							</div>
+							<div class="wrapper">
+								<div class="content">
+									<label></label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<?php
+				// <img class="img-galeri" src="{{ asset('amadeo/images/gallery/'.$list->img_url) }}" title="{{ $list->img_alt }}">
+				?>
 				@endforeach
+			</div>
+		</div>
+		@endif
+		@if($callClass->video_url != null)
+		<div id="vidio" class="content-other">
+			<div class="heading-CO">
+				<div class="icon-CO part-heading-CO">
+					<i class="fa fa-chevron-circle-down" aria-hidden="true" data-toggle="collapse" data-target="#vidio-CO"></i>
+				</div>
+				<div class="title-CO part-heading-CO">
+					<label>Vidio</label>
+				</div>
+				<div class="hr-CO part-heading-CO">
+					<hr>
+				</div>
+			</div>
+			@php
+				$url = $callClass->video_url;
+				$step1=explode('v=', $url);
+				$step2 =explode('&',$step1[1]);
+				$vedio_id = $step2[0];
+			@endphp
+			<div id="vidio-CO" class="collapse body-CO">
+				<div class="iframe-wrapper">
+					<iframe src="https://www.youtube.com/embed/{{ $vedio_id }}" frameborder="0" allowfullscreen></iframe>
+					<div class="iframe-title">
+						<div class="title-wrapper">
+							<div class="title">
+								<h1>lorem ipsum in here</h1>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		@endif
 		@if($callClass->fasilitas != null)
 		<div id="fasilitas" class="content-other">
 			<div class="heading-CO">
+				<div class="icon-CO part-heading-CO">
+					<i class="fa fa-chevron-circle-down" aria-hidden="true" data-toggle="collapse" data-target="#fasilitas-CO"></i>
+				</div>
 				<div class="title-CO part-heading-CO">
 					<label>Fasilitas</label>
 				</div>
 				<div class="hr-CO part-heading-CO">
 					<hr>
-				</div>
-				<div class="icon-CO part-heading-CO">
-					<i class="fa fa-chevron-down" aria-hidden="true" data-toggle="collapse" data-target="#fasilitas-CO"></i>
 				</div>
 			</div>
 			<div  id="fasilitas-CO" class="collapse body-CO">
@@ -114,7 +165,7 @@
 				@endphp
 				@foreach($fasilitasArr as $list)
 				<div class="item">
-					<div class="img">
+					<div class="img list">
 						<div class="description">
 							<div class="wrapper">
 								<div class="content">
@@ -133,30 +184,7 @@
 			</div>
 		</div>
 		@endif
-		@if($callClass->video_url != null)
-		<div id="vidio" class="content-other">
-			<div class="heading-CO">
-				<div class="title-CO part-heading-CO">
-					<label>Vidio</label>
-				</div>
-				<div class="hr-CO part-heading-CO">
-					<hr>
-				</div>
-				<div class="icon-CO part-heading-CO">
-					<i class="fa fa-chevron-down" aria-hidden="true" data-toggle="collapse" data-target="#vidio-CO"></i>
-				</div>
-			</div>
-			@php
-				$url = $callClass->video_url;
-				$step1=explode('v=', $url);
-				$step2 =explode('&',$step1[1]);
-				$vedio_id = $step2[0];
-			@endphp
-			<div id="vidio-CO" class="collapse body-CO">
-				<iframe src="https://www.youtube.com/embed/{{ $vedio_id }}" frameborder="0" allowfullscreen></iframe>
-			</div>
-		</div>
-		@endif
+		
 	</div>
 </div>
 @endsection

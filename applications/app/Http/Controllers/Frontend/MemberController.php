@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Models\Jadwal;
+use App\Models\User;
+
+use Auth;
+use Validator;
+use Hash;
 
 class MemberController extends Controller
 {
@@ -31,7 +36,7 @@ class MemberController extends Controller
     	->select(
     		'amd_jadwal.id as id_jadwal',
     		'kode_member',
-        'nama_member',
+            'nama_member',
     		'img_member',
     		'tempat_lahir',
     		'tanggal_lahir',
@@ -40,7 +45,8 @@ class MemberController extends Controller
             'amd_kelas.nama_kelas as nama_kelas',
     		'jam_mulai',
     		'jam_akhir',
-    		'hari'
+    		'hari',
+            'anak_member'
     	)
     	->where('amd_member.flag_status', '1')
     	->where('amd_jadwal.flag_status', '1')
@@ -114,4 +120,36 @@ class MemberController extends Controller
 	    ));
 	}
 
+    public function changePassword(Request $request){
+        $getUser = User::find($request->id);
+
+        $messages = [
+          'old_password.required' => "You must enter the old password",
+          'new_password.required' => "You must enter the new password",
+          'new_password.min' => "Too short",
+          'confirm_password.required' => "You must enter the new password confirmation",
+          'confirm_password.confirmed' => "Password don't match",
+        ];
+
+        $validator = Validator::make($request->all(), [
+          'old_password' => 'required',
+          'new_password' => 'required|min:6',
+          'confirm_password' => 'required|same:new_password'
+        ], $messages);
+
+        if ($validator->fails()) {
+          return redirect()->route('frontend.member.index')->withErrors($validator)->withInput();
+        }
+
+        if(Hash::check($request->old_password, $getUser->password))
+        {
+          $getUser->password = Hash::make($request->new_password);
+          $getUser->update();
+
+          return redirect()->route('frontend.member.index')->with('info-password', "Your password successfully changed.");
+        }
+        else {
+          return redirect()->route('frontend.member.index')->with('info-password', 'Your old password did not match');
+        }
+    }
 }

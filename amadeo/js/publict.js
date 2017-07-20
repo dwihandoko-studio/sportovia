@@ -33,12 +33,14 @@ $(document).ready(function() {
 		if(win.width() > 960){
 		    $("#list li.dropdown").hover(
 		    	function(){
-				    $(".nav-content-wrapper").css("height", "22.8vh");
-				    $("#nav-logo").css("height", "19.8vh");
+				    // $("ul#list").css("box-shadow", "0px 5px 5px rgba(85,85,85,.6)");
+				    // $(".nav-content-wrapper").css("height", "22.8vh");
+				    // $("#nav-logo").css("height", "19.8vh");
 		    	},
 		    	function(){
-				    $(".nav-content-wrapper").css("height", "");
-				    $("#nav-logo").css("height", "");
+				    // $("ul#list").css("box-shadow", "0px 5px 5px rgba(85,85,85,0)");
+				    // $(".nav-content-wrapper").css("height", "");
+				    // $("#nav-logo").css("height", "");
 		    	}
 		    );
 		}

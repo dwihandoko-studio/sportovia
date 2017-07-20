@@ -14,7 +14,6 @@
 
 @section('head-style')
 <link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-home.css') }}">
-@if(count($callClass) > 0)
 @foreach($callKelasKategori as $list)
 	@foreach($callClass as $listSub)
 		@if($list->id == $listSub->id_kelas_kategori)
@@ -103,15 +102,14 @@
 }
 @endforeach
 </style>
-@endif
 @endsection
 
 @section('body-content')
 <?php // category card layout wrapper ?>
 <div id="cards" class="setup-wrapper">
-	<div class="setup-content nor-wd">
+	<div class="setup-content lar-wd">
 		@foreach($callKelasKategori as $list)
-		<div class="bar bar-size-4 card">
+		<div class="bar bar-size-5 card">
 			<div class="card-wrapper">
 				<div id="{{ str::slug($list->kategori_kelas, '-') }}-card-img" class="card-img"></div>
 				<div class="screen"></div>
