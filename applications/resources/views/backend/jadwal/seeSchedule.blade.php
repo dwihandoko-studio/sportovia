@@ -64,45 +64,39 @@
   </div>
 </div>
 
-@foreach (array_chunk($getDay, 3) as $days)
+@foreach (array_chunk($getDay, 2) as $days)
 <div class="row-fluid">
 @foreach ($days as $key)
-<div class="span4">
+<div class="span6">
   <div class="widget-box">
     <div class="widget-title"> <span class="icon"> <i class="icon-eye-open"></i> </span>
       <h5>{{ $key }}</h5>
     </div>
-    <div class="widget-content nopadding"  style="overflow-x:auto;">
-      <hr>
-      <table class="table table-bordered">
+    <div class="widget-content"  style="overflow-x:auto;">
+      <table class="table table-bordered see-table">
         <thead>
-          <th>Action</th>
           <th>Member</th>
           <th>Class Room</th>
           <th>Start</th>
           <th>End</th>
+          <th>Status</th>
+          <th>Action</th>
         </thead>
         <tbody>
           @foreach ($getJadwal as $jadwal)
           @if ($jadwal->hari == $key)
           <tr>
-            <td>
-              <div class="btn-group">
-                <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle">Act <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                  <li>@if ($jadwal->flag_status == 1)
-                    <a href="" class="unpublish" data-value="{{ $jadwal->id }}" data-toggle="modal" data-target="#modal-unpublish"><span class="label label-success tip-top" data-original-title="Active"><i class="icon icon-thumbs-up"></i>Active</span></a>
-                  @else
-                    <a href="" class="publish" data-value="{{ $jadwal->id }}" data-toggle="modal" data-target="#modal-publish"><span class="label label-important tip-top" data-toggle="tooltip" data-placement="top" title="Deactivate"><i class="icon icon-thumbs-down"></i>Deactivate</span></a>
-                  @endif</li>
-                  <li><a href="{{ route('jadwal.ubah.schedule', ['id' => $jadwal->id]) }}"><span class="label label-warning tip-top" data-toggle="tooltip" data-placement="top" title="Edit"><i class="icon icon-pencil"></i> Edit</span></a></li>
-                </ul>
-              </div>
-            </td>
             <td>{{ $jadwal->member->kode_member }} | {{ $jadwal->member->nama_member }}</td>
             <td>{{ $jadwal->kelasRuang->nama_kelas }}</td>
             <td>{{ $jadwal->jam_mulai}}</td>
             <td>{{ $jadwal->jam_akhir}}</td>
+            <td>@if ($jadwal->flag_status == 1)
+              <a href="" class="unpublish" data-value="{{ $jadwal->id }}" data-toggle="modal" data-target="#modal-unpublish"><span class="label label-success tip-top" data-original-title="Active"><i class="icon icon-thumbs-up"></i> Active</span></a>
+            @else
+              <a href="" class="publish" data-value="{{ $jadwal->id }}" data-toggle="modal" data-target="#modal-publish"><span class="label label-important tip-top" data-toggle="tooltip" data-placement="top" title="Deactivate"><i class="icon icon-thumbs-down"></i> Deactivate</span></a>
+            @endif</td>
+            <td><a href="{{ route('jadwal.ubah.schedule', ['id' => $jadwal->id]) }}"><span class="label label-warning tip-top" data-toggle="tooltip" data-placement="top" title="Edit"><i class="icon icon-pencil"></i> Edit</span></a><br>
+            <a href="{{ route('jadwal.ubah.schedule', ['id' => $jadwal->id]) }}"><span class="label label-success tip-top" data-toggle="tooltip" data-placement="top" title="Gallery"><i class="icon icon-pencil"></i> Gallery</span></a></td>
           </tr>
           @endif
           @endforeach
@@ -120,12 +114,18 @@
 @section('script')
 <script type="text/javascript">
 $(function(){
-  $('a.unpublish').click(function(){
+  $('.see-table').dataTable({
+    "bJQueryUI": true,
+    "sPaginationType": "full_numbers",
+    "sDom": '<""l>t<"F"fp>'
+  });
+
+  $('.see-table').on('click','a.unpublish', function(){
     var a = $(this).data('value');
     $('#setUnpublish').attr('href', "{{ url('/') }}/admin/schedule/status/"+a);
   });
 
-  $('a.publish').click(function(){
+  $('.see-table').on('click','a.publish', function(){
       var a = $(this).data('value');
       $('#setPublish').attr('href', "{{ url('/') }}/admin/schedule/status/"+a);
     });

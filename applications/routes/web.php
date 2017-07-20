@@ -112,6 +112,13 @@ Route::group(['middleware' => ['admin']], function () {
   Route::get('admin/class-gallery/delete/{id}', 'Backend\KelasGaleriController@delete')->name('kelasGaleri.delete');
   Route::get('admin/class-gallery/deletee/{id}', 'Backend\KelasGaleriController@deletee')->name('kelasGaleri.deletee');
 
+  // Member Galeri
+  Route::get('admin/member-gallery/all', 'Backend\MemberGaleriController@allGaleri')->name('memberGaleri.allGaleri');
+  Route::get('admin/member-gallery/{id}', 'Backend\MemberGaleriController@index')->name('memberGaleri.index');
+  Route::post('admin/member-gallery', 'Backend\MemberGaleriController@store')->name('memberGaleri.store');
+  Route::get('admin/member-gallery/delete/{id}', 'Backend\MemberGaleriController@delete')->name('memberGaleri.delete');
+  Route::get('admin/member-gallery/deletee/{id}', 'Backend\MemberGaleriController@deletee')->name('memberGaleri.deletee');
+
   // News
   Route::get('admin/news', 'Backend\NewsController@index')->name('news.index');
   Route::get('admin/news/add', 'Backend\NewsController@tambah')->name('news.tambah');
@@ -148,6 +155,7 @@ Route::group(['middleware' => ['admin']], function () {
   Route::post('admin/member/edit', 'Backend\MemberController@edit')->name('member.edit');
   Route::get('admin/member/schedule/{id}', 'Backend\MemberController@lihatJadwal')->name('member.lihatJadwal');
   Route::get('admin/member/shcedule/status/{id}', 'Backend\MemberController@status')->name('member.status');
+
 
   //Jadwal
   Route::get('admin/schedule', 'Backend\ScheduleController@index')->name('jadwal.index');
