@@ -49,7 +49,7 @@
 <div class="widget-box">
   <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
     <h5>Class Category</h5>
-    @if ($getKelasKategori->count() < 4)
+    @if ($getKelasKategori->count() < 5)
     <a href="{{ route('kelasKategori.tambah') }}" class="btn btn-primary pull-right"><i class="icon-plus"></i> Add</a>
     @endif
   </div>
