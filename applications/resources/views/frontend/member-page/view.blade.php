@@ -12,6 +12,7 @@
 @section('head-style')
 <link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-public-sub.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('amadeo/css/frontend-member-view.css') }}">
+<link href="{{ asset('plugin/simplelightbox-master/simplelightbox.min.css') }}" rel='stylesheet' type='text/css'>
 @endsection
 
 @section('body-content')
@@ -129,16 +130,16 @@
 							<hr>
 						</div>
 					</div>
-					<div  id="photo-CO" class="collapse body-CO">
-						@foreach ($callPhoto as $key => $value)
-						<div class="item">
-							<div class="img" style="background-image: url('{{ asset('amadeo/images/gallery/'.$value->img_url) }}');">
-							</div>
-						</div>
-						@endforeach
-						<div class="clearfix"></div>
+					<div id="photo-CO" class="collapse body-CO in">
+							@foreach ($callPhoto as $key => $value)
+							<a class="item" href="{{ asset('amadeo/images/gallery/'.$value->img_url) }}">
+								<div class="img" style="background-image: url('{{ asset('amadeo/images/gallery/'.$value->img_url) }}');"></div>
+							</a>
+							@endforeach
 					</div>
+						<div class="clearfix"></div>
 				</div>
+				<?php /*
 				<div id="vidio" class="content-other">
 					<div class="heading-CO">
 						<div class="icon-CO part-heading-CO">
@@ -164,7 +165,6 @@
 					</div>
 				</div>
 
-				<?php /*
 				<div class="vidio-wrapper">
 					@if($hari_sekarang == $call->hari && $sekarang > $awal && $sekarang < $akhir)
 					<p>link cctv = {{ $call->link_cctv }}</p>
@@ -184,4 +184,53 @@
 
 @section('footer-script')
 <script src="{{ asset('plugin/bootstrap-3.3.7/js/bootstrap.min.js') }}"></script>
+
+<script type="text/javascript" src="{{ asset('plugin/simplelightbox-master/simple-lightbox.js') }}"></script>
+<script>
+	$(function(){
+		var $gallery = $('#photo-CO a').simpleLightbox();
+
+		$gallery.on('show.simplelightbox', function(){
+			console.log('Requested for showing');
+		})
+		.on('shown.simplelightbox', function(){
+			console.log('Shown');
+		})
+		.on('close.simplelightbox', function(){
+			console.log('Requested for closing');
+		})
+		.on('closed.simplelightbox', function(){
+			console.log('Closed');
+		})
+		.on('change.simplelightbox', function(){
+			console.log('Requested for change');
+		})
+		.on('next.simplelightbox', function(){
+			console.log('Requested for next');
+		})
+		.on('prev.simplelightbox', function(){
+			console.log('Requested for prev');
+		})
+		.on('nextImageLoaded.simplelightbox', function(){
+			console.log('Next image loaded');
+		})
+		.on('prevImageLoaded.simplelightbox', function(){
+			console.log('Prev image loaded');
+		})
+		.on('changed.simplelightbox', function(){
+			console.log('Image changed');
+		})
+		.on('nextDone.simplelightbox', function(){
+			console.log('Image changed to next');
+		})
+		.on('prevDone.simplelightbox', function(){
+			console.log('Image changed to prev');
+		})
+		.on('error.simplelightbox', function(e){
+			console.log('No image found, go to the next/prev');
+			console.log(e);
+		});
+	});
+</script>
+
 @endsection
