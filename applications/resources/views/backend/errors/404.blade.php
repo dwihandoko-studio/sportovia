@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 
 @section('title')
-<title>Sportopia | Contact</title>
+<title>Sportopia | 404 Not Found</title>
 @endsection
 
 
@@ -11,7 +11,7 @@
     <a href="{{ route('dashboard') }}" title="Dashboard" class="tip-bottom"><i class="icon-home"></i> Dashboard</a>
     <a href="" class="current">Error</a>
   </div>
-  <h1>Contact</h1>
+  <h1>404 Not Found</h1>
 </div>
 @endsection
 

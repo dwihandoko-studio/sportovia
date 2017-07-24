@@ -29,6 +29,12 @@ class MemberGaleriController extends Controller
 
     public function index($id)
     {
+        $getMember = Member::find($id);
+
+        if(!$getMember){
+          return view('backend.errors.404');
+        }
+
         $getGaleri = MemberGaleri::where('id_member', $id)->get();
         $id_member = $id;
 
@@ -125,6 +131,6 @@ class MemberGaleriController extends Controller
 
         return redirect()->route('memberGaleri.allGaleri')->with('berhasil', 'Your image has been successfully deleted.');
     }
-
+    
 
 }
