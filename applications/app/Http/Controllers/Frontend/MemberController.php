@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Jadwal;
 use App\Models\User;
+use App\Models\Member;
+use App\Models\MemberGaleri;
 
 use Auth;
 use Validator;
@@ -115,8 +117,28 @@ class MemberController extends Controller
     	->where('amd_jadwal.id', $slug)
     	->first();
 
+        $callMember = Member::select(
+                'id'
+            )
+        ->where('anak_member', auth()->guard('user')->user()->id_member)
+        ->get();
+
+        $arr  = array();
+        
+        foreach ($callMember as $key => $value) {
+            array_push($arr, $value->id);
+        }
+        array_push($arr, auth()->guard('user')->user()->id_member);
+
+        $callPhoto = MemberGaleri::select(
+                'img_url'
+            )
+        ->whereIn('id_member', $arr)
+        ->get();
+
 	    return view('frontend.member-page.view', compact(
-	    	'call'
+            'call',
+	    	'callPhoto'
 	    ));
 	}
 

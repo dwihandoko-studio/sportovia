@@ -108,12 +108,14 @@
 					Download Pdf
 				</a>
 			</div>
-			@php
-				$awal = date( "H:i:s", strtotime( $call->jam_mulai ) );
-				$akhir = date( "H:i:s", strtotime( $call->jam_akhir ) );
-				$sekarang = date('H:i:s');
-				$hari_sekarang = date('l');
-			@endphp
+			<?php
+			// @php
+			// 	$awal = date( "H:i:s", strtotime( $call->jam_mulai ) );
+			// 	$akhir = date( "H:i:s", strtotime( $call->jam_akhir ) );
+			// 	$sekarang = date('H:i:s');
+			// 	$hari_sekarang = date('l');
+			// @endphp
+			?>
 			<div class="content">
 				<div id="photo" class="content-other">
 					<div class="heading-CO">
@@ -128,12 +130,12 @@
 						</div>
 					</div>
 					<div  id="photo-CO" class="collapse body-CO">
-						@for($a=0; $a<=3; $a++)
+						@foreach ($callPhoto as $key => $value)
 						<div class="item">
-							<div class="img" style="background-image: url('{{ asset('amadeo/images/gallery/english speaking - 6328 - children thum.jpg') }}');">
+							<div class="img" style="background-image: url('{{ asset('amadeo/images/gallery/'.$value->img_url) }}');">
 							</div>
 						</div>
-						@endfor
+						@endforeach
 						<div class="clearfix"></div>
 					</div>
 				</div>
