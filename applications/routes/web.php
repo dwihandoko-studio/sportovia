@@ -189,6 +189,7 @@ Route::group(['middleware' => ['admin']], function () {
   // Stream Api
   Route::get('admin/facebook/api', 'Backend\DashboardController@getFB')->name('analytics.getFB');
   Route::get('admin/google/api', 'Backend\DashboardController@getGA')->name('analytics.getGA');
+  Route::get('admin/google/api/{start}/{end}', 'Backend\DashboardController@getGAP')->name('analytics.getGAP');
 });
 //----------------------- BACKEND -----------------------//
 

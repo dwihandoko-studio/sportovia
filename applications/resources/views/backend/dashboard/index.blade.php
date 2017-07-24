@@ -31,6 +31,118 @@
     </ul>
   </div>
 
+  <div class="">
+    <br>
+  </div>
+  <h1>Google Analytics</h1>
+  <div class="row-fluid">
+    <div class="span4">
+      <div class="widget-box">
+        <div class="widget-title"> <span class="icon"> <i class="icon-eye-open"></i> </span>
+          <h5>Bounce Rate</h5>
+        </div>
+        <div class="widget-content ">
+          <div id="wrapper-bounceRate"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="span4">
+      <div class="widget-box">
+        <div class="widget-title"> <span class="icon"> <i class="icon-eye-open"></i> </span>
+          <h5>Avg. Session Duration</h5>
+        </div>
+        <div class="widget-content ">
+          <div id="wrapper-avgSessionDuration"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="span4">
+      <div class="widget-box">
+        <div class="widget-title"> <span class="icon"> <i class="icon-eye-open"></i> </span>
+          <h5>Periode</h5>
+        </div>
+        <div class="widget-content">
+          <table>
+            <tr>
+              <td>
+                <button type="button" class="btn btn-default pull-right" id="periode_GA">
+                  <span>
+                    <i class="fa fa-calendar"></i> Select Date Range
+                  </span>
+                  <i class="fa fa-caret-down"></i>
+                </button>
+
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="widget-box">
+        <div class="widget-title"> <span class="icon"> <i class="icon-eye-open"></i> </span>
+          <h5>Most Visited Pages</h5>
+        </div>
+        <div class="widget-content">
+          <canvas id="chartMostVisitedPages"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span6">
+      <div class="widget-box">
+        <div class="widget-title"> <span class="icon"> <i class="icon-eye-open"></i> </span>
+          <h5>Visitor Website</h5>
+        </div>
+        <div class="widget-content ">
+          <canvas id="chartVisitorWebsite"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="span6">
+      <div class="widget-box">
+        <div class="widget-title"> <span class="icon"> <i class="icon-eye-open"></i> </span>
+          <h5>User Visited</h5>
+        </div>
+        <div class="widget-content ">
+          <canvas id="chartUserVisited"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span6">
+      <div class="widget-box">
+        <div class="widget-title"> <span class="icon"> <i class="icon-eye-open"></i> </span>
+          <h5>City Visited</h5>
+        </div>
+        <div class="widget-content ">
+          <canvas id="chartCityVisited"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="span6">
+      <div class="widget-box">
+        <div class="widget-title"> <span class="icon"> <i class="icon-eye-open"></i> </span>
+          <h5>Top Browsers</h5>
+        </div>
+        <div class="widget-content ">
+          <canvas id="chartTopBrowsers"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <br>
   <h1>Facebook Page</h1>
   <hr>
@@ -114,112 +226,9 @@
     </div>
   </div>
 
-  <br>
-  <h1>Google Analytics</h1>
-  <div class="row-fluid">
-    <div class="span6">
-      <div class="widget-box">
-        <div class="widget-title"> <span class="icon"> <i class="icon-eye-open"></i> </span>
-          <h5>Bounce Rate</h5>
-        </div>
-        <div class="widget-content ">
-          <div id="wrapper-bounceRate"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="span6">
-      <div class="widget-box">
-        <div class="widget-title"> <span class="icon"> <i class="icon-eye-open"></i> </span>
-          <h5>Avg. Session Duration</h5>
-        </div>
-        <div class="widget-content ">
-          <div id="wrapper-avgSessionDuration"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row-fluid">
-    <div class="span6">
-      <div class="widget-box">
-        <div class="widget-title"> <span class="icon"> <i class="icon-eye-open"></i> </span>
-          <h5>Periode</h5>
-        </div>
-        <div class="widget-content ">
-          <button type="button" class="btn btn-default pull-right" id="periode_GA">
-            <span>
-              <i class="fa fa-calendar"></i> Select Date Range
-            </span>
-            <i class="fa fa-caret-down"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="span6">
-      <div class="widget-box">
-        <div class="widget-title"> <span class="icon"> <i class="icon-eye-open"></i> </span>
-          <h5>Most Visited Pages</h5>
-        </div>
-        <div class="widget-content ">
-          <canvas id="chartMostVisitedPages"></canvas>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row-fluid">
-    <div class="span6">
-      <div class="widget-box">
-        <div class="widget-title"> <span class="icon"> <i class="icon-eye-open"></i> </span>
-          <h5>Visitor Website</h5>
-        </div>
-        <div class="widget-content ">
-          <canvas id="chartVisitorWebsite"></canvas>
-        </div>
-      </div>
-    </div>
-
-    <div class="span6">
-      <div class="widget-box">
-        <div class="widget-title"> <span class="icon"> <i class="icon-eye-open"></i> </span>
-          <h5>User Visited</h5>
-        </div>
-        <div class="widget-content ">
-          <canvas id="chartUserVisited"></canvas>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row-fluid">
-    <div class="span6">
-      <div class="widget-box">
-        <div class="widget-title"> <span class="icon"> <i class="icon-eye-open"></i> </span>
-          <h5>City Visited</h5>
-        </div>
-        <div class="widget-content ">
-          <canvas id="chartCityVisited"></canvas>
-        </div>
-      </div>
-    </div>
-
-    <div class="span6">
-      <div class="widget-box">
-        <div class="widget-title"> <span class="icon"> <i class="icon-eye-open"></i> </span>
-          <h5>Top Browsers</h5>
-        </div>
-        <div class="widget-content ">
-          <canvas id="chartTopBrowsers"></canvas>
-        </div>
-      </div>
-    </div>
-  </div>
-
 @endsection
 
-@section('content')
+@section('script')
 @include('backend.dashboard.include-js')
 <script src="{{ asset('backend/js/moment/min/moment.min.js') }}"></script>
 <script src="{{ asset('backend/js/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
