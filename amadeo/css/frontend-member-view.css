@@ -88,8 +88,8 @@
 	float: right;
 }
 #info .info-wrapper .content .content-other .body-CO .item .img{
-	width: 200px;
-	height: 200px;
+	width: 100px;
+	height: 100px;
 	margin: 10px;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -114,6 +114,11 @@
 	#info .info-wrapper .content:nth-child(even){
 		width: 100%;
 		border: none;
+	}
+	#info .info-wrapper .content .content-other .body-CO .item .img{
+		width: 55vw;
+	    height: 40vh;
+	    margin: 10px auto;
 	}
 	#info .info-wrapper .content .content-other .body-CO .iframe-wrapper iframe{
 		height: 30vh;
