@@ -65,8 +65,20 @@
           <textarea name="deskripsi_kelas" class="span6" id="deskripsi_kelas">{{ old('deskripsi_kelas') }}</textarea>
         </div>
       </div>
+      <div class="control-group {{ $errors->has('img_url_landscape') ? 'error' : '' }}">
+        <label class="control-label">Image Landscape *</label>
+        <div class="controls">
+          <span>Width: 550px; Height: 400px</span>
+        </div>
+        <div class="controls">
+          <input name="img_url_landscape" class="span6" id="img_url_landscape" type="file"  accept=".jpg, .png"/>
+          @if($errors->has('img_url_landscape'))
+          <span for="img_url_landscape" generated="true" class="help-inline">{{ $errors->first('img_url_landscape') }}</span>
+          @endif
+        </div>
+      </div>
       <div class="control-group {{ $errors->has('img_url') ? 'error' : '' }}">
-        <label class="control-label">Image *</label>
+        <label class="control-label">Image Portrait *</label>
         <div class="controls">
           <span>Width: 275px; Height: 500px</span>
         </div>
@@ -140,6 +152,10 @@
         required:true,
       },
       img_url:{
+        required:true,
+        accept:"png|jpe?g"
+      },
+      img_url_landscape:{
         required:true,
         accept:"png|jpe?g"
       },

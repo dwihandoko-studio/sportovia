@@ -47,7 +47,11 @@
           <td>{!! $get->deskripsi_kelas !!}</td>
         </tr>
         <tr>
-          <td><b>Image</b></td>
+          <td><b>Image Landscape</b></td>
+          <td><img src="{{ asset('amadeo/images/class').'/'.$get->img_url_landscape}}" alt="{{ $get->img_alt_landscapescape}}"></td>
+        </tr>
+        <tr>
+          <td><b>Image Portrait</b></td>
           <td><img src="{{ asset('amadeo/images/class').'/'.$get->img_url}}" alt="{{ $get->img_alt}}"></td>
         </tr>
         {{-- <tr>
