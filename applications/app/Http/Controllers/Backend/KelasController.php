@@ -55,6 +55,10 @@ class KelasController extends Controller
           'img_url.required' => 'This field is required.',
           'img_url.max' => 'File Size Too Big.',
           'img_url.dimensions' => 'Pixel max 275px x 500px.',
+          'img_url_landscape.image' => 'Format not supported.',
+          'img_url_landscape.required' => 'This field is required.',
+          'img_url_landscape.max' => 'File Size Too Big.',
+          'img_url_landscape.dimensions' => 'Pixel max 550px x 400px.',
         ];
 
         $validator = Validator::make($request->all(), [
@@ -65,6 +69,7 @@ class KelasController extends Controller
           // 'fasilitas' =>  'required',
           'deskripsi_kelas'  => 'required|max:250',
           'img_url'  => 'required|image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=275,max_height=500',
+          'img_url_landscape'  => 'required|image|mimes:jpeg,bmp,png|max:2000|dimensions:max_width=550,max_height=400',
         ], $message);
 
 
@@ -96,8 +101,12 @@ class KelasController extends Controller
         // $fasilitas = implode(',', $request->fasilitas);
 
         $image = $request->file('img_url');
-        $img_url = 'sportopia-'.$program.'-'.str_slug($request->nama_kelas,'-').'-'.$salt.'.' . $image->getClientOriginalExtension();
+        $img_url = 'sportopia-'.$program.'-'.str_slug($request->nama_kelas,'-').'-portrait-'.$salt.'.' . $image->getClientOriginalExtension();
         Image::make($image)->save('amadeo/images/class/'. $img_url);
+
+        $image_landscape = $request->file('img_url_landscape');
+        $img_url_landscape = 'sportopia-'.$program.'-'.str_slug($request->nama_kelas,'-').'-landscape-'.$salt.'.' . $image_landscape->getClientOriginalExtension();
+        Image::make($image_landscape)->save('amadeo/images/class/'. $img_url_landscape);
 
         $save = New Kelas;
         $save->nama_kelas = $request->nama_kelas;
@@ -107,6 +116,8 @@ class KelasController extends Controller
         $save->deskripsi_kelas = nl2br($request->deskripsi_kelas);
         $save->img_url = $img_url;
         $save->img_alt = 'sportopia-'.$program.'-'.str_slug($request->nama_kelas,'-');
+        $save->img_url_landscape = $img_url_landscape;
+        $save->img_alt_landscape = 'sportopia-'.$program.'-'.str_slug($request->nama_kelas,'-');
         // $save->fasilitas  = $fasilitas;
         $save->video_url  = $request->video_url;
         $save->flag_homepage = $flag_homepage;
@@ -167,6 +178,9 @@ class KelasController extends Controller
           'img_url.image' => 'Format not supported.',
           'img_url.max' => 'File Size Too Big.',
           'img_url.dimensions' => 'Pixel max 275px x 500px.',
+          'img_url_landscape.image' => 'Format not supported.',
+          'img_url_landscape.max' => 'File Size Too Big.',
+          'img_url_landscape.dimensions' => 'Pixel max 550px x 400px.',
         ];
 
         $validator = Validator::make($request->all(), [
@@ -177,6 +191,7 @@ class KelasController extends Controller
           // 'fasilitas' =>  'required',
           'deskripsi_kelas'  => 'required|max:250',
           'img_url'  => 'image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=275,max_height=500',
+          'img_url_landscape'  => 'image|mimes:jpeg,bmp,png|max:2000|dimensions:max_width=550,max_height=400',
         ], $message);
 
 
@@ -206,6 +221,7 @@ class KelasController extends Controller
         // $fasilitas = implode(',', $request->fasilitas);
 
         $image = $request->file('img_url');
+        $image_landscape = $request->file('img_url_landscape');
 
         $salt = rand(100,999);
 
@@ -223,9 +239,15 @@ class KelasController extends Controller
         $update->slug = str_slug($request->nama_kelas,'-');
         $update->img_alt = 'sportopia-'.$program.'-'.str_slug($request->nama_kelas,'-');
         if($image){
-          $img_url = 'sportopia-'.$program.'-'.str_slug($request->nama_kelas,'-').'-'.$salt.'.' . $image->getClientOriginalExtension();
+          $img_url = 'sportopia-'.$program.'-'.str_slug($request->nama_kelas,'-').'-portrait-'.$salt.'.' . $image->getClientOriginalExtension();
           Image::make($image)->save('amadeo/images/class/'. $img_url);
           $update->img_url = $img_url;
+        }
+        if($image_landscape){
+          $img_url_landscape = 'sportopia-'.$program.'-'.str_slug($request->nama_kelas,'-').'-landscape-'.$salt.'.' . $image_landscape->getClientOriginalExtension();
+          Image::make($image_landscape)->save('amadeo/images/class/'. $img_url_landscape);
+          $update->img_url_landscape = $img_url_landscape;
+          $update->img_alt_landscape = 'sportopia-'.$program.'-'.str_slug($request->nama_kelas,'-');
         }
         $update->update();
 

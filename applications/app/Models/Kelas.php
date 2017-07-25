@@ -9,8 +9,8 @@ class Kelas extends Model
 
     protected $table = 'amd_kelas';
 
-    protected $fillable = ['id_kelas_kategori','id_program','nama_kelas','quotes','deskripsi_kelas','img_url',
-                            'img_alt','fasilitas','video_url','slug','flag_publish','actor'];
+    protected $fillable = ['id_kelas_kategori','id_program','nama_kelas','quotes','deskripsi_kelas','img_url_landscape',
+                          'img_alt_landscape','img_url','img_alt','fasilitas','video_url','slug','flag_publish','actor'];
 
 
     public function kelasKategori()

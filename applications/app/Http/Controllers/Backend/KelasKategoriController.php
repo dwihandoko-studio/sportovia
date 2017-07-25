@@ -28,7 +28,7 @@ class KelasKategoriController extends Controller
     {
         $getKelasKategori = KelasKategori::count();
 
-        if($getKelasKategori < 4){
+        if($getKelasKategori < 5){
           return view('backend.kelasKategori.tambah');
         }else{
           return redirect()->route('kelasKategori.index')->with('berhasil', 'This is Maximun for Class Category');
