@@ -46,7 +46,9 @@
 	#iad #index-wrapper label a{
 		color: rgb(122,122,122);
 	}
-
+	#view .bar.right{
+		background-color: rgba(255,255,255,.9);
+	}
 	#footer{
 		background-color: rgb(163,219,221);
 		margin-top: 65px;
