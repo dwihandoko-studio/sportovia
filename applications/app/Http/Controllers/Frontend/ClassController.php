@@ -72,7 +72,7 @@ class ClassController extends Controller
             'nama_kelas',
             'quotes',
             'deskripsi_kelas',
-            'img_url',
+            'img_url_landscape',
             'fasilitas',
             'video_url',
             'amd_kelas.slug as slug'

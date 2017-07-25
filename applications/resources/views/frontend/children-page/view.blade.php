@@ -94,7 +94,7 @@
 <div id="view" class="setup-wrapper">
 	<div class="setup-content lar-wd">
 		<div class="bar left">
-			<div class="img" style="background-image: url('{{ asset('amadeo/images/class/'.$callClass->img_url) }}');"></div>
+			<div class="img" style="background-image: url('{{ asset('amadeo/images/class/'.$callClass->img_url_landscape) }}');"></div>
 		</div>
 		<div class="bar right">
 			<div class="title">
