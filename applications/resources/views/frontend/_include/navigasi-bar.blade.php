@@ -40,6 +40,8 @@
 												About Us
 											</a>
 										</div>
+									</div>
+									<div class="link-wrapper">
 										<div class="link">
 											<a href="{{ Route('frontend.about.trainers') }}">
 												Our Trainers
@@ -65,30 +67,15 @@
 							<div class="dropdown-wrapper class">
 								<div class="dropdown-content">
 									@if($callNavClass != null)
-									@php
-										$looping=1;
-										$lenArr = count($callNavClass);
-									@endphp
 									@foreach($callNavClass as $sublist)
 									@if($sublist->id_kelas_kategori == $list->id)
-									@if($looping%2 != 0)
 									<div class="link-wrapper">
-									@endif
 										<div class="link">
 											<a href="{{ Route('frontend.class.view', ['slug' => $list->slug, 'subslug' => $sublist->slug]) }}">
 												{{ Str::limit($sublist->nama_kelas, 16, '...') }}
 											</a>
 										</div>
-									@if($looping%2 == 0)
 									</div>
-									@endif
-									@if($looping == $lenArr)
-									@if($looping%2 != 0)
-									</div>
-									@endif
-									@endif
-
-									@php ($looping++)
 									@endif
 									@endforeach
 									@endif
