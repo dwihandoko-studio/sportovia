@@ -53,8 +53,8 @@
           <td>{{ $key->kelas->nama_kelas }}</td>
           <td>{{ $key->kelas->kelasProgram->program_kelas }}</td>
           <td>{{ $key->nama }}</td>
-          <td>{{ $hacep[1] }}</td>
-          <td>{{ $hacep[2] }}</td>
+          <td>{{ $hacep[1] or '-' }}</td>
+          <td>{{ $hacep[2] or '-' }}</td>
           <td>{{ $key->telp }}</td>
           <td>{{ $key->email }}</td>
           <td>{{ $key->subjek }}</td>
