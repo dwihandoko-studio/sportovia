@@ -108,7 +108,7 @@ class MemberController extends Controller
             'jam_mulai',
             'jam_akhir',
             'hari',
-            'dokumen_rapot',
+            'amd_jadwal.dokumen_rapot as dokumen_rapot',
             'link_cctv'
         )
     	->where('amd_member.flag_status', '1')
