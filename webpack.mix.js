@@ -15,8 +15,6 @@ const { mix } = require('laravel-mix');
 	// default
 		mix.styles([
 		    'public/plugin/bootstrap-3.3.7/css/bootstrap.min.css',
-		    'public/plugin/font-awesome/css/font-awesome.min.css',
-		    'public/amadeo/font/font.css',
 		    'public/amadeo/css/frontend-public.css'
 		], 'public/amadeo/css/mix/default.css').version();
 	// default
@@ -24,8 +22,6 @@ const { mix } = require('laravel-mix');
 	// home
 		mix.styles([
 		    'public/plugin/bootstrap-3.3.7/css/bootstrap.min.css',
-		    'public/plugin/font-awesome/css/font-awesome.min.css',
-		    'public/amadeo/font/font.css',
 		    'public/amadeo/css/frontend-public.css',
 		    'public/amadeo/css/frontend-home.css'
 		], 'public/amadeo/css/mix/home.css').version();
@@ -34,9 +30,6 @@ const { mix } = require('laravel-mix');
 	// about staff
 		mix.styles([
 		    'public/plugin/bootstrap-3.3.7/css/bootstrap.min.css',
-		    'public/plugin/font-awesome/css/font-awesome.min.css',
-		    'public/amadeo/font/font.css',
-		    'public/amadeo/css/frontend-public.css',
 		    'public/amadeo/css/frontend-public-sub.css',
 		    'public/amadeo/css/frontend-our-staff.css'
 		], 'public/amadeo/css/mix/about-staff.css').version();
@@ -45,8 +38,6 @@ const { mix } = require('laravel-mix');
 	// about us
 		mix.styles([
 		    'public/plugin/bootstrap-3.3.7/css/bootstrap.min.css',
-		    'public/plugin/font-awesome/css/font-awesome.min.css',
-		    'public/amadeo/font/font.css',
 		    'public/amadeo/css/frontend-public.css',
 		    'public/amadeo/css/frontend-public-sub.css',
 		    'public/amadeo/css/frontend-about-us.css'
@@ -56,8 +47,6 @@ const { mix } = require('laravel-mix');
 	// children index
 		mix.styles([
 		    'public/plugin/bootstrap-3.3.7/css/bootstrap.min.css',
-		    'public/plugin/font-awesome/css/font-awesome.min.css',
-		    'public/amadeo/font/font.css',
 		    'public/amadeo/css/frontend-public.css',
 		    'public/amadeo/css/frontend-public-sub.css',
 		    'public/amadeo/css/frontend-children-index.css'
@@ -67,8 +56,6 @@ const { mix } = require('laravel-mix');
 	// children view
 		mix.styles([
 		    'public/plugin/bootstrap-3.3.7/css/bootstrap.min.css',
-		    'public/plugin/font-awesome/css/font-awesome.min.css',
-		    'public/amadeo/font/font.css',
 		    'public/amadeo/css/frontend-public.css',
 		    'public/amadeo/css/frontend-public-sub.css',
 		    'public/amadeo/css/frontend-view-style-1.css'
@@ -78,8 +65,6 @@ const { mix } = require('laravel-mix');
 	// contact
 		mix.styles([
 		    'public/plugin/bootstrap-3.3.7/css/bootstrap.min.css',
-		    'public/plugin/font-awesome/css/font-awesome.min.css',
-		    'public/amadeo/font/font.css',
 		    'public/amadeo/css/frontend-public.css',
 		    'public/amadeo/css/frontend-public-sub.css',
 		    'public/amadeo/css/frontend-contact.css'
@@ -89,8 +74,6 @@ const { mix } = require('laravel-mix');
 	// category index
 		mix.styles([
 		    'public/plugin/bootstrap-3.3.7/css/bootstrap.min.css',
-		    'public/plugin/font-awesome/css/font-awesome.min.css',
-		    'public/amadeo/font/font.css',
 		    'public/amadeo/css/frontend-public.css',
 		    'public/amadeo/css/frontend-public-sub.css',
 		    'public/amadeo/css/frontend-index-style-1.css'
@@ -100,8 +83,6 @@ const { mix } = require('laravel-mix');
 	// member index
 		mix.styles([
 		    'public/plugin/bootstrap-3.3.7/css/bootstrap.min.css',
-		    'public/plugin/font-awesome/css/font-awesome.min.css',
-		    'public/amadeo/font/font.css',
 		    'public/amadeo/css/frontend-public.css',
 		    'public/amadeo/css/frontend-public-sub.css',
 		    'public/amadeo/css/frontend-member-index.css'
@@ -111,8 +92,6 @@ const { mix } = require('laravel-mix');
 	// member log in
 		mix.styles([
 		    'public/plugin/bootstrap-3.3.7/css/bootstrap.min.css',
-		    'public/plugin/font-awesome/css/font-awesome.min.css',
-		    'public/amadeo/font/font.css',
 		    'public/amadeo/css/frontend-public.css',
 		    'public/amadeo/css/frontend-public-sub.css',
 		    'public/amadeo/css/frontend-member-log-in.css'
@@ -122,8 +101,6 @@ const { mix } = require('laravel-mix');
 	// member view
 		mix.styles([
 		    'public/plugin/bootstrap-3.3.7/css/bootstrap.min.css',
-		    'public/plugin/font-awesome/css/font-awesome.min.css',
-		    'public/amadeo/font/font.css',
 		    'public/amadeo/css/frontend-public.css',
 		    'public/amadeo/css/frontend-public-sub.css',
 		    'public/amadeo/css/frontend-member-view.css',
@@ -134,8 +111,6 @@ const { mix } = require('laravel-mix');
 	// news event index
 		mix.styles([
 		    'public/plugin/bootstrap-3.3.7/css/bootstrap.min.css',
-		    'public/plugin/font-awesome/css/font-awesome.min.css',
-		    'public/amadeo/font/font.css',
 		    'public/amadeo/css/frontend-public.css',
 		    'public/amadeo/css/frontend-public-sub.css',
 		    'public/amadeo/css/frontend-index-style-1.css',
@@ -148,8 +123,6 @@ const { mix } = require('laravel-mix');
 	// news event view
 		mix.styles([
 		    'public/plugin/bootstrap-3.3.7/css/bootstrap.min.css',
-		    'public/plugin/font-awesome/css/font-awesome.min.css',
-		    'public/amadeo/font/font.css',
 		    'public/amadeo/css/frontend-public.css',
 		    'public/amadeo/css/frontend-public-sub.css',
 		    'public/amadeo/css/frontend-news-event-view.css'
@@ -159,8 +132,6 @@ const { mix } = require('laravel-mix');
 	// reguler
 		mix.styles([
 		    'public/plugin/bootstrap-3.3.7/css/bootstrap.min.css',
-		    'public/plugin/font-awesome/css/font-awesome.min.css',
-		    'public/amadeo/font/font.css',
 		    'public/amadeo/css/frontend-public.css',
 		    'public/amadeo/css/frontend-public-sub.css',
 		    'public/amadeo/css/frontend-reguler-index.css'
@@ -170,8 +141,6 @@ const { mix } = require('laravel-mix');
 	// view
 		mix.styles([
 		    'public/plugin/bootstrap-3.3.7/css/bootstrap.min.css',
-		    'public/plugin/font-awesome/css/font-awesome.min.css',
-		    'public/amadeo/font/font.css',
 		    'public/amadeo/css/frontend-public.css',
 		    'public/amadeo/css/frontend-public-sub.css',
 		    'public/amadeo/css/frontend-view-style-1.css'

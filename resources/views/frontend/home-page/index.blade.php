@@ -22,11 +22,11 @@
 	@endforeach
 	<style type="text/css">
 	@foreach($callKelasKategori as $list)
-		#{{ str::slug($list->kategori_kelas, '-') }}-card-img{
-			animation: {{ str::slug($list->kategori_kelas, '-') }}-card-img-animate 25s infinite;
-			-webkit-animation: {{ str::slug($list->kategori_kelas, '-') }}-card-img-animate 25s infinite;
+		#{{ Str::slug($list->kategori_kelas, '-') }}-card-img{
+			animation: {{ Str::slug($list->kategori_kelas, '-') }}-card-img-animate 25s infinite;
+			-webkit-animation: {{ Str::slug($list->kategori_kelas, '-') }}-card-img-animate 25s infinite;
 		}
-		@keyframes {{ str::slug($list->kategori_kelas, '-') }}-card-img-animate{
+		@keyframes {{ Str::slug($list->kategori_kelas, '-') }}-card-img-animate{
 			0%
 		    {
 		    	background-image : 
@@ -63,7 +63,7 @@
 			}
 			@endif
 		}
-		@-webkit-keyframes {{ str::slug($list->kategori_kelas, '-') }}-card-img-animate{
+		@-webkit-keyframes {{ Str::slug($list->kategori_kelas, '-') }}-card-img-animate{
 			0%
 		    {
 		    	background-image : 
@@ -111,13 +111,13 @@
 			@foreach($callKelasKategori as $list)
 			<div class="bar bar-size-5 card">
 				<div class="card-wrapper">
-					<div id="{{ str::slug($list->kategori_kelas, '-') }}-card-img" class="card-img"></div>
+					<div id="{{ Str::slug($list->kategori_kelas, '-') }}-card-img" class="card-img"></div>
 					<div class="screen"></div>
 					<div class="card-wrapper-icon">
 						<a href="{{ Route('frontend.class.index', ['slug' => $list->slug]) }}">
 							<div class="icon-content">
 								<div class="icon">
-									<img src="{{ asset('amadeo/main-image/kelas-kategori/white/'.strtolower($list->kategori_kelas).'.png') }}">
+									<img src="{{ asset('amadeo/main-image/kelas-kategori/white/'.strtolower(Str::slug($list->kategori_kelas, '-')).'.png') }}">
 								</div>
 								<div class="icon">
 									{{ $list->kategori_kelas }}

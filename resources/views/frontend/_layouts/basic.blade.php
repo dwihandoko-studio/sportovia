@@ -17,6 +17,8 @@
 	<meta name="googlebot" content="all" />
 
     @yield('head-style')
+	<link rel="stylesheet" type="text/css" href="{{ asset('amadeo/font/font.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('plugin/font-awesome/css/font-awesome.min.css') }}">
 	<link rel="icon" type="image/png" href="{{ asset('amadeo/main-image/logo-green-sportopia.png') }}" />
 	<link rel="image_src" href="{{ asset('amadeo/main-image/logo-green-sportopia.png') }}" />
 
