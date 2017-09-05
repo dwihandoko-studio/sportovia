@@ -196,55 +196,39 @@ Route::group(['middleware' => ['admin']], function () {
 
 
 //-------------------- FRONT END MEMBER ----------------//
-Route::get('/member-area/login', 'Frontend\Auth\LoginController@getLoginForm')
-  ->name('frontend.member.log-in');
-Route::post('/member-area/proses', 'Frontend\Auth\LoginController@authenticate')
-  ->name('frontend.member.post');
+Route::get('/member-area/login', 'Frontend\Auth\LoginController@getLoginForm')->name('frontend.member.log-in');
+Route::post('/member-area/proses', 'Frontend\Auth\LoginController@authenticate')->name('frontend.member.post');
 
-Route::group(['middleware' => ['user']], function(){
-  Route::get('/member-area/log-out', 'Frontend\Auth\LoginController@getLogout')
-    ->name('frontend.member.log-out');
+Route::group(['middleware' => ['user']], function()
+{
+  Route::get('/member-area/log-out', 'Frontend\Auth\LoginController@getLogout')->name('frontend.member.log-out');
 
-  Route::get('/member-area', 'Frontend\MemberController@index')
-    ->name('frontend.member.index');
-    Route::get('/member-area/{slug}', 'Frontend\MemberController@view')
-    ->name('frontend.member.view');
-    Route::post('/member-area/change-password', 'Frontend\MemberController@changePassword')
-    ->name('frontend.member.changePassword');
+  Route::get('/member-area', 'Frontend\MemberController@index')->name('frontend.member.index');
+  Route::get('/member-area/{slug}', 'Frontend\MemberController@view')->name('frontend.member.view');
+  Route::post('/member-area/change-password', 'Frontend\MemberController@changePassword')->name('frontend.member.changePassword');
 });
 
 //-------------------- FRONT END ----------------//
-Route::get('/', 'Frontend\HomeController@index')
-  ->name('frontend.home');
+Route::get('/', 'Frontend\HomeController@index')->name('frontend.home');
 
-Route::post('/store', 'Frontend\StoreController@store')
-  ->name('frontend.store');
-Route::post('/store/contact', 'Frontend\StoreController@storeContact')
-  ->name('frontend.store.contact');
+Route::post('/store', 'Frontend\StoreController@store')->name('frontend.store');
+Route::post('/store/contact', 'Frontend\StoreController@storeContact')->name('frontend.store.contact');
 
-Route::get('/about/us', 'Frontend\AboutController@us')
-	->name('frontend.about.us');
-Route::get('/about/trainers', 'Frontend\AboutController@trainer')
-	->name('frontend.about.trainers');
+Route::get('/about/us', 'Frontend\AboutController@us')->name('frontend.about.us');
+Route::get('/about/trainers', 'Frontend\AboutController@trainer')->name('frontend.about.trainers');
 
-Route::get('/news-event', 'Frontend\NewsEventController@index')
-	->name('frontend.news-event.index');
-Route::get('/news-event/{slug}', 'Frontend\NewsEventController@view')
-	->name('frontend.news-event.view');
+Route::get('/news-event', 'Frontend\NewsEventController@index')->name('frontend.news-event.index');
+Route::get('/news-event/{slug}', 'Frontend\NewsEventController@view')->name('frontend.news-event.view');
 
-Route::get('/contact', 'Frontend\ContactController@index')
-	->name('frontend.contact');
+Route::get('/contact', 'Frontend\ContactController@index')->name('frontend.contact');
 
-Route::get('/program-class/{slug}', 'Frontend\ProgramClassController@index')
-	->name('frontend.program.index');
+Route::get('/program-class/{slug}', 'Frontend\ProgramClassController@index')->name('frontend.program.index');
 
 // Sitemap
 Route::get('/sitemap.xml', 'Backend\SitemapController@index')->name('sitemap.index');
 
-Route::get('/{slug}', 'Frontend\ClassController@index')
-	->name('frontend.class.index');
-Route::get('/{slug}/{subslug}', 'Frontend\ClassController@view')
-	->name('frontend.class.view');
+Route::get('/{slug}', 'Frontend\ClassController@index')->name('frontend.class.index');
+Route::get('/{slug}/{subslug}', 'Frontend\ClassController@view')->name('frontend.class.view');
 
 
 //-------------------- FRONT END MEMBER ----------------//
