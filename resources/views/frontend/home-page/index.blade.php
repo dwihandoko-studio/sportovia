@@ -117,7 +117,7 @@
 						<a href="{{ Route('frontend.class.index', ['slug' => $list->slug]) }}">
 							<div class="icon-content">
 								<div class="icon">
-									<img src="{{ asset('amadeo/main-image/kelas-kategori/white/'.strtolower(Str::slug($list->kategori_kelas, '-')).'.png') }}">
+									<img src="{{ asset('amadeo/main-image/kelas-kategori/white/'.strtolower($list->kategori_kelas).'.png') }}">
 								</div>
 								<div class="icon">
 									{{ $list->kategori_kelas }}
