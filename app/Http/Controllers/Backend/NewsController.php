@@ -48,7 +48,7 @@ class NewsController extends Controller
 
         $validator = Validator::make($request->all(), [
           'judul' => 'required|max:25|unique:amd_news_event',
-          'deskripsi'  => 'required|max:450',
+          'deskripsi'  => 'required|max:900',
           'img_banner'  => 'required|image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=1020,max_height=510',
           'img_thumb'  => 'required|image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=350,max_height=300'
         ], $message);
@@ -125,7 +125,7 @@ class NewsController extends Controller
 
         $validator = Validator::make($request->all(), [
           'judul' => 'required|max:25|unique:amd_news_event,judul,'.$request->id,
-          'deskripsi'  => 'required|max:450',
+          'deskripsi'  => 'required|max:900',
           'img_banner'  => 'image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=1020,max_height=510',
           'img_thumb'  => 'image|mimes:jpeg,bmp,png|max:1000|dimensions:max_width=350,max_height=500'
         ], $message);

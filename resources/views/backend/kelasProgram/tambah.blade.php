@@ -34,13 +34,13 @@
       <div class="control-group {{ $errors->has('quotes_program') ? 'error' : '' }}">
         <label class="control-label">Quotes Program *</label>
         <div class="controls">
-          <textarea name="quotes_program" class="span6" id="quotes_program">{{ old('quotes_program') }}</textarea>
+          <textarea name="quotes_program" class="span6" id="quotes_program" maxlength="125">{{ old('quotes_program') }}</textarea>
         </div>
       </div>
       <div class="control-group {{ $errors->has('deskripsi_program') ? 'error' : '' }}">
         <label class="control-label">Description Program *</label>
         <div class="controls">
-          <textarea name="deskripsi_program" class="span6" id="deskripsi_program">{{ old('deskripsi_program') }}</textarea>
+          <textarea name="deskripsi_program" class="span6" id="deskripsi_program" maxlength="250">{{ old('deskripsi_program') }}</textarea>
         </div>
       </div>
       <div class="control-group {{ $errors->has('img_banner') ? 'error' : '' }}">
@@ -95,9 +95,11 @@
       },
       quotes_program:{
         required:true,
+        maxlength:125
       },
       deskripsi_program:{
         required:true,
+        maxlength:250
       },
       img_banner:{
         required:true,

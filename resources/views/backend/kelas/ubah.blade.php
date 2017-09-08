@@ -26,7 +26,7 @@
     <form class="form-horizontal" method="post" action="{{ route('kelasKursus.edit') }}" name="basic_validate" id="basic_validate" novalidate="novalidate" enctype="multipart/form-data">
       {{ csrf_field() }}
       <input type="hidden" name="id" value="{{ $get->id }}">
-      <div class="control-group {{ $errors->has('id_kategori_kelas') ? 'error' : '' }}">
+      <div class="control-group {{ $errors->has('id_kelas_kategori') ? 'error' : '' }}">
         <label class="control-label">Class Category *</label>
         <div class="controls">
           <select class="span6" name="id_kelas_kategori" id="id_kelas_kategori" title="Please select.">
@@ -51,19 +51,19 @@
       <div class="control-group {{ $errors->has('nama_kelas') ? 'error' : '' }}">
         <label class="control-label">Name Class *</label>
         <div class="controls">
-          <input type="text" name="nama_kelas" class="span6" id="nama_kelas" value="{{ old('nama_kelas', $get->nama_kelas) }}" />
+          <input type="text" name="nama_kelas" class="span6" id="nama_kelas" value="{{ old('nama_kelas', $get->nama_kelas) }}" maxlength="25" />
         </div>
       </div>
       <div class="control-group {{ $errors->has('quotes') ? 'error' : '' }}">
         <label class="control-label">Quotes *</label>
         <div class="controls">
-          <input type="text" name="quotes" class="span6" id="quotes" value="{{ old('quotes', $get->quotes) }}" />
+          <input type="text" name="quotes" class="span6" id="quotes" value="{{ old('quotes', $get->quotes) }}" maxlength="75" />
         </div>
       </div>
       <div class="control-group {{ $errors->has('deskripsi_kelas') ? 'error' : '' }}">
         <label class="control-label">Description Class *</label>
         <div class="controls">
-          <textarea name="deskripsi_kelas" class="span6" id="deskripsi_kelas">{{ old('deskripsi_kelas', preg_replace('#<br\s*/?>#i', "\n", $get->deskripsi_kelas)) }}</textarea>
+          <textarea name="deskripsi_kelas" class="span6" id="deskripsi_kelas" maxlength="250">{{ old('deskripsi_kelas', preg_replace('#<br\s*/?>#i', "\n", $get->deskripsi_kelas)) }}</textarea>
         </div>
       </div>
       <div class="control-group {{ $errors->has('img_url_landscape') ? 'error' : '' }}">
@@ -171,7 +171,7 @@
   $("#basic_validate").validate({
     ignore: [],
     rules:{
-      id_kategori_kelas:{
+      id_kelas_kategori:{
         required:true,
       },
       id_program:{
@@ -179,9 +179,15 @@
       },
       nama_kelas:{
         required:true,
+        maxlength:25,
+      },
+      quotes:{
+        required:true,
+        maxlength:75
       },
       deskripsi_kelas:{
         required:true,
+        maxlength:250
       },
       img_url:{
         accept:"png|jpe?g"

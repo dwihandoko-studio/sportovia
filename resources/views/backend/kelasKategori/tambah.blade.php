@@ -34,13 +34,13 @@
       <div class="control-group {{ $errors->has('quotes_kategori') ? 'error' : '' }}">
         <label class="control-label">Quotes Category *</label>
         <div class="controls">
-          <textarea name="quotes_kategori" class="span6" id="quotes_kategori">{{ old('quotes_kategori') }}</textarea>
+          <textarea name="quotes_kategori" class="span6" id="quotes_kategori" maxlength="125">{{ old('quotes_kategori') }}</textarea>
         </div>
       </div>
       <div class="control-group {{ $errors->has('deskripsi_kategori') ? 'error' : '' }}">
         <label class="control-label">Description Category *</label>
         <div class="controls">
-          <textarea name="deskripsi_kategori" class="span6" id="deskripsi_kategori">{{ old('deskripsi_kategori') }}</textarea>
+          <textarea name="deskripsi_kategori" class="span6" id="deskripsi_kategori" maxlength="250">{{ old('deskripsi_kategori') }}</textarea>
         </div>
       </div>
       <div class="control-group {{ $errors->has('img_banner') ? 'error' : '' }}">
@@ -97,9 +97,11 @@
       },
       quotes_kategori:{
         required:true,
+        maxlength:125
       },
       deskripsi_kategori:{
         required:true,
+        maxlength:250
       },
       img_banner:{
         required:true,

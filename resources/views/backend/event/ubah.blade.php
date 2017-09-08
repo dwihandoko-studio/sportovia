@@ -41,13 +41,13 @@
       <div class="control-group {{ $errors->has('judul') ? 'error' : '' }}">
         <label class="control-label">Title *</label>
         <div class="controls">
-          <input type="text" name="judul" class="span6" id="judul" value="{{ old('judul', $get->judul) }}" />
+          <input type="text" name="judul" class="span6" id="judul" value="{{ old('judul', $get->judul) }}" maxlength="25" />
         </div>
       </div>
       <div class="control-group {{ $errors->has('deskripsi') ? 'error' : '' }}">
         <label class="control-label">Content *</label>
         <div class="controls">
-          <textarea name="deskripsi" class="span6" id="deskripsi" cols="20" rows="20">{{ old('deskripsi', preg_replace('#<br\s*/?>#i', "\n", $get->deskripsi)) }}</textarea>
+          <textarea name="deskripsi" class="span6" id="deskripsi" cols="20" rows="20" maxlength="900">{{ old('deskripsi', preg_replace('#<br\s*/?>#i', "\n", $get->deskripsi)) }}</textarea>
         </div>
       </div>
       <div class="control-group {{ $errors->has('img_banner') ? 'error' : '' }}">
@@ -120,9 +120,11 @@
     rules:{
       judul:{
         required:true,
+        maxlength:25
       },
       deskripsi:{
         required:true,
+        maxlength:900
       },
       img_banner:{
         accept:"png|jpe?g"

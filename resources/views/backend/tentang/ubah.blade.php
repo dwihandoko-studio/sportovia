@@ -29,7 +29,7 @@
       <div class="control-group">
         <label class="control-label">Descriptions *</label>
         <div class="controls">
-          <textarea name="deskripsi_tentang" class="span9" id="deskripsi_tentang">{{ old('deskripsi_tentang', $getTentang->deskripsi_tentang) }}</textarea>
+          <textarea name="deskripsi_tentang" class="span9" id="deskripsi_tentang" maxlength="350">{{ old('deskripsi_tentang', $getTentang->deskripsi_tentang) }}</textarea>
         </div>
       </div>
       <div class="control-group">
@@ -74,7 +74,8 @@
   $("#basic_validate").validate({
     rules:{
       deskripsi_tentang:{
-        required:true
+        required:true,
+        maxlength:350,
       },
       img_visi:{
         accept:"png|jpe?g"

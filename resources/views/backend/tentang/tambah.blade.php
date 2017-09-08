@@ -28,13 +28,13 @@
       <div class="control-group">
         <label class="control-label">Descriptions *</label>
         <div class="controls">
-          <textarea name="deskripsi_tentang" class="span9" id="deskripsi_tentang">{{ old('deskripsi_tentang') }}</textarea>
+          <textarea name="deskripsi_tentang" class="span9" id="deskripsi_tentang" maxlength="350">{{ old('deskripsi_tentang') }}</textarea>
         </div>
       </div>
       <div class="control-group">
         <label class="control-label">Image for Vision *</label>
         <div class="controls">
-          <input name="img_visi" class="span9" id="img_visi" type="file"  accept=".jpg, .png"/>
+          <input name="img_visi" class="span9" id="img_visi" type="file"  accept=".jpg, .png" maxlength="350"/>
           <span>Width: 100px; Height: 100px</span>
         </div>
       </div>
@@ -72,7 +72,8 @@
   $("#basic_validate").validate({
     rules:{
       deskripsi_tentang:{
-        required:true
+        required:true,
+        maxlength:350,
       },
       img_visi:{
         required:true,
