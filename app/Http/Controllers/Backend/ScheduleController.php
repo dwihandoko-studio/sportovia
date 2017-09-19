@@ -23,7 +23,8 @@ class ScheduleController extends Controller
 
     public function index()
     {
-        $getKelas = Kelas::get();
+        $getKelas = Kelas::orderBy('nama_kelas')
+                          ->get();
 
         return view('backend.jadwal.index', compact('getKelas'));
     }

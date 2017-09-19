@@ -72,10 +72,20 @@ class UserController extends Controller
           $getUser->flag_status = 0;
           $getUser->update();
 
+          $log = new LogAkses;
+          $log->actor = auth()->guard('admin')->id();
+          $log->aksi = 'Deactive '.$getUser->name;
+          $log->save();
+
           return redirect()->route('userAdmin.index')->with('berhasil', 'Successfully '.$getUser->name);
         }else{
           $getUser->flag_status = 1;
           $getUser->update();
+
+          $log = new LogAkses;
+          $log->actor = auth()->guard('admin')->id();
+          $log->aksi = 'Activated '.$getUser->name;
+          $log->save();
 
           return redirect()->route('userAdmin.index')->with('berhasil', 'Successfully '.$getUser->name);
         }
