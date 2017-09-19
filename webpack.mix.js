@@ -30,6 +30,7 @@ const { mix } = require('laravel-mix');
 	// about staff
 		mix.styles([
 		    'public/plugin/bootstrap-3.3.7/css/bootstrap.min.css',
+		    'public/amadeo/css/frontend-public.css',
 		    'public/amadeo/css/frontend-public-sub.css',
 		    'public/amadeo/css/frontend-our-staff.css'
 		], 'public/amadeo/css/mix/about-staff.css').version();

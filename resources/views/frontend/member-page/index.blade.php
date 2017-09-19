@@ -40,15 +40,15 @@
 		<div id="tabs-wrapper">
 			<ul class="nav nav-tabs">
 			    <li class="active">
-			    	<a data-toggle="tab" href="#parents">Parents</a>
+			    	<a data-toggle="tab" href="#reguler">Reguler</a>
 			    </li>
 			    <li class="">
-			    	<a data-toggle="tab" href="#child">Child</a>
+			    	<a data-toggle="tab" href="#children">Children</a>
 			    </li>
 			</ul>
 		</div>
 		<div class="setup-content lar-wd tab-content">
-			<div id="parents" class="tab-pane fade in active">			
+			<div id="reguler" class="tab-pane fade in active">			
 				@php ($oldMember = "")
 				@foreach($call as $list)
 				@if($oldMember != $list->kode_member)
@@ -205,7 +205,7 @@
 				@endif
 				@endforeach
 			</div>
-			<div id="child" class="tab-pane fade">			
+			<div id="children" class="tab-pane fade">			
 				@php ($oldMember = "")
 				@foreach($call as $list)
 				@if($oldMember != $list->kode_member)
