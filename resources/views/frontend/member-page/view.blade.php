@@ -181,7 +181,9 @@
 @endsection
 
 @section('footer-script')
-	<script src="{{ asset(mix('amadeo/js/mix/member-view.js')) }}"></script>
+	<script src="{{ asset(mix('amadeo/js/mix/default-public.js')) }}"></script>
+	
+	<script type="text/javascript" src="{{ asset('plugin/simplelightbox-master/simple-lightbox.js') }}"></script>
 	<script>
 		$(function(){
 			var $gallery = $('#photo-CO a').simpleLightbox();

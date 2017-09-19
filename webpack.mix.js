@@ -164,14 +164,6 @@ const { mix } = require('laravel-mix');
 		    'public/plugin/bootstrap-3.3.7/js/bootstrap.min.js'
 		], 'public/amadeo/js/mix/default-public.js').version();
 	// default public
-	// member view
-		mix.scripts([
-		    'public/plugin/jquery/jquery-3.2.0.min.js',
-		    'public/amadeo/js/publict.js',
-		    'public/plugin/bootstrap-3.3.7/js/bootstrap.min.js',
-		    'public/plugin/plugin/simplelightbox-master/simple-lightbox.js'
-		], 'public/amadeo/js/mix/member-view.js').version();
-	// member view
 	// news event index
 		mix.scripts([
 		    'public/plugin/jquery/jquery-3.2.0.min.js',
