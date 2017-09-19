@@ -167,6 +167,7 @@ Route::group(['middleware' => ['admin']], function () {
   Route::get('admin/schedule/class-room/{id}', 'Backend\ScheduleController@class')->name('jadwal.class');
   Route::post('admin/schedule/class-room', 'Backend\ScheduleController@classStore')->name('jadwal.classStore');
   Route::get('admin/schedule/class-member/add', 'Backend\ScheduleController@classMember')->name('jadwal.classMember');
+  Route::get('admin/schedule/class-member/getClass/{id_member}', 'Backend\ScheduleController@getClass')->name('jadwal.getClass');
   Route::post('admin/schedule/class-member', 'Backend\ScheduleController@classMemberStore')->name('jadwal.classMemberStore');
 
   // Inbox

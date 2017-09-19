@@ -232,12 +232,26 @@ class ScheduleController extends Controller
     public function classMember()
     {
 
-        $getKelas = Kelas::orderBy('id_program', 'asc')->get();
         $getMember = Member::get();
         $getKelasRuang = KelasRuang::orderBy('lantai_kelas', 'asc')->get();
 
+        return view('backend.jadwal.classMember', compact('getKelasRuang', 'getMember'));
+    }
 
-        return view('backend.jadwal.classMember', compact('getKelas', 'getKelasRuang', 'getMember'));
+    public function getClass($id_member)
+    {
+        $getMember = Member::find($id_member);
+
+        if($getMember->anak_member == null){
+          $getKelas = Kelas::where('id_program', 2)->orderBy('id_program', 'asc')->pluck('id','nama_kelas');
+        }
+        else
+        {
+          $getKelas = Kelas::where('id_program', 1)->orderBy('id_program', 'asc')->pluck('id','nama_kelas');
+        }
+
+        return json_encode($getKelas);
+
     }
 
     public function classMemberStore(Request $request)
