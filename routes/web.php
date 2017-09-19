@@ -171,6 +171,7 @@ Route::group(['middleware' => ['admin']], function () {
 
   // Inbox
   Route::get('admin/inbox', 'Backend\InboxController@index')->name('inbox.index');
+  Route::post('admin/inbox', 'Backend\InboxController@emailAddress')->name('inbox.emailAddress');
 
   // Free Trial Register
   Route::get('admin/free-trial-register', 'Backend\FreeTrialController@index')->name('freetrial.index');

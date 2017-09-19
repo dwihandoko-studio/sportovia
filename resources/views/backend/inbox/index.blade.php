@@ -15,10 +15,13 @@
 </div>
 @endsection
 
+
 @section('content')
+@include('backend.inbox.emailAddress')
 <div class="widget-box">
   <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
     <h5>Inbox</h5>
+    <a href="#addEmail" data-toggle="modal" class="btn btn-primary pull-right"><i class="icon-plus"></i> Email Address</a>
   </div>
   <div class="widget-content" style="overflow-x:auto;">
     <table class="table table-bordered inbox-table">
@@ -60,14 +63,19 @@
 @endsection
 
 @section('script')
-  <script type="text/javascript">
-    $('.inbox-table').dataTable({
-      "bJQueryUI": true,
-      "sPaginationType": "full_numbers",
-      "sDom": '<""l>t<"F"fp>',
-      "iDisplayLength": 100,
-      "ordering": false,
-    });
-  </script>
+<script type="text/javascript">
+  $('.inbox-table').dataTable({
+    "bJQueryUI": true,
+    "sPaginationType": "full_numbers",
+    "sDom": '<""l>t<"F"fp>',
+    "iDisplayLength": 100,
+    "ordering": false,
+  });
+</script>
 
+@if($errors->has('email_to') || $errors->has('email_cc'))
+<script type="text/javascript">
+  $('#addEmail').modal('show');
+</script>
+@endif
 @endsection

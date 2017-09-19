@@ -7,7 +7,10 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Inbox;
 use App\Models\Trial;
+use App\Models\GeneralConfig;
+
 use Validator;
+use Mail;
 
 class StoreController extends Controller
 {
@@ -82,6 +85,22 @@ class StoreController extends Controller
         $store->subjek = $request->contact_subject;
         $store->pesan = $request->contact_message;
         $store->save();
+
+        $getSendTo = GeneralConfig::first();
+
+        try {
+          Mail::send('mails.contact', ['request' => $request], function($message) use ($request, $getSendTo) {
+            $message->from('administrator@sportopia.id', 'Administrator')
+                    ->to($getSendTo->email_to);
+            if ($getSendTo->email_cc != null) {
+                    $message->cc($getSendTo->email_cc);
+            }
+                    $message->subject('New Inbox From : '.$request->email);
+          });
+        } catch (\Exception $e) {
+          // dd($e);
+        }
+
         return redirect()->back()->with('contact_info', 'Your data has been successfully saved.');
     }
 }
