@@ -60,6 +60,27 @@ class UserController extends Controller
         return redirect()->route('userAdmin.index')->with('berhasil', 'Berhasil Me Reset Password '.$getUser->name);
     }
 
+    public function publish($id)
+    {
+        $getUser = Admin::find($id);
+
+        if(!$getUser){
+          return view('backend.errors.404');
+        }
+
+        if ($getUser->flag_status == 1) {
+          $getUser->flag_status = 0;
+          $getUser->update();
+
+          return redirect()->route('userAdmin.index')->with('berhasil', 'Successfully '.$getUser->name);
+        }else{
+          $getUser->flag_status = 1;
+          $getUser->update();
+
+          return redirect()->route('userAdmin.index')->with('berhasil', 'Successfully '.$getUser->name);
+        }
+    }
+
     public function newUser(Request $request)
     {
         $message = [

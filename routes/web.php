@@ -101,7 +101,7 @@ Route::group(['middleware' => ['admin']], function () {
 
   // Class Room
   Route::get('admin/class-room', 'Backend\KelasRuangController@index')->name('kelasRuang.index');
-  Route::post('admin/class-room', 'Backend\KelasRuangCo(ntroller@store')->name('kelasRuang.store');
+  Route::post('admin/class-room', 'Backend\KelasRuangController@store')->name('kelasRuang.store');
   Route::get('admin/class-room/edit/{id}', 'Backend\KelasRuangController@ubah')->name('kelasRuang.ubah');
   Route::post('admin/class-room/edit', 'Backend\KelasRuangController@edit')->name('kelasRuang.edit');
 
@@ -142,6 +142,7 @@ Route::group(['middleware' => ['admin']], function () {
   Route::get('admin/user', 'Backend\UserController@index')->name('userAdmin.index');
   Route::post('admin/user', 'Backend\UserController@newUser')->name('userAdmin.newUser');
   Route::get('admin/user/{id}', 'Backend\UserController@reset')->name('userAdmin.reset');
+  Route::get('admin/user/account/{id}', 'Backend\UserController@publish')->name('userAdmin.publish');
 
   // Profile User
   Route::get('admin/profile', 'Backend\ProfileController@index')->name('profile.index');

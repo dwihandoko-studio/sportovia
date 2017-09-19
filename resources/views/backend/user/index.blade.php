@@ -112,9 +112,17 @@
             <td>{{ $key->name }}</td>
             <td>{{ $key->email }}</td>
             <td>@if ($key->flag_status == 1)
+              @if (Auth::guard('admin')->id() == $key->id)
+              <a><span class="label label-success tip-top" data-original-title="Active"><i class="icon icon-thumbs-up"></i></span></a>
+              @else
               <a href="" class="unpublish" data-value="{{ $key->id }}" data-toggle="modal" data-target="#modal-unpublish"><span class="label label-success tip-top" data-original-title="Active"><i class="icon icon-thumbs-up"></i></span></a>
+              @endif
             @else
+              @if (Auth::guard('admin')->id() == $key->id)
+              <a><span class="label label-important tip-top" data-toggle="tooltip" data-placement="top" title="Deactivated"><i class="icon icon-thumbs-down"></i></span></a>
+              @else
               <a href="" class="publish" data-value="{{ $key->id }}" data-toggle="modal" data-target="#modal-publish"><span class="label label-important tip-top" data-toggle="tooltip" data-placement="top" title="Deactivated"><i class="icon icon-thumbs-down"></i></span></a>
+              @endif
             @endif</td>
             <td><a href="" class="reset" data-value="{{ $key->id }}" data-toggle="modal" data-target="#modal-reset"><span class="label label-inverse tip-top" data-toggle="tooltip" data-placement="top" title="Reset Password"><i class="icon icon-refresh"></i></span></a></td>
           </tr>
@@ -166,12 +174,12 @@
 $(function(){
   $('a.unpublish').click(function(){
     var a = $(this).data('value');
-    $('#setUnpublish').attr('href', "{{ url('/') }}/admin/social-media/publish/"+a);
+    $('#setUnpublish').attr('href', "{{ url('/') }}/admin/user/account/"+a);
   });
 
   $('a.publish').click(function(){
     var a = $(this).data('value');
-    $('#setPublish').attr('href', "{{ url('/') }}/admin/social-media/publish/"+a);
+    $('#setPublish').attr('href', "{{ url('/') }}/admin/user/account/"+a);
   });
 
   $('a.reset').click(function(){

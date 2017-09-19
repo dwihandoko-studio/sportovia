@@ -68,7 +68,7 @@ class LoginController extends Controller
           return redirect()->route('login.admin.form')->withErrors($validator)->withInput();
         }
 
-        if (auth()->guard('admin')->attempt(['email' => $email, 'password' => $password, 'confirmed'=>1 ]))
+        if (auth()->guard('admin')->attempt(['email' => $email, 'password' => $password, 'confirmed'=>1, 'flag_status'=>1 ]))
         {
             $set = Admin::find(Auth::guard('admin')->user()->id);
             $getCounter = $set->login_count;
