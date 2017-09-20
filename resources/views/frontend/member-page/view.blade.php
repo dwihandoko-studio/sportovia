@@ -103,7 +103,7 @@
 							<td>{{ $call->alamat }}</td>
 						</tr>
 					</table>
-					<a href="{{ $call->dokumen_rapot }}" class="btn btn-green {{ ($call->dokumen_rapot == null ) ? 'disabled' : '' }}">
+					<a href="{{ asset('amadeo/documents').'/'.$call->dokumen_rapot }}" class="btn btn-green {{ ($call->dokumen_rapot == null ) ? 'disabled' : '' }}">
 						Download Pdf
 					</a>
 				</div>
@@ -182,7 +182,7 @@
 
 @section('footer-script')
 	<script src="{{ asset(mix('amadeo/js/mix/default-public.js')) }}"></script>
-	
+
 	<script type="text/javascript" src="{{ asset('plugin/simplelightbox-master/simple-lightbox.js') }}"></script>
 	<script>
 		$(function(){

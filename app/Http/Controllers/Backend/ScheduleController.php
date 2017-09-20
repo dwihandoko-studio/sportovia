@@ -40,6 +40,15 @@ class ScheduleController extends Controller
         return view('backend.jadwal.seeSchedule', compact('getJadwal', 'getDay', 'getKelas'));
     }
 
+    public function search(Request $request)
+    {
+        $pilihKelas = Kelas::find($request->id_kelas);
+        $getKelas = Kelas::orderBy('nama_kelas')
+                          ->get();
+
+        return view('backend.jadwal.index', compact('pilihKelas', 'getKelas'));
+    }
+
     public function ubahSchedule($id)
     {
         $getJadwal = Jadwal::find($id);
