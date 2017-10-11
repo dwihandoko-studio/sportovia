@@ -216,7 +216,7 @@ Route::get('/', 'Frontend\HomeController@index')->name('frontend.home');
 Route::post('/store', 'Frontend\StoreController@store')->name('frontend.store');
 Route::post('/store/contact', 'Frontend\StoreController@storeContact')->name('frontend.store.contact');
 
-Route::get('/about/us', 'Frontend\AboutController@us')->name('frontend.about.us');
+Route::get('/about/about-us', 'Frontend\AboutController@us')->name('frontend.about.us');
 Route::get('/about/trainers', 'Frontend\AboutController@trainer')->name('frontend.about.trainers');
 
 Route::get('/news-event', 'Frontend\NewsEventController@index')->name('frontend.news-event.index');
