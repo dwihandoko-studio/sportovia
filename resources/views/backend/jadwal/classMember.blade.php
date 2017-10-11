@@ -46,7 +46,7 @@
       <div class="control-group {{ $errors->has('id_member') ? 'error' : ''}}">
         <label class="control-label">Student *</label>
         <div class="controls">
-          <select class="span6" name="id_member">
+          <select class="span6" name="id_member" id="id_member">
             <option value="">--Choose--</option>
             @foreach ($getMember as $key)
             <option value="{{ $key->id }}" {{ old('id_member') == $key->id ? 'selected=""' : '' }}>{{ $key->kode_member}} | {{ $key->nama_member }}</option>
@@ -57,11 +57,14 @@
       <div class="control-group {{ $errors->has('id_kelas') ? 'error' : ''}}">
         <label class="control-label">Class Course *</label>
         <div class="controls">
-          <select class="span6" name="id_kelas">
+          {{-- <select class="span6" name="id_kelas">
             <option value="">--Choose--</option>
             @foreach ($getKelas as $key)
             <option value="{{ $key->id }}" {{ old('id_kelas') == $key->id ? 'selected=""' : '' }}>{{ $key->kelasProgram->program_kelas}} | {{ $key->nama_kelas }}</option>
             @endforeach
+          </select> --}}
+          <select class="span6" name="id_kelas" id="id_kelas">
+            <option value="">--Choose--</option>
           </select>
         </div>
       </div>
@@ -211,6 +214,29 @@
       $(element).parents('.control-group').removeClass('error');
       $(element).parents('.control-group').addClass('success');
     }
+  });
+
+
+  $(document).ready(function() {
+    $('select[name="id_member"]').on('change', function() {
+      var idMember = $(this).val();
+      if(idMember) {
+          $.ajax({
+              url: '{{ url('/') }}/admin/schedule/class-member/getClass/'+idMember,
+              type: "GET",
+              dataType: "json",
+
+              success:function(data) {
+                $('select[name="id_kelas"]').empty();
+                $.each(data, function(key, value) {
+                    $('select[name="id_kelas"]').append('<option value="'+ value +'">'+ key +'</option>');
+                });
+              }
+          });
+      }else{
+          $('select[name="jumlah_pembiayaan"]').empty();
+      }
+    });
   });
 </script>
 @endsection

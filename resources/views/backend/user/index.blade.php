@@ -79,6 +79,17 @@
             <input type="text" name="email" class="span9" id="email" value="{{ old('email') }}">
           </div>
         </div>
+        <div class="control-group">
+          <label class="control-label">Role *</label>
+          <div class="controls">
+            <select class="span9" name="role_id">
+              <option value="">--Choose--</option>
+              <option value="2">Admin</option>
+              <option value="4">Marketing</option>
+              <option value="5">Operational</option>
+            </select>
+          </div>
+        </div>
         <div class="form-actions">
           <input type="submit" value="Submit" class="btn btn-success">
         </div>
@@ -98,6 +109,7 @@
             <th>No</th>
             <th>Name</th>
             <th>Email</th>
+            <th>Role</th>
             <th>Status</th>
             <th>Action</th>
           </tr>
@@ -111,6 +123,15 @@
             <td>{{ $no }}</td>
             <td>{{ $key->name }}</td>
             <td>{{ $key->email }}</td>
+            <td>@if($key->role_id == 1)
+              Administrator
+            @elseif ($key->role_id == 2)
+              Admin
+            @elseif ($key->role_id == 4)
+              Marketing
+            @elseif ($key->role_id == 5)
+              Operational
+            @endif</td>
             <td>@if ($key->flag_status == 1)
               @if (Auth::guard('admin')->id() == $key->id)
               <a><span class="label label-success tip-top" data-original-title="Active"><i class="icon icon-thumbs-up"></i></span></a>

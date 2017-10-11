@@ -120,7 +120,7 @@ class UserController extends Controller
           $user->password = Hash::make(12345678);
           $user->confirmed = 0;
           $user->confirmation_code = $confirmation_code;
-          $user->role_id = 2;
+          $user->role_id = $request->role_id;
           $user->login_count = 0;
           $user->save();
 

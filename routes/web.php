@@ -160,6 +160,7 @@ Route::group(['middleware' => ['admin']], function () {
 
   //Jadwal
   Route::get('admin/schedule', 'Backend\ScheduleController@index')->name('jadwal.index');
+  Route::post('admin/schedule', 'Backend\ScheduleController@search')->name('jadwal.search');
   Route::get('admin/schedule/{id}', 'Backend\ScheduleController@seeSchedule')->name('jadwal.seeSchedule');
   Route::get('admin/schedule/edit/{id}', 'Backend\ScheduleController@ubahSchedule')->name('jadwal.ubah.schedule');
   Route::post('admin/schedule/edit/', 'Backend\ScheduleController@editSchedule')->name('jadwal.edit.schedule');
@@ -167,6 +168,7 @@ Route::group(['middleware' => ['admin']], function () {
   Route::get('admin/schedule/class-room/{id}', 'Backend\ScheduleController@class')->name('jadwal.class');
   Route::post('admin/schedule/class-room', 'Backend\ScheduleController@classStore')->name('jadwal.classStore');
   Route::get('admin/schedule/class-member/add', 'Backend\ScheduleController@classMember')->name('jadwal.classMember');
+  Route::get('admin/schedule/class-member/getClass/{id_member}', 'Backend\ScheduleController@getClass')->name('jadwal.getClass');
   Route::post('admin/schedule/class-member', 'Backend\ScheduleController@classMemberStore')->name('jadwal.classMemberStore');
 
   // Inbox
