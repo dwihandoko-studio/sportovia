@@ -13,95 +13,7 @@
 @endsection
 
 @section('head-style')
-	<link rel="stylesheet" type="text/css" href="{{ asset(mix('amadeo/css/mix/home.css')) }}">
-	@foreach($callKelasKategori as $list)
-		@foreach($callClass as $listSub)
-			@if($list->id == $listSub->id_kelas_kategori)
-			@endif
-		@endforeach
-	@endforeach
-	<style type="text/css">
-	@foreach($callKelasKategori as $list)
-		#{{ Str::slug($list->kategori_kelas, '-') }}-card-img{
-			animation: {{ Str::slug($list->kategori_kelas, '-') }}-card-img-animate 25s infinite;
-			-webkit-animation: {{ Str::slug($list->kategori_kelas, '-') }}-card-img-animate 25s infinite;
-		}
-		@keyframes {{ Str::slug($list->kategori_kelas, '-') }}-card-img-animate{
-			0%
-		    {
-		    	background-image : 
-				url('{{ asset('amadeo/images/class/'.$list->img_thumb) }}')
-			}
-			@php ($countPercent = 0)
-			@foreach($callClass as $listSub)
-				@if($list->id == $listSub->id_kelas_kategori)
-					@php ($countPercent = $countPercent + 1)
-					@if($countPercent == 4)
-					@break
-					@endif
-				@endif
-			@endforeach
-			@php ($percent = 0)
-			@foreach($callClass as $listSub)
-				@if($list->id == $listSub->id_kelas_kategori)
-					@php ($percent = $percent + (100/$countPercent))
-					{{$percent}}%
-					{
-						background-image : 
-						url('{{ asset('amadeo/images/class/'.$listSub->img_url) }}')
-					}
-					@if($percent == 100)
-					@break
-					@endif
-			    @endif
-			@endforeach
-			@if($countPercent == 0 && $percent == 0)
-			100%
-		    {
-		    	background-image : 
-				url('{{ asset('amadeo/images/class/'.$list->img_thumb) }}')
-			}
-			@endif
-		}
-		@-webkit-keyframes {{ Str::slug($list->kategori_kelas, '-') }}-card-img-animate{
-			0%
-		    {
-		    	background-image : 
-				url('{{ asset('amadeo/images/class/'.$list->img_thumb) }}')
-			}
-			@php ($countPercent = 0)
-			@foreach($callClass as $listSub)
-				@if($list->id == $listSub->id_kelas_kategori)
-					@php ($countPercent = $countPercent + 1)
-					@if($countPercent == 4)
-					@break
-					@endif
-				@endif
-			@endforeach
-			@php ($percent = 0)
-			@foreach($callClass as $listSub)
-				@if($list->id == $listSub->id_kelas_kategori)
-					@php ($percent = $percent + (100/$countPercent))
-					{{$percent}}%
-					{
-						background-image : 
-						url('{{ asset('amadeo/images/class/'.$listSub->img_url) }}')
-					}
-					@if($percent == 100)
-					@break
-					@endif
-			    @endif
-			@endforeach
-			@if($countPercent == 0 && $percent == 0)
-			100%
-		    {
-		    	background-image : 
-				url('{{ asset('amadeo/images/class/'.$list->img_thumb) }}')
-			}
-			@endif
-		}
-	@endforeach
-	</style>
+	<link rel="stylesheet" type="text/css" href="{{ asset(mix('amadeo/css/mix/home.css')) }}">	
 @endsection
 
 @section('body-content')
@@ -176,4 +88,29 @@
 
 @section('footer-script')
 	<script src="{{ asset(mix('amadeo/js/mix/default-public.js')) }}"></script>
+
+	<script type="text/javascript" src="{{ asset('plugin/jquery-bgswitcher-master/jquery.bgswitcher.js') }}"></script>
+	@foreach($callKelasKategori as $list)
+	<script type="text/javascript">
+		$('#{{ Str::slug($list->kategori_kelas, '-') }}-card-img').bgswitcher({
+			images: [
+				"{{ asset('amadeo/images/class/'.$list->img_thumb)}} "
+				@php ($countImg = 0)
+				@foreach($callClass as $listSub)
+					@if($list->id == $listSub->id_kelas_kategori)
+						@php ($countImg = $countImg + 1)
+
+						," {{ asset('amadeo/images/class/'.$listSub->img_url) }} "
+
+						@if($countImg == 4)
+						@break
+						@endif
+				    @endif
+				@endforeach
+			],
+			effect: "fade",
+			interval: {{ rand(2500,5000) }}
+		});
+	</script>
+	@endforeach
 @endsection

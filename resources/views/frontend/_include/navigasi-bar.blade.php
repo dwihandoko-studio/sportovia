@@ -11,6 +11,9 @@
 			<div id="right">
 				<div class="nav-content-wrapper">
 					<div>
+						@if(Route::is('frontend.class.view'))
+		 				<a id="register" class="btn btn-green open-form-class">Register</a>
+		 				@endif
 						<a id="free-trial" class="btn btn-green open-form-class" <?php /* @if(Route::is('frontend.news-event.index') || Route::is('frontend.news-event.view')) style="display: none;" @endif */ ?>>
 							Free Trial Class
 						</a>
@@ -113,11 +116,9 @@
 		</div>
 		<div class="bar right">
 			<h1>Register Form</h1>
-			<?php
-			// @if(Session::has('store_info'))
-			// 	<p class="info  @if($errors->has('store_type') || $errors->has('store_name') || $errors->has('store_phone') || $errors->has('store_email') || $errors->has('store_class') || $errors->has('store_subject') || $errors->has('store_message')) errors @endif">{{ Session::get('store_info') }}</p>
-			// @endif
-			?>
+			@if(Session::has('store_info'))
+				<p class="info  @if($errors->has('store_type') || $errors->has('store_name') || $errors->has('store_phone') || $errors->has('store_email') || $errors->has('store_class') || $errors->has('store_subject') || $errors->has('store_message')) errors @endif">{{ Session::get('store_info') }}</p>
+			@endif
 			<form method="post" action="{{ route('frontend.store') }}">
 				{{ csrf_field() }}
 				<div class="input-group {{ $errors->has('store_type') ? 'error' : '' }}">
@@ -424,7 +425,7 @@
 					<textarea name="store_message" class="form-control" placeholder="Message" rows="3">{{ old('store_message') }}</textarea>
 				</div>
 				<button type="reset" class="btn btn-green close-form-class">
-					Cancel
+					Close
 				</button>
 				<button type="submit" class="btn btn-green">
 					Submit

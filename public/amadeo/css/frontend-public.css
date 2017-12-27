@@ -362,7 +362,7 @@
 	}
 	#freeTrialClass #freeTrialClass-wrapper .bar.right{
 		/*background-repeat: repeat-y;*/
-		width: 55%;
+		width: 45%;
 		padding: 25px;
 		text-align: center;
 	}
@@ -399,7 +399,7 @@
 		/*border: .5px solid rgba(255,255,255,.5);*/
 		/*border-right: .5px solid rgba(255,255,255,0);*/
 		/*border-radius: 0px;*/
-		color: rgb(255,255,255);
+		/*color: rgb(255,255,255);*/
 		border-radius: 5px;
 	}
 	#freeTrialClass #freeTrialClass-wrapper .bar.right .input-group select{
@@ -448,10 +448,10 @@
 		color: rgb(255,0,0);
 	}
 	#freeTrialClass #freeTrialClass-wrapper .bar.left{
-		width: 45%;
+		width: 55%;
 		background-repeat: no-repeat;
 		background-position: center;
-		background-size: cover;
+		background-size: contain;
 		padding: 20px;
 		text-align: center;
 	}
@@ -493,5 +493,9 @@
 			height: 50vh;
 			overflow-y: auto;
 		}
+		#freeTrialClass #freeTrialClass-wrapper .bar.left .logo{
+			height: 0;
+		}
+
 	}
 /* end for freeTrialClass */
