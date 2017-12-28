@@ -31,7 +31,7 @@
 			</div>
 			<h2>Member Area</h2>
 			<div id="description-wrapper">
-				<p>Lorem ipsum dolor sit amet, quas assum volutpat ei vix, usu semper laoreet placerat an. Assum recteque te has, ad quidam euripidis eloquentiam sed, equidem fierent phaedrum et sea. An legendos praesent quo. Sea cu dicta partem signiferumque.</p>
+				<p>{{ $callConfigContent4->descrip }}</p>
 			</div>
 		</div>
 	</div>

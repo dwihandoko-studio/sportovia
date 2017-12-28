@@ -9,6 +9,7 @@ use App\Models\Jadwal;
 use App\Models\User;
 use App\Models\Member;
 use App\Models\MemberGaleri;
+use App\Models\ConfigContent;
 
 use Auth;
 use Validator;
@@ -58,8 +59,12 @@ class MemberController extends Controller
     	->orderBy('id_member')
     	->get();
 
+        $callConfigContent4 = ConfigContent::find(4);
+
+
 	    return view('frontend.member-page.index', compact(
-	    	'call'
+	    	'call',
+            'callConfigContent4'
 	    ));
 	}
 

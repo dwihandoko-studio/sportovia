@@ -9,6 +9,8 @@ use App\Models\Kelas;
 use App\Models\KelasKategori;
 use App\Models\KelasProgram;
 
+use App\Models\ConfigContent;
+
 class HomeController extends Controller
 {
 	function index(){
@@ -40,10 +42,13 @@ class HomeController extends Controller
         ->orderby('id_kelas_kategori', 'asc')
         ->get();
 
+        $callConfigContent = ConfigContent::find(1);
+
 	    return view('frontend.home-page.index', compact(
 	    	'callKelasKategori',
             'callKelasProgram',
-	    	'callClass'
+	    	'callClass',
+            'callConfigContent'
 	    ));
 	}
 

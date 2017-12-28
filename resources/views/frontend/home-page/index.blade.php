@@ -48,7 +48,7 @@
 		<div class="setup-content lar-wd">
 			<div class="text-center">
 				<h2><label>Think</label> <label>Smart</label> <label>and</label> <label>Healthy</label> <label>Life</label></h2>
-				<p>Lorem ipsum dolor sit amet, sit in aliquip discere. Soluta facilis duo eu. Novum laudem accusamus nam ad, duo nihil iriure malorum an. Vim graeco consequat ex. In vim nusquam percipit antiopam, epicurei officiis mediocritatem ne duo.</p>
+				<p>{{ $callConfigContent->descrip }}</p>
 				<a class="btn btn-green larg-1 open-form-class">
 					Free Trial Class
 				</a>

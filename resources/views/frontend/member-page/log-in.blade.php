@@ -34,7 +34,7 @@
 			</div>
 			<h2>Member Area</h2>
 			<div id="description-wrapper">
-				<p>Lorem ipsum dolor sit amet, quas assum volutpat ei vix, usu semper laoreet placerat an. Assum recteque te has, ad quidam euripidis eloquentiam sed, equidem fierent phaedrum et sea. An legendos praesent quo. Sea cu dicta partem signiferumque.</p>
+				<p>{{ $callConfigContent4->descrip }}</p>
 			</div>
 		</div>
 	</div>
@@ -46,7 +46,7 @@
 				<div id="form-wrapper">
 					<h1>Login</h1>
 					<h1>For Access</h1>
-					<p>Lorem ipsum dolor sit amet, quas assum volutpat ei vix, usu semper laoreet placerat an. Assum recteque te has, ad quidam euripidis eloquentiam sed, equidem fierent phaedrum et sea.</p>
+					<p>{{ $callConfigContent5->descrip }}</p>
 
 					@if(Session::has('log_user_info'))
 					<div class="info">

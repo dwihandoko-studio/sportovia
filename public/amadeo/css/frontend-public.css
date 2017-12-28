@@ -499,3 +499,31 @@
 
 	}
 /* end for freeTrialClass */
+
+/* for advertisement */
+	#advertisement{
+		position: fixed;
+		z-index: 50;
+		top: 0;
+		width: 100%;
+		background-color: rgba(0,0,0,.7);
+	}
+	#advertisement #adv-wrapper{
+		position: relative;
+		width: 100%;
+		height: 100vh;
+		display: table;
+	}
+	#advertisement #adv-wrapper #adv-content{
+		position: relative;
+		width: 100%;
+		height: 100vh;
+		display: table-cell;
+		vertical-align: middle;
+		text-align: center;
+	}
+	#advertisement #adv-wrapper #adv-content img{
+		max-width: 80%;
+		max-height: 85vh;
+	}
+/* for advertisement */

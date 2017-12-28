@@ -29,6 +29,14 @@ Route::group(['middleware' => ['admin']], function () {
   // Dashboard
   Route::get('admin/dashboard', 'Backend\DashboardController@index')->name('dashboard');
 
+  // ConfigContent
+  Route::get('admin/ConfigContent', 'Backend\ConfigContentController@index')
+    ->name('ConfigContent.index');
+  Route::get('admin/ConfigContent/edit/{id}', 'Backend\ConfigContentController@ubah')
+    ->name('ConfigContent.ubah');
+  Route::post('admin/ConfigContent/edit', 'Backend\ConfigContentController@simpan')
+    ->name('ConfigContent.simpan');
+
   // Contact
   Route::get('admin/contact', 'Backend\KontakController@index')->name('kontak.index');
   Route::get('admin/contact/add', 'Backend\KontakController@tambah')->name('kontak.tambah');

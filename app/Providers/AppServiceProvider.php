@@ -85,6 +85,7 @@ class AppServiceProvider extends ServiceProvider
 
             $date = new DateTime;
             $format_date = $date->format('Y-m-d');
+
             $callAdv = AdsBanner::select(
                 'ads_judul',
                 'img_url',
@@ -94,7 +95,20 @@ class AppServiceProvider extends ServiceProvider
             ->whereDATE('tanggal_publish', '<=', $format_date)
             ->inRandomOrder()
             ->first();
+
             view()->share('callAdv', $callAdv);
+
+            $callAdvs = AdsBanner::select(
+                'ads_judul',
+                'img_url',
+                'img_alt'
+            )
+            ->where('flag_publish', '1')
+            ->whereDATE('tanggal_publish', '<=', $format_date)
+            ->inRandomOrder()
+            ->first();
+
+            view()->share('callAdvs', $callAdvs);
 
 
             // FOR META DESC

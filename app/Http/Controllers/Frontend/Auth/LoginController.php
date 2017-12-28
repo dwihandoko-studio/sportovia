@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use App\Models\User;
+use App\Models\ConfigContent;
 use Validator;
 use Auth;
 
@@ -44,7 +45,9 @@ class LoginController extends Controller
 
     public function getLoginForm(){
         if(empty(auth()->guard('user')->id())){
-          return view('frontend.member-page.log-in');
+          $callConfigContent4 = ConfigContent::find(4);
+          $callConfigContent5 = ConfigContent::find(5);
+          return view('frontend.member-page.log-in', compact('callConfigContent4','callConfigContent5'));
         }
         else{
           return redirect()->route('frontend.member.index');

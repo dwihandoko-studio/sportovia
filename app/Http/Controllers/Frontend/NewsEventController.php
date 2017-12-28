@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use DateTime;
 use App\Models\NewsEvent;
+use App\Models\ConfigContent;
 
 class NewsEventController extends Controller
 {
@@ -52,10 +53,13 @@ class NewsEventController extends Controller
         ->orderBy('tanggal_publish', 'desc')
     	->get();
 
+        $callConfigContent = ConfigContent::find(2);
+
 	    return view('frontend.news-event-page.index', compact(
 	    	'callEventNew',
 	    	'callEvent',
-	    	'callNews'
+	    	'callNews',
+            'callConfigContent'
 	    ));
 	}
 

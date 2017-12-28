@@ -435,3 +435,17 @@
 		<div class="clearfix"></div>
 	</div>
 </div>
+
+@if($callAdvs != null)
+<div id="advertisement">
+	<div id="adv-wrapper">
+		<div id="adv-content">
+			<button id="close" class="btn btn-green close-form-class">
+				Close <b>10</b> Second
+			</button>
+			<br>
+			<img title="{{ $callAdvs->ads_judul }}" alt="{{ $callAdvs->ads_judul }}" src="{{ asset('amadeo/images/ads/'.$callAdvs->img_url) }}">
+		</div>
+	</div>
+</div>
+@endif

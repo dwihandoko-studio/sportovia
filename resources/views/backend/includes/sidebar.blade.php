@@ -7,6 +7,13 @@
     <li class="{{ Route::is('dashboard') ? 'active' : '' }}">
       <a href="{{ route('dashboard') }}"><i class="icon icon-home"></i> <span>Dashboard</span></a>
     </li>
+    @if ($role == 1 || $role == 2 || $role == 5)
+    <li class="{{ Route::is('ConfigContent*') ? 'active' : '' }}">
+      <a href="{{ route('ConfigContent.index') }}">
+        <i class="icon icon-asterisk"></i> <span>Config Content</span>
+      </a>
+    </li>
+    @endif
     @if ($role == 1 || $role == 2 || $role == 4)
     <li class="submenu {{ Route::is('tentang*') ? 'active' : '' }}{{ Route::is('staff-jabatan*') ? 'active' : ''}}{{ Route::is('pegawai*') ? 'active' : ''}}">
       <a href="#"><i class="icon icon-asterisk"></i> <span>About</span></a>
