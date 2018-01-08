@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  <link rel="icon" type="image/png" href="{{ asset('amadeo/main-image/logo-green-sportopia.png') }}" />
   @yield('title')
 
   @include('backend.includes.head')

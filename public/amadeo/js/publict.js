@@ -35,19 +35,6 @@ $(document).ready(function() {
 			});
 	    });
 
-	    $(function(){
-			window.setInterval(function() {
-		    	var timeCounter = $("#advertisement button#close b").html();
-		        var updateTime = eval(timeCounter)- eval(1);
-		        $("#advertisement button#close").html("Close <b>"+updateTime+"</b> Second");
-		        if(updateTime == 0){
-		        	$("#advertisement").fadeTo(700, 0).slideUp(700, function(){
-						$(this).remove();
-					});
-		        }
-			}, 1000);
-		});
-
 		var win = $(window);
 		if(win.width() > 960){
 		    $("#list li.dropdown").hover(

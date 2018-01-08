@@ -15,6 +15,7 @@ use App\Models\Kontak;
 use App\Models\Tentang;
 use App\Models\SosialMedia;
 use App\Models\Inbox;
+use App\Models\Trial;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -98,19 +99,6 @@ class AppServiceProvider extends ServiceProvider
 
             view()->share('callAdv', $callAdv);
 
-            $callAdvs = AdsBanner::select(
-                'ads_judul',
-                'img_url',
-                'img_alt'
-            )
-            ->where('flag_publish', '1')
-            ->whereDATE('tanggal_publish', '<=', $format_date)
-            ->inRandomOrder()
-            ->first();
-
-            view()->share('callAdvs', $callAdvs);
-
-
             // FOR META DESC
             $callAbout = Tentang::select('deskripsi_tentang')->first();
             view()->share('callAbout', $callAbout);
@@ -120,6 +108,9 @@ class AppServiceProvider extends ServiceProvider
           // Notifikasi New Inbox
            $getNotifInbox = Inbox::where('has_read', 0)->orderBy('created_at', 'desc')->get();
            view()->share('getNotifInbox', $getNotifInbox);
+
+           $getNotifTrial = Trial::where('has_read', 0)->orderBy('created_at', 'desc')->get();
+           view()->share('getNotifTrial', $getNotifTrial);
         }
 
     }
